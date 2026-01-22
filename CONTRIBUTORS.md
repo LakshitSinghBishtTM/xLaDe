@@ -6,6 +6,7 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 ---
 
 ## Core Team
+- **Guidance:** Dr. Thota Siva - Head of Department, Department of Mathematics, Central University of Andhra Pradesh  
 
 - **Founder:** Lakshit Singh Bisht - Ecosystem research and vision  
 - **CEO:** Manpreet Sahoo - Project strategy and overall direction  
