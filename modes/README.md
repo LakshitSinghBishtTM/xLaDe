@@ -25,3 +25,12 @@ Available modes:
 Modes define expectations and may influence enforcement,
 tooling, and build behavior.
 
+## Experiments and Modes
+
+Ecosystem experiments are enabled selectively depending
+on the active mode.
+
+By default:
+- Experimental mode enables experiments
+- Stable and Onboarding modes do not
+
