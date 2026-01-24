@@ -2,7 +2,7 @@
 
 Lean has developed a strong and rapidly growing ecosystem for formalization and verification, supported by an active community, mature libraries, and robust tooling. Most Lean-based projects naturally focus on **formal content**: proving theorems, verifying algorithms, and extending libraries such as mathlib.
 
-However, **ecosystem-level experimentation**—involving workflows, governance, repository structure, and contributor practices—often lacks a **safe, explicit, and well-documented space**. Such experiments are difficult to conduct directly in upstream repositories, where stability, backward compatibility, and community coordination are critical concerns.
+However, **ecosystem-level experimentation** involving workflows, governance, repository structure, and contributor practices—often lacks a **safe, explicit, and well-documented space**. Such experiments are difficult to conduct directly in upstream repositories, where stability, backward compatibility, and community coordination are critical concerns.
 
 xLaDe exists to address this gap.
 
