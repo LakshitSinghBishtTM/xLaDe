@@ -70,6 +70,7 @@ xLaDe/
 ├── docs/
 ├── examples/
 ├── lean-core/
+├── tools
 ├── .gitmodules
 ├── .gitignore
 ├── CONTRIBUTING.md
