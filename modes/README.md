@@ -11,3 +11,17 @@ Modes may change:
 - what files are built
 - which policies are enforced
 - warning and error behavior
+
+# xLaDe Build Modes
+
+xLaDe supports multiple build modes to reflect different
+development contexts.
+
+Available modes:
+- onboarding: learning-oriented, minimal enforcement
+- experimental: enables ecosystem experiments
+- stable: conservative, policy-driven usage
+
+Modes define expectations and may influence enforcement,
+tooling, and build behavior.
+
