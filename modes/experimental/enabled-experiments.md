@@ -4,6 +4,8 @@ The following experiments are enabled when xLaDe is used
 in Experimental Mode:
 
 - EXP-001: Enforced Proof Review
+- EXP-002: Kernel Boundary Violation Detection
+
 
 Experiments listed here may enforce policies, emit warnings,
 or fail builds.
