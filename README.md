@@ -103,7 +103,7 @@ This project is open-source under the [Apache License 2.0](LICENSE).
 
 ## Releases
 
-- Current version: **v1.0.0**
+- Current version: **v1.1.0**
 - See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 - See [RELEASES.md](RELEASES.md) for archived release notes.
 
