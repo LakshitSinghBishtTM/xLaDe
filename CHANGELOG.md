@@ -27,3 +27,27 @@ Early releases are experimental.
 ### Notes
 This release represents the foundational structure of xLaDe.
 It is experimental and not intended for production use.
+
+## [1.1.0] — 2026-01-24
+
+### Highlights
+- Transition from conceptual framework to enforceable ecosystem platform.
+- Formalized experiments, modes, policies, and metrics as stable components.
+
+### Added
+- Experiment lifecycle and template.
+- EXP-001: Enforced Proof Review (Lean-based policy).
+- EXP-002: Kernel Boundary Violation Detection (CI-enforced).
+- Build modes: onboarding, experimental, stable.
+- Metrics framework for ecosystem-level evaluation.
+- Repository-wide kernel protection via CI.
+- Public-facing documentation for contributors and users.
+
+### Changed
+- README updated to reflect xLaDe as an executable ecosystem platform.
+- Contribution workflow reoriented around experiments.
+
+### Notes
+This release stabilizes the xLaDe ecosystem framework.
+All features remain experimental, but their structure and enforcement
+mechanisms are considered stable.
