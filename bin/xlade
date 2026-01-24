@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# xLaDe CLI: lightweight wrapper for xLaDe modes and experiments
+set -e
+
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+MODE="$1"
+shift || true
+
+usage() {
+  cat <<EOF
+Usage: xlade <mode> [args]
+Modes:
+  onboarding     - run onboarding-mode entrypoint
+  experimental   - run experimental-mode entrypoint
+  stable         - run stable-mode entrypoint
+Examples:
+  ./bin/xlade experimental
+  ./bin/xlade experimental experiments/exp-001-proof-review/run.sh
+EOF
+  exit 1
+}
+
+if [ -z "$MODE" ]; then
+  usage
+fi
+
+case "$MODE" in
+  onboarding)
+    echo "xLaDe: onboarding mode"
+    # call lake script if present
+    if [ -f modes/onboarding/lakefile.lean ]; then
+      lake run --project=modes/onboarding onboarding || true
+    fi
+    ;;
+  experimental)
+    echo "xLaDe: experimental mode"
+    # run registered experiments by default (optional)
+    if [ -n "$1" ]; then
+      # run a specific experiment script
+      "$@"
+    else
+      echo "No experiment specified. To run an experiment, provide its run script, for example:"
+      echo "./bin/xlade experimental ./experiments/exp-001-proof-review/run.sh"
+    fi
+    ;;
+  stable)
+    echo "xLaDe: stable mode"
+    if [ -f modes/stable/lakefile.lean ]; then
+      lake run --project=modes/stable stable || true
+    fi
+    ;;
+  *)
+    usage
+    ;;
+esac
