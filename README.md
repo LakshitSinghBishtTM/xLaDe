@@ -101,4 +101,12 @@ This project is open-source under the [Apache License 2.0](LICENSE).
 
 ---
 
+## Releases
+
+- Current version: **v1.0.0**
+- See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
+- See [RELEASES.md](RELEASES.md) for archived release notes.
+
+---
+
 > ⚠️ **Note:** xLaDe is in an experimental stage. Features are evolving, and the ecosystem is designed for research, exploration, and collaboration. Your contributions help shape its future.
