@@ -8,7 +8,7 @@ This root Lake configuration defines xLaDe as a meta-package.
 It does not modify the Lean kernel and does not provide a monolithic library.
 -/
 package xLaDe where
-  -- You are NOT a mathlib-style library
+  -- NOT a mathlib-style library
   -- This package mainly coordinates experiments, modes, and tooling
   moreServerOptions := #[
     ⟨`pp.universes, true⟩
