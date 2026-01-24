@@ -18,3 +18,14 @@ remaining reversible and non-invasive.
 
 ## Status
 active
+
+## Reversibility
+This experiment can be disabled by removing the enforcement call
+from the experiment-specific lakefile.
+
+No Lean kernel or upstream code is modified.
+
+## Exit Criteria
+- If the policy proves useful, it may be generalized.
+- If it causes friction, the experiment will be archived.
+
