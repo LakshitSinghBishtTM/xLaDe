@@ -29,3 +29,10 @@ No Lean kernel or upstream code is modified.
 - If the policy proves useful, it may be generalized.
 - If it causes friction, the experiment will be archived.
 
+## Mode Integration
+
+This experiment is enabled only in **Experimental Mode**.
+
+- Onboarding Mode: disabled
+- Stable Mode: disabled
+- Experimental Mode: enabled
