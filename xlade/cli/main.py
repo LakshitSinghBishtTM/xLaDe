@@ -15,6 +15,18 @@ def main():
         run()
     elif cmd == "list":
         print("Listing resources...")
+    elif cmd == "list":
+        if len(sys.argv) < 3:
+            print("Usage: xlade list experiments|policies")
+            return
+
+        sub = sys.argv[2]
+        if sub == "experiments":
+            from xlade.cli.list_experiments import run
+            run()
+        else:
+            print(f"Unknown list target: {sub}")
+
     elif cmd == "run":
         print("Running experiment...")
     elif cmd == "doctor":
