@@ -237,6 +237,13 @@ xlade doctor
 
 ---
 
+### `xlade init`
+
+Initializes a project-local xLaDe workspace by creating a `.xlade/`
+directory used to track experiments, metrics, and execution state.
+
+---
+
 ## Examples and Demo
 
 * Minimal Lean examples: [`examples/`](examples/)
