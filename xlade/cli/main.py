@@ -11,7 +11,8 @@ def main():
     if cmd == "--help":
         print_help()
     elif cmd == "init":
-        print("Initializing xLaDe workspace...")
+        from xlade.cli.init import run
+        run()
     elif cmd == "list":
         print("Listing resources...")
     elif cmd == "run":
