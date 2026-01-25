@@ -1,9 +1,14 @@
 import os
 import time
+from xlade.core.errors import error
 
 def run(exp_id):
     if not os.path.isdir(".xlade"):
-        print("xLaDe is not initialized. Run `xlade init` first.")
+        error(
+        "Workspace not initialized",
+        "No .xlade directory found.",
+        "Run `xlade init` in this project."
+        )
         return
 
     exp_path = os.path.join("experiments", exp_id)
