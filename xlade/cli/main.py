@@ -28,7 +28,13 @@ def main():
             print(f"Unknown list target: {sub}")
 
     elif cmd == "run":
-        print("Running experiment...")
+        if len(sys.argv) < 3:
+            print("Usage: xlade run <experiment-id>")
+            return
+
+        from xlade.cli.run import run
+        run(sys.argv[2])
+
     elif cmd == "doctor":
         print("Running diagnostics...")
     else:
