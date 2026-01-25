@@ -1,0 +1,2 @@
+-- xLaDe library entry point
+-- Intentionally minimal (conceptual scaffold)

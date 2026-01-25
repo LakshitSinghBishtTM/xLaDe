@@ -1,0 +1,2 @@
+-- xLaDe root module
+-- Intentionally minimal
