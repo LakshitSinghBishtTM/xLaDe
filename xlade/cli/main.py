@@ -10,11 +10,11 @@ def main():
 
     if cmd == "--help":
         print_help()
+        
     elif cmd == "init":
         from xlade.cli.init import run
         run()
-    elif cmd == "list":
-        print("Listing resources...")
+        
     elif cmd == "list":
         if len(sys.argv) < 3:
             print("Usage: xlade list experiments|policies")
@@ -34,6 +34,11 @@ def main():
 
         from xlade.cli.run import run
         run(sys.argv[2])
+
+    elif cmd == "status":
+        from xlade.cli.status import run
+        run()
+
 
     elif cmd == "doctor":
         print("Running diagnostics...")
