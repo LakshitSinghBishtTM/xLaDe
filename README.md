@@ -214,6 +214,29 @@ The CLI is intentionally minimal and may evolve.
 
 ---
 
+## xLaDe CLI
+
+xLaDe provides a command-line interface to orchestrate Lean ecosystem
+experiments, policies, and metrics.
+
+---
+
+### Commands
+
+```text
+xlade init
+xlade mode <stable|experimental|onboarding>
+xlade list experiments
+xlade list policies
+xlade run <experiment-id>
+xlade check
+xlade metrics
+xlade status
+xlade doctor
+```
+
+---
+
 ## Examples and Demo
 
 * Minimal Lean examples: [`examples/`](examples/)
