@@ -125,5 +125,3 @@ To add a new experiment:
 4. Ensure the experiment can be discovered via `xlade list experiments`
 
 Community contributions are welcome.
-Just say the word.
-```
