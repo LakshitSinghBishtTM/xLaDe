@@ -1,34 +1,64 @@
 # xLaDe Roadmap
 
-xLaDe is an experimental ecosystem for Lean 4, aiming to enhance theorem verification and provide a modern platform for collaboration, AI integration, and improved usability.The roadmap and planned direction for the project is as following:
+xLaDe is developed in **explicit stages**, with a clear separation between
+ecosystem orchestration, execution backends, and user-facing tooling.
 
-## Current Status
+This staged approach enables experimentation without destabilizing Lean core
+or existing workflows.
 
-- Forked Lean 4 core is available in the repository (`leancore`).  
-- Basic project structure is established.  
-- LICENSE (Apache 2.0) and CONTRIBUTING guidelines are in place.  
-- Community contributions are welcome.
+---
 
-## Short-Term Goals
+## Stage 1 — Ecosystem Orchestration (Current)
 
-1. **Humanized Proofs**: Make proof scripts more readable and understandable by humans.  
-2. **Tactics Improvement**: Enhance existing Lean tactics for better automation and usability.  
-3. **Error Understanding and Correction**: Provide informative feedback and guidance for fixing errors in proofs.  
-4. **Creating an IDE**: Develop a basic Integrated Development Environment for Lean 4 users.
+✔ Implemented in v1
 
-## Medium-Term Goals
+- CLI-based orchestration tool (`xlade`)
+- Project initialization and runtime state management
+- Experiment discovery and execution coordination
+- Non-fatal policy checking framework
+- Metrics discovery and reporting interfaces
+- Environment diagnostics (`xlade doctor`)
+- Lean 4 core isolation via submodules
 
-5. **Visual Input in Lean**: Enable graphical or visual inputs for theorem representation.  
-6. **Machine Learning and AI Integration**: Introduce experimental AI/ML modules to assist in theorem proving.  
-7. **Inbuilt Community Features**: Create tools for communication, discussion, and collaboration within the ecosystem.  
-8. **Lean on Mobile and Other Devices**: Adapt Lean to run efficiently on mobile devices and lightweight platforms.
+At this stage, experiment execution and analysis backends are intentionally
+minimal or stubbed. The emphasis is on **structure, interfaces, and
+reproducibility**, rather than performance or completeness.
 
-## Long-Term Goals
+---
 
-9. **Integration with Other Proof Assistants**: Enable interoperability with other theorem provers and formal verification tools.  
-10. **Lean Language Improvements**: Propose and implement enhancements to Lean 4’s language and core features to improve expressiveness, usability, and performance.
+## Stage 2 — Execution and Analysis (Planned)
+
+- Concrete execution engines for selected experiments
+- Lean invocation and controlled result capture
+- Structured metrics aggregation and reporting
+- Policy enforcement driven by experiment outcomes
+- Performance and usability evaluation
+
+This stage will replace internal stubs while keeping the CLI interface stable.
+
+---
+
+## Stage 3 — Human-Centered Tooling (Future)
+
+- Humanized and contextual error explanations
+- Guided onboarding and learning modes
+- IDE and GUI-based interfaces built on top of the CLI
+- Visual representations of proofs and theorems
+- Integration with educational workflows
+
+---
+
+## Stage 4 — Ecosystem Expansion (Long-Term)
+
+- AI and machine learning integration for assisted reasoning
+- Community-driven collaboration tools
+- Support for lightweight and mobile environments
+- Interoperability with other proof assistants
+- Proposals for upstream Lean language and tooling improvements
+
+---
 
 ## Notes
 
-- The roadmap is **flexible**, and priorities may evolve as the project grows.  
-- Community feedback is highly encouraged to help shape the future of xLaDe.
+- The roadmap is intentionally **flexible** and research-driven.
+- Community feedback and experimental results will guide prioritization.
