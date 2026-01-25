@@ -23,10 +23,8 @@ at the root level. Experiments may introduce their own dependencies.
 require lean from git
   "https://github.com/leanprover/lean4" @ "stable"
 
-/--
-Optional: a dummy library target so Lake is happy.
-This is intentionally empty.
--/
+
 @[default_target]
-lean_lib xLaDe where
-  roots := #[]
+lean_exe xlade {
+  root := `Main
+}
