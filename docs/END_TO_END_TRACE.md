@@ -75,9 +75,7 @@ rm -rf .xlade
 ```
 Note:
 This command removes only xLaDe’s project-local state directory.
-
-Do NOT run ```sudo rm -rf /```
-(xLaDe experiments should be reversible — your operating system should not be.)
+Do NOT run ```sudo rm -rf /``` 
 
 Effect:
 
