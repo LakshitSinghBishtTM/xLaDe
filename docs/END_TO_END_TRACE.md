@@ -24,7 +24,7 @@ The repository includes:
 * experiments and policies
 * xLaDe CLI
 
-Step 2: Initialize Workspace
+## Step 2: Initialize Workspace
 
 ```
 xlade init
@@ -33,7 +33,7 @@ xlade init
 Creates a .xlade/ directory for project-local state.
 No Lean files are modified.
 
-Step 3: Select Mode
+## Step 3: Select Mode
 
 ```
 xlade mode experimental
@@ -41,7 +41,7 @@ xlade mode experimental
 
 This enables experimental behavior without affecting Lean semantics.
 
-Step 4: Discover Experiments
+## Step 4: Discover Experiments
 
 ```
 xlade list experiments
@@ -49,7 +49,7 @@ xlade list experiments
 
 Shows available ecosystem experiments.
 
-Step 5: Run an Experiment
+## Step 5: Run an Experiment
 
 ```
 xlade run EXP-001
@@ -61,14 +61,14 @@ Applies experiment orchestration logic
 
 Execution may be stubbed, but lifecycle and state flow are established.
 
-Step 6: Inspect State
+## Step 6: Inspect State
 
 ```
 xlade status
 ```
 Reports the last executed experiment.
 
-Step 7: Cleanup or Disable
+## Step 7: Cleanup or Disable
 
 ```
 rm -rf .xlade
@@ -79,5 +79,5 @@ Note: Do NOT use ```sudo rm -rf /``` though
 Resets all project-local xLaDe state.
 Lean remains unaffected.
 
-Summary
+## Summary
 This trace demonstrates that xLaDe orchestrates ecosystem experiments, records state explicitly, and remains reversible and non-invasive.
