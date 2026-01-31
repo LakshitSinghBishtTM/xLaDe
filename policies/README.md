@@ -37,8 +37,9 @@ Policies may be enforced using one or more of the following mechanisms:
 
 - **CI Checks**  
   Automated checks executed via workflows under:
-  ```text
+  ```
   .github/workflows/
+  ```
 
 * **Lean-Based Validation**
   Lightweight Lean code used to enforce conventions or constraints
