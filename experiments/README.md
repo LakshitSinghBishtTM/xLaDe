@@ -3,9 +3,7 @@
 This directory contains **ecosystem-level experiments** for xLaDe.
 
 An experiment in xLaDe is **not** a theorem, benchmark, or language extension.
-Instead, it is a **controlled investigation** into how tooling, workflows,
-policies, or user experience around Lean 4 can be structured, evaluated, and
-improved — *without modifying Lean’s kernel or core semantics*.
+Instead, it is a **controlled investigation** into how tooling, workflows, policies, or user experience around Lean 4 can be structured, evaluated, and improved *without modifying Lean’s kernel or core semantics*.
 
 Experiments are treated as **first-class research artifacts** and are orchestrated via the `xlade` CLI.
 
