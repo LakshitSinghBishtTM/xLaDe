@@ -7,17 +7,32 @@
 ![Contributors](https://img.shields.io/github/contributors/LakshitSinghBishtTM/xLaDe?color=green)
 ![Issues](https://img.shields.io/github/issues/LakshitSinghBishtTM/xLaDe)
 
-**xLaDe** is an **experimental ecosystem framework built on top of Lean 4**.
+**xLaDe** is an experimental ecosystem framework built on top of Lean 4. It is free and open-source software (FOSS), released under the Apache License 2.0.
 
-Unlike traditional Lean repositories that focus on formalizing mathematics or verifying individual algorithms, **xLaDe explores how Lean is used** at the ecosystem level:
+Unlike traditional Lean repositories that focus on formalizing mathematics or verifying individual algorithms, **xLaDe explores how Lean is used** at the *ecosystem level*:
 
-- repository structure  
-- development workflows  
-- governance and policy enforcement  
-- experimentation with tooling and contributor practices  
+- repository structure
+- development workflows
+- governance and policy enforcement
+- experimentation with tooling and contributor practices
 
-xLaDe does **not modify the Lean kernel**.  
-Instead, it provides a **distribution-like environment** around Lean with executable experiments, build modes, policies, metrics, and tooling.
+xLaDe does **not** modify the Lean kernel.
+Instead, it provides a controlled, distribution-like environment around Lean with executable experiments, build modes, policies, metrics, and tooling.
+
+---
+
+## How to Read This Repository
+
+This repository is intentionally broad and research-oriented.
+
+Start here:
+- [`HOW_TO_READ_THIS_REPO.md`](HOW_TO_READ_THIS_REPO.md)
+
+Known limitations:
+- [`LIMITATIONS.md`](LIMITATIONS.md)
+
+Security and boundary assumptions:
+- [`THREAT_MODEL.md`](THREAT_MODEL.md)
 
 ---
 
@@ -27,8 +42,8 @@ Instead, it provides a **distribution-like environment** around Lean with execut
 - **Version file:** [`VERSION`](VERSION)
 
 Release documentation:
-- [`CHANGELOG.md`](CHANGELOG.md) — authoritative change history  
-- [`RELEASES.md`](RELEASES.md) — archived GitHub release notes  
+- [`CHANGELOG.md`](CHANGELOG.md)
+- [`RELEASES.md`](RELEASES.md)
 
 ---
 
@@ -37,14 +52,14 @@ Release documentation:
 xLaDe aims to provide a **safe, structured, and reproducible laboratory** for experimenting with Lean ecosystem ideas that are difficult to evaluate directly in upstream repositories.
 
 The long-term vision includes exploration of:
-- human-friendly proof workflows  
-- improved onboarding and error understanding  
-- tooling and workflow experiments  
-- community-oriented development practices  
+- human-friendly proof workflows
+- improved onboarding and error understanding
+- tooling and workflow experiments
+- community-oriented development practices
 
-Importantly, xLaDe focuses on **ecosystem-level concerns**, not language-level changes or kernel modification.
+xLaDe focuses strictly on **ecosystem-level concerns**, not language-level changes or kernel modification.
 
-For background and motivation, see:
+For motivation, see:
 - [`docs/WHY_xLaDe.md`](docs/WHY_xLaDe.md)
 
 ---
@@ -54,34 +69,33 @@ For background and motivation, see:
 ### xLaDe **IS**
 - a Lean-based **ecosystem experimentation platform**
 - a framework for **workflow, governance, and tooling research**
-- a repository with **executable and enforceable policies**
+- a repository with **documented and enforced policies**
 - a safe environment for experimentation **without upstream disruption**
 
 ### xLaDe **IS NOT**
-- a new theorem prover  
-- a replacement for Lean  
-- a modified Lean kernel  
-- a mathlib-style library  
+- a new theorem prover
+- a replacement for Lean
+- a modified Lean kernel
+- a mathlib-style library
 
 ---
 
 ## Repository Structure
 
 ```
-
 xLaDe/
 ├── .github/              CI workflows and GitHub automation
 ├── bin/                  xLaDe CLI entrypoint (xlade)
-├── docs/                 Design rationale and architecture documents
+├── docs/                 Design rationale and usage documentation
 ├── examples/             Minimal Lean examples
-├── experiments/          Executable ecosystem experiments
+├── experiments/          Ecosystem experiments
 ├── lean-core/            Lean 4 core (git submodule, immutable)
 ├── metrics/              Evaluation and metrics framework
 ├── modes/                Build modes (onboarding / experimental / stable)
 ├── policies/             Repository governance and rules
 ├── projects/             Minimal demo project
-├── scripts/              Policy enforcement and helper scripts
-├── tools/                Optional tooling
+├── scripts/              Policy enforcement scripts
+├── tools/                Optional helper tools
 ├── lakefile.lean         Root Lake configuration
 ├── lake-manifest.json    Locked dependency graph (generated)
 ├── lean-toolchain        Pinned Lean compiler version
@@ -93,7 +107,6 @@ xLaDe/
 ├── LICENSE               License information
 ├── README.md             Project overview
 └── VERSION               Current version
-
 ````
 
 ---
@@ -104,16 +117,17 @@ xLaDe supports **multiple build modes**, reflecting different user intents.
 
 Defined under [`modes/`](modes/):
 
-| Mode | Description |
-|------|-------------|
-| **Onboarding** | Learning-friendly, minimal enforcement |
-| **Experimental** | Enables ecosystem experiments |
-| **Stable** | Conservative defaults and strict policies |
+| Mode             | Description                               |
+| ---------------- | ----------------------------------------- |
+| **Onboarding**   | Learning-friendly, minimal enforcement    |
+| **Experimental** | Enables ecosystem experiments             |
+| **Stable**       | Conservative defaults and strict policies |
 
 Modes may influence:
-- which experiments are enabled  
-- policy enforcement behavior  
-- stability expectations  
+
+* which experiments are enabled
+* policy enforcement behavior
+* stability expectations
 
 ---
 
@@ -122,24 +136,15 @@ Modes may influence:
 xLaDe treats **ecosystem ideas as first-class experiments**.
 
 Each experiment:
-- is isolated and reversible  
-- has explicit scope  
-- documents enforcement and evaluation  
 
-Current experiments live under [`experiments/`](experiments/):
+* is isolated and reversible
+* has explicit scope and lifecycle
+* documents enforcement and evaluation
 
-- **EXP-001 — Enforced Proof Review**  
-  Lean-based policy requiring explicit review markers  
+See:
 
-- **EXP-002 — Kernel Boundary Violation Detection**  
-  CI-enforced protection against kernel modification  
-
-Each experiment includes:
-- `README.md` — description and rationale  
-- `METRICS.md` — qualitative evaluation  
-
-To propose a new experiment, use:
-- [`experiments/EXPERIMENT_TEMPLATE.md`](experiments/EXPERIMENT_TEMPLATE.md)
+* [`experiments/`](experiments/)
+* [`experiments/EXPERIMENT_TEMPLATE.md`](experiments/EXPERIMENT_TEMPLATE.md)
 
 ---
 
@@ -148,28 +153,28 @@ To propose a new experiment, use:
 xLaDe evaluates **ecosystem behavior**, not mathematical performance.
 
 Metrics focus on:
-- enforcement strength  
-- scope of impact  
-- developer friction  
-- reversibility  
-- governance clarity  
+
+* enforcement strength
+* developer friction
+* reversibility
+* governance clarity
 
 See:
-- [`metrics/`](metrics/)  
-- [`metrics/summary.md`](metrics/summary.md)
+
+* [`metrics/`](metrics/)
+* [`metrics/summary.md`](metrics/summary.md)
 
 ---
 
 ## Governance and Policies
 
-Governance in xLaDe is **documented and enforced**.
+Governance in xLaDe is **explicit and enforceable**.
 
-- Policy definitions: [`policies/`](policies/)  
-- Enforcement scripts: [`scripts/`](scripts/)  
-- Automated checks: [`.github/workflows/`](.github/workflows/)  
+* Policies: [`policies/`](policies/)
+* Enforcement scripts: [`scripts/`](scripts/)
+* Automated checks: [`.github/workflows/`](.github/workflows/)
 
-Example enforced policy:
-- Lean kernel immutability (`lean-core/` must not be modified)
+Kernel immutability is enforced via CI.
 
 ---
 
@@ -177,70 +182,35 @@ Example enforced policy:
 
 xLaDe provides **reproducible builds by default**:
 
-- [`lean-toolchain`](lean-toolchain) pins the Lean compiler version  
-- [`lakefile.lean`](lakefile.lean) defines the root package  
-- `lake-manifest.json` locks all resolved dependencies  
-
-This ensures contributors and CI build **the same environment**.
+* [`lean-toolchain`](lean-toolchain) pins Lean
+* [`lakefile.lean`](lakefile.lean) defines the root package
+* `lake-manifest.json` locks dependencies
 
 ---
 
 ## Installation
 
 See:
-- [`INSTALL.md`](INSTALL.md)
 
-Quick start:
-
-```bash
-git clone --recurse-submodules https://github.com/LakshitSinghBishtTM/xLaDe.git
-cd xLaDe
-chmod +x bin/xlade
-````
+* [`INSTALL.md`](INSTALL.md)
 
 ---
 
 ## Using xLaDe
 
-xLaDe provides a lightweight CLI wrapper:
+xLaDe provides a lightweight CLI for orchestration:
 
-```bash
-./bin/xlade onboarding
-./bin/xlade experimental
-./bin/xlade stable
 ```
-
-The CLI is intentionally minimal and may evolve.
-
----
-
-## xLaDe CLI
-
-xLaDe provides a command-line interface to orchestrate Lean ecosystem
-experiments, policies, and metrics.
-
----
-
-### Commands
-
-```text
 xlade init
-xlade mode <stable|experimental|onboarding>
+xlade mode experimental
 xlade list experiments
-xlade list policies
-xlade run <experiment-id>
-xlade check
-xlade metrics
-xlade status
-xlade doctor
+xlade run EXP-001
 ```
 
----
+See:
 
-## Examples and Demo
-
-* Minimal Lean examples: [`examples/`](examples/)
-* Demo xLaDe project: [`projects/demo/`](projects/demo/)
+* [`docs/CLI_DEMO.md`](docs/CLI_DEMO.md)
+* [`docs/END_TO_END_TRACE.md`](docs/END_TO_END_TRACE.md)
 
 ---
 
@@ -248,7 +218,7 @@ xlade doctor
 
 Contributions are welcome — especially **new ecosystem experiments**.
 
-Please read:
+See:
 
 * [`CONTRIBUTING.md`](CONTRIBUTING.md)
 * [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
@@ -257,17 +227,9 @@ Contributions that modify the Lean kernel are **not accepted**.
 
 ---
 
-## Security
-
-For reporting vulnerabilities, see:
-
-* [`SECURITY.md`](SECURITY.md)
-
----
-
 ## License
 
-This project is open-source under the [Apache License 2.0](LICENSE).
+Apache License 2.0 — see [`LICENSE`](LICENSE).
 
 ---
 
@@ -277,9 +239,7 @@ xLaDe is **experimental**.
 
 As of `v1.1.0`:
 
-* the repository structure and governance framework are considered stable
-* individual experiments may evolve, be promoted, or be retired
+* repository structure and governance are stable
+* experiments may evolve, be promoted, or retired
 
 xLaDe exists as a **living laboratory** for Lean ecosystem design.
-
-> ⚠️ **Note:** xLaDe is in an experimental stage. Features are evolving, and the ecosystem is designed for research, exploration, and collaboration. Your contributions help shape its future.
