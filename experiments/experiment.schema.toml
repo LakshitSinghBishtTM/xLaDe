@@ -1,0 +1,25 @@
+`experiment.schema.toml` (machine-readable experiment descriptor)
+
+```toml
+# xLaDe Experiment Descriptor Schema
+
+id = "EXP-000"
+title = "Experiment Title"
+
+status = "draft"        # draft | active | abandoned | promoted
+mode = "experimental"   # experimental only
+
+enforcement = "lean"    # lean | script | ci | none
+reversible = true
+
+scope = "repository"
+affects_kernel = false
+
+description = """
+Short description of the experiment and its purpose.
+"""
+
+exit_criteria = """
+Conditions under which the experiment will be promoted,
+abandoned, or revised.
+"""
