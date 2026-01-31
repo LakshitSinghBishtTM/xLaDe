@@ -73,11 +73,16 @@ Reports the last executed experiment.
 ```
 rm -rf .xlade
 ```
-Note: Do NOT use ```sudo rm -rf /``` though 
+Note:
+This command removes only xLaDe’s project-local state directory.
 
+Do NOT run ```sudo rm -rf /```
+(xLaDe experiments should be reversible — your operating system should not be.)
 
-Resets all project-local xLaDe state.
-Lean remains unaffected.
+Effect:
+
+* Resets all project-local xLaDe state
+* Lean source files and kernel remain untouched 
 
 ## Summary
 This trace demonstrates that xLaDe orchestrates ecosystem experiments, records state explicitly, and remains reversible and non-invasive.
