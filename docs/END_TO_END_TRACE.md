@@ -75,6 +75,7 @@ rm -rf .xlade
 ```
 Note:
 This command removes only xLaDe’s project-local state directory.
+
 Dev Note:
 Do NOT run ```sudo rm -rf /``` unless you want to delete entire the entire system, including the OS, users, and your hopes.
 
