@@ -1,6 +1,6 @@
 # xLaDe: Experimental Lean 4 Ecosystem Framework
 
-![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 ![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![Status](https://img.shields.io/badge/status-experimental-orange)
 ![Lean](https://img.shields.io/badge/Lean-4-blue)
@@ -232,6 +232,8 @@ Contributions that modify the Lean kernel are **not accepted**.
 Copyright (C) 2026 Lakshit Singh Bisht
 
 This project is licensed under the GNU General Public License v3.0. See LICENSE for details.
+
+```Note: This project depends on Lean 4, which is licensed under the Apache License 2.0 and is included unmodified.```
 
 ---
 
