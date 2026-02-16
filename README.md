@@ -7,7 +7,7 @@
 ![Contributors](https://img.shields.io/github/contributors/LakshitSinghBishtTM/xLaDe?color=green)
 ![Issues](https://img.shields.io/github/issues/LakshitSinghBishtTM/xLaDe)
 
-**xLaDe** is an experimental ecosystem framework built on top of Lean 4. It is free and open-source software (FOSS), released under the Apache License 2.0.
+**xLaDe** is an experimental Lean 4 ecosystem framework for studying tooling, workflows, governance, and policy enforcement in a controlled, reproducible environment. It is free and open-source software (FOSS), released under the GNU General Public License v3.0.
 
 Unlike traditional Lean repositories that focus on formalizing mathematics or verifying individual algorithms, **xLaDe explores how Lean is used** at the *ecosystem level*:
 
@@ -229,7 +229,9 @@ Contributions that modify the Lean kernel are **not accepted**.
 
 ## License
 
-Apache License 2.0 — see [`LICENSE`](LICENSE).
+Copyright (C) 2026 Lakshit Singh Bisht
+
+This project is licensed under the GNU General Public License v3.0. See LICENSE for details.
 
 ---
 
