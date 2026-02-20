@@ -7,26 +7,26 @@ We welcome suggestions, feedback, and code contributions from the community.
 
 1. **Fork the repository** to your GitHub account.
 2. **Clone your fork** locally:
-```bash
+```
 git clone https://github.com/your-username/xLaDe.git
 ````
 
 3. **Create a new branch** for your contribution:
 
-```bash
+```
 git checkout -b feature/my-new-feature
 ```
 
 4. **Make your changes** in `leancore` or other relevant folders.
 5. **Commit your changes** with a clear, descriptive message:
 
-```bash
+```
 git commit -m "Add brief description of change"
 ```
 
 6. **Push your branch** to your fork:
 
-```bash
+```
 git push origin feature/my-new-feature
 ```
 

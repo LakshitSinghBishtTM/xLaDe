@@ -24,7 +24,7 @@ No runtime state affects Lean’s kernel, semantics, or proof behavior.
 
 Global state is stored in the user’s home directory:
 
-```text
+```
 ~/.xlade/
 ````
 
@@ -32,7 +32,7 @@ This directory contains **user-wide configuration and mode selection**.
 
 ### Contents
 
-```text
+```
 ~/.xlade/
 ├── config.toml
 ├── mode
@@ -58,7 +58,7 @@ This directory contains **user-wide configuration and mode selection**.
 
 * Set via:
 
-  ```bash
+  ```
   xlade mode <mode>
   ```
 
@@ -84,13 +84,13 @@ This file does **not** alter Lean itself.
 
 Project-local state is stored inside the project directory:
 
-```text
+```
 .xlade/
 ```
 
 This directory is created by:
 
-```bash
+```
 xlade init
 ```
 
@@ -98,7 +98,7 @@ It marks the directory as an **xLaDe workspace**.
 
 ### Contents
 
-```text
+```
 .xlade/
 ├── experiments.lock
 ├── metrics.json
@@ -131,7 +131,7 @@ Missing or incomplete metrics never cause execution failure.
 * Records the identifier of the most recently executed experiment
 * Used by:
 
-  ```bash
+  ```
   xlade status
   ```
 * If unset or empty, no experiment has been run yet

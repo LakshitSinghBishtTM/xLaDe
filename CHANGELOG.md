@@ -51,3 +51,27 @@ It is experimental and not intended for production use.
 This release stabilizes the xLaDe ecosystem framework.
 All features remain experimental, but their structure and enforcement
 mechanisms are considered stable.
+
+## [1.2.0] — 2026-02-20
+
+### Highlights
+- License transitioned to **GNU General Public License v3.0 (GPL-3.0)**.
+- Repository finalized as the reference version for the xLaDe research paper.
+
+### Added
+- Expanded architectural documentation and rationale.
+- Clearer separation between trusted infrastructure and experimental layers.
+- Additional governance and status documentation.
+- Improved contributor-facing guidance.
+
+### Changed
+- README rewritten to reflect research-oriented scope and limitations.
+- Documentation reorganized for clarity and traceability.
+- Experiment layouts and metadata made more consistent.
+- Policies and modes aligned with documented architecture.
+
+### Notes
+This release consolidates xLaDe’s structure and documentation.
+It does not introduce new experiments or tooling features.
+All components remain experimental, but architectural intent and
+repository organization are considered stable for reference and citation.

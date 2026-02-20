@@ -2,7 +2,7 @@
 
 ## 1. Purpose of This Document
 
-This document clarifies the **research scope, intent, and boundaries** of the xLaDe project. It is written to support the accompanying MSc dissertation and to prevent ambiguity regarding what the project *does* and *does not* attempt to achieve.
+This document clarifies the **research scope, intent, and boundaries** of the xLaDe project. It is written to prevent ambiguity regarding what the project *does* and *does not* attempt to achieve.
 
 xLaDe is a **research artifact**, not a production-ready software platform.
 
@@ -10,7 +10,7 @@ xLaDe is a **research artifact**, not a production-ready software platform.
 
 ## 2. What xLaDe *Is*
 
-xLaDe is an **experimental ecosystem framework built *around* Lean 4**, designed to explore research questions related to:
+xLaDe is an **experimental ecosystem framework built around Lean 4**, designed to explore research questions related to:
 
 * Human-oriented proof development workflows
 * Tooling and automation around formal proofs
@@ -71,7 +71,7 @@ The following are **out of scope** for this research:
 * Long-term maintenance or backward compatibility guarantees
 * Community governance beyond illustrative examples
 
-Such topics are intentionally excluded to maintain focus within the constraints of an MSc-level research project.
+Such topics are intentionally excluded to maintain focus within the constraints.
 
 ---
 
@@ -79,23 +79,10 @@ Such topics are intentionally excluded to maintain focus within the constraints 
 
 xLaDe is intended for:
 
-* Academic examiners and supervisors
 * Researchers studying proof assistants and formal methods
 * Students exploring experimental tooling around Lean 4
 
-It is **not intended** for general end users or industrial deployment.
-
----
-
-## 8. Role in the MSc Dissertation
-
-Within the MSc dissertation, xLaDe serves as:
-
-* A **concrete experimental platform** supporting conceptual arguments
-* A vehicle for validating design hypotheses
-* A structured implementation accompanying theoretical discussion
-
-The repository should be read as a **supporting artifact**, not as a standalone software product.
+It is **not intended** for general end users or industrial deployment as of now.
 
 ---
 

@@ -55,7 +55,7 @@ xlade init
 
 ## 2. Listing Available Experiments
 
-```bash
+```
 xlade list experiments
 ```
 
@@ -66,7 +66,7 @@ xlade list experiments
 
 ### Example Output
 
-```text
+```
 Available experiments:
   - EXP-001
   - EXP-002
@@ -104,7 +104,7 @@ This allows experiment structure, policies, and metrics to be evaluated before c
 
 ## 4. Checking Workspace State
 
-```bash
+```
 xlade status
 ```
 
@@ -119,7 +119,7 @@ This command reports **history only**; it does not infer success or failure.
 
 ## 5. Environment Diagnostics
 
-```bash
+```
 xlade doctor
 ```
 
@@ -140,7 +140,7 @@ xlade doctor
 
 ## 6. Ecosystem Modes (Overview)
 
-```bash
+```
 xlade mode onboarding
 xlade mode experimental
 xlade mode stable

@@ -90,13 +90,13 @@ High — behavior changes are minimized.
 
 The active mode is set globally via:
 
-```bash
+```
 xlade mode <onboarding|experimental|stable>
 ````
 
 The selected mode is stored in:
 
-```text
+```
 ~/.xlade/mode
 ```
 

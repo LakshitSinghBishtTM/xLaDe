@@ -1,16 +1,27 @@
 # Contributors
 
-xLaDe is an experimental Lean 4 ecosystem exploring new directions in theorem verification, AI-assisted reasoning, and community-driven development.  
+xLaDe is an experimental Lean 4 ecosystem exploring new directions in community-driven development.
 We welcome contributions at all levels - from documentation and ideas to code modules and experimental features.
 
 ---
 
 ## Core Team
-- **Guidance:** Dr. Thota Siva - Head of Department, Department of Mathematics, Central University of Andhra Pradesh  
 
-- **Founder:** Lakshit Singh Bisht - Ecosystem research and vision  
-- **CEO:** Manpreet Sahoo - Project strategy and overall direction  
-- **Project Manager:** Deepak Pandey - Task management, roadmap planning, and community coordination
+- **Founder:** Lakshit Singh Bisht - Ecosystem research and vision
+- **CEO:** Manpreet Sahoo - Project strategy and overall direction
+- **Project Manager:** Deepak Pandey - Task management and community coordination
+
+---
+
+## Academic Advisor
+
+- **Head Guidance:** Dr. Thota Siva - HOD, Department of Mathematics and Computing, Central University of Andhra Pradesh
+
+---
+
+## Contributors
+
+This section recognises individuals who have contributed to the project. Contributers will be added here as contributions are accepted.
 
 ---
 
@@ -35,4 +46,4 @@ We value every contribution. Each one helps shape the future of xLaDe.
 
 ---
 
-> ⚠️ Note: xLaDe is currently in an experimental stage. Contributions help define the ecosystem, and your participation is essential for its growth.
+> Note: xLaDe is currently in an experimental stage. Contributions help define the ecosystem, and your participation is essential for its growth.
