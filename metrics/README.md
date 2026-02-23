@@ -47,7 +47,7 @@ Metrics in xLaDe follow these principles:
 
 The metrics directory may contain:
 
-```text
+```
 metrics/
   README.md
   summary.md

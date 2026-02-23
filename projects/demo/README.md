@@ -25,7 +25,7 @@ Before running the demo, ensure that:
 - the `xlade` CLI is executable
 - experiments are available in the `experiments/` directory
 
-```bash
+```
 chmod +x bin/xlade
 ````
 
@@ -35,7 +35,7 @@ chmod +x bin/xlade
 
 From the **repository root**, run:
 
-```bash
+```
 xlade init
 xlade mode experimental
 xlade run EXP-001
@@ -78,7 +78,7 @@ This demo project is tracked in version control to:
 
 Example setup commands:
 
-```bash
+```
 mkdir -p projects/demo
 touch projects/demo/README.md
 git add projects/demo/README.md

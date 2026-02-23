@@ -8,7 +8,6 @@ xLaDe is an experimental, early-stage project that explores **ecosystem-level de
 The goal of this document is not to specify a finalized architecture, but to:
 - make explicit which parts of the system are *stable* versus *experimental*,
 - document boundaries for safe experimentation,
-- explain why the repository is intentionally minimal at its current stage.
 
 This document is intended for contributors, reviewers, and researchers who wish to understand how xLaDe is structured and how it is expected to evolve.
 
@@ -36,19 +35,24 @@ These principles prioritize clarity, reversibility, and long-term maintainabilit
 At a high level, the xLaDe repository is organized as follows:
 
 xLaDe/
-├── lean-core/ # Forked snapshot of the Lean 4 core (submodule)
-├── docs/ # Design documents and architectural notes
-├── examples/ # Small exploratory examples (currently minimal)
-├── .github/ # GitHub workflows and issue templates
-├── .gitignore # Tells Git what NOT to track
-├── .gitmodules # What it does and why xLaDe needs it
-├── README.md # Project overview and scope
-├── CONTRIBUTING.md # Contribution guidelines
-├── CONTRIBUTORS.md # Contributors details
-├── LICENSE # Open-source license
-
-
-This structure is intentionally simple. The repository serves as a **conceptual and organizational scaffold** rather than a fully realized ecosystem.
+|-- lean-core/               [trusted, immutable Lean 4 submodule]
+|-- lean-toolchain           [pins Lean 4 version]
+|-- lakefile.lean            [main build configuration]
+|-- modes/                   [operational modes]
+|   |-- stable/
+|   |-- experimental/
+|   |-- onboarding/
+|-- experiments/             [isolated experiments]
+|   |-- exp-001-proof-review/
+|   |-- exp-002-kernel-boundary/
+|-- policies/                [global constraints & lifecycle rules]
+|-- xlade/                   [Python CLI orchestration package]
+|-- scripts/                 [enforcement scripts]
+|-- tools/                   [supporting utilities]
+|-- docs/                    [architecture, rationale, roadmap]
+|-- examples/                [minimal Lean demos]
+|-- .github/                 [CI & contribution templates]
+|-- LICENSE                  [GNU General Public License v3.0 (GPL-3.0)]
 
 ---
 
@@ -61,6 +65,7 @@ This separation is essential to ensure that ecosystem-level experimentation does
 
 - **Lean kernel and core semantics**  
   The trusted kernel and core type-theoretic semantics are treated as immutable.
+
 - **Core compiler behavior**  
   Changes to elaboration, type checking, or evaluation semantics are out of scope.
 
@@ -83,42 +88,19 @@ These areas are the primary focus of xLaDe. Experiments here are expected to be 
 
 The `lean-core/` directory contains a forked snapshot of the Lean 4 core, tracked as a Git submodule.
 
-The submodule serves three purposes:
+The submodule serves two major purposes:
 
-1. **Provenance**  
-   It makes explicit which version of Lean the repository is based on.
-
-2. **Isolation**  
+1. **Isolation**  
    Ecosystem-level experiments can be conducted without altering upstream code.
 
-3. **Reversibility**  
+2. **Reversibility**  
    Updates or rollbacks are straightforward, avoiding long-lived divergence.
 
 At the current stage, xLaDe does **not** introduce semantic changes to the Lean core.
 
 ---
 
-## 6. Minimal Core and Demand-Driven Evolution
-
-xLaDe intentionally avoids adding tooling, workflows, or abstractions in the absence of demonstrated need.  
-This **minimal-core policy** is a deliberate design choice.
-
-### Rationale:
-- Avoid premature abstraction and feature bloat
-- Reduce long-term maintenance overhead
-- Keep the repository accessible to new contributors
-- Allow design decisions to be informed by real usage patterns
-
-Feature proposals are expected to emerge through:
-- issues and discussions,
-- small experimental branches,
-- documented use cases or pain points.
-
-Only after sufficient justification are changes incorporated into the main repository structure.
-
----
-
-## 7. Example Contribution Path (Conceptual)
+## 6. Example Contribution Path (Conceptual)
 
 A typical contribution to xLaDe may proceed as follows:
 
@@ -132,31 +114,41 @@ This workflow emphasizes **experimentation before commitment**.
 
 ---
 
-## 8. Current Status and Limitations
+## 7. Current Status and Limitations
 
-xLaDe is currently in an exploratory phase.  
+xLaDe is currently in an exploratory and experimental phase.  
+The repository should be understood as a research artifact rather than a production-ready ecosystem or tooling platform.
+
 At this stage:
-- No stable tools or workflows are provided.
-- No performance or usability claims are made.
-- The repository primarily documents design intent and structural decisions.
 
-This is intentional. The project is positioned as a **foundation for future exploration**, not as a finished ecosystem.
+- No stable tools or finalized workflows are provided.
+- No performance, scalability, or usability claims are made.
+- Experiments remain limited in scope and qualitatively evaluated.
+- All enforcement mechanisms operate at the repository level and are reversible.
 
----
-
-## 9. Future Evolution
-
-As xLaDe evolves, this document will be updated to reflect:
-- newly identified architectural constraints,
-- validated workflows,
-- lessons learned from experiments.
-
-The architecture is expected to grow incrementally, guided by community feedback and concrete needs rather than speculative design.
+This status is intentional. The project prioritizes clarity, explicit boundaries, and controlled experimentation over feature completeness. xLaDe is not intended to replace existing Lean workflows, but to document and evaluate ecosystem-level architectural choices.
 
 ---
 
-## 10. Summary
+## 8. Future Evolution
 
-xLaDe treats architecture as a first-class research object.  
-By clearly stating what is fixed, what is experimental, and why the repository remains minimal, the project aims to support disciplined, transparent ecosystem-level experimentation around Lean 4.
+The architecture of xLaDe is expected to evolve incrementally.  
+Future changes will be guided by experimental results, contributor feedback, and concrete use cases rather than speculative design.
 
+Possible directions include:
+
+- refinement of repository-level policies,
+- extension of lightweight tooling,
+- broader evaluation of workflow constraints,
+- comparative ecosystem studies.
+
+Growth is intended to remain demand-driven, with explicit justification for added complexity.
+
+---
+
+## 9. Summary
+
+xLaDe treats ecosystem architecture as a first-class research object.  
+Rather than introducing new proof technologies, it focuses on making architectural boundaries, workflow constraints, and repository-level policies explicit and testable.
+
+By clearly distinguishing trusted infrastructure from experimental components, xLaDe provides a disciplined foundation for ecosystem-level experimentation around Lean 4. At its current stage, it serves as a structured starting point rather than a finished system.

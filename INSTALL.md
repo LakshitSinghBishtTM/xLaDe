@@ -91,7 +91,7 @@ No changes are made during this check.
 
 After installation, you may want to:
 
-```bash
+```
 xlade init
 xlade mode experimental
 xlade list experiments

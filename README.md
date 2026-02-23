@@ -38,7 +38,7 @@ Security and boundary assumptions:
 
 ## Current Version and Releases
 
-- **Current version:** `v1.1.0`
+- **Current version:** `v1.2.0`
 - **Version file:** [`VERSION`](VERSION)
 
 Release documentation:
@@ -241,9 +241,10 @@ This project is licensed under the GNU General Public License v3.0. See LICENSE 
 
 xLaDe is **experimental**.
 
-As of `v1.1.0`:
+As of `v1.2.0`:
 
 * repository structure and governance are stable
 * experiments may evolve, be promoted, or retired
+* cli based app may be unstable
 
 xLaDe exists as a **living laboratory** for Lean ecosystem design.

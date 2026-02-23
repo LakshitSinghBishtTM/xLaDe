@@ -113,10 +113,10 @@ Mode selection controls *whether* experiments run; it does not change Lean behav
 
 Experiments in xLaDe:
 
-* ❌ do **not** modify Lean core
-* ❌ do **not** alter kernel semantics
-* ❌ do **not** require patched toolchains
-* ✅ operate strictly at the ecosystem, tooling, or workflow level
+* do **not** modify Lean core
+* do **not** alter kernel semantics
+* do **not** require patched toolchains
+* operate strictly at the ecosystem, tooling, or workflow level
 
 Lean core is treated as **immutable infrastructure** and is included only as a reference baseline.
 
@@ -149,7 +149,7 @@ To add a new experiment:
    * reversibility and exit criteria
 4. Ensure the experiment is discoverable via:
 
-   ```bash
+   ```
    xlade list experiments
    ```
 

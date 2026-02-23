@@ -5,16 +5,16 @@ def run():
     print("xLaDe Doctor Report")
 
     if shutil.which("lake"):
-        print("✔ lake found")
+        print("lake found")
     else:
-        print("✘ lake not found")
+        print("lake not found")
 
     if os.path.isdir("lean-core"):
-        print("✔ lean-core submodule present")
+        print("lean-core submodule present")
     else:
-        print("✘ lean-core missing")
+        print("lean-core missing")
 
     if os.path.isfile("lean-toolchain"):
-        print("✔ lean-toolchain present")
+        print("lean-toolchain present")
     else:
-        print("✘ lean-toolchain missing")
+        print("lean-toolchain missing")
