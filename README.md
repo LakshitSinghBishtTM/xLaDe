@@ -1,7 +1,7 @@
 # xLaDe: Experimental Lean 4 Ecosystem Framework
 
 ![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![Status](https://img.shields.io/badge/status-experimental-orange)
 ![Lean](https://img.shields.io/badge/Lean-4-blue)
 ![Contributors](https://img.shields.io/github/contributors/LakshitSinghBishtTM/xLaDe?color=green)
