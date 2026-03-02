@@ -8,6 +8,7 @@ build/
 bin/
 *.olean
 *.d
+.lake
 
 # VS Code settings
 .vscode/
