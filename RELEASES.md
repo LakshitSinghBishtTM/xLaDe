@@ -33,11 +33,10 @@ This file mirrors GitHub Releases for archival and offline reference.
 - License changed to **GNU General Public License v3.0 (GPL-3.0)**.
 - Repository structure refined to reflect architectural boundaries.
 - Documentation significantly expanded and clarified.
-- README rewritten for academic and architectural context.
+- README rewritten for clarity and architectural context.
 - Policies, experiments, and modes aligned with documented design intent.
 - Improved consistency across experiment layouts and metadata.
 - Updated governance and contributor-facing files.
-- Designated as the **reference version** for the accompanying research paper.
 
 ### Stability
 Experimental. Structure and enforcement are stable; features may evolve.
