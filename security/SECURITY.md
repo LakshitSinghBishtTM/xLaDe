@@ -1,4 +1,4 @@
-# Security Policy
+# Overview
 
 xLaDe is experimental. Please follow these guidelines to report security issues.
 

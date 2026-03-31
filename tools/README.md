@@ -1,13 +1,14 @@
 # xLaDe Tools
 
-This directory contains **optional helper tools** used by xLaDe experiments, scripts, or developer workflows.
-Tools provide **convenience and exploratory functionality**, but are never required for using Lean itself or for the correctness of xLaDe’s core design.
+This directory contains optional helper tools used by xLaDe experiments, scripts, or developer workflows.
+Tools provide convenience and exploratory functionality, but are never required for using Lean itself or for the correctness of xLaDe’s core design.
 
 ---
 
 ## What Tools Are (and Are Not)
 
-### Tools **ARE**
+### Tools ARE
+
 - Optional helper utilities
 - Used to:
   - improve developer experience
@@ -16,34 +17,31 @@ Tools provide **convenience and exploratory functionality**, but are never requi
 - Explicit, inspectable, and replaceable
 - Designed to be added or removed without affecting core behavior
 
-### Tools **ARE NOT**
+### Tools ARE NOT
+
 - Part of the minimal xLaDe core
 - Required for Lean compilation or proof checking
 - Sources of semantic guarantees
 - Stable or long-term commitments
 
-No tool in this directory is relied upon for correctness.
-
 ---
 
 ## Design Principles
 
-Tools in this directory follow these principles:
-
-- **Non-essential**  
+- Non-essential 
   Removing a tool must not break xLaDe or Lean usage.
 
-- **Replaceable**  
+- Replaceable
   Tools may be rewritten, replaced, or discarded as experiments evolve.
 
-- **Non-invasive**  
+- Non-invasive
   Tools must not modify:
   - the Lean kernel
   - Lean source semantics
   - trusted compiler behavior
 
-- **Experimental**  
-  Tools may be incomplete, heuristic, or exploratory.
+- Experimental
+  Tools may be incomplete or exploratory.
 
 ---
 
@@ -51,10 +49,7 @@ Tools in this directory follow these principles:
 
 - Experiments may optionally invoke tools
 - Scripts may use tools as helpers
-- Neither experiments nor scripts may *depend* on tools for correctness
-
-This ensures that tools enhance experimentation without becoming hidden
-dependencies.
+- Neither experiments nor scripts may depend on tools for correctness
 
 ---
 
@@ -66,17 +61,4 @@ Typical tools may include:
 - experimental UX improvements
 - analysis or reporting helpers
 
-All such tools remain **outside the minimal core guarantees** of xLaDe.
-
----
-
-## Summary
-
-xLaDe tools exist to **support exploration, not enforce structure**.
-
-They:
-- improve ergonomics,
-- enable rapid experimentation,
-- and remain safely removable.
-
-This separation preserves xLaDe’s minimal, research-first architecture.
+All such tools remain outside the minimal core guarantees of xLaDe.

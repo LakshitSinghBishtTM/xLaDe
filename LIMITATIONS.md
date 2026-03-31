@@ -1,32 +1,29 @@
 # Known Limitations
 
-This document lists **explicit limitations** of xLaDe in its current form.
-
-These limitations are intentional and reflect design trade-offs, not omissions.
+This document describes explicit limitations of xLaDe in its current form. These limitations are intentional and reflect design trade-offs, not omissions.
 
 ---
 
 ## Execution Limitations
 
-- CLI experiment execution is partially stubbed
-- Experiments establish interfaces and lifecycle, not full automation
+- CLI experiment execution
+- Experiments
 - No scheduling or parallel execution support
 
 ---
 
 ## Metrics Limitations
 
-- Metrics are qualitative and observational
-- Metrics do not influence enforcement or decisions
+- Qualitative metrics
 - No dashboards or aggregation pipelines
 
 ---
 
-## Experiment Scope Limitations
+## Experiment Limitations
 
-- Few experiments exist by design
-- Experiments focus on structure and policy, not volume
-- No performance benchmarks are provided
+- Only two experiments
+- Experiments focus on structure and policy only
+- No performance benchmarks
 
 ---
 
@@ -34,20 +31,13 @@ These limitations are intentional and reflect design trade-offs, not omissions.
 
 - No IDE plugins
 - No editor integrations
-- No interactive UI beyond CLI output
+- CLI based project
+- NO GUI application
 
 ---
 
 ## Usage Limitations
 
-- Not intended for production use
+- Not production grade
 - No backward compatibility guarantees
-- No stability guarantees outside Stable Mode
-
----
-
-## Summary
-
-xLaDe prioritizes **clarity, safety, and research value** over completeness.
-
-Limitations are documented explicitly to avoid overclaiming and misuse.
+- No stability guarantees

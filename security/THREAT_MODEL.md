@@ -1,12 +1,10 @@
 # Threat Model
 
-This document describes what xLaDe **does and does not attempt to protect against**.
+This document describes what xLaDe does and does not attempt to protect against.
 
 ---
 
-## Assets
-
-xLaDe aims to protect:
+## Scope
 
 - Lean kernel integrity
 - Semantic stability
@@ -17,8 +15,6 @@ xLaDe aims to protect:
 
 ## In-Scope Threats
 
-xLaDe explicitly addresses:
-
 - Accidental kernel modification
 - Silent semantic divergence
 - Unreviewed workflow changes
@@ -27,8 +23,6 @@ xLaDe explicitly addresses:
 ---
 
 ## Out-of-Scope Threats
-
-xLaDe does NOT attempt to protect against:
 
 - Malicious contributors
 - Supply-chain attacks
@@ -40,14 +34,6 @@ xLaDe does NOT attempt to protect against:
 
 ## Trust Assumptions
 
-- Lean core is trusted as-is
+- Trusted lean core
 - Contributors follow documented processes
 - CI enforcement is authoritative
-
----
-
-## Summary
-
-xLaDe’s threat model is **narrow and intentional**.
-
-It focuses on protecting architectural boundaries rather than providing comprehensive security guarantees.

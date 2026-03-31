@@ -1,15 +1,14 @@
 # Contributors
 
-xLaDe is an experimental Lean 4 ecosystem exploring new directions in community-driven development.
 We welcome contributions at all levels - from documentation and ideas to code modules and experimental features.
 
 ---
 
 ## Core Team
 
-- **Founder:** Lakshit Singh Bisht - Ecosystem research and vision
-- **CEO:** Manpreet Sahoo - Project strategy and overall direction
-- **Project Manager:** Deepak Pandey - Task management and community coordination
+- **Founder:** Lakshit Singh Bisht - Ecosystem research
+- **CEO:** Manpreet Sahoo - Project direction
+- **Project Manager:** Deepak Pandey - Community coordination
 
 ---
 
@@ -22,7 +21,7 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 ## Contributors
 
 This section recognises individuals who have contributed to the project. Contributers will be added here as contributions are accepted.
-
+Current contributors - 0
 ---
 
 ## How to Contribute

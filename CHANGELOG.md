@@ -55,7 +55,7 @@ mechanisms are considered stable.
 ## [1.2.0] — 2026-02-20
 
 ### Highlights
-- License transitioned to **GNU General Public License v3.0 (GPL-3.0)**.
+- License changed to GNU General Public License v3.0 (GPL-3.0).
 - Documentation changes
 
 ### Added
@@ -74,3 +74,20 @@ mechanisms are considered stable.
 This release consolidates xLaDe’s structure and documentation.
 It does not introduce new experiments or tooling features.
 All components remain experimental.
+
+## [1.3.0] — 2026-03-31
+
+### Highlights
+- Made a functioning official site of xLaDe available at "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/"
+- Added project on gitlab at "https://gitlab.com/lakshitsinghbishttm/xLaDe". Both github and gitlab versions will be synced.
+
+### Added
+- Rationale behind choosing an onion site for xLaDe.
+- New examples of lean to try in xlade.
+- Dedicated security folder.
+
+### Changed
+- Docs to focus on the xlade functioning, limitations, contributions and readme.
+
+### Notes
+This monthly release focuses mainly on organisation and official site of xLaDe and its integration with github repo instead of major code changes. xLaDe still is in its experimental stage.

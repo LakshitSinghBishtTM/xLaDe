@@ -50,6 +50,7 @@ xLaDe/
 |-- scripts/                 [enforcement scripts]
 |-- tools/                   [supporting utilities]
 |-- docs/                    [architecture, rationale, roadmap]
+|-- security/                [security related documents]
 |-- examples/                [minimal Lean demos]
 |-- .github/                 [CI & contribution templates]
 |-- LICENSE                  [GNU General Public License v3.0 (GPL-3.0)]

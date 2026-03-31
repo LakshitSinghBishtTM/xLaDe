@@ -1,13 +1,6 @@
 # How to Read This Repository
 
-This document explains **how to navigate and interpret the xLaDe repository**.
-
-xLaDe is a research-oriented ecosystem framework. Not all directories are equal, and not all artifacts are intended to be fully implemented at this stage.
-
-This guide is written for:
-- reviewers
-- examiners
-- new contributors
+This document explains how to navigate and interpret the xLaDe repository. Not all directories are equal, and not all artifacts are intended to be fully implemented at this stage. This guide is specially for new contributors.
 
 ---
 
@@ -49,46 +42,29 @@ None of these modify Lean’s kernel or core semantics.
 
 ---
 
-## What Is Intentionally Minimal
+## Intentionally Minimal Components
 
-Some components are deliberately lightweight:
-
-- CLI execution backends may be stubbed
-- Metrics are qualitative
-- Few experiments exist by design
-- Lean code is minimal and illustrative
-
-This reflects xLaDe’s **interface-first, research-first** philosophy.
+- CLI execution
+- Qualitative metrices
+- Few experiments
+- Lean code
 
 ---
 
-## What Can Be Ignored on First Read
-
-The following are not essential for understanding the core ideas:
+## Files to Ignore
 
 - Placeholder Lean files
-- Demo projects
-- Draft experiments
-- Incomplete tooling helpers
-
-These exist to support exploration, not to define guarantees.
+- Demo project
+- Incomplete tooling
 
 ---
 
 ## What Is Enforced
 
-Some constraints are **real and enforced**, not aspirational:
-
 - Lean kernel immutability (CI enforced)
 - Experiment isolation
 - Mode-based experiment activation
 
-These are central to xLaDe’s design.
-
 ---
 
-## Summary
-
-xLaDe should be read as a **research laboratory**, not a finished product.
-
-Understanding the structure, boundaries, and intent matters more than counting features or lines of code.
+xLaDe should be read as a research laboratory, not a finished product. Understanding the structure, boundaries, and intent matters more than counting features or lines of code.

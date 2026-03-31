@@ -38,5 +38,15 @@ This file mirrors GitHub Releases for archival and offline reference.
 - Improved consistency across experiment layouts and metadata.
 - Updated governance and contributor-facing files.
 
+## v1.3.0 - 2026-03-31
+
+### Highlights
+- Added a few examples for support in further experiments.
+- Modified and improved documents regarding prerequisites of xlade, its use, contributions and README.
+- Made the official site of xLaDe, available at "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/". 
+- Clarification added regarding why an onion site was chosen instead of a random site, along with other documents.
+- Added a dedicated folder for security instead of adding files directly in root folder, added two new documents
+- Imported project to gitlab for long term availability and usefulness. Added mirror list for officially suppported mirrors.
+
 ### Stability
 Experimental. Structure and enforcement are stable; features may evolve.

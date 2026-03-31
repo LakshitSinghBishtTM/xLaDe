@@ -59,7 +59,7 @@ This directory contains **user-wide configuration and mode selection**.
 * Set via:
 
   ```
-  xlade mode <mode>
+  ./bin/xlade mode <mode>
   ```
 
 * Influences:
@@ -91,7 +91,7 @@ Project-local state is stored inside the project directory:
 This directory is created by:
 
 ```
-xlade init
+./bin/xlade init
 ```
 
 It marks the directory as an **xLaDe workspace**.
@@ -132,7 +132,7 @@ Missing or incomplete metrics never cause execution failure.
 * Used by:
 
   ```
-  xlade status
+  ./bin/xlade status
   ```
 * If unset or empty, no experiment has been run yet
 

@@ -13,27 +13,7 @@ bin/
 # VS Code settings
 .vscode/
 
-# JetBrains IDEs (IntelliJ, CLion, PyCharm, etc.)
-.idea/
-*.iml
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-
-# Backup and temp files
-*.tmp
-*.swp
-*.bak
-*.orig
-*.rej
-
-# Node / npm (if any JS tools used in future)
-node_modules/
-npm-debug.log
-
-# Python / ML scripts cache (if AI/ML integration added later)
+# Python cache
 __pycache__/
 *.pyc
 

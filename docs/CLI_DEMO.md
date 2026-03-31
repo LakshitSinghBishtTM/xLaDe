@@ -9,8 +9,8 @@ The purpose of this document is **illustrative**, not exhaustive.
 
 ## What the xLaDe CLI Is (and Is Not)
 
-### The CLI **IS**
-- An **orchestration layer** for ecosystem-level research artifacts
+### The CLI IS
+- An orchestration layer for ecosystem-level research artifacts
 - A way to:
   - initialize project state
   - select ecosystem modes
@@ -27,10 +27,14 @@ Many execution backends are intentionally **lightweight or stubbed** at this sta
 
 ---
 
+## Note:
+
+Please download and build the Lean with lake, and other requirements before running xLaDe already explained in other docs, otherwise xLaDe won't run properly.
+
 ## 1. Project Initialization
 
 ```
-xlade init
+./bin/xlade init
 ```
 
 ### Effect
@@ -56,7 +60,7 @@ xlade init
 ## 2. Listing Available Experiments
 
 ```
-xlade list experiments
+./bin/xlade list experiments
 ```
 
 ### Effect
@@ -84,7 +88,7 @@ At this stage, discovery is **structural**, not semantic.
 ## 3. Running an Experiment (Conceptual)
 
 ```
-xlade run EXP-001
+./bin/xlade run EXP-001
 ```
 
 ### Effect
@@ -95,7 +99,7 @@ xlade run EXP-001
 
 ### Current Status
 
-* Execution is **intentionally stubbed**
+* Execution is intentionally stubbed
 * The command establishes interface, lifecycle, and state flow
 
 This allows experiment structure, policies, and metrics to be evaluated before committing to full execution backends.
@@ -105,7 +109,7 @@ This allows experiment structure, policies, and metrics to be evaluated before c
 ## 4. Checking Workspace State
 
 ```
-xlade status
+./bin/xlade status
 ```
 
 ### Effect
@@ -120,7 +124,7 @@ This command reports **history only**; it does not infer success or failure.
 ## 5. Environment Diagnostics
 
 ```
-xlade doctor
+./bin/xlade doctor
 ```
 
 ### Effect
@@ -141,20 +145,10 @@ xlade doctor
 ## 6. Ecosystem Modes (Overview)
 
 ```
-xlade mode onboarding
-xlade mode experimental
-xlade mode stable
+./bin/xlade mode onboarding
+./bin/xlade mode experimental
+./bin/xlade mode stable
 ```
-
-### Effect
-
-* Sets the global xLaDe mode in `~/.xlade/`
-* Influences:
-
-  * which experiments are enabled
-  * how strictly policies are enforced
-
-Modes do **not** change Lean behavior directly; they control orchestration and policy layers only.
 
 ---
 

@@ -38,12 +38,36 @@ Security and boundary assumptions:
 
 ## Current Version and Releases
 
-- **Current version:** `v1.2.0`
+- **Current version:** `v1.3.0`
 - **Version file:** [`VERSION`](VERSION)
 
 Release documentation:
 - [`CHANGELOG.md`](CHANGELOG.md)
 - [`RELEASES.md`](RELEASES.md)
+
+---
+
+## Official Sources
+
+xLaDe is distributed across multiple platforms to ensure availability and reduce reliance on any single provider.
+
+### Primary Repository (Canonical)
+
+- https://github.com/LakshitSinghBishtTM/xLaDe
+
+### Mirror
+
+- https://gitlab.com/LakshitSinghBishtTM/xLaDe
+
+### Official Website
+
+- http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion
+
+For details on trust, verification, and distribution:
+
+- [Official Sources](./OFFICIAL_SOURCES.md)
+- [Onion Service](./ONION.md)
+- [Security Model](./SECURITY_POLICY.md)
 
 ---
 
@@ -198,13 +222,13 @@ See:
 
 ## Using xLaDe
 
-xLaDe provides a lightweight CLI for orchestration:
+xLaDe provides a lightweight CLI. Run these from root directory:
 
 ```
-xlade init
-xlade mode experimental
-xlade list experiments
-xlade run EXP-001
+./bin/xlade init
+./bin/xlade mode experimental
+./bin/xlade list experiments
+./bin/xlade run EXP-001
 ```
 
 See:
@@ -241,10 +265,10 @@ This project is licensed under the GNU General Public License v3.0. See LICENSE 
 
 xLaDe is **experimental**.
 
-As of `v1.2.0`:
+As of `v1.3.0`:
 
-* repository structure and governance are stable
-* experiments may evolve, be promoted, or retired
-* cli based app may be unstable
+* most of the work focuses on documentation and policies
+* scripts and tools are planned for later stages
+* cli based app works but may be unstable
 
-xLaDe exists as a **living laboratory** for Lean ecosystem design.
+xLaDe exists as a living laboratory for Lean ecosystem design.

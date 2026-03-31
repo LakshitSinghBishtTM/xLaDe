@@ -27,7 +27,7 @@ The repository includes:
 ## Step 2: Initialize Workspace
 
 ```
-xlade init
+./bin/xlade init
 ```
 
 Creates a .xlade/ directory for project-local state.
@@ -36,7 +36,7 @@ No Lean files are modified.
 ## Step 3: Select Mode
 
 ```
-xlade mode experimental
+./bin/xlade mode experimental
 ```
 
 This enables experimental behavior without affecting Lean semantics.
@@ -44,7 +44,7 @@ This enables experimental behavior without affecting Lean semantics.
 ## Step 4: Discover Experiments
 
 ```
-xlade list experiments
+./bin/xlade list experiments
 ```
 
 Shows available ecosystem experiments.
@@ -52,7 +52,7 @@ Shows available ecosystem experiments.
 ## Step 5: Run an Experiment
 
 ```
-xlade run EXP-001
+./bin/xlade run EXP-001
 ```
 
 Validates workspace state
@@ -64,7 +64,7 @@ Execution may be stubbed, but lifecycle and state flow are established.
 ## Step 6: Inspect State
 
 ```
-xlade status
+./bin/xlade status
 ```
 Reports the last executed experiment.
 
