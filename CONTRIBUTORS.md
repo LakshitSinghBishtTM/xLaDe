@@ -6,33 +6,28 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 
 ## Core Team
 
-- **Founder:** Lakshit Singh Bisht - Ecosystem research
-- **CEO:** Manpreet Sahoo - Project direction
-- **Project Manager:** Deepak Pandey - Community coordination
-
----
-
-## Academic Advisor
-
-- **Head Guidance:** Dr. Thota Siva - HOD, Department of Mathematics and Computing, Central University of Andhra Pradesh
+- **Founder & Lead Researcher:** Lakshit Singh Bisht
+- **CEO & Project Lead:** Manpreet Sahoo
+- **Community Representative:** Deepak Pandey 
 
 ---
 
 ## Contributors
 
-This section recognises individuals who have contributed to the project. Contributers will be added here as contributions are accepted.
-Current contributors - 0
+This section recognises individuals who have contributed to the project. Contributors will be added here as contributions are accepted.
+Current contributors: 0
+
 ---
 
 ## How to Contribute
 
 We appreciate all types of contributions:
 
-- Improving documentation  
-- Suggesting features or roadmap ideas  
-- Creating examples and tutorials  
-- Adding experimental code modules  
-- Helping with community support  
+- Improving documentation
+- Suggesting features or roadmap ideas
+- Creating examples and tutorials
+- Adding experimental code modules
+- Helping with community support
 
 For detailed instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -40,9 +35,13 @@ For detailed instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Contributor Recognition
 
-All accepted contributions will be added to this file to acknowledge your work.  
+All accepted contributions will be added to this file to acknowledge your work.
 We value every contribution. Each one helps shape the future of xLaDe.
 
 ---
+
+## Acknowledgements
+
+- Dr. Thota Siva: Academic guidance and support
 
 > Note: xLaDe is currently in an experimental stage. Contributions help define the ecosystem, and your participation is essential for its growth.

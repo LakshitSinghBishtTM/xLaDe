@@ -1,0 +1,17 @@
+id = "EXP-002"
+
+name = "Kernel Boundary Violation Detection"
+
+type = "script-policy"
+
+status = "active"
+
+allowed_modes = ["experimental"]
+
+# Environment (not critical here but keep consistent)
+lean_toolchain = "leanprover/lean4:stable"
+
+# Execution (future)
+entry = "scripts/check-kernel.sh"
+
+description = "Detects modifications to lean-core and enforces kernel immutability."
