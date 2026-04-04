@@ -1,0 +1,28 @@
+name: Mirrors
+
+on:
+  push:
+  create:
+  delete:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mirror repository
+        run: |
+          set -e
+
+          REPO="xLaDe"
+          USER="lakshitsinghbishttm"
+
+          # Clone full mirror from GitHub
+          git clone --mirror https://github.com/$USER/$REPO.git
+          cd $REPO.git
+
+          echo "Pushing to Codeberg..."
+          git push --mirror https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/$USER/$REPO.git || echo "Codeberg push failed"
+
+          echo "Pushing to GitLab..."
+          git push --mirror https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/$USER/$REPO.git || echo "GitLab push failed"
