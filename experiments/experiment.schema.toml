@@ -1,6 +1,5 @@
 `experiment.schema.toml` (machine-readable experiment descriptor)
 
-```toml
 # xLaDe Experiment Descriptor Schema
 
 id = "EXP-000"
