@@ -119,12 +119,12 @@ xLaDe/
 ├── policies/             Repository governance and rules
 ├── projects/             Minimal demo project
 ├── scripts/              Policy enforcement scripts
+├── security/             Security related docs and policies
 ├── tools/                Optional helper tools
 ├── lakefile.lean         Root Lake configuration
 ├── lake-manifest.json    Locked dependency graph (generated)
 ├── lean-toolchain        Pinned Lean compiler version
 ├── INSTALL.md            Installation instructions
-├── SECURITY.md           Security disclosure policy
 ├── CODE_OF_CONDUCT.md    Community code of conduct
 ├── CONTRIBUTING.md       Contribution guidelines
 ├── CONTRIBUTORS.md       Contributor acknowledgements
