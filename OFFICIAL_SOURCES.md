@@ -28,6 +28,24 @@ The project maintains mirrors to improve availability and reduce reliance on a s
 
 https://gitlab.com/LakshitSinghBishtTM/xLaDe
 
+### Codeburg Mirror
+
+https://codeberg.org/lakshitsinghbishttm/xLaDe
+
+### Bitbucket Mirror
+
+https://bitbucket.org/lakshitsinghbishttm/xlade
+
+### Gitea Mirror
+
+https://gitea.com/LakshitSinghBishtTM/xLaDe
+
+### Sourceforge Mirror
+
+https://gitea.com/LakshitSinghBishtTM/xLaDe
+
+---
+
 Mirrors are provided for:
 
 * Redundancy
