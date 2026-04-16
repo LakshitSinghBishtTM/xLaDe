@@ -28,8 +28,7 @@ Mirrors are part of the project's distribution strategy, but they are **not auth
 
 ### Sourceforge
 
-* https://sourceforge.net/projects/xlade/
-
+* https://sourceforge.net/projects/xlade
 
 ---
 
