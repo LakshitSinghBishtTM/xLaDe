@@ -14,6 +14,23 @@ Mirrors are part of the project's distribution strategy, but they are **not auth
 
 * https://gitlab.com/LakshitSinghBishtTM/xLaDe
 
+### Codeburg
+
+* https://codeberg.org/lakshitsinghbishttm/xLaDe
+
+### Bitbucket
+
+* https://bitbucket.org/lakshitsinghbishttm/xlade
+
+### Gitea
+
+* https://gitea.com/LakshitSinghBishtTM/xLaDe
+
+### Sourceforge
+
+* https://sourceforge.net/projects/xlade/
+
+
 ---
 
 ## Purpose of Mirrors
