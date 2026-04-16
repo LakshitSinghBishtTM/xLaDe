@@ -42,7 +42,7 @@ https://gitea.com/LakshitSinghBishtTM/xLaDe
 
 ### Sourceforge Mirror
 
-https://gitea.com/LakshitSinghBishtTM/xLaDe
+https://sourceforge.net/projects/xlade
 
 ---
 
