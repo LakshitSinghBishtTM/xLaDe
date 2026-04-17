@@ -240,7 +240,7 @@ See:
 
 ## Contributing
 
-Contributions are welcome — especially **new ecosystem experiments**.
+Contributions are heartily welcome to help in our project.
 
 See:
 
