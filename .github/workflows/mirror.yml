@@ -4,25 +4,43 @@ on:
   push:
   create:
   delete:
+  workflow_dispatch:
+
+concurrency:
+  group: mirrors
+  cancel-in-progress: true
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mirror repository
+      - name: Mirror repository to all platforms
+        shell: bash
         run: |
           set -e
 
           REPO="xLaDe"
-          USER="lakshitsinghbishttm"
+          GH_USER="LakshitSinghBishtTM"
+          LOWER_USER="lakshitsinghbishttm"
 
-          # Clone full mirror from GitHub
-          git clone --mirror https://github.com/$USER/$REPO.git
+          echo "Cloning GitHub source..."
+          git clone --mirror https://github.com/$GH_USER/$REPO.git
           cd $REPO.git
 
           echo "Pushing to Codeberg..."
-          git push --mirror https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/$USER/$REPO.git || echo "Codeberg push failed"
+          git push --mirror https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/$LOWER_USER/$REPO.git || echo "Codeberg push failed"
 
           echo "Pushing to GitLab..."
-          git push --mirror https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/$USER/$REPO.git || echo "GitLab push failed"
+          git push --mirror https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/$GH_USER/$REPO.git || echo "GitLab push failed"
+
+          echo "Pushing to Bitbucket..."
+          git push --mirror https://${{ secrets.BITBUCKET_USER }}:${{ secrets.BITBUCKET_APP_PASSWORD }}@bitbucket.org/$LOWER_USER/xlade.git || echo "Bitbucket push failed"
+
+          echo "Pushing to Gitea..."
+          git push --mirror https://${{ secrets.GITEA_TOKEN }}@gitea.com/$GH_USER/$REPO.git || echo "Gitea push failed"
+
+          echo "Pushing to SourceForge..."
+          git push --mirror https://${{ secrets.SF_USER }}:${{ secrets.SF_TOKEN }}@git.code.sf.net/p/xlade/code || echo "SourceForge push failed"
+
+          echo "All mirror attempts completed."
