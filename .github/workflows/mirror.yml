@@ -28,14 +28,14 @@ jobs:
           git clone --mirror https://github.com/$GH_USER/$REPO.git
           cd $REPO.git
 
-          echo "Pushing to Codeberg..."
-          git push --mirror https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/$LOWER_USER/$REPO.git || echo "Codeberg push failed"
-
           echo "Pushing to GitLab..."
           git push --mirror https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/$GH_USER/$REPO.git || echo "GitLab push failed"
 
+          echo "Pushing to Codeberg..."
+          git push --mirror https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/$LOWER_USER/$REPO.git || echo "Codeberg push failed"
+
           echo "Pushing to Bitbucket..."
-          git push --mirror https://${{ secrets.BITBUCKET_USER }}:${{ secrets.BITBUCKET_APP_PASSWORD }}@bitbucket.org/$LOWER_USER/xlade.git || echo "Bitbucket push failed"
+          git push --mirror https://x-token-auth:${{ secrets.BITBUCKET_TOKEN }}@bitbucket.org/$LOWER_USER/xlade.git || echo "Bitbucket push failed"
 
           echo "Pushing to Gitea..."
           git push --mirror https://${{ secrets.GITEA_TOKEN }}@gitea.com/$GH_USER/$REPO.git || echo "Gitea push failed"
