@@ -47,6 +47,6 @@ jobs:
           ssh-keyscan git.code.sf.net >> ~/.ssh/known_hosts
 
           echo "Pushing to SourceForge..."
-          git push --mirror ssh://lakshitsbishttm@git.code.sf.net/p/xlade/code || echo "SourceForge push failed"
+          git push --mirror ssh://lakshitsbishttm@git.code.sf.net/p/xlade/xlade || echo "SourceForge push failed"
 
           echo "All mirror attempts completed."
