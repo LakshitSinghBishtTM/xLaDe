@@ -55,9 +55,13 @@ xLaDe is distributed across multiple platforms to ensure availability and reduce
 
 - https://github.com/LakshitSinghBishtTM/xLaDe
 
-### Mirror
+### Mirrors
 
 - https://gitlab.com/LakshitSinghBishtTM/xLaDe
+- https://codeberg.org/lakshitsinghbishttm/xLaDe
+- https://bitbucket.org/lakshitsinghbishttm/xlade
+- https://gitea.com/LakshitSinghBishtTM/xLaDe
+- https://sourceforge.net/projects/xlade
 
 ### Official Website
 
