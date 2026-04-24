@@ -91,3 +91,17 @@ All components remain experimental.
 
 ### Notes
 This monthly release focuses mainly on organisation and official site of xLaDe and its integration with github repo instead of major code changes. xLaDe still is in its experimental stage.
+
+## [1.4.0] — 2026-04-27
+
+### Highlights
+- Added metadata for each experiment to support backward compatibility in future (ongoing long term idea)
+- Modified cli tool to run experiments
+
+### Added
+- Mirrors to support decentralisation and reduce redundancy
+- Structured tools module
+- Docs explaining roadmap regarding backward compatibility
+
+### Notes
+This monthly release makes cli tool execute experiments, but the testing of xlade cli hasn't been done properly, so problems may occur.
