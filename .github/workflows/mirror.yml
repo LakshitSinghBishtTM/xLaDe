@@ -28,6 +28,11 @@ jobs:
           git clone --mirror https://github.com/$GH_USER/$REPO.git
           cd $REPO.git
 
+          echo "Removing GitHub PR refs..."
+          git for-each-ref --format="%(refname)" refs/pull/ | while read ref; do
+            git update-ref -d "$ref"
+          done
+
           echo "Pushing to GitLab..."
           git push --mirror https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/$GH_USER/$REPO.git || echo "GitLab push failed"
 
