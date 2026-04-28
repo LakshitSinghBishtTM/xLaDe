@@ -15,7 +15,9 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 ## Contributors
 
 This section recognises individuals who have contributed to the project. Contributors will be added here as contributions are accepted.
-Current contributors: 0
+Current contributors: 1
+
+- Rishon Pravin
 
 ---
 
