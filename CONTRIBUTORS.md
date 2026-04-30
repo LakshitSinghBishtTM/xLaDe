@@ -6,9 +6,9 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 
 ## Core Team
 
-- **Founder & Lead Researcher:** Lakshit Singh Bisht
-- **CEO & Project Lead:** Manpreet Sahoo
-- **Community Representative:** Deepak Pandey 
+- Lakshit Singh Bisht - Founder & Lead Researcher
+- Manpreet Sahoo - CEO & Project Lead
+- Deepak Pandey - Community Representative 
 
 ---
 
@@ -39,6 +39,8 @@ For detailed instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 All accepted contributions will be added to this file to acknowledge your work.
 We value every contribution. Each one helps shape the future of xLaDe.
+
+In addition, active and consistent contributors may be invited to take on maintainer roles based on their involvement and impact.  In case of any dispute, CEO will make the final decision.
 
 ---
 
