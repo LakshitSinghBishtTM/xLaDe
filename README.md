@@ -226,7 +226,7 @@ See:
 
 ## Using xLaDe
 
-xLaDe provides a lightweight CLI. Run these from root directory:
+xLaDe provides a lightweight CLI. Run these from the root directory:
 
 ```
 ./bin/xlade init
@@ -244,7 +244,7 @@ See:
 
 ## Contributing
 
-Contributions are heartily welcome to help in our project.
+Contributions are welcome!
 
 See:
 
