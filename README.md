@@ -244,7 +244,7 @@ See:
 
 ## Contributing
 
-Contributions are heartily welcome to help in our project.
+Contributions are warmly welcome and help improve the project.
 
 See:
 
@@ -271,8 +271,8 @@ xLaDe is **experimental**.
 
 As of `v1.4.0`:
 
-* Primary focus is on mirrors and decentralization currently
-* Experiment metadata is being collected at repo level to help in backward compatibility
-* CLI-based app is still not stable
+* The current primary focus is mirrors and decentralization
+* Experiment metadata is collected at the repository level to support backward compatibility
+* The CLI-based app is still unstable
 
 xLaDe exists as a living laboratory for Lean ecosystem design.
