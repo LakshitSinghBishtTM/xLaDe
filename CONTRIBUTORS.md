@@ -15,9 +15,10 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 ## Contributors
 
 This section recognises individuals who have contributed to the project. Contributors will be added here as contributions are accepted.
-Current contributors: 1
+Current contributors: 2
 
 - Rishon Pravin
+- Aqil Aziz
 
 ---
 
