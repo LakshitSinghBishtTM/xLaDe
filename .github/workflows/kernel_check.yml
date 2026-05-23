@@ -1,0 +1,47 @@
+name: Kernel Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  policy-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Kernel protection check
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+          else
+            base="${{ github.event.before }}"
+            head="${{ github.sha }}"
+          fi
+
+          if [[ -z "$base" || "$base" == "0000000000000000000000000000000000000000" ]]; then
+            echo "No valid base commit available; comparing against HEAD~1"
+            base="HEAD~1"
+          fi
+
+          echo "Comparing $base..$head"
+          changed_files=$(git diff --name-only "$base" "$head")
+          echo "$changed_files"
+
+          if echo "$changed_files" | grep -q '^lean-core/'; then
+            echo "❌ Kernel modification detected. This violates xLaDe policy."
+            exit 1
+          fi
+
+          echo "✅ Kernel untouched"
