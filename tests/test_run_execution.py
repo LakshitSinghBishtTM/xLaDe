@@ -111,3 +111,53 @@ def test_missing_entry_script(initialized_project, fake_home, capsys):
     run("EXP-MISSING")
     captured = capsys.readouterr()
     assert "not found" in captured.out
+
+def test_lean_policy_without_lake(initialized_project, fake_home, capsys, monkeypatch):
+    exp_dir = initialized_project / "experiments" / "EXP-LEAN"
+    exp_dir.mkdir(parents=True)
+    (exp_dir / "experiment.toml").write_text(
+        'id = "EXP-LEAN"\n'
+        'name = "Lean Policy Test"\n'
+        'type = "lean-policy"\n'
+        'status = "active"\n'
+        'allowed_modes = ["experimental"]\n'
+        'lean_toolchain = "leanprover/lean4:stable"\n'
+        'entry = "policy.lean"\n'
+        'description = "Test lean policy without lake."\n'
+    )
+
+    mode_dir = os.path.join(os.path.expanduser("~"), ".xlade")
+    os.makedirs(mode_dir, exist_ok=True)
+    open(os.path.join(mode_dir, "mode"), "w").write("experimental\n")
+
+    monkeypatch.setattr("shutil.which", lambda x: None)
+
+    run("EXP-LEAN")
+    captured = capsys.readouterr()
+    assert "lake not found" in captured.out
+
+def test_lean_policy_records_skipped_in_metrics(initialized_project, fake_home, monkeypatch):
+    exp_dir = initialized_project / "experiments" / "EXP-LEAN2"
+    exp_dir.mkdir(parents=True)
+    (exp_dir / "experiment.toml").write_text(
+        'id = "EXP-LEAN2"\n'
+        'name = "Lean Policy Test 2"\n'
+        'type = "lean-policy"\n'
+        'status = "active"\n'
+        'allowed_modes = ["experimental"]\n'
+        'lean_toolchain = "leanprover/lean4:stable"\n'
+        'entry = "policy.lean"\n'
+        'description = "Test lean policy skipped."\n'
+    )
+
+    mode_dir = os.path.join(os.path.expanduser("~"), ".xlade")
+    os.makedirs(mode_dir, exist_ok=True)
+    open(os.path.join(mode_dir, "mode"), "w").write("experimental\n")
+
+    monkeypatch.setattr("shutil.which", lambda x: None)
+
+    run("EXP-LEAN2")
+
+    with open(".xlade/metrics.json") as f:
+        data = json.load(f)
+    assert data[0]["status"] == "skipped"
