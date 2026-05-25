@@ -21,7 +21,7 @@ This document describes explicit limitations of xLaDe in its current form. These
 
 ## Experiment Limitations
 
-- Only two experiments
+- Three experiments active (EXP-001 requires Lake, EXP-002 and EXP-003 execute)
 - Experiments focus on structure and policy only
 - No performance benchmarks
 
