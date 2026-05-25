@@ -1,7 +1,7 @@
 # xLaDe: Experimental Lean 4 Ecosystem Framework
 
 ![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
-![Version](https://img.shields.io/badge/version-1.4.0-blue)
+![Version](https://img.shields.io/badge/version-1.5.0-blue)
 ![Status](https://img.shields.io/badge/status-experimental-orange)
 ![Lean](https://img.shields.io/badge/Lean-4-blue)
 ![Contributors](https://img.shields.io/github/contributors/LakshitSinghBishtTM/xLaDe?color=green)
@@ -269,10 +269,13 @@ This project is licensed under the GNU General Public License v3.0. See LICENSE 
 
 xLaDe is **experimental**.
 
-As of `v1.4.0`:
+As of `v1.5.0`:
 
-* The current primary focus is mirrors and decentralization
-* Experiment metadata is collected at the repository level to support backward compatibility
-* The CLI-based app is still unstable
+* The current primary focus is CLI stability and real experiment execution
+* 50-test pytest suite with all passing
+* xlade is now pip-installable via pyproject.toml
+* EXP-002 and EXP-003 execute for real via subprocess
+* metrics.json written and read on every experiment run
+* The CLI is functional but still experimental
 
 xLaDe exists as a living laboratory for Lean ecosystem design.
