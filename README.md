@@ -63,6 +63,16 @@ xLaDe is distributed across multiple platforms to ensure availability and reduce
 - https://gitea.com/LakshitSinghBishtTM/xLaDe
 - https://sourceforge.net/projects/xlade
 
+### Torrent Distribution
+
+- [Download Torrent](assets/torrent/xlade_v1.5.0.torrent)
+
+- Magnet URI:
+
+```
+magnet:?xt=urn:btih:505e2102944e38609e7104170244e3c587e33a80&xt=urn:btmh:12201a2b492ddd2b4a9fc24c4c670b7e1e8f737b25efecfa24ed4463382d14e32ef1&dn=xlade&xl=2483089&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&ws=https://github.com/LakshitSinghBishtTM/xLaDe/archive/refs/tags/v1.5.0.tar.gz
+```
+
 ### Official Website
 
 - http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion
