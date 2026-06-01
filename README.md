@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/version-1.5.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.6.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/status-experimental-orange" alt="Status">
   <img src="https://img.shields.io/badge/Lean-4-purple" alt="Lean 4">
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20BSD%20%7C%20Android-lightgrey" alt="Platform">
@@ -246,15 +246,11 @@ This is not a policy that will change.
 xLaDe is experimental. It is a research tool, not production software.
 No stability guarantees, no backward compatibility guarantees, no support SLA.
 
-As of `v1.5.0`:
+As of `v1.6.0`:
 
-- 50+ tests, all passing on Python 3.11 - 3.14
-- Verified on Linux x86\_64, BSD, and Android aarch64 (Termux)
-- `xlade` pip-installable via `pyproject.toml`
-- EXP-002 and EXP-003 execute for real
-- EXP-001 executes with Lake installed, skips cleanly without it
-- `metrics.json` written and read on every run
-- Monthly release cadence - one version per month
+- CLI tool improved massively
+- CI and CD added and integrated
+- A comprehensive suite with 83 tests
 
 ---
 
