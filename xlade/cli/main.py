@@ -1,6 +1,6 @@
 import sys
 
-VERSION = "1.5.0"
+VERSION = "1.6.0"
 LICENSE = "GPL-3.0"
 FULL_FORM = "eXperimental Lean 4 Advanced Development Ecosystem"
 WEBSITE = "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion"
