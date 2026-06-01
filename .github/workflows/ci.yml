@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install xlade
+        run: pip install -e .
+
+      - name: Environment diagnostics
+        run: |
+          echo "--- xlade doctor ---"
+          xlade doctor || true
+
+      - name: Initialise workspace
+        run: |
+          echo "--- xlade init ---"
+          xlade init
+
+      - name: Set mode
+        run: |
+          echo "--- xlade mode experimental ---"
+          xlade mode experimental
+
+      - name: List experiments
+        run: |
+          echo "--- xlade list experiments ---"
+          xlade list experiments
+
+      - name: Run EXP-002 kernel boundary check
+        run: |
+          echo "--- xlade run exp-002-kernel-boundary ---"
+          xlade run exp-002-kernel-boundary
+
+      - name: Run EXP-003 documentation coverage check
+        run: |
+          echo "--- xlade run exp-003-doc-coverage ---"
+          xlade run exp-003-doc-coverage
+
+      - name: Show run summary
+        run: |
+          echo "--- xlade status ---"
+          xlade status
+
+      - name: Show metrics
+        run: |
+          echo "--- xlade metrics ---"
+          xlade metrics
