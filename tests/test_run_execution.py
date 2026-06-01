@@ -112,6 +112,7 @@ def test_missing_entry_script(initialized_project, fake_home, capsys):
     captured = capsys.readouterr()
     assert "not found" in captured.out
 
+
 def test_lean_policy_without_lake(initialized_project, fake_home, capsys, monkeypatch):
     exp_dir = initialized_project / "experiments" / "EXP-LEAN"
     exp_dir.mkdir(parents=True)
@@ -130,11 +131,14 @@ def test_lean_policy_without_lake(initialized_project, fake_home, capsys, monkey
     os.makedirs(mode_dir, exist_ok=True)
     open(os.path.join(mode_dir, "mode"), "w").write("experimental\n")
 
-    monkeypatch.setattr("shutil.which", lambda x: None)
+    # Patch where shutil.which is actually called — inside xlade.core.lean,
+    # not at the global shutil level.
+    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: None)
 
     run("EXP-LEAN")
     captured = capsys.readouterr()
     assert "lake not found" in captured.out
+
 
 def test_lean_policy_records_skipped_in_metrics(initialized_project, fake_home, monkeypatch):
     exp_dir = initialized_project / "experiments" / "EXP-LEAN2"
@@ -154,7 +158,8 @@ def test_lean_policy_records_skipped_in_metrics(initialized_project, fake_home, 
     os.makedirs(mode_dir, exist_ok=True)
     open(os.path.join(mode_dir, "mode"), "w").write("experimental\n")
 
-    monkeypatch.setattr("shutil.which", lambda x: None)
+    # Same fix — patch inside xlade.core.lean where the lookup actually happens.
+    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: None)
 
     run("EXP-LEAN2")
 
