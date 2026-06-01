@@ -1,22 +1,28 @@
 import os
 import json
 
+SEP = "-" * 100
+
 
 def run():
-    print("xLaDe Status\n")
-
     home = os.path.expanduser("~")
     mode_file = os.path.join(home, ".xlade", "mode")
 
-    mode = "unknown"
+    mode = "not set"
     if os.path.exists(mode_file):
         with open(mode_file) as f:
             mode = f.read().strip()
 
-    print(f"Mode:     {mode}")
+    print()
+    print("  xLaDe Status")
+    print(f"  {SEP}")
 
     if not os.path.isdir(".xlade"):
-        print("\nxLaDe is not initialized in this directory.")
+        print(f"  Workspace   not initialised")
+        print(f"  Mode        {mode}")
+        print(f"  {SEP}")
+        print("  Run 'xlade init' to initialise the workspace.")
+        print()
         return
 
     last_run_file = os.path.join(".xlade", "last-run")
@@ -25,39 +31,58 @@ def run():
         with open(last_run_file) as f:
             last_exp = f.read().strip()
 
-    print(f"Last run: {last_exp}")
+    print(f"  Workspace   initialised")
+    print(f"  Mode        {mode}")
+    print(f"  Last run    {last_exp}")
 
     metrics_path = os.path.join(".xlade", "metrics.json")
 
     if not os.path.isfile(metrics_path):
-        print("\nNo experiment runs recorded yet.")
+        print(f"  {SEP}")
+        print("  No experiment runs recorded yet.")
+        print("  Try: xlade run exp-002-kernel-boundary")
+        print()
         return
 
     try:
         with open(metrics_path, "r") as f:
             data = json.load(f)
     except (json.JSONDecodeError, IOError):
-        print("\nmetrics.json is unreadable or corrupted.")
+        print(f"  {SEP}")
+        print("  [error]  metrics.json is corrupted.")
+        print("           Delete .xlade/metrics.json to reset run history.")
+        print()
         return
 
     if not data:
-        print("\nNo experiment runs recorded yet.")
+        print(f"  {SEP}")
+        print("  No experiment runs recorded yet.")
+        print()
         return
 
-    total = len(data)
+    total   = len(data)
     success = sum(1 for r in data if r.get("status") == "success")
     failed  = sum(1 for r in data if r.get("status") == "failed")
-    other   = total - success - failed
+    skipped = sum(1 for r in data if r.get("status") == "skipped")
+    other   = total - success - failed - skipped
 
-    print(f"\nTotal runs: {total}")
-    print(f"  ✅ success:   {success}")
+    parts = [f"success: {success}"]
     if failed:
-        print(f"  ❌ failed:    {failed}")
+        parts.append(f"failed: {failed}")
+    if skipped:
+        parts.append(f"skipped: {skipped}")
     if other:
-        print(f"  ⏸  other:     {other}")
+        parts.append(f"other: {other}")
 
-    print("\nRecent runs:")
+    print(f"  {SEP}")
+    print(f"  Runs        {total}  ({', '.join(parts)})")
+    print()
+    print("  Recent:")
+
     for r in data[-5:]:
         status = r.get("status", "unknown")
-        symbol = "✅" if status == "success" else "❌" if status == "failed" else "⏸"
-        print(f"  {symbol} {r['experiment_id']:<20} {r.get('timestamp', '')}")
+        exp_id = r.get("experiment_id", "unknown")
+        ts     = r.get("timestamp", "")
+        print(f"    {exp_id:<38}  {ts}  {status}")
+
+    print()
