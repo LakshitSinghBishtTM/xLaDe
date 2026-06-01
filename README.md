@@ -249,7 +249,7 @@ No stability guarantees, no backward compatibility guarantees, no support SLA.
 As of `v1.5.0`:
 
 - 50+ tests, all passing on Python 3.11 - 3.14
-- Verified on Linux x86\_64, macOS, and Android aarch64 (Termux)
+- Verified on Linux x86\_64, BSD, and Android aarch64 (Termux)
 - `xlade` pip-installable via `pyproject.toml`
 - EXP-002 and EXP-003 execute for real
 - EXP-001 executes with Lake installed, skips cleanly without it
