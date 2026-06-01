@@ -2,62 +2,149 @@
 
 ## Background
 
-Lean is designed for rapid evolution. As noted by its developers,
-the system prioritizes scalability and correctness over long-term
-backward compatibility. As a result, Lean code written in earlier
-versions may not compile unchanged in later versions.
+Lean 4 is designed for rapid evolution. The core team prioritises
+scalability and correctness over long-term backward compatibility. As a
+result, Lean code written in earlier versions may not compile unchanged
+in later versions. This is a known issue acknowledged by the Lean core
+team — it is a deliberate trade-off, not an oversight.
 
-## Problem
+---
 
-This creates challenges for:
+## The Problem
 
-- long-term reproducibility of experiments
-- comparison of results across Lean versions
-- preservation of ecosystem-level research artifacts
-- onboarding users working with older materials
+This creates real challenges for anyone doing reproducible research with
+Lean:
 
-In traditional workflows, these issues are handled manually, often requiring ad-hoc fixes or migration effort.
+- An experiment that runs today may silently break next year
+- Comparing results across Lean versions requires manual environment setup
+- Preserving ecosystem-level research artifacts long-term is difficult
+- Onboarding users working with older materials becomes progressively harder
 
-## xLaDe Approach
+In traditional workflows, these issues are handled manually — often
+requiring ad-hoc fixes, migration effort, or simply abandoning old work.
 
-xLaDe does not attempt to modify Lean or enforce backward compatibility.
+---
+
+## xLaDe's Approach
+
+xLaDe does not attempt to modify Lean or enforce backward compatibility
+at the language level. That is outside scope and would require forking
+Lean itself.
 
 Instead, xLaDe introduces a different model:
 
-> Experiments are defined by both their code and their environment.
+> **An experiment is defined by both its code and its environment.**
 
-Each experiment can specify:
+Each experiment records its full execution context as metadata. When xLaDe
+runs an experiment, it has access to everything needed to reconstruct the
+environment that experiment was written in — even years later.
 
-- the Lean toolchain version
-- dependencies and build configuration
-- execution context (mode, policies)
+This shifts the goal from **backward compatibility** (keeping old code
+working in new environments) to **reproducibility** (being able to
+reconstruct the old environment on demand). The distinction matters:
+backward compatibility requires the language to stay stable, which Lean
+cannot guarantee. Reproducibility requires good metadata and tooling,
+which xLaDe can provide.
 
-xLaDe records and exposes this information, enabling:
+---
 
-- reproducibility of experiments under their original environment
-- explicit detection of environment mismatches
-- comparison across different execution contexts
+## Current Implementation — v1.5.0
 
-## Current Implementation
+As of v1.5.0, the reproducibility foundation is in place:
 
-As of now, xLaDe provides:
+**Environment metadata via `experiment.toml`:**
 
-- environment metadata via `experiment.toml`
-- tracking of experiment execution in `.xlade/metrics.json`
-- display of required Lean toolchain during execution
-- mode-aware experiment control
+Every experiment declares its required toolchain:
 
-## Future Plan
+```toml
+lean_toolchain = "leanprover/lean4:stable"
+```
 
-Future work will include:
+This is the first layer of the reproducibility record — what version of
+Lean this experiment was designed to run against.
 
-- Automation of environment setup via script
-- experiment-scoped toolchain switching
-- tracking experiment behavior across Lean versions
-- tooling for detecting and analyzing breakages
-- comparative analysis across environments
+**Run metadata via `.xlade/metrics.json`:**
 
+Every `xlade run` appends a structured record to `.xlade/metrics.json`:
+
+```json
+{
+  "experiment_id": "exp-002-kernel-boundary",
+  "experiment_name": "Kernel Boundary Violation Detection",
+  "type": "script-policy",
+  "mode": "experimental",
+  "lean_toolchain": "leanprover/lean4:stable",
+  "timestamp": "2026-05-26 14:10:03",
+  "status": "success"
+}
+```
+
+This creates a permanent audit trail — every run is associated with the
+exact toolchain version and mode it executed in.
+
+**Toolchain pinning:**
+
+The `lean-toolchain` file in the repository root pins the Lean compiler
+version used by the project. Combined with `lake-manifest.json` locking
+dependencies, the build is reproducible from a clean clone.
+
+---
+
+## Planned Implementation
+
+The current metadata recording is the foundation. The next stages build
+on top of it:
+
+**Stage 2 — Compatibility tracking:**
+- Expanded `experiment.toml` schema: validated Lean versions, known
+  breakages, last-tested date
+- Compatibility matrix: which experiments pass on which Lean versions
+- `xlade check` warns when the current Lean version differs from the
+  experiment's validated version
+
+**Stage 3 — Automated environment reconstruction:**
+- `xlade run` automatically switches to the experiment's required
+  toolchain via elan before executing
+- No manual toolchain management needed
+- Old experiments run against their original environment automatically
+
+**Stage 4 — Long-term preservation:**
+- Archive format for retired experiments
+- Nothing deleted — everything traceable and re-runnable
+- Experiments remain executable regardless of how much Lean has evolved
+  since they were written
+
+---
+
+## Why Reproducibility Over Compatibility
+
+Backward compatibility in a rapidly evolving language requires either
+slowing development or maintaining multiple parallel versions of the
+language indefinitely. Neither is acceptable for Lean.
+
+Reproducibility requires only that the tooling can reconstruct a past
+environment on demand. elan already supports installing and switching
+between arbitrary Lean toolchain versions. The missing piece is the
+metadata to know which environment to reconstruct — and xLaDe is building
+exactly that.
+
+This is a more honest solution to the problem. It does not pretend that
+old code will always work in new environments. It ensures that old code
+can always be run in its original environment.
+
+---
 
 ## Summary
 
-In xLaDe, we are trying to shift the focus from backward compatibility to reproducibility. As a result, this major problem of Lean 4 can be controlled and mitigated. Comments and feedback on this are welcomed to find better solutions!
+| Stage                                     | Status    | Description                               |
+|-------------------------------------------|-----------|-------------------------------------------|
+| Environment metadata in `experiment.toml` | ✅ Done   | Toolchain declared per experiment         |
+| Run metadata in `metrics.json`            | ✅ Done   | Every run records toolchain and timestamp |
+| Toolchain pinning via `lean-toolchain`    | ✅ Done   | Reproducible builds from clean clone      |
+| Compatibility tracking and warnings       | 🔲 Future | Detect version mismatches                 |
+| Automated environment reconstruction      | 🔲 Future | Auto-switch toolchain via elan            |
+| Long-term experiment preservation         | 🔲 Future | Archive format, nothing deleted           |
+ 
+Comments and feedback on this approach are welcome. Solving Lean 4's
+reproducibility problem is one of xLaDe's core research goals, and
+finding better approaches is part of the work.
