@@ -23,7 +23,7 @@
 
 Lean 4 proofs break silently across versions. Projects built on Lean drift
 from upstream until one day they simply stop working. Nobody knows why.
-These are not edge cases — they are the normal experience of working with
+These are not edge cases. They are the normal experience of working with
 a proof assistant under rapid development.
 
 **xLaDe is a research platform that studies these problems and builds
@@ -33,7 +33,7 @@ controlled environment for running experiments on how Lean is *used*,
 enforcing architectural boundaries that prevent kernel drift, and recording
 enough metadata to reproduce any experiment correctly, years later.
 
-xLaDe is built primarily as a command-line tool for Linux, with tested support for Windows (via WSL) and Android (via Termux). It installs through pip, ships with a comprehensive test suite and remains unapologetically experimental.
+xLaDe is built primarily as a command-line tool for Linux, with tested support for Windows (via WSL) and Android (via Termux). It installs through pip, ships with a comprehensive test suite and remains experimental.
 
 ---
 
@@ -43,15 +43,15 @@ xLaDe is built primarily as a command-line tool for Linux, with tested support f
 
 Lean 4 evolves fast. A proof that compiles today may fail elaboration
 next year as the toolchain changes. This is acknowledged by the Lean
-core team — it is a deliberate trade-off for a language under active
+core team. It is a deliberate trade-off for a language under active
 research development. But it makes reproducible research with Lean
 genuinely difficult. Experiments become snapshots. Snapshots rot.
 
 **xLaDe's response:** treat each experiment as inseparable from its
 environment. Every experiment records its toolchain version, dependencies,
-and execution context. The goal is reproducibility — being able to
+and execution context. The goal is reproducibility i.e., being able to
 reconstruct the exact environment an experiment ran in, on demand,
-years later — rather than backward compatibility, which Lean cannot
+years later rather than backward compatibility, which Lean cannot
 guarantee.
 
 ### Lean projects drift from upstream and break
@@ -87,13 +87,13 @@ xlade check                         Quick structural check
 **Experiments** are the primary artifact. Each is a self-contained
 directory with a declared hypothesis, enforcement mechanism, lifecycle
 state, and exit criteria. They run via `xlade run`. Results are written
-to `.xlade/metrics.json` on every execution — success, failure, or skip.
+to `.xlade/metrics.json` on every execution - success, failure, or skip.
 
 **Modes** control which experiments are enabled and how strictly policies
 are enforced. Three modes: `experimental`, `stable`, `onboarding`.
 
 **Doctor** diagnoses your environment and tells you exactly what to run
-to fix each issue — not just what is missing.
+to fix each issue, not just what is missing.
 
 **Metrics** give you a structured audit trail of every experiment run,
 readable in the terminal or processable as JSON.
@@ -161,7 +161,7 @@ any single provider.
 | Sourceforge          | https://sourceforge.net/projects/xlade                                  |
 | **Website**          | `http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion` |
 
-The onion service is the official project website — not a mirror or
+The onion service is the official project website, not a mirror or
 fallback. See [`ONION.md`](ONION.md) for the rationale.
 
 **Torrent:** [`assets/torrent/xlade_v1.5.0.torrent`](assets/torrent/xlade_v1.5.0.torrent)
@@ -176,7 +176,7 @@ magnet:?xt=urn:btih:505e2102944e38609e7104170244e3c587e33a80&xt=urn:btmh:12201a2
 
 | Document                                                                                 | Objective                                            |
 |------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`INSTALL.md`](INSTALL.md)                                                               | Installation — elan, Lean, pip, all platforms        |
+| [`INSTALL.md`](INSTALL.md)                                                               | Installation - elan, Lean, pip, all platforms        |
 | [`docs/WHY_xLaDe.md`](docs/WHY_xLaDe.md)                                                 | The problems in detail and why this approach         |
 | [`docs/CLI_DEMO.md`](docs/CLI_DEMO.md)                                                   | Every command, with real expected output             |
 | [`docs/END_TO_END_TRACE.md`](docs/END_TO_END_TRACE.md)                                   | Full session trace from clone to results             |
@@ -195,7 +195,7 @@ magnet:?xt=urn:btih:505e2102944e38609e7104170244e3c587e33a80&xt=urn:btmh:12201a2
 
 ```
 xLaDe/
-├── .github/           CI — tests, kernel protection, mirrors
+├── .github/           CI - tests, kernel protection, mirrors
 ├── experiments/       Ecosystem experiments (directory name = experiment ID)
 ├── xlade/             Python CLI package
 │   ├── cli/           
@@ -220,21 +220,21 @@ xLaDe/
 xLaDe operates under a minimal-trust model. No single platform is
 treated as inherently trustworthy.
 
-- [`security/SECURITY.md`](security/SECURITY.md) — how to report vulnerabilities
-- [`security/THREAT_MODEL.md`](security/THREAT_MODEL.md) — what is and is not in scope
-- [`security/TRUST_MODEL.md`](security/TRUST_MODEL.md) — distribution trust model
-- [`security/SECURITY_POLICY.md`](security/SECURITY_POLICY.md) — security philosophy
+- [`security/SECURITY.md`](security/SECURITY.md) - how to report vulnerabilities
+- [`security/THREAT_MODEL.md`](security/THREAT_MODEL.md) - what is and is not in scope
+- [`security/TRUST_MODEL.md`](security/TRUST_MODEL.md) - distribution trust model
+- [`security/SECURITY_POLICY.md`](security/SECURITY_POLICY.md) - security philosophy
 
 ---
 
 ## Contributing
 
-Contributions are welcome — experiments, documentation, tooling, tests,
+Contributions are welcome - experiments, documentation, tooling, tests,
 and feedback at any stage of development.
 
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to contribute
-- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — community standards
-- [`CONTRIBUTORS.md`](CONTRIBUTORS.md) — acknowledgements
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) - how to contribute
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) - community standards
+- [`CONTRIBUTORS.md`](CONTRIBUTORS.md) - acknowledgements
 
 Contributions that modify the Lean kernel are not accepted.
 This is not a policy that will change.
@@ -248,13 +248,13 @@ No stability guarantees, no backward compatibility guarantees, no support SLA.
 
 As of `v1.5.0`:
 
-- 50+ tests, all passing on Python 3.11–3.14
+- 50+ tests, all passing on Python 3.11 - 3.14
 - Verified on Linux x86\_64, macOS, and Android aarch64 (Termux)
 - `xlade` pip-installable via `pyproject.toml`
 - EXP-002 and EXP-003 execute for real
 - EXP-001 executes with Lake installed, skips cleanly without it
 - `metrics.json` written and read on every run
-- Monthly release cadence — one version per month
+- Monthly release cadence - one version per month
 
 ---
 
