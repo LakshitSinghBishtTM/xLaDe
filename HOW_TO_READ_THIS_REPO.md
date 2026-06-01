@@ -1,70 +1,177 @@
 # How to Read This Repository
 
-This document explains how to navigate and interpret the xLaDe repository. Not all directories are equal, and not all artifacts are intended to be fully implemented at this stage. This guide is specially for new contributors.
+This document explains how to navigate the xLaDe repository. It is
+written for new contributors and researchers encountering the project
+for the first time.
+
+xLaDe is intentionally broad. Not everything here is fully implemented,
+not everything is equally important, and not everything needs to be read.
+This guide tells you what to read, in what order, and what to skip.
 
 ---
 
-## Where to Start
+## Start Here — Recommended Reading Order
 
-If you are new to xLaDe, read in this order:
+**1. `README.md`**
+High-level overview, quick start, name origin, and links to everything
+else. Read this first.
 
-1. `README.md`  
-   High-level vision, scope, and non-goals.
+**2. `docs/WHY_xLaDe.md`**
+The two problems xLaDe is trying to solve and why the approach taken is
+the right one. Read this second — it frames everything else.
 
-2. `RESEARCH_SCOPE.md`  
-   Academic framing and explicit boundaries.
+**3. `docs/overview.md`**
+Current status, project vision, and what the project provides right now
+vs what it is working toward.
 
-3. `docs/CLI_DEMO.md`  
-   How xLaDe is used conceptually.
+**4. `INSTALL.md`**
+Step-by-step installation — elan, Lean toolchain, pip install. Read
+before trying to run anything.
 
-4. `docs/RUNTIME_STATE.md`  
-   How state is managed and isolated.
+**5. `docs/CLI_DEMO.md`**
+Complete reference for every `xlade` command with real expected output.
 
----
-
-## Core Concepts
-
-The core concepts of xLaDe are:
-
-- **Modes** (`modes/`)  
-  Express user intent (onboarding, experimental, stable).
-
-- **Experiments** (`experiments/`)  
-  First-class research artifacts testing ecosystem ideas.
-
-- **Policies** (`policies/`)  
-  Explicit constraints enforced via scripts or CI.
-
-- **Metrics** (`metrics/`)  
-  Observational artifacts for evaluation, not enforcement.
-
-None of these modify Lean’s kernel or core semantics.
+**6. `docs/END_TO_END_TRACE.md`**
+A full session from clone to running all three experiments. Read this
+to see exactly what xLaDe looks like in practice.
 
 ---
 
-## Intentionally Minimal Components
+## Understanding the Architecture
 
-- CLI execution
-- Qualitative metrics
-- Few experiments
-- Lean code
+After the above, if you want to understand how the project is structured:
+
+- `docs/architecture.md` — component boundaries, directory structure,
+  how `xlade/core/lean.py` and `xlade/cli/` relate, CI workflows
+- `docs/RUNTIME_STATE.md` — what `.xlade/` and `~/.xlade/` contain and
+  why
+- `docs/RESEARCH_SCOPE.md` — what xLaDe is and is not trying to do,
+  what is permanently out of scope vs deferred
 
 ---
 
-## Files to Ignore
+## Understanding the Research Direction
 
-- Placeholder Lean files
-- Demo project
-- Incomplete tooling
+- `docs/REPRODUCIBILITY_AND_COMPATIBILITY.md` — the core technical
+  problem xLaDe is solving and the staged plan for solving it
+- `docs/roadmap.md` — engineering releases v1.5.0 → v2.0.0 with
+  specific goals per version
+- `docs/research_roadmap.md` — long-term vision: AI integration,
+  multi-prover support, human-readable proofs, community infrastructure
+
+---
+
+## The Experiments
+
+Experiments are the primary research artifacts of xLaDe. Each lives in
+`experiments/` as a self-contained directory.
+
+```
+experiments/
+├── exp-001-proof-review/
+├── exp-002-kernel-boundary/
+└── exp-003-doc-coverage/
+```
+
+For each experiment, read in this order:
+1. `README.md` — research question, hypothesis, enforcement, exit criteria
+2. `experiment.toml` — metadata, type, entry point, allowed modes
+3. `METRICS.md` — evaluation observations
+
+The experiment template is at `experiments/EXPERIMENT_TEMPLATE.md`.
+
+To run experiments, see `docs/CLI_DEMO.md` or `docs/END_TO_END_TRACE.md`.
+
+---
+
+## The Python CLI — `xlade/`
+
+The CLI is a pure Python package under `xlade/`:
+
+```
+xlade/
+├── cli/            # One module per command
+└── core/
+    ├── errors.py
+    └── lean.py     # All subprocess calls to lake and lean
+```
+
+`xlade/core/lean.py` is the most important file to read if you want to
+understand how xLaDe talks to the Lean toolchain. Everything else in
+`cli/` is straightforward — one file per command.
+
+The test suite is in `tests/` and covers all CLI modules. Run it with
+`pytest tests/ -v`.
 
 ---
 
 ## What Is Enforced
 
-- Lean kernel immutability (CI enforced)
-- Experiment isolation
-- Mode-based experiment activation
+The following are enforced by CI and cannot be bypassed via pull request:
+
+- **Kernel immutability** — any modification to `lean-core/` fails the
+  build (`.github/workflows/xlade-ci.yml`)
+- **Test suite** — all tests must pass on every push to main and every
+  PR (`.github/workflows/tests.yml`)
+
+Everything else is enforced by documentation and review, not automation.
 
 ---
 
-xLaDe should be read as a research laboratory, not a finished product. Understanding the structure, boundaries, and intent matters more than counting features or lines of code.
+## Files to Ignore
+
+These files exist for valid reasons but are not useful to read:
+
+- `lean-core/` — the Lean 4 submodule. Immutable. Do not read or modify.
+- `src/` — placeholder Lean files, intentionally minimal
+- `main.lean` — single-line entry point for the Lake build
+- `xLaDe.lean` — root Lean module, intentionally minimal
+- `lake-manifest.json` — generated by Lake, do not edit manually
+- `xlade.egg-info/` — generated by pip, ignore
+- `venv/` — your local virtual environment, not part of the project
+
+---
+
+## Files Worth Reading Once
+
+These are important for contributors but not required for understanding
+the project:
+
+- `CONTRIBUTING.md` — how to submit contributions
+- `CODE_OF_CONDUCT.md` — community standards
+- `LIMITATIONS.md` — honest current limitations, good to know before
+  filing issues
+- `security/THREAT_MODEL.md` — what xLaDe does and does not protect against
+- `docs/AI_use.md` — policy on AI-assisted contributions
+
+---
+
+## The Governance Documents
+
+xLaDe has explicit governance documentation:
+
+- `policies/kernel-protection.md` — the core architectural constraint
+- `policies/experiment-lifecycle.md` — how experiments move through
+  draft → active → promoted/abandoned
+- `OFFICIAL_SOURCES.md` — which sources are authoritative
+- `ONION.md` — why the onion site is the primary web presence
+- `security/TRUST_MODEL.md` — distribution trust model
+
+These matter more as the project grows. Worth reading once you are
+familiar with the codebase.
+
+---
+
+## Summary
+
+| If you want to...                  | Read...                                                                 |
+|------------------------------------|-------------------------------------------------------------------------|
+| Understand what xLaDe is           | `README.md`, `docs/WHY_xLaDe.md`                                        |
+| Install and run it                 | `INSTALL.md`, `docs/END_TO_END_TRACE.md`                                |
+| Use the CLI                        | `docs/CLI_DEMO.md`                                                      |
+| Understand the architecture        | `docs/architecture.md`                                                  |
+| Add an experiment                  | `experiments/EXPERIMENT_TEMPLATE.md`, `experiments/README.md`           |
+| Contribute code                    | `CONTRIBUTING.md`, `docs/architecture.md`                               |
+| Understand the research direction  | `docs/research_roadmap.md`, `docs/REPRODUCIBILITY_AND_COMPATIBILITY.md` |
+| Know what is not implemented       | `LIMITATIONS.md`                                                        |
+| Understand the security model      | `security/THREAT_MODEL.md`, `security/TRUST_MODEL.md`                   |
