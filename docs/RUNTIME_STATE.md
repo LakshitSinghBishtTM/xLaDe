@@ -1,9 +1,14 @@
 # xLaDe Runtime State
 
-This document describes how **xLaDe manages runtime state** across user environments and individual projects.
+This document describes how xLaDe manages runtime state across user
+environments and individual projects.
 
-xLaDe separates state into **global state** (user-level preferences and modes) and **project-local state** (experiment execution and history).  
-This separation is intentional and supports reproducibility, isolation, and clarity.
+xLaDe separates state into **global state** (user-level mode selection)
+and **project-local state** (workspace, experiment history, and metrics).
+This separation is intentional — it supports reproducibility, isolation,
+and clarity across multiple projects on the same machine.
+
+No runtime state affects Lean's kernel, semantics, or proof behaviour.
 
 ---
 
@@ -11,155 +16,150 @@ This separation is intentional and supports reproducibility, isolation, and clar
 
 xLaDe runtime state is designed to be:
 
-- **Explicit** — all state is stored in visible files and directories
-- **Non-invasive** — no Lean core or project source files are modified
-- **Minimal** — only essential orchestration state is recorded
-- **Recoverable** — deleting state resets behavior without breaking projects
-
-No runtime state affects Lean’s kernel, semantics, or proof behavior.
+- **Explicit** — all state is stored in visible, human-readable files
+- **Non-invasive** — no Lean source files or build outputs are modified
+- **Minimal** — only what is needed for orchestration is recorded
+- **Recoverable** — deleting state resets behaviour without breaking anything
 
 ---
 
-## Global State
+## Global State — `~/.xlade/`
 
-Global state is stored in the user’s home directory:
-
-```
-~/.xlade/
-```
-
-This directory contains **user-wide configuration and mode selection**.
-
-### Contents
+Global state lives in the user's home directory and applies across all
+xLaDe projects on the machine.
 
 ```
 ~/.xlade/
-├── config.toml
-├── mode
-└── runs/
+└── mode
 ```
 
-#### `config.toml`
+### `mode`
 
-* Stores user-level configuration options
-* Intended for:
+Stores the currently active xLaDe mode. Set via:
 
-  * future CLI preferences
-  * default behaviors
-  * Optional; absence does not prevent xLaDe usage
+```sh
+xlade mode experimental
+xlade mode stable
+xlade mode onboarding
+```
 
-#### `mode`
+Valid values: `experimental`, `stable`, `onboarding`.
 
-* Stores the currently active xLaDe mode:
+This file controls which experiments are eligible to run. Experiments
+declare their `allowed_modes` in `experiment.toml` — if the current mode
+is not in that list, `xlade run` refuses to execute the experiment.
 
-  * `onboarding`
-  * `experimental`
-  * `stable`
-
-* Set via:
-
-  ```
-  ./bin/xlade mode <mode>
-  ```
-
-* Influences:
-
-  * which experiments are enabled
-  * how strictly policies are enforced
-
-This file does **not** alter Lean itself.
-
-#### `runs/`
-
-* Reserved directory for future experiment execution records
-* Intended to support:
-
-  * global summaries
-  * cross-project analysis
-  * May be empty at early stages
+This file does not alter Lean itself in any way.
 
 ---
 
-## Project-Local State
+## Project-Local State — `.xlade/`
 
-Project-local state is stored inside the project directory:
+Project-local state lives inside the project directory and is created by:
 
+```sh
+xlade init
 ```
-.xlade/
-```
-
-This directory is created by:
-
-```
-./bin/xlade init
-```
-
-It marks the directory as an **xLaDe workspace**.
-
-### Contents
 
 ```
 .xlade/
 ├── experiments.lock
-├── metrics.json
-└── last-run
+├── last-run
+└── metrics.json
 ```
 
-#### `experiments.lock`
+### `experiments.lock`
 
-* Records experiment-related state
-* Intended to support:
+Records experiment activation state. Human-readable and manually
+inspectable. Supports reproducibility by tracking which experiments
+are active in this workspace.
 
-  * reproducibility
-  * controlled experiment activation
-  * Human-readable and manually inspectable
+### `last-run`
 
-#### `metrics.json`
+Contains the ID of the most recently executed experiment. Written by
+`xlade run` on every execution. Read by `xlade status` to display the
+last run. Contains `none` on a freshly initialised workspace.
 
-* Stores metrics generated or referenced by experiment runs
-* May be:
+### `metrics.json`
 
-  * empty
-  * partial
-  * qualitative
-  * Metrics are **observational**, not enforcement mechanisms
+The primary runtime artifact. A structured JSON array appended on every
+`xlade run` call, regardless of whether the experiment succeeded, failed,
+or was skipped.
 
-Missing or incomplete metrics never cause execution failure.
+Each record contains:
 
-#### `last-run`
+```json
+{
+  "experiment_id": "exp-002-kernel-boundary",
+  "experiment_name": "Kernel Boundary Violation Detection",
+  "type": "script-policy",
+  "mode": "experimental",
+  "lean_toolchain": "leanprover/lean4:stable",
+  "timestamp": "2026-05-26 14:10:03",
+  "status": "success"
+}
+```
 
-* Records the identifier of the most recently executed experiment
-* Used by:
+Status values:
 
-  ```
-  ./bin/xlade status
-  ```
-* If unset or empty, no experiment has been run yet
+| Value       | Meaning                                               |
+|-------------|-------------------------------------------------------|
+| `success`   | Experiment ran and passed                             |
+| `failed`    | Experiment ran and failed                             |
+| `skipped`   | Environment prevented execution (e.g. lake not found) |
+| `simulated` | No entry point defined, execution was conceptual      |
+
+`metrics.json` is read by `xlade status` (summary view) and
+`xlade metrics` (full history table). If the file is missing, both
+commands report no runs recorded. If the file is corrupted, both
+commands report it clearly and exit cleanly without crashing.
 
 ---
 
 ## Lifecycle and Cleanup
 
-* Deleting `.xlade/` resets project-local xLaDe state
-* Deleting `~/.xlade/` resets user-wide xLaDe state
-* Neither operation affects:
+**Reset project-local state:**
 
-  * Lean source files
-  * proof artifacts
-  * build outputs
+```sh
+rm -rf .xlade
+xlade init
+```
 
-This makes experimentation **safe and reversible**.
+**Reset global state:**
+
+```sh
+rm -rf ~/.xlade
+```
+
+Neither operation affects:
+- Lean source files
+- proof artifacts
+- build outputs
+- experiment definitions
+
+This makes experimentation fully safe and reversible.
+
+---
+
+## State and Reproducibility
+
+The combination of `lean_toolchain` recorded in each `metrics.json` entry
+and the `experiment.toml` metadata for each experiment forms the foundation
+of xLaDe's reproducibility model. Every run is associated with the exact
+environment it executed in — mode, toolchain version, and timestamp.
+
+This is the first step toward the longer-term goal of reconstructing
+historical experiment environments on demand. See
+[`REPRODUCIBILITY_AND_COMPATIBILITY.md`](REPRODUCIBILITY_AND_COMPATIBILITY.md)
+for the full plan.
 
 ---
 
 ## Summary
 
-xLaDe runtime state exists solely to support **ecosystem orchestration**.
-
-It:
-
-* tracks modes and experiment history,
-* enables reproducible experimentation,
-* and avoids entanglement with Lean’s trusted core.
-
-Runtime state is intentionally minimal and transparent, reflecting xLaDe’s research-first and non-invasive design philosophy.
+| Location                  | Contents                    | Created by   |
+|---------------------------|-----------------------------|--------------|
+| `~/.xlade/mode`           | Active mode                 | `xlade mode` |
+| `.xlade/experiments.lock` | Experiment activation state | `xlade init` |
+| `.xlade/last-run`         | Last executed experiment ID | `xlade run`  |
+| `.xlade/metrics.json`     | Full structured run history | `xlade run`  |
