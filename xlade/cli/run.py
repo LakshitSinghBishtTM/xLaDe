@@ -1,10 +1,9 @@
 import os
 import time
 import json
-import shutil
-import subprocess
 import tomllib
 from xlade.core.errors import error
+from xlade.core import lean
 
 SEP = "-" * 100
 
@@ -77,27 +76,17 @@ def _execute(exp_type, entry, exp_path):
             print(f"  [error]  Entry script not found: {entry}")
             return "error"
 
-        if not os.access(entry, os.X_OK):
-            os.chmod(entry, 0o755)
-
-        result = subprocess.run(["bash", entry], capture_output=False)
-        return "success" if result.returncode == 0 else "failed"
+        result = lean.run_script(entry, passthrough=True)
+        return "success" if result else "failed"
 
     if exp_type == "lean-policy" and entry:
-        if not shutil.which("lake"):
+        result = lean.run_lake_script("enforceReview", cwd=exp_path, passthrough=True)
+        if not result.success and "not found on PATH" in result.stderr:
             print("  [skip]  lake not found -- cannot run lean-policy experiment.")
             print("          Install Lean 4 and Lake via elan:")
             print("          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh")
             return "skipped"
-
-        script_name = "enforceReview"
-        print(f"  Executing Lake script: {script_name}")
-        result = subprocess.run(
-            ["lake", "script", "run", script_name],
-            capture_output=False,
-            cwd=exp_path if os.path.isdir(exp_path) else ".",
-        )
-        return "success" if result.returncode == 0 else "failed"
+        return "success" if result else "failed"
 
     print("  Execution: simulated (no entry point defined)")
     return "simulated"
