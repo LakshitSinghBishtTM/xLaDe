@@ -126,7 +126,7 @@ def run_lake_script(
     terminal during `xlade run`.
     """
     missing = _require("lake")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["lake", "script", "run", script_name], cwd=cwd, passthrough=passthrough)
 
@@ -141,7 +141,7 @@ def run_lake_build(
     Used for lean-policy experiments that require a full build.
     """
     missing = _require("lake")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["lake", "build"], cwd=cwd, passthrough=passthrough)
 
@@ -157,7 +157,7 @@ def run_lean_file(
     error-hints tool in tools/errors/).
     """
     missing = _require("lean")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["lean", path], passthrough=passthrough)
 
@@ -174,7 +174,7 @@ def run_script(
     Defaults to passthrough=True so script output is visible live.
     """
     missing = _require("bash")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["bash", entry], cwd=cwd, passthrough=passthrough)
 
@@ -187,7 +187,7 @@ def lean_version(passthrough: bool = False) -> LeanResult:
     stdout will contain the version string in capture mode.
     """
     missing = _require("lean")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["lean", "--version"], passthrough=passthrough)
 
@@ -200,6 +200,6 @@ def lake_version(passthrough: bool = False) -> LeanResult:
     (not just present on PATH).
     """
     missing = _require("lake")
-    if missing:
+    if missing is not None:
         return missing
     return _run(["lake", "--version"], passthrough=passthrough)
