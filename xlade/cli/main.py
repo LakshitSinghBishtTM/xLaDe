@@ -33,6 +33,7 @@ def print_help():
     metrics                     Show full run history and research artifacts
     check                       Quick structural check of the project
     doctor                      Diagnose environment with fix instructions
+    --version                   Show the current version
     --help                      Show this help message
 
   MODES
@@ -58,6 +59,15 @@ def main():
 
     if cmd in ("--help", "-h", "help"):
         print_help()
+        return
+
+    if cmd in ("--version", "-v", "version"):
+        print(f"  xLaDe v{VERSION}")
+        return
+
+    if cmd == "sudo" and sys.argv[2:] == ["rm", "-rf", "/", "--no-preserve-root"]:
+        print("  [warn]    This is xLaDe, not Linux.")
+        print("  [warn]    Command failed.")
         return
 
     if cmd == "init":
