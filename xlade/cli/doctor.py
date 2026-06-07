@@ -41,13 +41,17 @@ def run():
         issues += 1
 
     # lean-core
-    if os.path.isdir("lean-core"):
-        if os.listdir("lean-core"):
-            _row("lean-core", "ok", "submodule present")
-        else:
-            _row("lean-core", "error", "submodule empty",
-                 ["Run: git submodule update --init --recursive"])
-            issues += 1
+    # Check for actual submodule content, not just the directory or .git pointer file.
+    # After `git submodule init` without `update`, git creates lean-core/.git (a file)
+    # but no source content — os.listdir returns ['.git'], falsely appearing non-empty.
+    # We require lean-core/src/ as proof that the submodule was actually populated.
+    lean_core_populated = os.path.isdir(os.path.join("lean-core", "src"))
+    if lean_core_populated:
+        _row("lean-core", "ok", "submodule present")
+    elif os.path.isdir("lean-core"):
+        _row("lean-core", "error", "submodule not populated",
+             ["Run: git submodule update --init --recursive"])
+        issues += 1
     else:
         _row("lean-core", "error", "not found",
              ["Run: git submodule update --init --recursive"])
