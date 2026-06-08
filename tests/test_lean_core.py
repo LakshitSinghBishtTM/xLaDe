@@ -204,18 +204,18 @@ def test_lake_version_command_field(no_lean):
 # lean_version / lake_version — binary present (capture mode)
 # ---------------------------------------------------------------------------
 
-def test_lean_version_capture_returns_string(fake_lean):
-    # lean is on PATH but likely not installed in CI — should fail gracefully
+def test_lean_version_capture_returns_string(monkeypatch):
+    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: "/usr/bin/lean" if x == "lean" else None)
+    monkeypatch.setattr("xlade.core.lean._run", lambda cmd, **kw: LeanResult(success=True, returncode=0, stdout="Lean (version 4.x.x)", command=cmd))
     result = lean_version(passthrough=False)
-    # Either it runs and returns a version string, or it fails with FileNotFoundError
-    # caught internally. Either way: a LeanResult comes back, no exception raised.
     assert isinstance(result, LeanResult)
 
 
-def test_lake_version_capture_returns_string(fake_lake):
+def test_lake_version_capture_returns_string(monkeypatch):
+    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: "/usr/bin/lake" if x == "lake" else None)
+    monkeypatch.setattr("xlade.core.lean._run", lambda cmd, **kw: LeanResult(success=True, returncode=0, stdout="Lake version 4.x.x", command=cmd))
     result = lake_version(passthrough=False)
     assert isinstance(result, LeanResult)
-
 
 # ---------------------------------------------------------------------------
 # bool convenience
