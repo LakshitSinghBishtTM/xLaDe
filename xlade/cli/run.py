@@ -80,12 +80,17 @@ def _execute(exp_type, entry, exp_path):
         return "success" if result else "failed"
 
     if exp_type == "lean-policy" and entry:
-        result = lean.run_lake_script("enforceReview", cwd=exp_path, passthrough=True)
+        result = lean.run_lake_script("enforceReview", cwd=exp_path, passthrough=False)
         if not result.success and "not found on PATH" in result.stderr:
             print("  [skip]  lake not found -- cannot run lean-policy experiment.")
             print("          Install Lean 4 and Lake via elan:")
             print("          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh")
             return "skipped"
+        
+        for line in (result.stdout + result.stderr).splitlines():
+            if line.strip():
+                print(f"  {line}")
+
         return "success" if result else "failed"
 
     print("  Execution: simulated (no entry point defined)")
