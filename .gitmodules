@@ -1,3 +1,6 @@
 [submodule "lean-core"]
 	path = lean-core
 	url = https://github.com/leanprover/lean4
+[submodule "experiments/exp-004-project-proof-1/exp-004-project-proof-1"]
+	path = experiments/exp-004-project-proof-1/exp-004-project-proof-1
+	url = https://github.com/LakshitSinghBishtTM/exp-004-project-proof-1
