@@ -27,7 +27,7 @@ def repo_with_docs(tmp_path):
 @pytest.fixture
 def script_path():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    return os.path.join(repo_root, "scripts", "check-doc-coverage.sh")
+    return os.path.join(repo_root, "scripts", "experiments", "check-doc-coverage.sh")
 
 
 def test_passes_complete_repo(repo_with_docs, script_path):
