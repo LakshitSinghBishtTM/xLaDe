@@ -128,8 +128,9 @@ notes: [`INSTALL.md`](INSTALL.md).
 | `exp-001-proof-review`    | lean-policy   | Proof review markers via Lake script               | Lake     |
 | `exp-002-kernel-boundary` | script-policy | No modifications to `lean-core/`                   | bash     |
 | `exp-003-doc-coverage`    | script-policy | README present in all experiments, modes, policies | bash     |
+| `exp-004-project-proof-1` | lean-policy   | Verifies proof of an external repo with lake build | Lake     |
 
-EXP-002 and EXP-003 run on any machine with bash. EXP-001 requires a
+EXP-002 and EXP-003 run on any machine with bash. EXP-001 and EXP-004 require a
 full Lean 4 + Lake installation via elan and skips cleanly without it.
 
 ---
@@ -157,7 +158,7 @@ any single provider.
 | Bitbucket            | https://bitbucket.org/lakshitsinghbishttm/xlade                         |
 | Gitea                | https://gitea.com/LakshitSinghBishtTM/xLaDe                             |
 | Sourceforge          | https://sourceforge.net/projects/xlade                                  |
-| **Website**          | `http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion` |
+| **Website**          | http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion |
 
 The onion service is the official project website, not a mirror or
 fallback. See [`ONION.md`](ONION.md) for the rationale.
