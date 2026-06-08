@@ -31,7 +31,7 @@ Part A - Get the tokens
 Note: The address link may look like this 
 `https://gitlab.com/<username>/<repo_name>/-/settings/access-tokens`
 
-Example: "https://gitlab.com/lakshitsinghbishttm/snowflake/-/settings/access_tokens"
+Example: "https://gitlab.com/lakshitsinghbishttm/xLaDe/-/settings/access_tokens"
 
 ### Codeberg
 
@@ -61,7 +61,7 @@ Note: The address link may look like this
 Note: The address link may look like this
 `https://bitbucket.org/<username>/<repo_name>/admin/access-tokens` 
 
-Example: "https://bitbucket.org/lakshitsinghbishttm/snowflake/admin/access-tokens"
+Example: "https://bitbucket.org/lakshitsinghbishttm/xLaDe/admin/access-tokens"
 
 ### Gitea
 
