@@ -1,0 +1,11 @@
+id = "EXP-004"
+name = "Project Proof 1"
+type = "script-policy"
+status = "active"
+allowed_modes = ["experimental"]
+lean_toolchain = "leanprover/lean4:stable"
+entry = "scripts/experiments/run-exp-004.sh"
+description = "First real external Lean 4 project integrated as an xLaDe experiment. A minimal proof repository, to verify xLaDe can wrap and run an external project."
+success_criteria = "compilation"
+project_repo = "https://github.com/LakshitSinghBishtTM/exp-004-project-proof-1"
+project_submodule = "experiments/exp-004-project-proof-1/exp-004-project-proof-1"
