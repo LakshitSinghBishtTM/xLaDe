@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: mirrors
+  group: sourceforge-mirror
   cancel-in-progress: true
 
 jobs:
