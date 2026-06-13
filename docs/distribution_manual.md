@@ -7,6 +7,7 @@ This manual covers:
 - Codeberg
 - Bitbucket
 - Gitea
+- Sourceforge
 
 via Github as canonical.
 
@@ -129,3 +130,40 @@ Each release
 6. Torrent creator
 7. Select that file
 8. Torrent created and then seed
+
+---
+
+## Sourceforge
+
+Part A - Sourceforge
+
+1. Create a SSH Key. (I prefer new key-pair locally for security reasons)
+2. Go to Sourceforge
+3. Click on Me (right)
+4. Go to Account settings
+5. Go to SSH settings
+6. Paste SSH Public Key
+7. Enter login shell = /bin/bash
+8. Save and exit
+9. Create the repo and maybe import from Github instead of New
+
+Part B - Github
+
+1. Copy SSH Private Key
+2. Go to Github
+3. Go to repo
+4. Go to settings
+5. Go to secrets and variables
+6. Click on actions
+7. Click on new repository secret
+8. Paste the key and name it as wish (I prefer SOURCEFORGE_SSH_KEY)
+
+Part C - Syncing
+
+1. Write sourceforge.yml (You can use from any of my repos)
+2. Go to sourceforge
+3. Go to source code, and see the top. It will have "Read/Write SSH Access"
+4. Add it to yml file. 
+5. Push and Done
+
+---
