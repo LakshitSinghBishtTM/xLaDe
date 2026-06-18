@@ -7,12 +7,6 @@ authors:
   - given-names: Lakshit Singh
     family-names: Bisht
     email: lakshitsinghbishttm@gmail.com
-  - given-names: Deepak
-    family-names: Pandey
-  - given-names: Manpreet
-    family-names: Sahoo
-  - given-names: Thota
-    family-names: Siva
 
 version: "1.6.0"
 date-released: 2026-06-01
@@ -30,11 +24,15 @@ identifiers:
     description: "Concept DOI (all versions)"
 
 abstract: >
-  xLaDe is an experimental open-source ecosystem framework for Lean 4 that
-  focuses on tooling, organization, and workflow design for formal verification.
-  It enables structured, reproducible experimentation and ecosystem-level
-  analysis without modifying Lean’s kernel, supporting scalable development
-  and future extensions in formal methods tooling.
+  Lean 4 evolves rapidly, enabling continuous improvements to the language and
+  ecosystem but creating challenges for the long-term reproducibility of proofs,
+  experiments, and research artifacts. xLaDe (eXperimental Lean 4 Advanced Development
+  Ecosystem) is an ecosystem framework that addresses this problem by recording toolchain
+  metadata, execution context, and experiment information while treating the Lean kernel
+  as immutable infrastructure. Rather than modifying Lean or maintaining a fork, xLaDe
+  operates as an orchestration layer that supports reproducibility, structured experimentation,
+  policy enforcement, verification, and decentralized distribution for Lean 4 projects.
+
 
 keywords:
   - Lean 4
