@@ -10,25 +10,30 @@ readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.11"
 keywords = ["lean4", "formal-verification", "proof-assistant", "ecosystem"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
 
-[[project.authors]]
-name = "Lakshit Singh Bisht"
-email = "lakshitsinghbishttm@gmail.com"
+authors = [
+    { name = "Lakshit Singh Bisht", email = "lakshitsinghbishttm@gmail.com" }
+]
 
-[[project.authors]]
-name = "Manpreet Sahoo"
-
-[[project.authors]]
-name = "Deepak Pandey"
-
-[[project.authors]]
-name = "Thota Siva"
+maintainers = [
+    { name = "Lakshit Singh Bisht", email = "lakshitsinghbishttm@gmail.com" }
+]
 
 [project.scripts]
 xlade = "xlade.cli.main:main"
 
 [project.urls]
+Homepage = "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion"
 Repository = "https://github.com/LakshitSinghBishtTM/xLaDe"
+Documentation = "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/docs.html"
 
 [tool.setuptools.packages.find]
 where = ["."]
