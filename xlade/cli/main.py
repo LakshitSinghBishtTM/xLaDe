@@ -20,7 +20,7 @@ def print_bare():
 
 
 def print_help():
-    print(f"""
+    print("""
   USAGE
     xlade <command> [arguments]
 
@@ -74,6 +74,7 @@ def main():
 
     if cmd == "init":
         from xlade.cli.init import run
+
         run()
         return
 
@@ -82,6 +83,7 @@ def main():
             print("  Usage: xlade mode <stable|experimental|onboarding>")
             return
         from xlade.cli.mode import run
+
         run(sys.argv[2])
         return
 
@@ -94,6 +96,7 @@ def main():
 
         if target == "experiments":
             from xlade.cli.list_experiments import run
+
             run()
             return
 
@@ -111,31 +114,37 @@ def main():
             print("  Tip:   Run 'xlade list experiments' to see available experiments.")
             return
         from xlade.cli.run import run
+
         run(sys.argv[2])
         return
 
     if cmd == "status":
         from xlade.cli.status import run
+
         run()
         return
 
     if cmd == "check":
         from xlade.cli.check import run
+
         run()
         return
 
     if cmd == "metrics":
         from xlade.cli.metrics import run
+
         run()
         return
 
     if cmd == "doctor":
         from xlade.cli.doctor import run
+
         run()
         return
 
     if cmd == "clean":
         from xlade.cli.clean import run
+
         run()
         return
 
@@ -144,6 +153,7 @@ def main():
             print("  Usage: xlade validate experiments")
             return
         from xlade.cli.validate import run
+
         run()
         return
 

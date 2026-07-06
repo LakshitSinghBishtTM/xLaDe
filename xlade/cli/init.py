@@ -1,6 +1,7 @@
 import os
 
-sep = "-"*100
+sep = "-" * 100
+
 
 def run():
     root = os.getcwd()

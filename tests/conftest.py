@@ -1,7 +1,6 @@
-import pytest
 import os
-import tempfile
-import shutil
+
+import pytest
 
 
 @pytest.fixture
@@ -27,8 +26,11 @@ def fake_home(monkeypatch, tmp_path):
     fake = tmp_path / "home"
     fake.mkdir()
     monkeypatch.setenv("HOME", str(fake))
-    monkeypatch.setattr(os.path, "expanduser",
-                        lambda p: str(fake) if p == "~" else os.path.join(str(fake), p[2:]))
+    monkeypatch.setattr(
+        os.path,
+        "expanduser",
+        lambda p: str(fake) if p == "~" else os.path.join(str(fake), p[2:]),
+    )
     return fake
 
 

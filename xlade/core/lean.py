@@ -21,10 +21,10 @@ import shutil
 import subprocess
 from dataclasses import dataclass, field
 
-
 # ---------------------------------------------------------------------------
 # Result type
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class LeanResult:
@@ -41,6 +41,7 @@ class LeanResult:
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
+
 
 def _require(binary: str) -> LeanResult | None:
     """Return a failed LeanResult if binary is not on PATH, else None."""
@@ -114,6 +115,7 @@ def _run(
 # Public API
 # ---------------------------------------------------------------------------
 
+
 def run_lake_script(
     script_name: str,
     cwd: str | None = None,
@@ -128,7 +130,9 @@ def run_lake_script(
     missing = _require("lake")
     if missing is not None:
         return missing
-    return _run(["lake", "script", "run", script_name], cwd=cwd, passthrough=passthrough)
+    return _run(
+        ["lake", "script", "run", script_name], cwd=cwd, passthrough=passthrough
+    )
 
 
 def run_lake_build(

@@ -1,6 +1,8 @@
 import json
 import os
+
 from xlade.cli.run import run
+
 
 def test_run_writes_metrics_json(initialized_project, experiments_dir, fake_home):
     mode_dir = os.path.join(os.path.expanduser("~"), ".xlade")
@@ -35,7 +37,9 @@ def test_run_appends_multiple_runs(initialized_project, experiments_dir, fake_ho
     assert len(data) == 2
 
 
-def test_run_metrics_survives_corrupt_json(initialized_project, experiments_dir, fake_home):
+def test_run_metrics_survives_corrupt_json(
+    initialized_project, experiments_dir, fake_home
+):
     mode_dir = os.path.join(os.path.expanduser("~"), ".xlade")
     os.makedirs(mode_dir, exist_ok=True)
     open(os.path.join(mode_dir, "mode"), "w").write("experimental\n")

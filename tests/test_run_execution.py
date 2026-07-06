@@ -1,7 +1,9 @@
-import os
 import json
+import os
 import stat
+
 import pytest
+
 from xlade.cli.run import run
 
 
@@ -140,7 +142,9 @@ def test_lean_policy_without_lake(initialized_project, fake_home, capsys, monkey
     assert "lake not found" in captured.out
 
 
-def test_lean_policy_records_skipped_in_metrics(initialized_project, fake_home, monkeypatch):
+def test_lean_policy_records_skipped_in_metrics(
+    initialized_project, fake_home, monkeypatch
+):
     exp_dir = initialized_project / "experiments" / "EXP-LEAN2"
     exp_dir.mkdir(parents=True)
     (exp_dir / "experiment.toml").write_text(

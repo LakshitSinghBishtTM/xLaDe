@@ -6,23 +6,24 @@ They use monkeypatching and a tiny real bash binary (always present
 in CI) to exercise both the capture and passthrough paths.
 """
 
-import os
 import stat
+
 import pytest
+
 from xlade.core.lean import (
     LeanResult,
-    run_lake_script,
+    lake_version,
+    lean_version,
     run_lake_build,
+    run_lake_script,
     run_lean_file,
     run_script,
-    lean_version,
-    lake_version,
 )
-
 
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
+
 
 @pytest.fixture
 def pass_script(tmp_path):
@@ -70,6 +71,7 @@ def fake_lean(monkeypatch):
 # LeanResult dataclass
 # ---------------------------------------------------------------------------
 
+
 def test_lean_result_truthy_when_success():
     r = LeanResult(success=True, returncode=0)
     assert r
@@ -97,6 +99,7 @@ def test_lean_result_stores_command():
 # run_script — uses real bash (always available in CI)
 # ---------------------------------------------------------------------------
 
+
 def test_run_script_success(pass_script):
     result = run_script(pass_script, passthrough=False)
     assert result.success
@@ -119,7 +122,7 @@ def test_run_script_captures_stdout(pass_script):
 def test_run_script_passthrough_returns_empty_stdout(pass_script):
     result = run_script(pass_script, passthrough=True)
     assert result.success
-    assert result.stdout == ""   # passthrough — not captured
+    assert result.stdout == ""  # passthrough — not captured
 
 
 def test_run_script_missing_file():
@@ -143,6 +146,7 @@ def test_run_script_missing_entry_file():
 # run_lake_script — lake not found
 # ---------------------------------------------------------------------------
 
+
 def test_run_lake_script_no_lake(no_lean):
     result = run_lake_script("enforceReview")
     assert not result.success
@@ -158,6 +162,7 @@ def test_run_lake_script_no_lake_returncode(no_lean):
 # run_lake_build — lake not found
 # ---------------------------------------------------------------------------
 
+
 def test_run_lake_build_no_lake(no_lean):
     result = run_lake_build()
     assert not result.success
@@ -168,6 +173,7 @@ def test_run_lake_build_no_lake(no_lean):
 # run_lean_file — lean not found
 # ---------------------------------------------------------------------------
 
+
 def test_run_lean_file_no_lean(no_lean):
     result = run_lean_file("some/file.lean")
     assert not result.success
@@ -177,6 +183,7 @@ def test_run_lean_file_no_lean(no_lean):
 # ---------------------------------------------------------------------------
 # lean_version / lake_version — not found
 # ---------------------------------------------------------------------------
+
 
 def test_lean_version_no_lean(no_lean):
     result = lean_version()
@@ -204,22 +211,41 @@ def test_lake_version_command_field(no_lean):
 # lean_version / lake_version — binary present (capture mode)
 # ---------------------------------------------------------------------------
 
+
 def test_lean_version_capture_returns_string(monkeypatch):
-    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: "/usr/bin/lean" if x == "lean" else None)
-    monkeypatch.setattr("xlade.core.lean._run", lambda cmd, **kw: LeanResult(success=True, returncode=0, stdout="Lean (version 4.x.x)", command=cmd))
+    monkeypatch.setattr(
+        "xlade.core.lean.shutil.which",
+        lambda x: "/usr/bin/lean" if x == "lean" else None,
+    )
+    monkeypatch.setattr(
+        "xlade.core.lean._run",
+        lambda cmd, **kw: LeanResult(
+            success=True, returncode=0, stdout="Lean (version 4.x.x)", command=cmd
+        ),
+    )
     result = lean_version(passthrough=False)
     assert isinstance(result, LeanResult)
 
 
 def test_lake_version_capture_returns_string(monkeypatch):
-    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: "/usr/bin/lake" if x == "lake" else None)
-    monkeypatch.setattr("xlade.core.lean._run", lambda cmd, **kw: LeanResult(success=True, returncode=0, stdout="Lake version 4.x.x", command=cmd))
+    monkeypatch.setattr(
+        "xlade.core.lean.shutil.which",
+        lambda x: "/usr/bin/lake" if x == "lake" else None,
+    )
+    monkeypatch.setattr(
+        "xlade.core.lean._run",
+        lambda cmd, **kw: LeanResult(
+            success=True, returncode=0, stdout="Lake version 4.x.x", command=cmd
+        ),
+    )
     result = lake_version(passthrough=False)
     assert isinstance(result, LeanResult)
+
 
 # ---------------------------------------------------------------------------
 # bool convenience
 # ---------------------------------------------------------------------------
+
 
 def test_bool_true_result_in_conditional():
     r = LeanResult(success=True)
