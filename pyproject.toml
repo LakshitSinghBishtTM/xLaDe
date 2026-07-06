@@ -9,13 +9,12 @@ description = "eXperimental Lean 4 advanced Development ecosystem"
 readme = "README.md"
 license = "GPL-3.0-only"
 license-files = ["LICENSE"]
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 keywords = ["lean4", "formal-verification", "proof-assistant", "ecosystem"]
 classifiers = [
     "Environment :: Console",
     "Intended Audience :: Developers",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.14",
     "Operating System :: OS Independent",
 ]
 
@@ -49,3 +48,4 @@ target-version = ["py314"]
 [tool.isort]
 profile = "black"
 line_length = 120
+skip = ["lean-core"]
