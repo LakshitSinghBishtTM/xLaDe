@@ -1,6 +1,7 @@
 import os
 import stat
 import subprocess
+
 import pytest
 
 
@@ -19,12 +20,7 @@ def exp005_toml():
 @pytest.fixture
 def submodule_path():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    return os.path.join(
-        repo_root,
-        "experiments",
-        "exp-005-lean4-courses",
-        "lean4-courses"
-    )
+    return os.path.join(repo_root, "experiments", "exp-005-lean4-courses", "lean4-courses")
 
 
 def test_exp005_script_exists(script_path):
@@ -42,6 +38,7 @@ def test_exp005_toml_exists(exp005_toml):
 
 def test_exp005_toml_has_required_fields(exp005_toml):
     import tomllib
+
     with open(exp005_toml, "rb") as f:
         config = tomllib.load(f)
     assert config["id"] == "EXP-005"
@@ -58,10 +55,9 @@ def test_exp005_toml_records_toolchain_mismatch():
     The toml should record the version actually used, not the upstream pin.
     """
     import tomllib
+
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    toml_path = os.path.join(
-        repo_root, "experiments", "exp-005-lean4-courses", "experiment.toml"
-    )
+    toml_path = os.path.join(repo_root, "experiments", "exp-005-lean4-courses", "experiment.toml")
     with open(toml_path, "rb") as f:
         config = tomllib.load(f)
     # We ran on v4.30.0, not the upstream v4.29.0
@@ -70,8 +66,7 @@ def test_exp005_toml_records_toolchain_mismatch():
 
 def test_exp005_submodule_directory_exists(submodule_path):
     assert os.path.isdir(submodule_path), (
-        f"Submodule not found: {submodule_path}\n"
-        "Run: git submodule update --init --recursive"
+        f"Submodule not found: {submodule_path}\n" "Run: git submodule update --init --recursive"
     )
 
 
@@ -85,9 +80,8 @@ def test_exp005_submodule_is_not_empty(submodule_path):
 def test_exp005_submodule_has_lakefile(submodule_path):
     if not os.path.isdir(submodule_path):
         pytest.skip("Submodule not populated")
-    has_lakefile = (
-        os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or
-        os.path.isfile(os.path.join(submodule_path, "lakefile.toml"))
+    has_lakefile = os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or os.path.isfile(
+        os.path.join(submodule_path, "lakefile.toml")
     )
     assert has_lakefile, "No lakefile found in submodule"
 
@@ -104,9 +98,7 @@ def test_exp005_submodule_has_expected_structure(submodule_path):
         pytest.skip("Submodule not populated")
     entries = os.listdir(submodule_path)
     course_dirs = [e for e in entries if e.startswith("000")]
-    assert len(course_dirs) >= 10, (
-        f"Expected at least 10 course directories, found {len(course_dirs)}"
-    )
+    assert len(course_dirs) >= 10, f"Expected at least 10 course directories, found {len(course_dirs)}"
 
 
 def test_exp005_script_fails_without_submodule(script_path, tmp_path):

@@ -1,8 +1,8 @@
+import json
 import os
 import time
-import json
 import tomllib
-from xlade.core.errors import error
+
 from xlade.core import lean
 
 SEP = "-" * 100
@@ -86,7 +86,7 @@ def _execute(exp_type, entry, exp_path):
             print("          Install Lean 4 and Lake via elan:")
             print("          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh")
             return "skipped"
-        
+
         for line in (result.stdout + result.stderr).splitlines():
             if line.strip():
                 print(f"  {line}")
@@ -105,17 +105,17 @@ def _write_metrics(exp_id, mode, lean_toolchain, timestamp, config, status):
         try:
             with open(metrics_path, "r") as f:
                 existing = json.load(f)
-        except (json.JSONDecodeError, IOError):
+        except json.JSONDecodeError, IOError:
             existing = []
 
     entry = {
-        "experiment_id":   exp_id,
+        "experiment_id": exp_id,
         "experiment_name": config.get("name", exp_id),
-        "type":            config.get("type", "unknown"),
-        "mode":            mode,
-        "lean_toolchain":  lean_toolchain,
-        "timestamp":       timestamp,
-        "status":          status,
+        "type": config.get("type", "unknown"),
+        "mode": mode,
+        "lean_toolchain": lean_toolchain,
+        "timestamp": timestamp,
+        "status": status,
     }
 
     existing.append(entry)

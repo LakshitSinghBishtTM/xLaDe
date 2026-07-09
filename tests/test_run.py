@@ -1,6 +1,8 @@
 import json
 import os
+
 from xlade.cli.run import run
+
 
 def test_run_writes_metrics_json(initialized_project, experiments_dir, fake_home):
     mode_dir = os.path.join(os.path.expanduser("~"), ".xlade")

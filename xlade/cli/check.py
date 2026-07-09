@@ -1,5 +1,4 @@
 import os
-from xlade.core.errors import error
 
 
 def run():
@@ -9,7 +8,13 @@ def run():
         issues.append(("workspace", "not initialised", "run: xlade init"))
 
     if not os.path.isdir("experiments"):
-        issues.append(("experiments", "directory not found", "expected experiments/ in project root"))
+        issues.append(
+            (
+                "experiments",
+                "directory not found",
+                "expected experiments/ in project root",
+            )
+        )
 
     sep = "-" * 100
 
@@ -24,8 +29,8 @@ def run():
         print(f"  {sep}")
         print(f"  {len(issues)} issue(s) found.")
     else:
-        print(f"  workspace     [ok]")
-        print(f"  experiments   [ok]")
+        print("  workspace     [ok]")
+        print("  experiments   [ok]")
         print(f"  {sep}")
         print("  All checks passed.")
 

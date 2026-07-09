@@ -30,9 +30,9 @@ def run():
             experiments.append((name, "invalid", "unknown", "unknown"))
             continue
 
-        exp_id   = name
-        status   = config.get("status", "unknown")
-        modes    = config.get("allowed_modes", [])
+        exp_id = name
+        status = config.get("status", "unknown")
+        modes = config.get("allowed_modes", [])
         exp_type = config.get("type", "unknown")
         mode_str = ", ".join(modes) if modes else "none"
 
@@ -43,9 +43,9 @@ def run():
         print("  See experiments/EXPERIMENT_TEMPLATE.md to add one.")
         return
 
-    col_id   = max(len(e[0]) for e in experiments)
-    col_id   = max(col_id, 10)
-    sep      = "-" * 100
+    col_id = max(len(e[0]) for e in experiments)
+    col_id = max(col_id, 10)
+    sep = "-" * 100
 
     print()
     print(f"  Experiments  ({len(experiments)} found)")

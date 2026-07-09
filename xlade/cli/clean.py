@@ -18,14 +18,14 @@ def run():
     # Project-local state
     if os.path.isdir(project_local):
         shutil.rmtree(project_local)
-        deleted.append(f".xlade/  (workspace, run history, metrics)")
+        deleted.append(".xlade/  (workspace, run history, metrics)")
     else:
         not_found.append(".xlade/")
 
     # Global state
     if os.path.isdir(global_state):
         shutil.rmtree(global_state)
-        deleted.append(f"~/.xlade/  (mode)")
+        deleted.append("~/.xlade/  (mode)")
     else:
         not_found.append("~/.xlade/")
 

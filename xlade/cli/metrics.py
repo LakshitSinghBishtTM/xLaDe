@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 SEP = "-" * 100
 
@@ -27,7 +27,7 @@ def _show_run_history():
     try:
         with open(metrics_path, "r") as f:
             data = json.load(f)
-    except (json.JSONDecodeError, IOError):
+    except json.JSONDecodeError, IOError:
         print()
         print("  [error]  metrics.json is corrupted.")
         print("           Delete .xlade/metrics.json to reset run history.")
@@ -40,13 +40,13 @@ def _show_run_history():
         print()
         return
 
-    col_id   = max((len(r.get("experiment_id", "")) for r in data), default=13)
-    col_mode = max((len(r.get("mode", ""))          for r in data), default=4)
-    col_ts   = max((len(r.get("timestamp", ""))     for r in data), default=19)
+    col_id = max((len(r.get("experiment_id", "")) for r in data), default=13)
+    col_mode = max((len(r.get("mode", "")) for r in data), default=4)
+    col_ts = max((len(r.get("timestamp", "")) for r in data), default=19)
 
-    col_id   = max(col_id,   10)
-    col_mode = max(col_mode,  4)
-    col_ts   = max(col_ts,   19)
+    col_id = max(col_id, 10)
+    col_mode = max(col_mode, 4)
+    col_ts = max(col_ts, 19)
 
     print()
     print(f"  xLaDe Metrics  ({len(data)} run(s))")

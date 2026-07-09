@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 SEP = "-" * 100
 
@@ -18,7 +18,7 @@ def run():
     print(f"  {SEP}")
 
     if not os.path.isdir(".xlade"):
-        print(f"  Workspace   not initialised")
+        print("  Workspace   not initialised")
         print(f"  Mode        {mode}")
         print(f"  {SEP}")
         print("  Run 'xlade init' to initialise the workspace.")
@@ -31,7 +31,7 @@ def run():
         with open(last_run_file) as f:
             last_exp = f.read().strip()
 
-    print(f"  Workspace   initialised")
+    print("  Workspace   initialised")
     print(f"  Mode        {mode}")
     print(f"  Last run    {last_exp}")
 
@@ -47,7 +47,7 @@ def run():
     try:
         with open(metrics_path, "r") as f:
             data = json.load(f)
-    except (json.JSONDecodeError, IOError):
+    except json.JSONDecodeError, IOError:
         print(f"  {SEP}")
         print("  [error]  metrics.json is corrupted.")
         print("           Delete .xlade/metrics.json to reset run history.")
@@ -60,11 +60,11 @@ def run():
         print()
         return
 
-    total   = len(data)
+    total = len(data)
     success = sum(1 for r in data if r.get("status") == "success")
-    failed  = sum(1 for r in data if r.get("status") == "failed")
+    failed = sum(1 for r in data if r.get("status") == "failed")
     skipped = sum(1 for r in data if r.get("status") == "skipped")
-    other   = total - success - failed - skipped
+    other = total - success - failed - skipped
 
     parts = [f"success: {success}"]
     if failed:
@@ -82,7 +82,7 @@ def run():
     for r in data[-5:]:
         status = r.get("status", "unknown")
         exp_id = r.get("experiment_id", "unknown")
-        ts     = r.get("timestamp", "")
+        ts = r.get("timestamp", "")
         print(f"    {exp_id:<38}  {ts}  {status}")
 
     print()

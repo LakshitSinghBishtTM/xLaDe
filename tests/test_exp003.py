@@ -1,6 +1,6 @@
 import os
-import stat
 import subprocess
+
 import pytest
 
 
@@ -92,6 +92,4 @@ def test_actual_repo_passes(script_path):
         capture_output=True,
         text=True,
     )
-    assert result.returncode == 0, (
-        f"Real repo failed doc coverage:\n{result.stdout}"
-    )
+    assert result.returncode == 0, f"Real repo failed doc coverage:\n{result.stdout}"

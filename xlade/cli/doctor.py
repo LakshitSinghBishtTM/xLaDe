@@ -1,9 +1,9 @@
-import shutil
 import os
+import shutil
 
-SEP       = "-" * 100
+SEP = "-" * 100
 COL_LABEL = 16
-COL_TAG   = 7   # "[error]" is longest tag at 7 chars
+COL_TAG = 7  # "[error]" is longest tag at 7 chars
 
 
 def _row(label, tag, message, hint=None):
@@ -26,18 +26,30 @@ def run():
     if shutil.which("elan"):
         _row("elan", "ok", "found")
     else:
-        _row("elan", "error", "not found",
-             ["Install: curl https://elan.lean-lang.org/elan-init.sh -sSf | sh",
-              "Then restart your shell and re-run xlade doctor."])
+        _row(
+            "elan",
+            "error",
+            "not found",
+            [
+                "Install: curl https://elan.lean-lang.org/elan-init.sh -sSf | sh",
+                "Then restart your shell and re-run xlade doctor.",
+            ],
+        )
         issues += 1
 
     # lake
     if shutil.which("lake"):
         _row("lake", "ok", "found")
     else:
-        _row("lake", "error", "not found",
-             ["Install elan first, then:",
-              "elan toolchain install leanprover/lean4:stable"])
+        _row(
+            "lake",
+            "error",
+            "not found",
+            [
+                "Install elan first, then:",
+                "elan toolchain install leanprover/lean4:stable",
+            ],
+        )
         issues += 1
 
     # lean-core
@@ -49,12 +61,20 @@ def run():
     if lean_core_populated:
         _row("lean-core", "ok", "submodule present")
     elif os.path.isdir("lean-core"):
-        _row("lean-core", "error", "submodule not populated",
-             ["Run: git submodule update --init --recursive"])
+        _row(
+            "lean-core",
+            "error",
+            "submodule not populated",
+            ["Run: git submodule update --init --recursive"],
+        )
         issues += 1
     else:
-        _row("lean-core", "error", "not found",
-             ["Run: git submodule update --init --recursive"])
+        _row(
+            "lean-core",
+            "error",
+            "not found",
+            ["Run: git submodule update --init --recursive"],
+        )
         issues += 1
 
     # lean-toolchain
@@ -62,16 +82,19 @@ def run():
         toolchain = open("lean-toolchain").read().strip()
         _row("lean-toolchain", "ok", f"present  ({toolchain})")
     else:
-        _row("lean-toolchain", "error", "not found",
-             ["Create it: echo 'leanprover/lean4:stable' > lean-toolchain"])
+        _row(
+            "lean-toolchain",
+            "error",
+            "not found",
+            ["Create it: echo 'leanprover/lean4:stable' > lean-toolchain"],
+        )
         issues += 1
 
     # workspace
     if os.path.isdir(".xlade"):
         _row("workspace", "ok", "initialised")
     else:
-        _row("workspace", "warn", "not initialised",
-             ["Run: xlade init"])
+        _row("workspace", "warn", "not initialised", ["Run: xlade init"])
 
     print(f"  {SEP}")
 

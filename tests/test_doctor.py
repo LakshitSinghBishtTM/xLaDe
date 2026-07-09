@@ -1,5 +1,7 @@
 import os
+
 from xlade.cli.doctor import run
+
 
 def test_doctor_detects_missing_lake(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: None)
@@ -30,6 +32,7 @@ def test_doctor_detects_lean_core_present(tmp_project, capsys):
     captured = capsys.readouterr()
     assert "lean-core" in captured.out
     assert "submodule present" in captured.out
+
 
 def test_doctor_lake_missing_shows_install_hint(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: None)
@@ -80,7 +83,10 @@ def test_doctor_elan_missing_shows_curl_hint(tmp_project, capsys, monkeypatch):
 
 
 def test_doctor_elan_found(tmp_project, capsys, monkeypatch):
-    monkeypatch.setattr("xlade.core.lean.shutil.which", lambda x: "/usr/bin/elan" if x == "elan" else None)
+    monkeypatch.setattr(
+        "xlade.core.lean.shutil.which",
+        lambda x: "/usr/bin/elan" if x == "elan" else None,
+    )
     monkeypatch.setattr("shutil.which", lambda x: "/usr/bin/elan" if x == "elan" else None)
     run()
     captured = capsys.readouterr()

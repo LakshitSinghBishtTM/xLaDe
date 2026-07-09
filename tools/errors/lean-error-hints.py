@@ -8,12 +8,7 @@ if len(sys.argv) != 2:
 
 lean_file = sys.argv[1]
 
-proc = subprocess.run(
-    ["lean", lean_file],
-    stdout=subprocess.PIPE,
-    stderr=subprocess.PIPE,
-    text=True
-)
+proc = subprocess.run(["lean", lean_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
 # Lean prints errors to stdout (and sometimes stderr)
 output = proc.stdout + proc.stderr

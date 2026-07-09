@@ -3,16 +3,24 @@ import tomllib
 
 SEP = "-" * 100
 
-VALID_TYPES   = {"script-policy", "lean-policy"}
+VALID_TYPES = {"script-policy", "lean-policy"}
 VALID_STATUSES = {"draft", "active", "abandoned", "promoted"}
-VALID_MODES   = {"experimental", "stable", "onboarding"}
-REQUIRED_FIELDS = ["id", "name", "type", "status", "allowed_modes",
-                   "lean_toolchain", "entry", "description"]
+VALID_MODES = {"experimental", "stable", "onboarding"}
+REQUIRED_FIELDS = [
+    "id",
+    "name",
+    "type",
+    "status",
+    "allowed_modes",
+    "lean_toolchain",
+    "entry",
+    "description",
+]
 
 
 def _check_experiment(exp_path, name):
     issues = []
-    ok     = []
+    ok = []
 
     config_path = os.path.join(exp_path, "experiment.toml")
 
@@ -77,12 +85,15 @@ def run():
         print()
         return
 
-    entries = sorted([
-        name for name in os.listdir(base_path)
-        if os.path.isdir(os.path.join(base_path, name))
-        and "." not in name
-        and os.path.exists(os.path.join(base_path, name, "experiment.toml"))
-    ])
+    entries = sorted(
+        [
+            name
+            for name in os.listdir(base_path)
+            if os.path.isdir(os.path.join(base_path, name))
+            and "." not in name
+            and os.path.exists(os.path.join(base_path, name, "experiment.toml"))
+        ]
+    )
 
     if not entries:
         print()
@@ -113,7 +124,7 @@ def run():
     print(f"  {SEP}")
 
     if total_issues == 0:
-        print(f"  [pass]   All experiments valid.")
+        print("  [pass]   All experiments valid.")
     else:
         plural = "issue" if total_issues == 1 else "issues"
         print(f"  [fail]   {total_issues} {plural} found across {len(entries)} experiment(s).")

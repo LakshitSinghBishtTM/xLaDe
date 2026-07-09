@@ -1,21 +1,5 @@
 # .gitignore file
 
-# Lean 4
-*.olean
-*.d
-.lake/
-lake-packages/
-
-# Python
-__pycache__/
-*.pyc
-*.py[cod]
-.pytest_cache/
-venv/
-
-# SSH
-githubxlade*
-
-# Repo 
 .xlade/
-*.egg-info/
+.lake/
+__pycache__/

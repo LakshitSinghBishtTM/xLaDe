@@ -1,6 +1,7 @@
 import os
 import stat
 import subprocess
+
 import pytest
 
 
@@ -19,12 +20,7 @@ def exp004_toml():
 @pytest.fixture
 def submodule_path():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    return os.path.join(
-        repo_root,
-        "experiments",
-        "exp-004-project-proof-1",
-        "exp-004-project-proof-1"
-    )
+    return os.path.join(repo_root, "experiments", "exp-004-project-proof-1", "exp-004-project-proof-1")
 
 
 def test_exp004_script_exists(script_path):
@@ -42,6 +38,7 @@ def test_exp004_toml_exists(exp004_toml):
 
 def test_exp004_toml_has_required_fields(exp004_toml):
     import tomllib
+
     with open(exp004_toml, "rb") as f:
         config = tomllib.load(f)
     assert config["id"] == "EXP-004"
@@ -53,8 +50,7 @@ def test_exp004_toml_has_required_fields(exp004_toml):
 
 def test_exp004_submodule_directory_exists(submodule_path):
     assert os.path.isdir(submodule_path), (
-        f"Submodule not found: {submodule_path}\n"
-        "Run: git submodule update --init --recursive"
+        f"Submodule not found: {submodule_path}\n" "Run: git submodule update --init --recursive"
     )
 
 
@@ -68,9 +64,8 @@ def test_exp004_submodule_is_not_empty(submodule_path):
 def test_exp004_submodule_has_lakefile(submodule_path):
     if not os.path.isdir(submodule_path):
         pytest.skip("Submodule not populated")
-    has_lakefile = (
-        os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or
-        os.path.isfile(os.path.join(submodule_path, "lakefile.toml"))
+    has_lakefile = os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or os.path.isfile(
+        os.path.join(submodule_path, "lakefile.toml")
     )
     assert has_lakefile, "No lakefile found in submodule"
 
