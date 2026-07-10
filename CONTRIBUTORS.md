@@ -15,11 +15,19 @@ We welcome contributions at all levels - from documentation and ideas to code mo
 ## Contributors
 
 This section recognises individuals who have contributed to the project. Contributors will be added here as contributions are accepted.
-Current contributors: 2
 
 - Rishon Pravin
 - Aqil Aziz
-- Codex
+- Youssef Elganini
+
+---
+
+## AI Tools
+
+The following AI systems were used by the Core Team during the development of this project. This information is provided to promote transparency regarding the project's development. This list does not reflect or imply the tools used by external contributors in their pull requests.
+
+- Codex (OpenAI)
+- Claude (Anthropic)
 
 ---
 
@@ -48,6 +56,6 @@ In addition, active and consistent contributors may be invited to take on mainta
 
 ## Acknowledgements
 
-- Dr. Thota Siva: Academic guidance and support
+- Dr. Thota Siva - Academic guidance and support
 
 > Note: xLaDe is currently in an experimental stage. Contributions help define the ecosystem, and your participation is essential for its growth.
