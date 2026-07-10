@@ -150,7 +150,7 @@ This monthly release makes the CLI tool execute experiments, but the testing of 
 - CLI is functional and tested but still experimental
 - 50/50 tests passing on Python 3.14
 
-## v1.6.0 — 2026-06-01
+## [1.6.0] — 2026-06-01
 
 ### Highlights
 - CLI output completely overhauled — consistent [tag] style, 100-char separators, 2-space indent
@@ -201,3 +201,31 @@ This monthly release makes the CLI tool execute experiments, but the testing of 
 - CLI output strings changed significantly — any tooling parsing xlade output needs updating
 - xlade-ci.yml deleted — replaced by kernel-protection.yml and ci.yml
 - Verified working on FreeBSD and Android aarch64 (Termux) — pip install and all bash experiments run
+
+## [1.7.0] — 2026-07-11
+
+### Highlights
+- Added EXP-004 and EXP-005 experiment content and documentation.
+- Strengthened code quality checks and release automation.
+- Tightened CI to the supported Python version and kept the Lean submodule out of repo-wide linting.
+- Cleaned up packaging and repository hygiene after formatting passes.
+
+### Added
+- Automated sync to sourceforge mirror
+- `.github/workflows/formatting.yml` — automated formatting checks in CI.
+- `.flake8` — repository-level flake8 configuration.
+- `experiments/exp-004-project-proof-1/README.md` — EXP-004: Project Proof 1.
+- `projects/externals/exp-005-lean4-courses/README.md` — EXP-005: Lean4 Courses.
+
+### Changed
+- `.github/workflows/ci.yml`, `cd.yml`, `pypi.yml`, `tests.yml` — pinned to Python 3.14.
+- `.gitignore` — simplified to keep only local, repository-specific entries.
+- `pyproject.toml` — excluded the Lean submodule from Black checks and adjusted formatting settings.
+- `pyproject.toml` and `.flake8` — aligned linting and formatting rules with the current codebase.
+- `assets/logo/xlade-logo.svg` — polished logo geometry and path naming.
+- `README.md` — updated to document experiment 5.
+- `tests/` and `xlade/` files touched by the formatter — normalized formatting only, no functional change.
+
+### Notes
+- No new user-facing CLI features were added in this batch.
+- The Lean submodule is now explicitly excluded from automatic formatting and checks to avoid touching upstream code.
