@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/version-1.6.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.7.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/status-experimental-orange" alt="Status">
   <img src="https://img.shields.io/badge/Lean-4-purple" alt="Lean 4">
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20BSD%20%7C%20Android-lightgrey" alt="Platform">
@@ -302,11 +302,11 @@ This is not a policy that will change.
 xLaDe is experimental. It is a research tool, not production software.
 No stability guarantees, no backward compatibility guarantees, no support SLA.
 
-As of `v1.6.0`:
+As of `v1.7.0`:
 
-- CLI tool improved massively
-- CI and CD added and integrated
-- A comprehensive suite with 83 tests
+- We have added new experiments 
+- A comprehensive suite with 100+ tests
+- Removed bloat
 
 ---
 
