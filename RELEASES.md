@@ -81,3 +81,15 @@ This file mirrors GitHub Releases for archival and offline reference.
 - All GitHub workflows updated with least-privilege permissions per CodeQL
 - 14 documentation files rewritten to accurately reflect v1.6.0
 - RELEASE_CHECKLIST.md added
+
+## v1.7.0 - 2026-07-11
+
+### Highlights
+- EXP-004: Project Proof 1 added under `experiments/`.
+- EXP-005: Lean4 Courses added under `experiments/`.
+- Added EXP-004 and EXP-005 experiment content and documentation.
+- Strengthened code quality checks and release automation.
+- Tightened CI to the supported Python version and kept the Lean submodule out of repo-wide linting.
+- Cleaned up packaging and repository hygiene after formatting passes.
+- `README.md` updated to document experiments.
+- Automated sourceforce sync
