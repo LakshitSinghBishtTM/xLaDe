@@ -82,8 +82,7 @@ Python package, and creates the GitHub Release automatically.
 ## 6. After Release
 
 - Verify the GitHub Release was created at: `https://github.com/LakshitSinghBishtTM/xLaDe/releases`
-- Verify mirrors sync (check GitLab, Codeberg, Bitbucket, and Gitea)
-- Update the SourceForge mirror manually
+- Verify mirrors sync (check GitLab, Codeberg, Bitbucket, Gitea and Sourceforge)
 - Update the Zenodo record
 - Update the torrent file in `assets/torrent/` for the new version
 
