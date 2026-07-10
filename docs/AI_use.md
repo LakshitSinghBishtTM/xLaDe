@@ -34,4 +34,4 @@ AI-generated content should not replace critical reasoning, verification, or hum
 
 # Note
 
-The policy will be regularly updated in accordance with developments in AI, contributors and discussions.
+The policy will be regularly updated in accordance with developments in AI, contributors, and discussions.

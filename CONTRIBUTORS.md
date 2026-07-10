@@ -19,6 +19,7 @@ Current contributors: 2
 
 - Rishon Pravin
 - Aqil Aziz
+- Codex
 
 ---
 
@@ -41,7 +42,7 @@ For detailed instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 All accepted contributions will be added to this file to acknowledge your work.
 We value every contribution. Each one helps shape the future of xLaDe.
 
-In addition, active and consistent contributors may be invited to take on maintainer roles based on their involvement and impact.  In case of any dispute, CEO will make the final decision.
+In addition, active and consistent contributors may be invited to take on maintainer roles based on their involvement and impact. In case of any dispute, the CEO will make the final decision.
 
 ---
 
