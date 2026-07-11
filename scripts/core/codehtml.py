@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 import html
+from pathlib import Path
 
 ROOT = Path(".").resolve()
 WEB_PREFIX = "files/code"
@@ -27,13 +27,7 @@ def link(relpath: Path) -> str:
 
 
 def children(path: Path):
-    items = [
-        p for p in sorted(
-            path.iterdir(),
-            key=lambda x: (x.is_file(), x.name.lower())
-        )
-        if not should_ignore(p)
-    ]
+    items = [p for p in sorted(path.iterdir(), key=lambda x: (x.is_file(), x.name.lower())) if not should_ignore(p)]
     return items
 
 
@@ -44,7 +38,7 @@ def walk(path: Path, prefix=""):
     items = children(path)
 
     for i, item in enumerate(items):
-        last = (i == len(items) - 1)
+        last = i == len(items) - 1
 
         branch = "`- " if last else "|- "
 
