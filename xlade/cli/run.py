@@ -105,7 +105,7 @@ def _write_metrics(exp_id, mode, lean_toolchain, timestamp, config, status):
         try:
             with open(metrics_path, "r") as f:
                 existing = json.load(f)
-        except json.JSONDecodeError, IOError:
+        except (json.JSONDecodeError, OSError):
             existing = []
 
     entry = {
