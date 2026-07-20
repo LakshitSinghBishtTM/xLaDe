@@ -17,9 +17,6 @@ if [ ! -d "$PROJECT_DIR" ] || [ -z "$(ls -A $PROJECT_DIR)" ]; then
   exit 1
 fi
 
-# Override toolchain to installed version
-echo "leanprover/lean4:v4.30.0" > "$PROJECT_DIR/lean-toolchain"
-
 echo "  [info]   Project: $PROJECT_DIR"
 echo "  [info]   Running: lake build"
 echo "  ----------------------------------------------------------------------------------------------------"
