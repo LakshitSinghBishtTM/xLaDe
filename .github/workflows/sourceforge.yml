@@ -2,8 +2,7 @@ name: SourceForge Mirror
 
 on:
   push:
-  create:
-  delete:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,14 +14,15 @@ concurrency:
 
 jobs:
   mirror:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with: 
+        with:
+          ref: refs/heads/main
           fetch-depth: 0
-        
 
       - name: Configure SSH
         run: |
@@ -43,4 +43,4 @@ jobs:
         run: |
           git remote add sourceforge ssh://lakshitsbishttm@git.code.sf.net/p/xlade/code
 
-          git push --force sourceforge HEAD:main
+          git push sourceforge HEAD:main
