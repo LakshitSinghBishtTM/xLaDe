@@ -225,14 +225,14 @@ affected. See [`RUNTIME_STATE.md`](RUNTIME_STATE.md) for full details.
 
 ## 8. CI Workflows
 
-| Workflow                | Trigger              | Purpose                                     |
-|-------------------------|----------------------|---------------------------------------------|
-| `tests.yml`             | push to main, PRs    | Runs full pytest suite                      |
-| `kernel-protection.yml` | push to main, PRs    | Kernel protection check                     |
-| `mirror.yml`            | push, create, delete | Syncs to GitLab, Codeberg, Bitbucket, Gitea |
-| `sourceforge.yml`       | push, create, delete | Syncs to Sourceforge                        |
-| `ci.yml`                | push to main, PRs    | CI workflow                                 |
-| `cd.yml`                | push with tag        | CD workflow                                 |
+| Workflow                | Trigger                       | Purpose                                     |
+|-------------------------|-------------------------------|---------------------------------------------|
+| `tests.yml`             | push to main, PRs             | Runs full pytest suite                      |
+| `kernel-protection.yml` | push to main, PRs             | Kernel protection check                     |
+| `mirror.yml`            | push, create, delete          | Syncs to GitLab, Codeberg, Bitbucket, Gitea |
+| `sourceforge.yml`       | push to main, manual dispatch | Syncs protected main to Sourceforge         |
+| `ci.yml`                | push to main, PRs             | CI workflow                                 |
+| `cd.yml`                | push with tag                 | CD workflow                                 |
 ---
 
 ## 9. Current Status and Limitations
