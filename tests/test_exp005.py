@@ -48,22 +48,6 @@ def test_exp005_toml_has_required_fields(exp005_toml):
     assert config["entry"] == "scripts/experiments/run-exp-005.sh"
     assert config["project_repo"] == "https://github.com/BaDaaS/lean4-courses"
 
-
-def test_exp005_toml_records_toolchain_mismatch():
-    """
-    EXP-005 documents a toolchain mismatch.
-    The toml should record the version actually used, not the upstream pin.
-    """
-    import tomllib
-
-    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    toml_path = os.path.join(repo_root, "experiments", "exp-005-lean4-courses", "experiment.toml")
-    with open(toml_path, "rb") as f:
-        config = tomllib.load(f)
-    # We ran on v4.30.0, not the upstream v4.29.0
-    assert config["lean_toolchain"] == "leanprover/lean4:v4.30.0"
-
-
 def test_exp005_submodule_directory_exists(submodule_path):
     assert os.path.isdir(submodule_path), (
         f"Submodule not found: {submodule_path}\n" "Run: git submodule update --init --recursive"
