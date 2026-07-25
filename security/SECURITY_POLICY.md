@@ -90,6 +90,9 @@ v2.0.0 onward).
 **Explicit trust model** — documented in [`TRUST_MODEL.md`](TRUST_MODEL.md).
 No implicit assumptions about platform safety.
 
+**Mirror workflow scope** — mirror jobs are restricted to `main` only, so
+feature branches cannot trigger distribution syncs.
+
 ---
 
 ## What xLaDe Does Not Guarantee
