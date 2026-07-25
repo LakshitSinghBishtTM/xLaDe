@@ -48,6 +48,7 @@ def test_exp005_toml_has_required_fields(exp005_toml):
     assert config["entry"] == "scripts/experiments/run-exp-005.sh"
     assert config["project_repo"] == "https://github.com/BaDaaS/lean4-courses"
 
+
 def test_exp005_submodule_directory_exists(submodule_path):
     assert os.path.isdir(submodule_path), (
         f"Submodule not found: {submodule_path}\n" "Run: git submodule update --init --recursive"
