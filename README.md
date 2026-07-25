@@ -1,6 +1,6 @@
 <p align="center">
   <img alt="xLaDe Logo"
-       src="assets/logo/xlade-logo.svg"
+       src="assets/logo/xlade-logo-1.svg"
        width="260">
 </p>
 
