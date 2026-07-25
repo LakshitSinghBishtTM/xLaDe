@@ -163,7 +163,16 @@ Part C - Syncing
 1. Write sourceforge.yml (You can use from any of my public repos)
 2. Go to sourceforge
 3. Go to source code, and see the top. It will have "Read/Write SSH Access"
-4. Add it to yml file. 
+4. Add it to yml file.
 5. Push and Done
 
 ---
+
+## GitHub Actions mirror credential hardening
+
+Mirror workflows are limited to `main`.
+
+1. Keep the mirror workflows on `push` to `main` only.
+2. Avoid `create` and `delete` triggers for mirror jobs.
+3. Protect `main` so untrusted contributors cannot change mirror workflows or
+   run arbitrary code from that branch.
