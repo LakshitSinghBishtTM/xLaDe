@@ -229,8 +229,8 @@ affected. See [`RUNTIME_STATE.md`](RUNTIME_STATE.md) for full details.
 |-------------------------|-------------------------------|---------------------------------------------|
 | `tests.yml`             | push to main, PRs             | Runs full pytest suite                      |
 | `kernel-protection.yml` | push to main, PRs             | Kernel protection check                     |
-| `mirror.yml`            | push, create, delete          | Syncs to GitLab, Codeberg, Bitbucket, Gitea |
-| `sourceforge.yml`       | push to main, manual dispatch | Syncs protected main to Sourceforge         |
+| `mirror.yml`            | push to main, manual dispatch | Syncs protected main to GitLab, Codeberg, Bitbucket, Gitea |
+| `sourceforge.yml`       | push to main, manual dispatch | Syncs protected main to Sourceforge via its dedicated environment |
 | `ci.yml`                | push to main, PRs             | CI workflow                                 |
 | `cd.yml`                | push with tag                 | CD workflow                                 |
 ---
