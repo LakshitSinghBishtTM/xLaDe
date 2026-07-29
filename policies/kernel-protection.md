@@ -63,7 +63,9 @@ This policy is enforced automatically via:
 - CI checks
 
 ### Enforcement Behavior
-- Direct modifications to `lean-core/` are detected
+- Changes to the `lean-core` submodule revision are detected
+- Uncommitted edits inside a populated `lean-core` submodule are detected
+- If Git cannot verify the comparison baseline, the check fails
 - Violations cause:
   - build failure, or
   - pull request rejection
