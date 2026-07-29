@@ -9,7 +9,8 @@ Repository-level checks can enforce architectural boundaries
 without modifying Lean itself.
 
 ## Enforcement Mechanism
-- Script-based detection of changes to `lean-core/`
+- Script-based detection of `lean-core` revision changes and local edits
+- Fails when it cannot verify a Git baseline
 
 ## Scope
 Applies to all experiments and contributions.
