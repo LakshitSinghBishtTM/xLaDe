@@ -54,7 +54,7 @@ correctly installed.
 
 | Script                   | Used by                    | Purpose                              |
 |--------------------------|----------------------------|--------------------------------------|
-| `check-kernel.sh`        | `exp-002-kernel-boundary`  | Detect modifications to `lean-core/` |
+| `check-kernel.sh`        | `exp-002-kernel-boundary`  | Check the `lean-core` revision and local edits |
 | `check-doc-coverage.sh`  | `exp-003-doc-coverage`     | Verify README.md presence in dirs    |
 | `run-exp-004.sh`         | `exp-004-project-proof-1`  | Run `lake build` on external project |
 
