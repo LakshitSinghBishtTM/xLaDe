@@ -4,15 +4,12 @@ from pathlib import Path
 
 import pytest
 
-
 ROOT = Path(__file__).resolve().parents[1]
 CHECK_SCRIPT = ROOT / "scripts" / "experiments" / "check-kernel.sh"
 
 
 def git(repo, *args, check=True):
-    return subprocess.run(
-        ["git", *args], cwd=repo, check=check, text=True, capture_output=True
-    )
+    return subprocess.run(["git", *args], cwd=repo, check=check, text=True, capture_output=True)
 
 
 def commit_all(repo, message):
@@ -22,9 +19,7 @@ def commit_all(repo, message):
 
 def run_kernel_check(repo, base_ref):
     environment = {**os.environ, "KERNEL_BASE_REF": base_ref}
-    return subprocess.run(
-        ["bash", str(CHECK_SCRIPT)], cwd=repo, env=environment, text=True, capture_output=True
-    )
+    return subprocess.run(["bash", str(CHECK_SCRIPT)], cwd=repo, env=environment, text=True, capture_output=True)
 
 
 @pytest.fixture
@@ -112,6 +107,7 @@ def test_ci_workflows_pass_an_explicit_base_to_the_shared_check():
         assert "github.event.before" in content
         assert "fetch-depth: 0" in content
 
-    assert "bash scripts/experiments/check-kernel.sh" in (
-        ROOT / ".github" / "workflows" / "kernel-protection.yml"
-    ).read_text()
+    assert (
+        "bash scripts/experiments/check-kernel.sh"
+        in (ROOT / ".github" / "workflows" / "kernel-protection.yml").read_text()
+    )
