@@ -40,6 +40,9 @@ def kernel_project(tmp_path):
     (project / "README.md").write_text("test project\n")
     commit_all(project, "initial project")
     git(project, "-c", "protocol.file.allow=always", "submodule", "add", "-q", str(kernel), "lean-core")
+    submodule = project / "lean-core"
+    git(submodule, "config", "user.name", "Test User")
+    git(submodule, "config", "user.email", "test@example.com")
     commit_all(project, "add kernel submodule")
 
     return project, git(project, "rev-parse", "HEAD").stdout.strip()
