@@ -151,7 +151,7 @@ That is the non-invasive ecosystem layer claim demonstrated, not just described.
 
 ## Quick Start
 
-**Requirements:** Python 3.11+, git, bash.
+**Requirements:** Python 3.14+, git, bash.
 For Lean experiments: elan + Lake (see [`INSTALL.md`](INSTALL.md)).
 
 ```sh
