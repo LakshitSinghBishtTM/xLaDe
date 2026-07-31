@@ -4,7 +4,7 @@
        width="260">
 </p>
 
-<h2 align="center">xLaDe</h2>
+<h1 align="center">xLaDe</h1>
 <p align="center">eXperimental Lean 4 advanced Development ecosystem</p>
 
 <p align="center">
