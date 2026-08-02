@@ -1,24 +1,62 @@
-`experiment.schema.toml` (machine-readable experiment descriptor)
+# xLaDe Experiment Descriptor Template
 
-# xLaDe Experiment Descriptor Schema
+# --- [required core] ---
 
-id = "EXP-000"
-title = "Experiment Title"
+id = "EXP-000"                                      # exp-xxx
+name = "exp-000-experiment-name"                    # title of the experiment
+type = "script-policy"                              # script-policy | lean-policy | etc.
+status = "draft"                                    # draft | active | abandoned | promoted
+allowed_modes = ["experimental"]                    # experimental | stable | onboarding
+lean_toolchain = "leanprover/lean4:v4.00.0"         # leanprover/lean4:vx.y.z
+entry = "scripts/experiments/exp-000"               # path/to/entry
 
-status = "draft"        # draft | active | abandoned | promoted
-mode = "experimental"   # experimental only
+# --- [about experiment] ---
 
-enforcement = "lean"    # lean | script | ci | none
-reversible = true
+description = "this is a demo experiment"           # a short description of the experiment and its purpose
+notes = "none"                                      # remarks or any comments
+scope = "repository"                                # repository | kernel | language | tooling
+enforcement = "script"                              # lean | script | ci | manual
 
-scope = "repository"
-affects_kernel = false
+# --- [provenance] ---
 
-description = """
-Short description of the experiment and its purpose.
-"""
+[provenance]
+created = "2026-01-01"                              # yyyy-mm-dd
+author = "Lakshit Singh Bisht"                      # name of creator
 
-exit_criteria = """
-Conditions under which the experiment will be promoted,
-abandoned, or revised.
-"""
+# --- [setup] ---
+
+[setup]
+project_repo = "https://github.com/user/exp-000"    # project url
+project_owner = "Lakshit Singh Bisht"               # name of owner of project
+project_submodule = "experiments/exp-000/"          # local path the submodule is checked out to
+project_ref = "abcdef"                              # tag/commit to pin at setup time
+template = "external-lake-project"                  # "standalone-script" | "external-lake-project" | "lean-native-policy" | etc.
+
+# --- [environment] ---
+
+[environment]
+lake = "5.0.0"                                      # lake version
+elan = "4.0.0"                                      # elan version
+xlade = "1.0.0"                                     # xlade version
+
+# --- [compatibility] ---
+
+[compatibility]
+expected_to_work = ["leanprover/lean4:v4.00.0"]     # lean toolchains expected to work
+
+[[compatibility.breakages]]                         
+version = "leanprover/lean4:v3.0.0"                 # leanprover/lean4:vx.y.z
+reason = "due to xyz changes"                       # short description
+severity = "warning"                                # warning | error
+discovered = "2026-02-30"                           # yyyy-mm-dd
+
+# --- [policy] ---
+
+[policy]
+success_criteria = "lean build"                     # compilation | run | etc.
+failure_criteria = "exit status 1"                  # what counts as failure
+timeout = "10m"                                     # max expected runtime
+disposition_note = "abandoned because of changes"   # cause of change of status
+
+# Comment out sections that do not apply to the experiment.
+# For example, omit compatibility breakage entries if none are known.
