@@ -7,3 +7,6 @@
 [submodule "experiments/exp-005-lean4-courses/lean4-courses"]
 	path = experiments/exp-005-lean4-courses/lean4-courses
 	url = https://github.com/BaDaaS/lean4-courses
+[submodule "experiments/exp-006-teorth-analysis/analysis"]
+	path = experiments/exp-006-teorth-analysis/analysis
+	url = https://github.com/teorth/analysis.git
