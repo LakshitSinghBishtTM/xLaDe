@@ -1,0 +1,43 @@
+# xLaDe Experiment Descriptor Template
+
+# --- [required core] ---
+
+id = "EXP-007"
+name = "AND/OR Test"
+type = "script-policy"              
+status = "active"                    
+allowed_modes = ["experimental"]
+lean_toolchain = "leanprover/lean4:v4.32.2"
+entry = "scripts/experiments/run-exp-007.sh"
+
+# --- [about experiment] ---
+
+description = "An experiment to test if 'and' is correct or 'or' is correct"
+notes = "Written experiment as a result of a discussion"
+scope = "repository"
+enforcement = "script"
+
+# --- [provenance] ---
+
+[provenance]
+created = "2026-08-07"
+author = "Lakshit Singh Bisht"
+
+# --- [setup] ---
+
+[setup]
+project_owner = "Lakshit Singh Bisht"
+project_ref = "xlade"
+template = "standalone-script"
+
+[environment]
+lake = "Lake version 5.0.0-src+f3b06c7 (Lean version 4.32.2)"
+elan = "elan 4.2.3 (b6cec7e10 2026-06-08)"
+
+[compatibility]
+expected_to_work = ["leanprover/lean4:v4.32.2"]
+
+[policy]
+success_criteria = "both true_statement.lean and false_statement.lean type-check via lake env lean"
+failure_criteria = "non-zero exit"
+timeout = "15m"
