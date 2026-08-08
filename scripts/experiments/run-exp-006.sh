@@ -30,4 +30,3 @@ if [ "$build_exit" -ne 0 ]; then
 fi
 
 echo "  [pass]   build.sh succeeded."
-echo "  $DIVIDER"
