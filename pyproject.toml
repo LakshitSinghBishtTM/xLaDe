@@ -49,4 +49,4 @@ extend-exclude = "lean-core"
 [tool.isort]
 profile = "black"
 line_length = 120
-skip = ["lean-core"]
+skip = ["lean-core", "experiments"]
