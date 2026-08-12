@@ -232,7 +232,12 @@ This monthly release makes the CLI tool execute experiments, but the testing of 
 
 ## [Unreleased]
 
+### Added
+- Added EXP-006
+- Added EXP-007
+
 ### Changed
 - `scripts/experiments/run-exp-005.sh` now uses the EXP-005 submodule's
   committed Lean toolchain (`leanprover/lean4:v4.29.0`) instead of overwriting
   `lean-toolchain` with v4.30.0.
+- Improved toml configuration file
