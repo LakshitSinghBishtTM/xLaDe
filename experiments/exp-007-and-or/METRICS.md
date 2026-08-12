@@ -29,12 +29,6 @@
 
 ---
 
-## Manual Verification (outside xLaDe)
-
-Before this experiment existed: `lake env lean true_statement.lean` and
-`lake env lean false_statement.lean`, run directly from the project
-directory. Both exited cleanly, no errors.
-
 ## First Successful Run
 
 (venv) [ajay@mac xLaDe]$ xlade run exp-007-and-or
