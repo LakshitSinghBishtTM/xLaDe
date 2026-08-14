@@ -44,7 +44,7 @@ testpaths = ["tests"]
 [tool.black]
 line-length = 120
 target-version = ["py314"]
-extend-exclude = "lean-core"
+extend-exclude = "lean-core|experiments/"
 
 [tool.isort]
 profile = "black"
