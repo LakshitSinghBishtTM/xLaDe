@@ -1,163 +1,94 @@
 # xLaDe Experiments
 
-This directory contains **ecosystem-level experiments** for xLaDe.
+This directory contains experiments for xLaDe.
 
-An experiment in xLaDe is **not** a theorem, benchmark, or language extension.
-Instead, it is a **controlled investigation** into how tooling, workflows, policies, or user experience around Lean 4 can be structured, evaluated, and improved *without modifying Lean’s kernel or core semantics*.
+In simple language, experiments are the projects or tests you run via xLaDe CLI.
+These may be related to Lean 4 theorems, tools, workflows, policies, xLaDe, or even meta. 
 
-Experiments are treated as **first-class research artifacts** and are orchestrated via the `xlade` CLI.
+As long as a Lean 4 project or something exist, just slap xLaDe's cover outside it and try running it.
+If it succeeds, congratulations. If it fails, please mention it and we or someone else will try if there can be some help.
 
 ---
 
 ## What Is an Experiment?
 
-An xLaDe experiment represents a **hypothesis about the Lean ecosystem**, such as:
+Experiments in xLaDe are the primary artifacts which are run and preserved with the help of xLaDe and supporting tools.
+They are normally related to the Lean 4 ecosystem and related fields, however new type of experiments are also welcome.
+Experiments are primarily focused on preservation of external projects and their working on Lean 4 versions,
+but other use cases are also welcome and encouraged.
 
-- Can policy-based checks improve contributor experience?
-- Can tooling changes surface more useful feedback to users?
-- Can workflow conventions improve proof review discipline?
-- Can orchestration layers exist without kernel modification?
+In this process, we have some guidelines for experiment authors.
 
-Each experiment is designed to be:
-
-- **Isolated** — no modification of Lean core or kernel
-- **Reproducible** — discoverable and runnable via the CLI
-- **Documented** — motivation, scope, and limits are explicit
-- **Reversible** — experiments can be disabled or removed cleanly
-- **Non-fatal** — failures inform evaluation rather than corrupting state
+- The experiment should not modify Lean core or try related adventures
+- The experiment should be reproducible
+- The documentation should not be empty or poorly written, even though we have simplified it
+- The experiment should not try to alter xLaDe's internals 
+- The experiment should not run in stable or onboarding mode
 
 ---
 
-## Directory Structure
+## What is not an Experiment?
 
-Each experiment lives in its own directory:
+We welcome all the possible ideas users can think about.
+However, please don't try to 
 
-```
-experiments/
-  EXP-001/
-    README.md
-  EXP-002/
-    README.md
-```
+1. Change Lean 4 internals
+2. Blow xLaDe
 
-The directory name serves as the **experiment identifier**, which is used by the CLI:
+Rest is allowed.
 
-```
-xlade list experiments
-xlade run EXP-001
-```
+== Some Jailbreak Ideas ==
 
-The CLI treats experiment directories as **opaque research units**; no hidden conventions are assumed beyond directory structure.
+1. Fork Lean 4 and put a moustache to add in experiments as separate repo. This ensures that Lean 4 repo is separate from original
+2. Try something similar for xLaDe
+3. Fork xLaDe and create your own rules
 
 ---
 
-## Experiment Contents
+## How to create an Experiment?
 
-Each experiment directory must contain at least:
+1. Create a directory in experiments/ and name it accordingly
+2. Make a readme file, an experiment toml and a metrics file (we have provided the templates for all three)
+3. Add the project or thing you want to test
+4. Optionally create script file in scripts/ if required
+5. Done
 
-* `README.md` — a complete description of the experiment
+---
 
-The README should document:
+## Experiments Directory
 
-* the research question or hypothesis
-* scope and affected components
-* enforcement mechanism (if any)
-* reversibility
-* exit criteria
+For a minimal experiment, we advise to have atleast the following --
 
-Additional files (scripts, configuration, notes, metrics) may be included as needed.
+1. README.md
+2. experiment.toml
+3. METRICS.md
 
-At the current stage, execution logic may be **lightweight or stubbed**.
-This is intentional and reflects xLaDe’s research-first, interface-driven design.
+However, it may be changed based on the context of experiments and intentions.
+
+---
+
+## How to run an Experiment
+
+1. Go to xLaDe CLI                     ```xlade```
+2. Set the mode to experimental        ```xlade mode experimental```
+3. Check experiments                   ```xlade list experiments```
+4. Execute experiment                  ```xlade run exp-000-test```
+5. See the result                      
 
 ---
 
 ## Lifecycle of an Experiment
 
-Experiments follow a defined lifecycle (see `experiment-lifecycle.md`):
-
-1. **Draft**
-   Proposal and early exploration.
-
-2. **Active**
-   Controlled evaluation, typically enabled in Experimental Mode.
-
-3. **Abandoned**
-   Retired experiments preserved for historical and research context.
-
-4. **Promoted**
-   Successful ideas generalized into policies, tooling, or upstream proposals.
-
-Lifecycle state must be declared explicitly by the experiment.
+1. Draft       Proposals, normally for uncompleted experiments.
+2. Active      Runnable, default for all the experiments.
+3. Abandoned   Retired, someone messed up the experiment.
+4. Promoted    Successful, someone did something great.
 
 ---
 
-## Relationship to Modes
+## Note
 
-Experiment execution depends on the active xLaDe mode:
-
-* **Experimental Mode**
-  May enable Active experiments.
-
-* **Stable Mode**
-  Must not enable experiments.
-
-* **Onboarding Mode**
-  Must not enable experiments.
-
-Mode selection controls *whether* experiments run; it does not change Lean behavior.
+Experiments are allowed to fail, and failure is worth preserving.
+We would rather have a fun failed experiment than no experiment.
 
 ---
-
-## Relationship to Lean Core
-
-Experiments in xLaDe:
-
-* do **not** modify Lean core
-* do **not** alter kernel semantics
-* do **not** require patched toolchains
-* operate strictly at the ecosystem, tooling, or workflow level
-
-Lean core is treated as **immutable infrastructure** and is included only as a reference baseline.
-
----
-
-## Research Status
-
-All experiments should be considered **experimental and evolving**.
-
-They exist to:
-
-* support research and learning,
-* generate concrete artifacts for evaluation,
-* and inform future tooling or policy design.
-
-Stability, performance, and completeness are **explicitly not required**.
-
----
-
-## Adding New Experiments
-
-To add a new experiment:
-
-1. Create a new directory under `experiments/`
-2. Assign a unique identifier (e.g. `EXP-003`)
-3. Add a `README.md` describing:
-
-   * motivation and hypothesis
-   * scope and enforcement
-   * reversibility and exit criteria
-4. Ensure the experiment is discoverable via:
-
-   ```
-   xlade list experiments
-   ```
-
-Community contributions are welcome, provided experiments respect kernel immutability and lifecycle discipline.
-
----
-
-## Summary
-
-xLaDe experiments provide a **structured, reversible framework** for exploring Lean ecosystem ideas.
-They allow research into workflows, tooling, and policies while keeping Lean’s trusted core untouched and reproducible.
