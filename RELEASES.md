@@ -93,3 +93,14 @@ This file mirrors GitHub Releases for archival and offline reference.
 - Cleaned up packaging and repository hygiene after formatting passes.
 - `README.md` updated to document experiments.
 - Automated sourceforce sync
+
+## v1.8.0 - 2026-08-18
+
+### Highlights
+- EXP-006: Terence Tao's analysis
+- EXP-007: And/or proofs
+- DCVE-2026-0001-xLaDe, DCVE-2026-0002-xLaDe, and DCVE-2026-0003-xLaDe
+- Simplified experiment creation
+- Updated documentation
+- New tests added, totalling 131 and increased coverage
+- toml file, metrics and experiment template completely changed
