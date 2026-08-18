@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/version-1.7.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.8.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/status-experimental-orange" alt="Status">
   <img src="https://img.shields.io/badge/Lean-4-purple" alt="Lean 4">
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20BSD%20%7C%20Android-lightgrey" alt="Platform">
@@ -297,38 +297,11 @@ This is not a policy that will change.
 
 ---
 
-## Status
-
-xLaDe is experimental. It is a research tool, not production software.
-No stability guarantees, no backward compatibility guarantees, no support SLA.
-
-As of `v1.7.0`:
-
-- We have added new experiments 
-- A comprehensive suite with 100+ tests
-- Removed bloat and reduced size of project from 5.1 MiB to 159 KiB
-
----
-
 ## License
 
 Copyright (C) 2026 Lakshit Singh Bisht
 
-Licensed under the **GNU General Public License v3.0**.
-See [`LICENSE`](LICENSE) for full terms.
-
-This project depends on Lean 4, licensed under the Apache License 2.0,
-included unmodified as a Git submodule.
+Licensed under the GNU General Public License v3.0.
+See [`LICENSE`](LICENSE) for more details.
 
 ---
-
-## Developer Note
-
-Thank you for taking the time to read this documentation.
-
-xLaDe is still experimental and continues to evolve with every release.
-If you have ideas, feedback, criticisms, or would like to contribute,
-we would be happy to hear from you.
-
-Every contribution, suggestion, bug report, and discussion helps make
-the project better.
