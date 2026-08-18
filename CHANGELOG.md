@@ -230,14 +230,22 @@ This monthly release makes the CLI tool execute experiments, but the testing of 
 - No new user-facing CLI features were added in this batch.
 - The Lean submodule is now explicitly excluded from automatic formatting and checks to avoid touching upstream code.
 
-## [Unreleased]
+## [1.8.0] — 2026-08-18
+
+### Highlights
+- Rewrote experiments/ submodule
+- Made it easier and intuitive, removed the complexity
+- Fixed major security flaws
 
 ### Added
 - Added EXP-006
 - Added EXP-007
+- Added DCVEs 1,2,3
+- More tests
 
 ### Changed
 - `scripts/experiments/run-exp-005.sh` now uses the EXP-005 submodule's
   committed Lean toolchain (`leanprover/lean4:v4.29.0`) instead of overwriting
   `lean-toolchain` with v4.30.0.
 - Improved toml configuration file
+- Removed bloat
