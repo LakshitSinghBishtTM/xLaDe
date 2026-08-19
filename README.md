@@ -220,10 +220,10 @@ any single provider.
 The onion service is the official project website, not a mirror or
 fallback. See [`ONION.md`](ONION.md) for the rationale.
 
-**Torrent:** [`assets/torrent/xlade_v1.7.0.torrent`](assets/torrent/xlade_v1.7.0.torrent)
+**Torrent:** [`assets/torrent/xlade_v1.7.0.torrent`](assets/torrent/xlade_v1.8.0.torrent)
 
 ```
-magnet:?xt=urn:btih:92f7d14ef6239b8a1752cbb924534d88f8ff75e5&xt=urn:btmh:12200c929013a22f67375841dd035b42102f5ee59d7a5ba1b5afd81769fbe8ba7669&dn=xLaDe-1.7.0&xl=163719&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&ws=https%3A%2F%2Fgithub.com%2FLakshitSinghBishtTM%2FxLaDe%2Farchive%2Frefs%2Ftags%2Fv1.7.0.tar.gz
+magnet:?xt=urn:btih:5ab3a8bb8f8606bfa2ad60325204b31ac03dfd25&xt=urn:btmh:122075a628f3424cb7b2b993ac6317dc1724d05fcf89826c68fde562d91d24a8b5e0&dn=xLaDe-1.8.0.tar.gz&xl=151412&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&ws=https%3A%2F%2Fgithub.com%2FLakshitSinghBishtTM%2FxLaDe%2Farchive%2Frefs%2Ftags%2Fv1.8.0.tar.gz
 ```
 
 ---
