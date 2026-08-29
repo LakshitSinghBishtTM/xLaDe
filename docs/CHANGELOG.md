@@ -249,3 +249,14 @@ This monthly release makes the CLI tool execute experiments, but the testing of 
   `lean-toolchain` with v4.30.0.
 - Improved toml configuration file
 - Removed bloat
+
+## [1.9.0] — 2026-09-xx
+
+### Highlights
+-
+
+### Added
+-
+
+### Changed
+- Improved bin/ module readability and philosophy
