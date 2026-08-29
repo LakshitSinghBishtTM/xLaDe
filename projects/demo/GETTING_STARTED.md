@@ -3,7 +3,7 @@
 This document walks you through your first xLaDe session from scratch.
 Every command is explained. No prior xLaDe knowledge required.
 
-For installation, see [`INSTALL.md`](../../INSTALL.md) first.
+For installation, see [`INSTALL.md`](../../docs/INSTALL.md) first.
 
 ---
 

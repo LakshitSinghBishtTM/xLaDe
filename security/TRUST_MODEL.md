@@ -55,7 +55,7 @@ clearnet hostname.
 ### User Responsibilities
 
 - Clone only from sources listed in
-  [`OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md)
+  [`OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md)
 - Verify repository URLs before trusting them
 - Cross-check commit history between sources if integrity is critical
 - Do not trust mirrors or forks not listed in official sources
@@ -122,9 +122,9 @@ auditable.
 
 ## Relationship to Other Documents
 
-- [`SECURITY.md`](SECURITY.md) — vulnerability reporting
+- [`SECURITY.md`](../SECURITY.md) — vulnerability reporting
 - [`SECURITY_POLICY.md`](SECURITY_POLICY.md) — security philosophy and mitigations
 - [`THREAT_MODEL.md`](THREAT_MODEL.md) — specific threats and defences
-- [`../OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md) — authoritative distribution sources
-- [`../ONION.md`](../ONION.md) — onion service rationale
-- [`../MIRRORS.md`](../MIRRORS.md) — mirror list and consistency expectations
+- [`../docs/OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md) — authoritative distribution sources
+- [`../docs/ONION.md`](../docs/ONION.md) — onion service rationale
+- [`../docs/MIRRORS.md`](../docs/MIRRORS.md) — mirror list and consistency expectations

@@ -24,7 +24,7 @@ email before sending your report.
 A useful security report includes:
 
 - A clear description of the vulnerability
-- The affected version (see [`VERSION`](../VERSION))
+- The affected version (see [`VERSION`](docs/VERSION))
 - Steps to reproduce, if applicable
 - Your assessment of severity and impact
 - A patch or suggested fix, if you have one
@@ -61,7 +61,7 @@ Out of scope:
 - Vulnerabilities in Lean 4 itself — report those to the
   [Lean core team](https://github.com/leanprover/lean4)
 - Vulnerabilities in third-party mirrors not listed in
-  [`OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md)
+  [`OFFICIAL_SOURCES.md`](docs/OFFICIAL_SOURCES.md)
 - Theoretical attacks with no practical exploitation path
 
 ---
@@ -91,7 +91,7 @@ in the release notes for the fixing version, unless they prefer otherwise.
 
 ## Further Reading
 
-- [`SECURITY_POLICY.md`](docs/SECURITY_POLICY.md) — security philosophy and threat model overview
-- [`THREAT_MODEL.md`](docs/THREAT_MODEL.md) — what xLaDe does and does not protect against
-- [`TRUST_MODEL.md`](docs/TRUST_MODEL.md) — distribution trust model
-- [`OFFICIAL_SOURCES.md`](OFFICIAL_SOURCES.md) — authoritative sources and verification
+- [`SECURITY_POLICY.md`](security/SECURITY_POLICY.md) — security philosophy and threat model overview
+- [`THREAT_MODEL.md`](security/THREAT_MODEL.md) — what xLaDe does and does not protect against
+- [`TRUST_MODEL.md`](security/TRUST_MODEL.md) — distribution trust model
+- [`OFFICIAL_SOURCES.md`](docs/OFFICIAL_SOURCES.md) — authoritative sources and verification

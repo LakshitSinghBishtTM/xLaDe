@@ -19,13 +19,13 @@ both pass, cleanly.
 
 **Type:** Self-contained (`lake new proof math`) -- no external
 repository, no submodule
-**Location:** `experiments/exp-7-and-or/proof/`
+**Location:** `experiments/exp-007-and-or/proof/`
 **Toolchain:** `leanprover/lean4:v4.32.2`
 **Dependencies:** Mathlib
 
 ## Enforcement Mechanism
 
-- Script-based: `scripts/experiments/run-exp-7.sh`
+- Script-based: `scripts/experiments/run-exp-007.sh`
 - Runs `lake exe cache get` once (Mathlib's prebuilt cache), then
   `lake env lean <file>` on each of the two files independently
 - **Not** `lake build`: `lakefile.toml` declares `lean_lib "Proof"`,
@@ -51,7 +51,7 @@ Failure: either file exits non-zero.
 
 ## Scope
 
-- `experiments/exp-7-and-or/proof/` only
+- `experiments/exp-007-and-or/proof/` only
 - No modification to xLaDe core, no external project, no Lean kernel
   involvement
 

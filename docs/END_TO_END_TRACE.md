@@ -6,7 +6,7 @@ from a fresh clone to running all three active experiments and reviewing results
 This is not a tutorial. It shows exactly what happens at each step — commands,
 output, and state changes — so you know what to expect before you run anything.
 
-For installation help, see [`INSTALL.md`](../INSTALL.md).  
+For installation help, see [`INSTALL.md`](INSTALL.md).
 For a command reference, see [`CLI_DEMO.md`](CLI_DEMO.md).
 
 ---
@@ -139,7 +139,7 @@ xlade list experiments
 ```
 
 ```
-  Experiments  (3 found)
+  Experiments  (7 found)
   ----------------------------------------------------------------------------------------------------
   Experiment               Status    Type              Modes
   ----------------------------------------------------------------------------------------------------

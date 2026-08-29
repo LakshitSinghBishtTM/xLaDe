@@ -14,7 +14,7 @@ Every release requires updating the version string in all of these:
 
 | File                 | What to change                                     |
 |----------------------|----------------------------------------------------|
-| `VERSION`            | The version string itself                          |
+| `docs/VERSION`            | The version string itself                          |
 | `pyproject.toml`     | `version = "x.y.z"` under `[project]`              |
 | `xlade/cli/main.py`  | `VERSION = "x.y.z"` at the top                     |
 | `README.md`          | Badge: `version-x.y.z-blue`                        |
@@ -27,8 +27,8 @@ Every release requires updating the version string in all of these:
 
 | File           | What to add                                             |
 |----------------|---------------------------------------------------------|
-| `CHANGELOG.md` | New version section - highlights, added, changed, notes |
-| `RELEASES.md`  | New version entry mirroring CHANGELOG highlights        |
+| `docs/CHANGELOG.md` | New version section - highlights, added, changed, notes |
+| `docs/RELEASES.md`  | New version entry mirroring CHANGELOG highlights        |
 | `README.md`    | As of version x.y.z at the end of the README.md         |
 
 ---
@@ -46,7 +46,7 @@ Every release requires updating the version string in all of these:
 
 ```sh
 # confirm version is consistent
-cat VERSION
+cat docs/VERSION
 grep 'version' pyproject.toml
 grep 'VERSION' xlade/cli/main.py
 grep 'version-' README.md
@@ -92,5 +92,5 @@ Python package, and creates the GitHub Release automatically.
 
 - The torrent magnet URL in `README.md` is version-specific - generate
   a new one after the GitHub Release is created and the tarball is available
-- `lake-manifest.json` version should match `VERSION` for consistency
+- `lake-manifest.json` version should match `docs/VERSION` for consistency
   but does not affect build behaviour

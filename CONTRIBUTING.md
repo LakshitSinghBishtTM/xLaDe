@@ -50,7 +50,7 @@ pytest tests/ -v
 ```
 
 All tests should pass before you start making changes. If they do not,
-check [`INSTALL.md`](INSTALL.md) or open an issue.
+check [`docs/INSTALL.md`](docs/INSTALL.md) or open an issue.
 
 ---
 
@@ -147,7 +147,7 @@ A useful bug report includes:
 - What you expected to happen
 
 For security issues, do not open a public issue.
-See [`security/SECURITY.md`](security/SECURITY.md).
+See [`SECURITY.md`](SECURITY.md).
 
 ---
 
