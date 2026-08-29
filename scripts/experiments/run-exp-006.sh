@@ -3,6 +3,10 @@
 
 set -eo pipefail
 
+if [ -f "$HOME/.elan/env" ]; then
+  source "$HOME/.elan/env"
+fi
+
 PROJECT_DIR="experiments/exp-006-teorth-analysis/analysis"
 DIVIDER="----------------------------------------------------------------------------------------------------"
 

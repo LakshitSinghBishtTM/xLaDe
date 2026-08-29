@@ -57,6 +57,9 @@ correctly installed.
 | `check-kernel.sh`        | `exp-002-kernel-boundary`  | Check the `lean-core` revision and local edits |
 | `check-doc-coverage.sh`  | `exp-003-doc-coverage`     | Verify README.md presence in dirs    |
 | `run-exp-004.sh`         | `exp-004-project-proof-1`  | Run `lake build` on external project |
+| `run-exp-005.sh`         | `exp-005-lean4-courses`    | Run `lake build` on external project |
+| `run-exp-006.sh`         | `exp-006-teorth-analysis`  | Run the external `build.sh`          |
+| `run-exp-007.sh`         | `exp-007-and-or`           | Check two AND/OR proof files        |
 
 ---
 
