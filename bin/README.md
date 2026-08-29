@@ -12,7 +12,7 @@ In simple language, you can run xLaDe directly using it if you don't want to do 
 ```
 
 It will be same as running `xlade` after install.
-So, you can run all available commands
+So, you can run all available commands.
 
 For example:
 
