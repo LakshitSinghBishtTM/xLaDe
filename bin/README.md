@@ -1,55 +1,41 @@
-# bin/
+# bin
 
 This directory contains the `xlade` CLI entrypoint script.
-
-## `xlade`
-
-```python
-#!/usr/bin/env python3
-
-import sys
-import os
-
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from xlade.cli.main import main
-
-if __name__ == "__main__":
-    main()
-```
+In simple language, you can run xLaDe directly using it if you don't want to do the boring pip install process.
 
 ---
 
-## Two Ways to Run xLaDe
-
-**The manual way (no pip required):**
+## How to run
 
 ```bash
 ./bin/xlade
-./bin/xlade --help
-./bin/xlade run exp-002-kernel-boundary
 ```
 
-Works from the repo root with just Python 3.11+ installed. No venv,
-no pip, no installation step. This was the original way to run xLaDe
-and remains fully supported.
+It will be same as running `xlade` after install.
+So, you can run all available commands
 
-**The installed way:**
+For example:
 
 ```bash
-pip install -e .
-xlade
+./bin/xlade --help
 ```
-
-Installs xlade as a proper command. Useful when working across
-multiple directories or integrating with other tools.
-
-Both call the same `xlade.cli.main:main` function. Both are
-supported. Neither is more correct than the other.
 
 ---
 
-## Do not delete this
+## Usage
 
-Removing `bin/xlade` would break anyone using the manual invocation
-path. The file costs nothing to keep.
+Works from the repo root with just Python 3.14+ installed. 
+No venv, no pip, no installation step is required. 
+This was the original way to run xLaDe and we fully support it.
+
+Both this and pip install call the same `xlade.cli.main:main` function.
+So, all the features are available and there is no compromise.
+
+---
+
+## Notes
+
+Real men use `./bin/xlade` over pip install.
+In case of any brokerage of it, please report to us.
+
+---
