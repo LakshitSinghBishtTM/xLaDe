@@ -125,7 +125,7 @@ Reads each experiment's `experiment.toml` and displays its directory name
 **Example output:**
 
 ```
-  Experiments  (3 found)
+  Experiments  (7 found)
   ----------------------------------------------------------------------------------------------------
   Experiment               Status    Type              Modes
   ----------------------------------------------------------------------------------------------------

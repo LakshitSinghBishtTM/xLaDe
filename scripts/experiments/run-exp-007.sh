@@ -1,7 +1,11 @@
 #!/bin/bash
-# EXP-7: And Or Proof
+# EXP-007: AND/OR Proof
 
 set -e
+
+if [ -f "$HOME/.elan/env" ]; then
+  source "$HOME/.elan/env"
+fi
 
 PROJECT_DIR="experiments/exp-007-and-or/proof"
 DIVIDER="----------------------------------------------------------------------------------------------------"
