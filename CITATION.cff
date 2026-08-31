@@ -1,42 +1,34 @@
 cff-version: 1.2.0
+
 title: "xLaDe: eXperimental Lean 4 advanced Development ecosystem"
-message: "If you use xLaDe in your research, please cite it using the DOI below."
+message: "If you use xLaDe, please cite it using the metadata from this file."
 type: software
 
 authors:
   - given-names: Lakshit Singh
     family-names: Bisht
     email: lakshitsinghbishttm@gmail.com
+    orcid: 'https://orcid.org/0009-0004-0035-5714'
 
-version: "1.8.0"
-date-released: 2026-08-18
+version: '1.8.0'
+date-released: '2026-08-18'
 
 license: GPL-3.0
-
 repository-code: "https://github.com/LakshitSinghBishtTM/xLaDe"
 url: "http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion"
-
-doi: "10.5281/zenodo.21996158"
 
 identifiers:
   - type: doi
     value: 10.5281/zenodo.18772566
-    description: "Concept DOI (all versions)"
+    description: Concept DOI
 
-abstract: >
-  Lean 4 evolves rapidly, enabling continuous improvements to the language and
-  ecosystem but creating challenges for the long-term reproducibility of proofs,
-  experiments, and research artifacts. xLaDe (eXperimental Lean 4 Advanced Development
-  Ecosystem) is an ecosystem framework that addresses this problem by recording toolchain
-  metadata, execution context, and experiment information while treating the Lean kernel
-  as immutable infrastructure. Rather than modifying Lean or maintaining a fork, xLaDe
-  operates as an orchestration layer that supports reproducibility, structured experimentation,
-  policy enforcement, verification, and decentralized distribution for Lean 4 projects.
-
+  - type: doi
+    value: 10.5281/zenodo.21996158
+    description: Latest Release
 
 keywords:
   - Lean 4
-  - proof assistants
-  - formal verification
-  - ecosystem design
-  - free and open source
+  - Proof Assistants
+  - Reproducibility
+  - Formal Verification
+  - Software Preservation
