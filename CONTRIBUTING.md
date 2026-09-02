@@ -1,168 +1,107 @@
-# Contributing to xLaDe
+# Contributing
 
-xLaDe is an experimental research project. Contributions at all levels
-are welcome — experiments, documentation, tooling, tests, bug reports,
-and research feedback.
-
----
-
-## What You Can Contribute
-
-**Experiments** — the most valuable contribution. A new experiment means
-a new research question being investigated. See
-[Proposing an Experiment](#proposing-an-experiment) below.
-
-**Documentation** — improvements to any file in `docs/`, the root-level
-docs, or inline code comments. Accuracy matters more than volume.
-
-**Code** — CLI improvements, new commands, test coverage, bug fixes.
-All code contributions must pass the existing test suite and include
-tests for new behaviour.
-
-**Bug reports** — clear, reproducible reports are genuinely useful.
-See [Reporting Issues](#reporting-issues).
-
-**Research feedback** — if you work with Lean 4 or formal verification
-and have thoughts on xLaDe's direction, open a GitHub Discussion.
+Contributing to xLaDe makes xLaDe better for everyone.
+Kindly help in building xLaDe so that it becomes a helpful tool.
 
 ---
 
-## Ground Rules
+## What to Contribute
 
-- **Do not modify `lean-core/`**. This is enforced by CI and any PR
-  touching the Lean submodule will be rejected. This is not negotiable.
-- Follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-- Keep pull requests focused. One concern per PR.
-- Write clear commit messages. Describe what changed and why, not just what.
+- Updating or improving documentation files and typos 
+- Deleting bloat
+- Adding a new experiment
+- Fixing bugs
+- Simplifying code
+- Improving a module
+- Adding a new feature or module
 
 ---
 
-## Development Setup
+## What not to Contribute
+
+- Deleting entire project as bloat
+- Mirrors workflow files (unless there is a problem)
+- Changing rules in files like Code of Conduct 
+- Trying to rewrite entire xLaDe in Rust
+
+---
+
+## How to contribute
+
+This depends on what you want to contribute. We divide it in two ways -
+
+### Minor Changes
+
+For minor changes like fixing a typo or updating documentation, etc.
+
+Step 1. Fork xLaDe. This will create a copy of xLaDe.
+Step 2. Go to your copy.
+Step 3. Edit the file you want.
+Step 4. Write what you changed in commit message precisely and save it.
+Step 5. Send us a PR
+
+Done.
+
+Alternatively, contributors can use local CLI to edit and send us a PR.
+However, this needs a setup and may feel difficult to some new users, so we suggest newcomers to use above method if the below setup feels hectic.
+
+---
+
+## Major Changes
+
+For major changes like fixing bugs, we generally encourage a local CLI setup.
+Use the following commands to setup xLaDe and contribute -
+
+Step 1. Fork xLaDe and then clone locally
 
 ```sh
-git clone --recurse-submodules https://github.com/LakshitSinghBishtTM/xLaDe.git
-cd xLaDe
-python3 -m venv venv
-source venv/bin/activate
-pip install -e .
-pip install pytest
-pytest tests/ -v
-```
-
-All tests should pass before you start making changes. If they do not,
-check [`docs/INSTALL.md`](docs/INSTALL.md) or open an issue.
-
----
-
-## Making a Contribution
-
-**1. Fork the repository**
-
-Fork on GitHub, then clone your fork:
-
-```sh
-git clone https://github.com/your-username/xLaDe.git
+git clone https://github.com/{github_username}/xLaDe.git
 cd xLaDe
 git remote add upstream https://github.com/LakshitSinghBishtTM/xLaDe.git
 ```
 
-**2. Create a branch**
+Step 2. Create a branch
 
 ```sh
-git checkout -b your-branch-name
+git checkout -b {branch-name}
 ```
 
-Use a descriptive name — `fix-doctor-elan-check`, `add-exp-004-tactic-coverage`,
-`docs-update-runtime-state`.
+Step 3. Edit the file(s) you want. 
 
-**3. Make your changes**
+Step 4. Check formatting of changed code with isort, black and flake, and then run tests.
 
-- Code changes must include tests
-- Documentation changes should be accurate and consistent with the
-  current version
-- Experiment additions must follow the structure in
-  [`experiments/EXPERIMENT_TEMPLATE.md`](experiments/EXPERIMENT_TEMPLATE.md)
-
-**4. Run the test suite**
+```sh
+isort .
+black .
+flake8 .
+```
 
 ```sh
 pytest tests/ -v
 ```
 
-All tests must pass. If you added new behaviour, add tests for it.
-
-**5. Commit**
+Step 5. Write what you changed in commit message precisely and save it.
 
 ```sh
-git commit -m "Short description of what and why"
+git commit -m "Change summary" -m "Optional detailed description of change. May add AI tools disclosure here"
 ```
 
-**6. Push and open a pull request**
+Step 6. Push and open a PR
 
 ```sh
-git push origin your-branch-name
+git push -u origin {branch-name}
 ```
 
-Open a PR against `main`. In the description include:
+Done
 
-- What the change does
-- Why it is needed
-- Any known limitations or follow-up work
-- Reference any related issue with `#issue-number`
+Note: Please ensure you already have all things downloaded like git, python, pytest, etc.
 
 ---
 
-## Proposing an Experiment
+## Note
 
-Experiments are the primary research artifacts of xLaDe. Adding one
-means proposing a research question, not just writing a script.
-
-Before opening a PR, open a GitHub Issue describing:
-
-- The research question or hypothesis
-- What the experiment would enforce or measure
-- What type it would be (`script-policy`, `lean-policy`, etc.)
-- How it would be evaluated
-- Exit criteria — when would it be promoted or abandoned
-
-Once the direction is agreed, create the experiment directory following
-[`experiments/EXPERIMENT_TEMPLATE.md`](experiments/EXPERIMENT_TEMPLATE.md).
-The directory name is the experiment ID — choose it carefully, it cannot
-be changed without breaking run history.
-
----
-
-## Reporting Issues
-
-Use [GitHub Issues](https://github.com/LakshitSinghBishtTM/xLaDe/issues)
-for bug reports, feature requests, and documentation problems.
-
-A useful bug report includes:
-
-- xLaDe version (`cat VERSION`)
-- Python version (`python --version`)
-- OS and platform
-- The exact command that failed
-- Full output including any error messages
-- What you expected to happen
-
-For security issues, do not open a public issue.
-See [`SECURITY.md`](SECURITY.md).
-
----
-
-## Code of Conduct
-
-All contributors are expected to follow the
-[Code of Conduct](CODE_OF_CONDUCT.md).
-
----
-
-## Notes
-
-xLaDe is experimental. Interfaces change between versions. If you are
-building on top of xLaDe or integrating it into another tool, be aware
-that no stability guarantees are made before v2.0.0.
-
-Contributions do not need to be production-ready. This is a research
-project — exploratory, partial, and honest work is welcome.
+- The cd command in step 1 is from Linux
+- In case of Windows, either download WSL or read manual for commands
+- git tool works same everywhere so these commands should work irrespective of the OS
+- Please check the formatting and test suite, we already have enough history with it related to contributors
+- In case of any problem regarding contributing, please create an issue
