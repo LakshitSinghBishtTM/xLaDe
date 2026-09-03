@@ -1,97 +1,110 @@
 # Security
 
-## Reporting a Vulnerability
-
-**Do not open a public GitHub issue for security vulnerabilities.**
-
-Security reports should be sent privately by email:
-
-**Email:** lakshitsinghbishttm@gmail.com
-
-PGP-encrypted communication is strongly preferred for anything sensitive.
-
-**PGP Public Key:**
-http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/pgp.asc
-https://github.com/LakshitSinghBishtTM/xLaDe/assets/keys/pgp.asc
-
-If you cannot access the onion site, you may request the public key by
-email before sending your report.
+At xLaDe, we take the security of the project seriously.
+This document describes how to report the vulnerabilities securely to us.
 
 ---
 
-## What to Include
+## What Not to do
 
-A useful security report includes:
-
-- A clear description of the vulnerability
-- The affected version (see [`VERSION`](docs/VERSION))
-- Steps to reproduce, if applicable
-- Your assessment of severity and impact
-- A patch or suggested fix, if you have one
-
-You do not need to have all of this to report. An incomplete report is
-better than no report.
+- Opening an issue in Github or other forges
+- Writing an article anywhere
+- Providing operational information publicly
+- Using an insecure communication channel
 
 ---
 
-## Response Timeline
+## How to report
 
-| Stage              | Target                  |
-|--------------------|-------------------------|
-| Acknowledgement    | Within 3 business days  |
-| Initial assessment | Within 7 business days  |
-| Resolution plan    | Within 14 business days |
+- Send a PGP-encrypted email to lakshitsinghbishttm@gmail.com
 
-xLaDe is maintained by volunteers. These are targets, not guarantees.
-Every report is read and taken seriously regardless of response time.
+---
+
+### PGP Public Key
+
+We publish our PGP key in multiple places. Obtain from any of the following sources.
+
+- http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/pgp.asc
+- https://github.com/LakshitSinghBishtTM/xLaDe/assets/keys/pgp.asc
+- https://keys.openpgp.org/vks/v1/by-fingerprint/1520CEF8218F97F8A6CA4473B79C23D508EF3F92
+
+If there is still any problem in finding the key, you can ask us for PGP key in the first email before reporting.
+We will be happy to share it.
+
+---
+
+## What to include
+
+Please create a document file (we normally prefer a .txt file, but any format is fine.)
+In the file, please include two types of details:
+
+### Mandatory details
+
+- A description of the vulnerability
+- Version in which it was found
+- How you found it
+- Any comments or details
+
+The mandatory details depend on vulnerability's context and may be different from listed above.
+Please send us as many details as possible.
+
+### Optional details
+
+- Affected versions
+- Rigorous steps to reproduce
+- Fix or patch for vulnerability
 
 ---
 
 ## Scope
 
-Security reports are welcome for:
+We welcome reports on
 
-- The xLaDe Python CLI (`xlade/`)
-- CI workflows and enforcement scripts (`scripts/`, `.github/workflows/`)
-- Distribution infrastructure (mirrors, onion service)
-- Documentation that could mislead users into unsafe practices
+- The xLaDe CLI tool
+- Entire project files and codebase
+- Mirrors and infrastructure of xLaDe
+- xLaDe official website
 
-Out of scope:
+Please don't report following to us
 
-- Vulnerabilities in Lean 4 itself — report those to the
-  [Lean core team](https://github.com/leanprover/lean4)
-- Vulnerabilities in third-party mirrors not listed in
-  [`OFFICIAL_SOURCES.md`](docs/OFFICIAL_SOURCES.md)
+- Vulnerabilities of xLaDe dependencies such as Lean 4, Bash, Git, etc.
 - Theoretical attacks with no practical exploitation path
 
 ---
 
 ## Disclosure Policy
 
-xLaDe follows **coordinated disclosure**:
+We follow the following process
 
 1. You report privately
-2. We acknowledge and investigate
-3. We develop and test a fix
-4. We release the fix and credit you (unless you prefer to remain anonymous)
-5. Full details are disclosed after the fix is available
+2. We investigate the vulnerability
+3. We develop the fix
+4. We release it and credit the finder
+5. DCVE is released for the issue publicly if applicable
 
-We ask for a reasonable window to address issues before public disclosure.
-If we cannot agree on a timeline, you are free to disclose at your
-discretion.
+After the vulnerability is fixed and DCVE is released, the finder is free to write article or public report on the vulnerability.
 
 ---
 
 ## Acknowledgements
 
-Contributors who responsibly disclose security issues will be credited
-in the release notes for the fixing version, unless they prefer otherwise.
+We will acknowledge the finder of vulnerabilities in the DCVEs issued by xLaDe.
+In addition, we will also credit in the security page of xLaDe website.
+The finder can ask to remain anonymous if he/she wants.
 
 ---
 
 ## Further Reading
 
-- [`SECURITY_POLICY.md`](security/SECURITY_POLICY.md) — security philosophy and threat model overview
-- [`THREAT_MODEL.md`](security/THREAT_MODEL.md) — what xLaDe does and does not protect against
-- [`TRUST_MODEL.md`](security/TRUST_MODEL.md) — distribution trust model
-- [`OFFICIAL_SOURCES.md`](docs/OFFICIAL_SOURCES.md) — authoritative sources and verification
+- [`SECURITY_POLICY.md`](security/SECURITY_POLICY.md)
+- [`THREAT_MODEL.md`](security/THREAT_MODEL.md)
+- [`TRUST_MODEL.md`](security/TRUST_MODEL.md)
+- [`DCVES/`](security/advisories/)
+
+---
+
+## Note
+
+In case of anything missing in the document, please report to us.
+
+---
