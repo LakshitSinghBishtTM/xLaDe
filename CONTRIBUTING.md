@@ -34,11 +34,11 @@ This depends on what you want to contribute. We divide it in two ways -
 
 For minor changes like fixing a typo or updating documentation, etc.
 
-Step 1. Fork xLaDe. This will create a copy of xLaDe.
-Step 2. Go to your copy.
-Step 3. Edit the file you want.
-Step 4. Write what you changed in commit message precisely and save it.
-Step 5. Send us a PR
+Step 1. Fork xLaDe. This will create a copy of xLaDe.  
+Step 2. Go to your copy.  
+Step 3. Edit the file you want.  
+Step 4. Write what you changed in commit message precisely and save it.  
+Step 5. Send us a PR  
 
 Done.
 
