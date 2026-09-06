@@ -9,7 +9,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 DATABASE_PATH = Path(__file__).with_name("error_rules.sqlite3")
 SCHEMA_PATH = Path(__file__).with_name("error_rules.sql")
 SEPARATOR = "-" * 100
@@ -59,13 +58,13 @@ def explanations(output: str) -> list[str]:
     ).fetchall()
 
   matching_phrases = [
-    rule["phrase"].lower() for rule in rules if rule["phrase"].lower() in lowered_output
+      rule["phrase"].lower() for rule in rules if rule["phrase"].lower() in lowered_output
   ]
 
   for rule in rules:
     phrase = rule["phrase"].lower()
     more_specific_match = any(
-      phrase != other and phrase in other for other in matching_phrases
+        phrase != other and phrase in other for other in matching_phrases
     )
     if phrase in matching_phrases and not more_specific_match:
       found.append(rule["explanation"])
