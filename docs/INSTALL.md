@@ -341,8 +341,8 @@ rm -rf venv
 
 ## See Also
 
-- [`docs/CLI_DEMO.md`](docs/CLI_DEMO.md) — CLI usage walkthrough
-- [`docs/END_TO_END_TRACE.md`](docs/END_TO_END_TRACE.md) — full usage trace
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution guidelines
+- [`CLI_DEMO.md`](CLI_DEMO.md) — CLI usage walkthrough
+- [`END_TO_END_TRACE.md`](END_TO_END_TRACE.md) — full usage trace
+- [`CONTRIBUTING.md`](../CONTRIBUTING.md) — contribution guidelines
 - [elan repository](https://github.com/leanprover/elan) — elan source and releases
 - [Lean 4 installation guide](https://lean-lang.org/install/manual/) — official Lean docs

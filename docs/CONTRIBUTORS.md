@@ -41,7 +41,7 @@ We appreciate all types of contributions:
 - Adding experimental code modules
 - Helping with community support
 
-For detailed instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
+For detailed instructions, see [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ---
 

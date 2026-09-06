@@ -106,7 +106,7 @@ The following are assumed to be true for the threat model to hold:
 - Contributors follow the documented processes in good faith
 - The user's local Python installation is not compromised
 - The user cloned from an official source listed in
-  [`OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md)
+  [`OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md)
 
 If any of these assumptions are violated, the threat model does not
 apply and no security guarantees can be made.
@@ -130,8 +130,8 @@ Risks that are in scope but only partially mitigated:
 
 ## Relationship to Other Documents
 
-- [`SECURITY.md`](SECURITY.md) — how to report vulnerabilities
+- [`SECURITY.md`](../SECURITY.md) — how to report vulnerabilities
 - [`SECURITY_POLICY.md`](SECURITY_POLICY.md) — security philosophy and mitigations
 - [`TRUST_MODEL.md`](TRUST_MODEL.md) — distribution and project trust model
 - [`../policies/kernel-protection.md`](../policies/kernel-protection.md) — kernel immutability enforcement
-- [`../OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md) — authoritative sources
+- [`../docs/OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md) — authoritative sources

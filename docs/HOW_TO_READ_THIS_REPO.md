@@ -24,7 +24,7 @@ the right one. Read this second — it frames everything else.
 Current status, project vision, and what the project provides right now
 vs what it is working toward.
 
-**4. `INSTALL.md`**
+**4. `docs/INSTALL.md`**
 Step-by-step installation — elan, Lean toolchain, pip install. Read
 before trying to run anything.
 
@@ -139,7 +139,7 @@ the project:
 
 - `CONTRIBUTING.md` — how to submit contributions
 - `CODE_OF_CONDUCT.md` — community standards
-- `LIMITATIONS.md` — honest current limitations, good to know before
+- `docs/LIMITATIONS.md` — honest current limitations, good to know before
   filing issues
 - `security/THREAT_MODEL.md` — what xLaDe does and does not protect against
 - `docs/AI_use.md` — policy on AI-assisted contributions
@@ -153,8 +153,8 @@ xLaDe has explicit governance documentation:
 - `policies/kernel-protection.md` — the core architectural constraint
 - `policies/experiment-lifecycle.md` — how experiments move through
   draft → active → promoted/abandoned
-- `OFFICIAL_SOURCES.md` — which sources are authoritative
-- `ONION.md` — why the onion site is the primary web presence
+- `docs/OFFICIAL_SOURCES.md` — which sources are authoritative
+- `docs/ONION.md` — why the onion site is the primary web presence
 - `security/TRUST_MODEL.md` — distribution trust model
 
 These matter more as the project grows. Worth reading once you are
@@ -167,11 +167,11 @@ familiar with the codebase.
 | If you want to...                  | Read...                                                                 |
 |------------------------------------|-------------------------------------------------------------------------|
 | Understand what xLaDe is           | `README.md`, `docs/WHY_xLaDe.md`                                        |
-| Install and run it                 | `INSTALL.md`, `docs/END_TO_END_TRACE.md`                                |
+| Install and run it                 | `docs/INSTALL.md`, `docs/END_TO_END_TRACE.md`                                |
 | Use the CLI                        | `docs/CLI_DEMO.md`                                                      |
 | Understand the architecture        | `docs/architecture.md`                                                  |
 | Add an experiment                  | `experiments/EXPERIMENT_TEMPLATE.md`, `experiments/README.md`           |
 | Contribute code                    | `CONTRIBUTING.md`, `docs/architecture.md`                               |
 | Understand the research direction  | `docs/research_roadmap.md`, `docs/REPRODUCIBILITY_AND_COMPATIBILITY.md` |
-| Know what is not implemented       | `LIMITATIONS.md`                                                        |
+| Know what is not implemented       | `docs/LIMITATIONS.md`                                                        |
 | Understand the security model      | `security/THREAT_MODEL.md`, `security/TRUST_MODEL.md`                   |

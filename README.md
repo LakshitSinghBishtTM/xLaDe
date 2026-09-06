@@ -106,7 +106,7 @@ xLaDe is not just a theoretical framework or concept. It runs experiments on rea
 ```
 $ xlade list experiments
 
-  Experiments  (5 found)
+  Experiments  (7 found)
   ----------------------------------------------------------------------------------------------------
   Experiment               Status    Type              Modes
   ----------------------------------------------------------------------------------------------------
@@ -115,6 +115,8 @@ $ xlade list experiments
   exp-003-doc-coverage     active    script-policy     experimental
   exp-004-project-proof-1  active    script-policy     experimental
   exp-005-lean4-courses    active    script-policy     experimental
+  exp-006-teorth-analysis  active    script-policy     experimental
+  exp-007-and-or           active    script-policy     experimental
 ```
 
 ```
@@ -152,7 +154,7 @@ That is the non-invasive ecosystem layer claim demonstrated, not just described.
 ## Quick Start
 
 **Requirements:** Python 3.14+, git, bash.
-For Lean experiments: elan + Lake (see [`INSTALL.md`](INSTALL.md)).
+For Lean experiments: elan + Lake (see [`docs/INSTALL.md`](docs/INSTALL.md)).
 
 ```sh
 git clone --recurse-submodules https://github.com/LakshitSinghBishtTM/xLaDe.git
@@ -168,7 +170,7 @@ xlade status
 ```
 
 Full installation guide including elan, Lean toolchain, and platform-specific
-notes: [`INSTALL.md`](INSTALL.md).
+notes: [`docs/INSTALL.md`](docs/INSTALL.md).
 
 ---
 
@@ -181,12 +183,14 @@ notes: [`INSTALL.md`](INSTALL.md).
 | `exp-003-doc-coverage`    | script-policy | README present in all experiments, modes, policies  | bash     | No       |
 | `exp-004-project-proof-1` | script-policy | Builds an external proof repo via `lake build`      | Lake     | Yes      |
 | `exp-005-lean4-courses`   | script-policy | Builds a 32-module external Lean 4 course repo      | Lake     | Yes      |
+| `exp-006-teorth-analysis` | script-policy | Builds the teorth analysis project                 | Lake     | Yes      |
+| `exp-007-and-or`         | script-policy | Checks conjunction/disjunction proof examples      | bash     | No       |
 
 EXP-002 and EXP-003 run on any machine with bash.
-EXP-001, EXP-004, and EXP-005 require a full Lean 4 + Lake installation
+EXP-001, EXP-004, EXP-005, EXP-006, and EXP-007 require a full Lean 4 + Lake installation
 via elan and skip cleanly without it.
 
-EXP-004 and EXP-005 are external projects with no code connection to
+EXP-004, EXP-005, and EXP-006 are external projects with no code connection to
 xLaDe. They are included as git submodules and executed without
 modification.
 
@@ -218,9 +222,9 @@ any single provider.
 | **Website**          | http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion |
 
 The onion service is the official project website, not a mirror or
-fallback. See [`ONION.md`](ONION.md) for the rationale.
+fallback. See [`docs/ONION.md`](docs/ONION.md) for the rationale.
 
-**Torrent:** [`assets/torrent/xlade_v1.7.0.torrent`](assets/torrent/xlade_v1.8.0.torrent)
+**Torrent:** [`assets/torrent/xlade_v1.8.0.torrent`](assets/torrent/xlade_v1.8.0.torrent)
 
 ```
 magnet:?xt=urn:btih:5ab3a8bb8f8606bfa2ad60325204b31ac03dfd25&xt=urn:btmh:122075a628f3424cb7b2b993ac6317dc1724d05fcf89826c68fde562d91d24a8b5e0&dn=xLaDe-1.8.0.tar.gz&xl=151412&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&ws=https%3A%2F%2Fgithub.com%2FLakshitSinghBishtTM%2FxLaDe%2Farchive%2Frefs%2Ftags%2Fv1.8.0.tar.gz
@@ -232,7 +236,7 @@ magnet:?xt=urn:btih:5ab3a8bb8f8606bfa2ad60325204b31ac03dfd25&xt=urn:btmh:122075a
 
 | Document                                                                                 | Objective                                            |
 |------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`INSTALL.md`](INSTALL.md)                                                               | Installation - elan, Lean, pip, all platforms        |
+| [`docs/INSTALL.md`](docs/INSTALL.md)                                                     | Installation - elan, Lean, pip, all platforms        |
 | [`docs/WHY_xLaDe.md`](docs/WHY_xLaDe.md)                                                 | The problems in detail and why this approach         |
 | [`docs/CLI_DEMO.md`](docs/CLI_DEMO.md)                                                   | Every command, with real expected output             |
 | [`docs/END_TO_END_TRACE.md`](docs/END_TO_END_TRACE.md)                                   | Full session trace from clone to results             |
@@ -241,9 +245,9 @@ magnet:?xt=urn:btih:5ab3a8bb8f8606bfa2ad60325204b31ac03dfd25&xt=urn:btmh:122075a
 | [`docs/roadmap.md`](docs/roadmap.md)                                                     | Engineering roadmap from v1.5.0 to v2.0.0            |
 | [`docs/research_roadmap.md`](docs/research_roadmap.md)                                   | Long-term research directions                        |
 | [`docs/REPRODUCIBILITY_AND_COMPATIBILITY.md`](docs/REPRODUCIBILITY_AND_COMPATIBILITY.md) | Reproducibility model and staged plan                |
-| [`LIMITATIONS.md`](LIMITATIONS.md)                                                       | Honest current limitations                           |
-| [`CHANGELOG.md`](CHANGELOG.md)                                                           | Full version history                                 |
-| [`HOW_TO_READ_THIS_REPO.md`](HOW_TO_READ_THIS_REPO.md)                                   | Where to start for new contributors                  |
+| [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md)                                             | Honest current limitations                           |
+| [`docs/CHANGELOG.md`](docs/CHANGELOG.md)                                                 | Full version history                                 |
+| [`docs/HOW_TO_READ_THIS_REPO.md`](docs/HOW_TO_READ_THIS_REPO.md)                         | Where to start for new contributors                  |
 
 ---
 
@@ -276,7 +280,7 @@ xLaDe/
 xLaDe operates under a minimal-trust model. No single platform is
 treated as inherently trustworthy.
 
-- [`security/SECURITY.md`](security/SECURITY.md) - how to report vulnerabilities
+- [`SECURITY.md`](SECURITY.md) - how to report vulnerabilities
 - [`security/THREAT_MODEL.md`](security/THREAT_MODEL.md) - what is and is not in scope
 - [`security/TRUST_MODEL.md`](security/TRUST_MODEL.md) - distribution trust model
 - [`security/SECURITY_POLICY.md`](security/SECURITY_POLICY.md) - security philosophy
@@ -290,7 +294,7 @@ and feedback at any stage of development.
 
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) - how to contribute
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) - community standards
-- [`CONTRIBUTORS.md`](CONTRIBUTORS.md) - acknowledgements
+- [`docs/CONTRIBUTORS.md`](docs/CONTRIBUTORS.md) - acknowledgements
 
 Contributions that modify the Lean kernel are not accepted.
 This is not a policy that will change.

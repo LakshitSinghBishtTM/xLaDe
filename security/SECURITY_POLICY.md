@@ -18,13 +18,13 @@ Security updates are applied to the current development state only.
 - No backports to previous releases
 - Users are expected to track the latest version
 
-The current version is in [`VERSION`](../VERSION).
+The current version is in [`VERSION`](../docs/VERSION).
 
 ---
 
 ## Reporting a Vulnerability
 
-See [`SECURITY.md`](SECURITY.md) for the full reporting process,
+See [`SECURITY.md`](../SECURITY.md) for the full reporting process,
 PGP key, response timeline, and disclosure policy.
 
 Short version: email `lakshitsinghbishttm@gmail.com`. Do not open a
@@ -77,7 +77,7 @@ and torrent distribution. No single point of failure or trust.
 
 **Onion service** — self-authenticating address derived from a
 cryptographic key. Resistant to DNS hijacking and TLS CA compromise.
-See [`ONION.md`](../ONION.md).
+See [`ONION.md`](../docs/ONION.md).
 
 **Kernel immutability** — any modification to `lean-core/` is detected
 and rejected by CI automatically. See
@@ -110,7 +110,7 @@ Security is a shared responsibility between maintainers and users.
 ## Best Practices for Users
 
 - Clone only from sources listed in
-  [`OFFICIAL_SOURCES.md`](../OFFICIAL_SOURCES.md)
+  [`OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md)
 - Verify repository URLs and commit history before trusting a source
 - Review experiment scripts before running them — they execute as your user
 - Do not run xLaDe as root

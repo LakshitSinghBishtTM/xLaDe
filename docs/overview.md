@@ -108,4 +108,4 @@ tooling, and feedback.
 | [`roadmap.md`](roadmap.md)                    | Release roadmap                           |
 | [`CLI_DEMO.md`](CLI_DEMO.md)                  | Complete CLI command reference            |
 | [`END_TO_END_TRACE.md`](END_TO_END_TRACE.md)  | Full session walkthrough with real output |
-| [`../INSTALL.md`](../INSTALL.md)              | Installation guide                        |
+| [`INSTALL.md`](INSTALL.md)              | Installation guide                        |

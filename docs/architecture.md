@@ -87,7 +87,7 @@ xLaDe/
 ├── lake-manifest.json      Locked dependency graph
 ├── lean-toolchain          Pinned Lean compiler version
 ├── pyproject.toml          Python packaging
-└── VERSION                 Current version string
+└── docs/VERSION            Current version string
 ```
 
 ---
@@ -239,7 +239,7 @@ affected. See [`RUNTIME_STATE.md`](RUNTIME_STATE.md) for full details.
 
 As of current version, xLaDe is a functional experimental platform. It is not
 production software. Specific limitations are documented in
-[`LIMITATIONS.md`](../LIMITATIONS.md).
+[`LIMITATIONS.md`](LIMITATIONS.md).
 
 Key facts about the current state:
 

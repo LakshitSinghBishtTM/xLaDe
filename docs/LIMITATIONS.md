@@ -107,7 +107,7 @@ feature.
 **No AI integration.**
 There is no language model integration of any kind. AI-assisted proof
 diagnosis and translation are long-term research directions described in
-[`research_roadmap.md`](docs/research_roadmap.md).
+[`research_roadmap.md`](research_roadmap.md).
 
 ---
 

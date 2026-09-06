@@ -3,7 +3,7 @@
 xLaDe is used entirely through the `xlade` command-line interface. This
 document covers every command, what it does, and what to expect from it.
 
-For installation instructions, see [`INSTALL.md`](../INSTALL.md).  
+For installation instructions, see [`INSTALL.md`](INSTALL.md).
 For a narrative walkthrough, see [`END_TO_END_TRACE.md`](END_TO_END_TRACE.md).
 
 ---
@@ -31,7 +31,7 @@ Before using xLaDe, ensure your environment is set up correctly:
 xlade doctor
 ```
 
-All items should show `[ok]` before running experiments. See [`INSTALL.md`](../INSTALL.md)
+All items should show `[ok]` before running experiments. See [`INSTALL.md`](INSTALL.md)
 for setup instructions if anything is missing.
 
 ---

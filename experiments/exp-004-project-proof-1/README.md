@@ -35,7 +35,7 @@ theorems. No external dependencies beyond the Lean toolchain.
 
 ## Enforcement Mechanism
 
-- Script-based: `scripts/run-exp-004.sh`
+- Script-based: `scripts/experiments/run-exp-004.sh`
 - Runs `lake build` inside the project submodule directory
 - Exit code determines pass/fail
 
