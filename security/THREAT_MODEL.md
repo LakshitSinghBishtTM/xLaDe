@@ -1,137 +1,78 @@
 # Threat Model
 
-This document defines what xLaDe does and does not attempt to protect
-against. It is written to be honest about scope rather than to appear
-more secure than the project actually is.
+This document explains the threat model of xLaDe project.
+We are honest about the scope and not want to make it a security theatre.
+We do not say xLaDe is perfectly secured and provide no absolute claims.
 
 ---
 
-## Primary Assets
+## Security Goals
 
-The things xLaDe is designed to protect:
+We protect the following assets:
 
-| Asset                        | Why it matters                                                                       |
-|------------------------------|--------------------------------------------------------------------------------------|
-| Lean kernel integrity        | Experiments must not modify the trusted proof kernel                                 |
-| Semantic stability           | Experimental effects must be attributable to ecosystem decisions, not kernel changes |
-| Reproducibility              | An experiment run today must be reproducible in the future                           |
-| Distribution integrity       | Users must receive code that matches what was committed                              |
-| Documented trust boundaries  | Misleading security documentation is itself a risk                                   |
+- Official Website
+- Mirrors and distribution
+- Release artifacts
+- Signature identity
+- Repository Codebase 
+- Documentation
+- Lean Core kernel integrity
 
 ---
 
 ## In-Scope Threats
 
-These are threats xLaDe actively defends against:
+- DNS Compromise
+- TLS Compromise
+- Semantic divergence
+- Misleading documentation
+- Repository Tampering
+- Mirrors Tampering 
 
-**Accidental kernel modification**
-A contributor modifies `lean-core/` unintentionally — through a merge,
-a rebase gone wrong, or misunderstanding the repository structure. CI
-detects this and fails the build. No PR touching `lean-core/` can be
-merged.
+---
 
-**Silent semantic divergence**
-Experimental tooling changes Lean behaviour without the change being
-visible or documented. The submodule model prevents this — `lean-core/`
-is read-only and pinned to a specific commit.
+### In-scope Rationale
 
-**Repository tampering**
-An attacker modifies repository content on a mirror or compromised
-platform. Mitigated by multiple independent distribution channels and
-the onion service's self-authenticating address.
-
-**DNS and TLS compromise**
-An attacker intercepts traffic to GitHub or mirrors via DNS hijacking
-or a rogue certificate authority. The onion service is resistant to
-both — its address is derived from a cryptographic key, not DNS.
-
-**Unreviewed workflow changes**
-A PR modifies CI workflows in a way that allows untrusted code to reach
-main. Addressed through code review requirements and, from v2.0.0,
-mandatory signed commits.
-
-**Irreversible experiments**
-An experiment modifies state in a way that cannot be undone without
-manual intervention. All xLaDe experiments are designed to be reversible
-— deleting `.xlade/` resets project state completely.
-
-**Misleading documentation**
-Documentation that leads users to trust unofficial sources, skip
-verification, or misunderstand the security model. Addressed by
-maintaining explicit `OFFICIAL_SOURCES.md` and `TRUST_MODEL.md`.
+- The official website is an onion service. It is decentralised. We don't depend on any centralised infrastructure for hosting our website.
+- The onion service has a private key and a public key which self verifies the domain. The website certifies itself, making it free from TLS compromise.
+- The semantic divergence is not permissible under xLaDe and we provide authoritative documentation in case of ambiguity.  
+- Documentation is a core part of xLaDe. We provide reliability and correctness to the official documentation.
+- We sign commits with SSH key, whose public key is provided in assets. This provides trust for committer identity.
+- Mirrors are also signed with the SSH keys in Gitlab, Codeberg, and Gitea. Sourceforge doesn't provide signing feature, so it can't be provided there.
 
 ---
 
 ## Out-of-Scope Threats
 
-These are explicitly not addressed by xLaDe:
+- Nation-state
+- Supply chain 
+- Zero-day
+- Compromised OS
+- Bash or terminal access
+- Lean 4 attacks
+- Network attacks
 
-**Malicious contributors with legitimate access**
-A maintainer or contributor with repository access intentionally
-introduces malicious code. xLaDe does not defend against this. Users
-should apply their own judgment about trusting the project.
+---
 
-**Compromised operating system or local environment**
-If the machine running xLaDe is compromised, xLaDe provides no
-protection. This is outside the scope of any application-level tool.
+### Out-of-scope Rationale
 
-**Vulnerabilities in Lean 4 itself**
-Bugs or security issues in the Lean compiler, elaborator, or kernel are
-out of scope. Report those to the
-[Lean core team](https://github.com/leanprover/lean4).
-
-**Supply chain attacks on dependencies**
-xLaDe has minimal Python dependencies (setuptools, tomllib from stdlib).
-No active monitoring of dependency vulnerabilities is performed. Users
-should apply standard Python supply chain hygiene.
-
-**Performance attacks or resource exhaustion**
-No rate limiting, sandboxing, or resource controls are applied to
-experiment execution.
-
-**Network-based or remote adversaries**
-xLaDe is a local CLI tool. It makes no network requests during normal
-operation. The threat model does not consider network-based attacks
-against the running tool.
+- We don't protect against nation-state, supply chain attacks, zero-day exploits and OS compromised with malwares, trojans, etc.
+- We also don't protect in case of an attacker having terminal or network access.
+- xLaDe is a local CLI tool, and no internet is required to run it.
+- Only the dependencies like lean, lake, mathlib, etc. require internet, so we don't provide safety from network attacks.
+- Since running experiments may invoke bash, so we consider it out of scope to restrict bash. 
+- However, users can always read the file before running it. The user bears the accountability of running any script.
+- We don't look after protection of Lean 4. In case of any problem in Lean 4, the xLaDe team is not responsible 
 
 ---
 
 ## Trust Assumptions
 
-The following are assumed to be true for the threat model to hold:
+- Lean 4 is trusted
+- Git, Python, etc. are uncompromised
+- User runs xLaDe without sudo
+- CI secrets are uncompromised
 
-- The Lean 4 kernel and compiler are correct and unmodified
-- CI enforcement is authoritative — a passing CI build means the
-  kernel boundary check and test suite both passed
-- Contributors follow the documented processes in good faith
-- The user's local Python installation is not compromised
-- The user cloned from an official source listed in
-  [`OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md)
-
-If any of these assumptions are violated, the threat model does not
-apply and no security guarantees can be made.
+In case of any trust assumption is broken, no assurance can be given.
 
 ---
-
-## Residual Risks
-
-Risks that are in scope but only partially mitigated:
-
-- **Mirror lag** — mirrors may serve an older version. Users should
-  verify version consistency against the primary repository.
-- **Experiment script execution** — script-policy experiments run bash
-  scripts as the current user. A malicious experiment could cause harm.
-  Users should review experiment scripts before running them.
-- **Unsigned commits before v2.0.0** — commit authorship cannot be
-  cryptographically verified until v2.0.0 introduces mandatory GPG
-  signing.
-
----
-
-## Relationship to Other Documents
-
-- [`SECURITY.md`](../SECURITY.md) — how to report vulnerabilities
-- [`SECURITY_POLICY.md`](SECURITY_POLICY.md) — security philosophy and mitigations
-- [`TRUST_MODEL.md`](TRUST_MODEL.md) — distribution and project trust model
-- [`../policies/kernel-protection.md`](../policies/kernel-protection.md) — kernel immutability enforcement
-- [`../docs/OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md) — authoritative sources
