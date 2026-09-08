@@ -2,117 +2,96 @@
 
 ## Philosophy
 
-> Do not assume trust in infrastructure, platforms, or distribution channels.
-
-Security in xLaDe is achieved through transparency, verifiability, and
-minimal trust assumptions — not by relying on any single platform or
-authority to be safe.
+We do NOT trust any centralised infrastructure.  
+I couldn't write it more simply.
 
 ---
 
 ## Supported Versions
 
-Security updates are applied to the current development state only.
-
-- No long-term support versions are maintained
-- No backports to previous releases
-- Users are expected to track the latest version
-
-The current version is in [`VERSION`](../docs/VERSION).
-
----
-
-## Reporting a Vulnerability
-
-See [`SECURITY.md`](../SECURITY.md) for the full reporting process,
-PGP key, response timeline, and disclosure policy.
-
-Short version: email `lakshitsinghbishttm@gmail.com`. Do not open a
-public GitHub issue.
+We support only the latest version for security updates.  
+To know the latest version, please check [`VERSION`](../docs/VERSION) file or type command `xlade --version` if in CLI.
 
 ---
 
 ## Security Scope
 
-xLaDe has multiple layers, each with different security considerations:
-
-| Layer               | Examples                        | Risk level | Reason                              |
-|---------------------|---------------------------------|------------|-------------------------------------|
-| Python CLI          | `xlade/`, `bin/xlade`           | Medium     |executes user-controlled experiments |
-| Enforcement scripts | `scripts/`                      | Medium     | runs bash via subprocess            |
-| CI workflows        | `.github/workflows/`            | High       |controls what reaches main           |
-| Distribution        | mirrors, onion service, torrent | High       | integrity of what users receive     |
-| Lean submodule      | `lean-core/`                    | Low        | read-only reference, CI-protected   |
-| Documentation       | `docs/`, root `.md` files       | Low        | but misleading docs are a real risk |
-
----
-
-## Threat Model Summary
-
-Full details in [`THREAT_MODEL.md`](THREAT_MODEL.md). Summary:
-
-### In scope
-
-- Accidental or malicious modification of the Lean kernel submodule
-- Repository tampering or supply chain compromise
-- Malicious or unofficial mirrors serving modified code
-- DNS hijacking or TLS compromise on distribution channels
-- CI workflow compromise leading to untrusted code reaching main
-- Documentation that misleads users into unsafe practices
-
-### Out of scope
-
-- Vulnerabilities in Lean 4 itself — report to the
-  [Lean core team](https://github.com/leanprover/lean4)
-- Compromised operating systems or local environments
-- Malicious contributors with legitimate repository access
-- Performance attacks or denial of service
+| Layer               | Risk level | Reason                                                                                                                   |
+|---------------------|------------|--------------------------------------------------------------------------------------------------------------------------|
+| Official Website    | Critical   | primary entry of xLaDe, authenticated by the cryptographic identity of the onion service (unless private key is exposed) |
+| Keys                | Critical   | keys published in the official site are authoritative, keys published elsewhere should be verified against them          |
+| GitHub              | High       | controlled by microsoft, not trusted                                                                                     |
+| Mirrors             | High       | not under our explicit control, similar to github                                                                        |
+| Distribution        | Variable   | torrent is seeded by core team, however, we advise to verify checksum against official site, pypi is not trusted         |
+| CLI                 | Medium     | cli tool is the primary product and remains our focus                                                                    |
+| Documentation       | Low        | misleading docs can create real risk                                                                                     |
+| CI workflows        | Medium     | control what reaches main and other workflows impact project directly                                                    |
+| Experiments         | Low        | we generally review scripts, but mistakes may happen, careful behaviour is better                                        |
 
 ---
 
-## Mitigations
+## Non-Guarantees
 
-**Multiple distribution channels** — GitHub, five mirrors, onion service,
-and torrent distribution. No single point of failure or trust.
-
-**Onion service** — self-authenticating address derived from a
-cryptographic key. Resistant to DNS hijacking and TLS CA compromise.
-See [`ONION.md`](../docs/ONION.md).
-
-**Kernel immutability** — any modification to `lean-core/` is detected
-and rejected by CI automatically. See
-[`policies/kernel-protection.md`](../policies/kernel-protection.md).
-
-**Public commit history** — all changes are tracked and auditable.
-No force pushes to main after v2.0.0 (signed commits mandatory from
-v2.0.0 onward).
-
-**Explicit trust model** — documented in [`TRUST_MODEL.md`](TRUST_MODEL.md).
-No implicit assumptions about platform safety.
-
-**Mirror workflow scope** — mirror jobs are restricted to `main` only, so
-feature branches cannot trigger distribution syncs.
+- Running experiment scripts added by community 
+- Centralised infrastructure such as GitHub
+- Dependencies and environments of xLaDe such as Python, Git, etc.
+- Reliability and availability of Lean 4, Lake, Elan, etc. 
 
 ---
 
-## What xLaDe Does Not Guarantee
+## What not to do
 
-- Absolute security of third-party platforms or mirrors
-- Safety of executing arbitrary or unreviewed experiment code
-- Immunity from supply chain attacks in dependencies
-- Protection against compromised local developer environments
-- Security of unofficial forks or redistributions
-
-Security is a shared responsibility between maintainers and users.
+- Cloning xLaDe from random sources not mentioned in official website and repo
+- Not verifying our SSH key for commits and assuming trusted
+- Not verifying our PGP key before communication
+- Not verifying our sha256sums from our website
+- Running python v3.13 or less
+- Running xLaDe as root
+- Running random script files
+- Running not updated environment and dependencies
+- Running too old versions of xLaDe when new versions are up for months
+- Not updating xLaDe after publishing of a DCVE
+- Using random instructions not authorised by xLaDe team
 
 ---
 
-## Best Practices for Users
+## Accountability 
 
-- Clone only from sources listed in
-  [`OFFICIAL_SOURCES.md`](../docs/OFFICIAL_SOURCES.md)
-- Verify repository URLs and commit history before trusting a source
-- Review experiment scripts before running them — they execute as your user
-- Do not run xLaDe as root
-- Keep your local environment and Python installation up to date
-- If in doubt about a source, use the onion service for verification
+- We are accountable for the official website
+- We are accountable for the entire codebase and documentation
+- We are accountable for publishing our PGP key, SSH key, and checksums
+
+In case, any of the above three are not correct or broken, please report to us as soon as possible.
+
+---
+
+## Responsibility in team
+
+- PGP Key: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- SSH Key: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Onion service Key: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Website Updation: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Git: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Release artifacts: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Mirrors: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Torrents: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Pypi: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+- Supervision: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Core Team Recruitment: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Official Decisions: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Finance: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Legal: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Funding and expenditure: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Contributors: Manpreet Sahoo <manpreetsahoo2004@gmail.com>
+- Copyright: Lakshit Singh Bisht <lakshitsinghbishttm@gmail.com>
+
+---
+
+## Not our responsibility
+
+- Using custom xLaDe forks
+- Breaking security assumptions of xLaDe
+- Security flaws of older versions
+- Making an ultimately secure xLaDe which has theoretically no security flaws
+
+---
