@@ -1,0 +1,87 @@
+# doc spec
+
+This file defines the syntax and formatting rules of xLaDe.
+Please follow this format only while creating a new documentation file.
+
+---
+
+## File format
+
+- file should use extensionless format
+- no capitalization unless some standard or special file needs capital format (such as LICENSE)
+- use underscore "_" to separate words
+- do not include custom non utf-8 characters in filenames
+
+---
+
+## Headings
+
+- Beginning of document starts with single # symbol telling the file name 
+- Headings are ##
+- Subheadings are ###
+- Subsubheadings are #### and so on
+
+---
+
+## Comments
+
+- Single line comments use //
+- Multiline comments start with //-- and end with --//
+- No need to put multiline comment symbols in every line, just starting and ending is sufficient
+
+---
+
+## Lists
+
+- Use "-" for unordered list
+- Use "1." and similar for ordered list
+- There should be a single space after the listing symbols
+
+---
+
+## Code
+
+- Use backticks (``) for singleline code
+- Use ``` for multiline code and first line can include language name (optional)
+
+---
+
+## Maths
+
+- Tex format should be used for maths
+- The equations should be enclosed with dollar symbols $
+
+---
+
+## Tables
+
+- Use pipe (|) for separating columns
+- The headings should be separated from rows by dashes 
+
+---
+
+## Quotes
+
+- Quotes should use greater than (>) symbol
+- For quotes in multilines, it should start with >- and end with -<
+- Alternatively every line can use > too
+
+---
+
+## Normal writing
+
+- No formatting should be used for links, references, and paragraphs
+- Paragraphs should be written normally
+- Links should be put directly without any custom format
+- References should be written directly too without anything 
+
+## Miscellaneous
+
+- Use triple dashes --- between sections
+- The documents should leave last line empty
+- Whitespace should be exactly one line after sections. 
+- No huge lines of whitespace or empty lines should be in any document
+- The standard formatting of ** to bold * to italics, and ~~ to strikethrough should be minimal
+- Documents may use special format based on requirements and context if rules are not adequate
+
+---
