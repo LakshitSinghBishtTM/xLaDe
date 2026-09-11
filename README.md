@@ -8,296 +8,213 @@
 <p align="center">eXperimental Lean 4 advanced Development ecosystem</p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/version-1.8.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/status-experimental-orange" alt="Status">
+  <img src="https://img.shields.io/badge/status-experimental-red" alt="Status">
+  <img src="https://img.shields.io/badge/platform-Linux-green" alt="Platform">
   <img src="https://img.shields.io/badge/Lean-4-purple" alt="Lean 4">
-  <img src="https://img.shields.io/badge/platform-Linux%20%7C%20BSD%20%7C%20Android-lightgrey" alt="Platform">
-  <a href="https://github.com/LakshitSinghBishtTM/xLaDe/graphs/contributors"><img src="https://img.shields.io/github/contributors/LakshitSinghBishtTM/xLaDe?color=green" alt="Contributors"></a>
-  <a href="https://github.com/LakshitSinghBishtTM/xLaDe/issues"><img src="https://img.shields.io/github/issues/LakshitSinghBishtTM/xLaDe" alt="Issues"></a>
 </p>
 
 ---
 
-Lean 4 proofs break silently across versions. Projects built on Lean drift
-from upstream until one day they simply stop working. Nobody knows why.
-These are not edge cases. They are the normal experience of working with
-a proof assistant under rapid development.
+xLaDe is a simple Python-based CLI tool built for executing and preserving Lean 4 projects. It is an ecosystem-level tool, which records the toolchain and other metadata of projects and allows the reconstruction and rebuilding of that exact environment later. 
 
-**xLaDe is a research platform that studies these problems and builds
-tooling to address them.** It is not a theorem library, a fork of Lean,
-or a replacement for any existing tool. It is an ecosystem layer — a
-controlled environment for running experiments on how Lean is *used*,
-enforcing architectural boundaries that prevent kernel drift, and recording
-enough metadata to reproduce any experiment correctly, years later.
+Lean 4 undergoes rapid development, which can introduce backward-compatibility issues. This problem becomes more difficult as the versions accumulate over time. xLaDe is built to mitigate the practical issues of backward-compatibility problems and improve ecosystem-level tooling for the Lean 4 theorem prover. 
 
-xLaDe is built primarily as a command-line tool for Linux, with tested support for Windows (via WSL) and Android (via Termux). 
-It installs through pip, ships with a comprehensive test suite and remains experimental.
+Instead of directly solving backward-compatibility issues by storing every version of Lean 4 and other tools or providing cross-version compatibility, xLaDe tries to store sufficient environment metadata such as toolchains, dependencies, and other context, and then recreates the environment for running Lean 4 projects upon request, also termed as experiments in xLaDe. In this process, xLaDe does not interfere with Lean 4 work and doesn't change anything in Lean 4 projects. It sits on a layer above Lean 4 and there are no modifications to other layers.
+
+xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prevent modifications to Lean 4. The Lean 4 repository is included in xLaDe as a submodule and remains optional for use. xLaDe is an opinionated tool, and its policies are enforced by workflows and scripts rather than simply being documented.
 
 ---
 
-## The Problems
+## Why not to use xLaDe
 
-### Lean proofs are fragile over time
-
-Lean 4 evolves fast. A proof that compiles today may fail elaboration
-next year as the toolchain changes. This is acknowledged by the Lean
-core team. It is a deliberate trade-off for a language under active
-research development. But it makes reproducible research with Lean
-genuinely difficult. Experiments become snapshots. Snapshots rot.
-
-**xLaDe's response:** treat each experiment as inseparable from its
-environment. Every experiment records its toolchain version, dependencies,
-and execution context. The goal is reproducibility i.e., being able to
-reconstruct the exact environment an experiment ran in, on demand,
-years later rather than backward compatibility, which Lean cannot
-guarantee.
-
-### Lean projects drift from upstream and break
-
-When a project builds directly on top of a Lean fork, it gradually
-diverges. Features get patched in. Workarounds accumulate. The fork
-drifts. One day something breaks and there is no clear record of what
-was keeping it stable. Diagnosing this often requires understanding both
-the original Lean codebase and every local modification made on top of
-it. Sometimes it is simply not recoverable.
-
-**xLaDe's response:** treat the Lean kernel as immutable infrastructure.
-Lean is included as a Git submodule. Any modification to it is detected
-by CI and the build fails. The boundary is enforced, not just documented.
-All experimental effects are attributable to ecosystem decisions, not
-kernel changes.
+- xLaDe is still being actively developed and updated 
+- Tools, metrics, etc. modules are not yet fully implemented
+- The installation process may be difficult for beginners
+- It may be unintuitive for non-Linux users
+- It is a boring tool, there is no groundbreaking magic
+- The use cases are primarily focused on long-term reproducibility, so it may feel less useful initially 
 
 ---
 
-## What xLaDe Provides
+## Features
 
+- Experiments runnable via xLaDe CLI
+- Modes controlling experiment execution
+- Comprehensive environment metadata for Lean 4 projects
+- Immutability of Lean 4 kernel via CI workflows
+- Comprehensive documentation and governance model
+- Security measures according to the documented threat model 
+- Optimised and lightweight
+ 
+---
+
+## Quick Start
+ 
+To install the entire project:
+
+```sh
+git clone https://github.com/LakshitSinghBishtTM/xLaDe.git
+cd xLaDe
+python -m venv venv
+source venv/bin/activate
+pip install .
+xlade
 ```
-xlade init                          Initialise a workspace
-xlade mode experimental             Select a mode
-xlade list experiments              Discover available experiments
-xlade run <experiment-id>           Run an experiment
-xlade status                        View run summary
-xlade metrics                       View full run history
-xlade doctor                        Diagnose environment issues
-xlade check                         Quick structural check
+
+To install the core CLI only, without experiments and other modules:
+
+```sh
+pip install xlade
+xlade
 ```
 
-**Experiments** are the primary artifact. Each is a self-contained
-directory with a declared hypothesis, enforcement mechanism, lifecycle
-state, and exit criteria. They run via `xlade run`. Results are written
-to `.xlade/metrics.json` on every execution - success, failure, or skip.
-
-**Modes** control which experiments are enabled and how strictly policies
-are enforced. Three modes: `experimental`, `stable`, `onboarding`.
-
-**Doctor** diagnoses your environment and tells you exactly what to run
-to fix each issue, not just what is missing.
-
-**Metrics** give you a structured audit trail of every experiment run,
-readable in the terminal or processable as JSON.
+For complete installation instructions, requirements, and troubleshooting information, please follow [`docs/install`](docs/install).
 
 ---
 
-## Working
+## Usage
 
-xLaDe is not just a theoretical framework or concept. It runs experiments on real external Lean 4 projects.
+You can run xLaDe CLI via terminal.
 
-```
-$ xlade list experiments
-
-  Experiments  (7 found)
-  ----------------------------------------------------------------------------------------------------
-  Experiment               Status    Type              Modes
-  ----------------------------------------------------------------------------------------------------
-  exp-001-proof-review     active    lean-policy       experimental
-  exp-002-kernel-boundary  active    script-policy     experimental
-  exp-003-doc-coverage     active    script-policy     experimental
-  exp-004-project-proof-1  active    script-policy     experimental
-  exp-005-lean4-courses    active    script-policy     experimental
-  exp-006-teorth-analysis  active    script-policy     experimental
-  exp-007-and-or           active    script-policy     experimental
+```sh
+xlade --help
+xlade init
+xlade run <experiment_id>
 ```
 
-```
-$ xlade run exp-005-lean4-courses
+To add an experiment or a new project, check the [`experiments`](experiments/) directory and follow the instructions carefully.
 
-  Running experiment:  exp-005-lean4-courses
+---
+
+## Example
+
+We provide a compact example of xLaDe running Terence Tao's Analysis project. The output has been trimmed for readability. Users can also add and run their own Lean 4 projects under xLaDe.
+
+```
+$ xlade run exp-006-teorth-analysis
+
+  Running experiment:  exp-006-teorth-analysis
   Mode:                experimental
-  Toolchain:           leanprover/lean4:v4.30.0
-  Timestamp:           2026-06-01 12:00:00
+  Toolchain:           leanprover/lean4:v4.29.0-rc8
+  Timestamp:           2026-09-11 06:09:00
   ----------------------------------------------------------------------------------------------------
-  xLaDe EXP-005: Lean4 Courses
+  xLaDe EXP-006: Lean Companion to Analysis I
   ----------------------------------------------------------------------------------------------------
-  [info]   Project: experiments/exp-005-lean4-courses/lean4-courses
-  [info]   Running: lake build
+  [info]   Project: experiments/exp-006-teorth-analysis/analysis
+  [info]   Running: ./build.sh (lake exe cache get && lake build)
   ----------------------------------------------------------------------------------------------------
-  ℹ [2/4] Replayed Solutions
-  ...                           # Truncated for display
-  ℹ [3/4] Replayed Examples
-  ...                           # Truncated for display
-  info: 0000-startup/Examples.lean:76:0: 3628800
-  Build completed successfully (4 jobs).
+  info: downloading https://releases.lean-lang.org/lean4/v4.29.0-rc8/lean-4.29.0-rc8-linux.tar.zst
+  info: mathlib: checking out revision '698d2b68b870f1712040ab0c233d34372d4b56df'
+  info: verso: checking out revision 'b6a5bacc221b260a67d474a2436b89d067ae5f7d'  
+  info: aesop: checking out revision '3426969888a264d3f69b6f30ab50aa11f28eb38d'
+  ...
+  ✔ [2/22] Built Cache.Init (167ms)
+  ✔ [3/22] Built Cache.Lean (218ms)
+  ...
+  ✔ [22/22] Built cache:exe (410ms)
+  ℹ [3499/3580] Built Analysis.Tools.ExistsUnique (6.8s)
+  ...
+  ✔ [8303/8310] Built Analysis.MeasureTheory.Section_1_3_2 (11s)
+  ✔ [8304/8310] Built Analysis.MeasureTheory.Section_1_3_3 (2.1s)
+  ✔ [8305/8310] Built Analysis.MeasureTheory.Section_1_3_4 (3.5s)
+  ✔ [8306/8310] Built Analysis.Section_11_9 (9.7s)
+  ✔ [8307/8310] Built Analysis.MeasureTheory.Section_1_3_5 (3.9s)
+  ✔ [8308/8310] Built Analysis.Section_11_10 (9.1s)
+  ✔ [8309/8310] Built Analysis (2.4s)
+  Build completed successfully (8310 jobs).
   ----------------------------------------------------------------------------------------------------
-  [pass]   lake build succeeded. 32 modules compiled.
+  [pass]   build.sh succeeded.
   ----------------------------------------------------------------------------------------------------
   Status: success
 ```
 
-EXP-004 and EXP-005 wrap real external Lean 4 repositories added as git
-submodules. Neither project has any code connection to xLaDe. xLaDe
-wraps them, runs `lake build`, and records full environment metadata —
-toolchain version, timestamp, status without touching their source.
-
-That is the non-invasive ecosystem layer claim demonstrated, not just described.
-
-## Quick Start
-
-**Requirements:** Python 3.14+, git, bash.
-For Lean experiments: elan + Lake (see [`docs/INSTALL.md`](docs/INSTALL.md)).
-
-```sh
-git clone --recurse-submodules https://github.com/LakshitSinghBishtTM/xLaDe.git
-cd xLaDe
-pip install -e .
-xlade doctor
-xlade init
-xlade mode experimental
-xlade list experiments
-xlade run exp-002-kernel-boundary
-xlade run exp-003-doc-coverage
-xlade status
-```
-
-Full installation guide including elan, Lean toolchain, and platform-specific
-notes: [`docs/INSTALL.md`](docs/INSTALL.md).
-
----
-
-## Active Experiments
-
-| Experiment                | Type          | What it does                                        | Requires | External |
-|---------------------------|---------------|-----------------------------------------------------|----------|----------|
-| `exp-001-proof-review`    | lean-policy   | Enforces proof review markers via Lake script       | Lake     | No       |
-| `exp-002-kernel-boundary` | script-policy | Detects modifications to `lean-core/`               | bash     | No       |
-| `exp-003-doc-coverage`    | script-policy | README present in all experiments, modes, policies  | bash     | No       |
-| `exp-004-project-proof-1` | script-policy | Builds an external proof repo via `lake build`      | Lake     | Yes      |
-| `exp-005-lean4-courses`   | script-policy | Builds a 32-module external Lean 4 course repo      | Lake     | Yes      |
-| `exp-006-teorth-analysis` | script-policy | Builds the teorth analysis project                 | Lake     | Yes      |
-| `exp-007-and-or`         | script-policy | Checks conjunction/disjunction proof examples      | bash     | No       |
-
-EXP-002 and EXP-003 run on any machine with bash.
-EXP-001, EXP-004, EXP-005, EXP-006, and EXP-007 require a full Lean 4 + Lake installation
-via elan and skip cleanly without it.
-
-EXP-004, EXP-005, and EXP-006 are external projects with no code connection to
-xLaDe. They are included as git submodules and executed without
-modification.
-
----
-
-## Build Modes
-
-| Mode           | Experiments | Enforcement | For                   |
-|----------------|-------------|-------------|-----------------------|
-| `experimental` | Enabled     | Warnings    | Research, development |
-| `stable`       | Disabled    | Strict      | Validation, review    |
-| `onboarding`   | Disabled    | Minimal     | New users             |
-
----
-
 ## Distribution
 
-xLaDe is distributed across multiple platforms to reduce reliance on
-any single provider.
+xLaDe Git repository is provided free of charge across GitHub, GitLab, Codeberg, Bitbucket, Gitea, and Sourceforge.  
+Each release is accompanied by a torrent seeded by core team and also available on our official website.   
+We also publish each version to PyPI and Zenodo.  
+In addition, we support USB drives, SD cards, CDs, DVDs and other removable storage media on an individual basis. For physical distribution, we only charge for the cost of the storage medium and shipping.
 
-| Platform             | URL                                                                     |
-|----------------------|-------------------------------------------------------------------------|
-| **GitHub** (primary) | https://github.com/LakshitSinghBishtTM/xLaDe                            |
-| GitLab               | https://gitlab.com/LakshitSinghBishtTM/xLaDe                            |
-| Codeberg             | https://codeberg.org/lakshitsinghbishttm/xLaDe                          |
-| Bitbucket            | https://bitbucket.org/lakshitsinghbishttm/xlade                         |
-| Gitea                | https://gitea.com/LakshitSinghBishtTM/xLaDe                             |
-| Sourceforge          | https://sourceforge.net/projects/xlade                                  |
-| **Website**          | http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion |
-
-The onion service is the official project website, not a mirror or
-fallback. See [`docs/ONION.md`](docs/ONION.md) for the rationale.
-
-**Torrent:** [`assets/torrent/xlade_v1.8.0.torrent`](assets/torrent/xlade_v1.8.0.torrent)
-
-```
-magnet:?xt=urn:btih:5ab3a8bb8f8606bfa2ad60325204b31ac03dfd25&xt=urn:btmh:122075a628f3424cb7b2b993ac6317dc1724d05fcf89826c68fde562d91d24a8b5e0&dn=xLaDe-1.8.0.tar.gz&xl=151412&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&ws=https%3A%2F%2Fgithub.com%2FLakshitSinghBishtTM%2FxLaDe%2Farchive%2Frefs%2Ftags%2Fv1.8.0.tar.gz
-```
+Additional information and links can be found in [`docs/official_sources`](docs/official_sources).
 
 ---
 
-## Documentation
+## Project Structure
 
-| Document                                                                                 | Objective                                            |
-|------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [`docs/INSTALL.md`](docs/INSTALL.md)                                                     | Installation - elan, Lean, pip, all platforms        |
-| [`docs/WHY_xLaDe.md`](docs/WHY_xLaDe.md)                                                 | The problems in detail and why this approach         |
-| [`docs/CLI_DEMO.md`](docs/CLI_DEMO.md)                                                   | Every command, with real expected output             |
-| [`docs/END_TO_END_TRACE.md`](docs/END_TO_END_TRACE.md)                                   | Full session trace from clone to results             |
-| [`docs/architecture.md`](docs/architecture.md)                                           | Component boundaries, directory structure, CLI layer |
-| [`docs/RESEARCH_SCOPE.md`](docs/RESEARCH_SCOPE.md)                                       | Scope, non-goals, what is permanently out of scope   |
-| [`docs/roadmap.md`](docs/roadmap.md)                                                     | Engineering roadmap from v1.5.0 to v2.0.0            |
-| [`docs/research_roadmap.md`](docs/research_roadmap.md)                                   | Long-term research directions                        |
-| [`docs/REPRODUCIBILITY_AND_COMPATIBILITY.md`](docs/REPRODUCIBILITY_AND_COMPATIBILITY.md) | Reproducibility model and staged plan                |
-| [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md)                                             | Honest current limitations                           |
-| [`docs/CHANGELOG.md`](docs/CHANGELOG.md)                                                 | Full version history                                 |
-| [`docs/HOW_TO_READ_THIS_REPO.md`](docs/HOW_TO_READ_THIS_REPO.md)                         | Where to start for new contributors                  |
-
----
-
-## Repository Structure
+This is the simplified structure of the xLaDe repository, including only the important core components. 
 
 ```
 xLaDe/
-├── .github/           CI - tests, kernel protection, mirrors
-├── experiments/       Ecosystem experiments (directory name = experiment ID)
-├── xlade/             Python CLI package
-│   ├── cli/           
-│   └── core/          
-├── scripts/           Policy enforcement shell scripts
-├── modes/             Mode definitions (experimental / stable / onboarding)
-├── policies/          Governance documents
-├── metrics/           Research artifact files
-├── security/          Threat model, trust model, security policy
-├── tests/             Comprehensive test suite
-├── lean-core/         Lean 4 submodule (immutable)
-├── docs/              All documentation
-├── pyproject.toml     Python packaging
-├── lean-toolchain     Pinned Lean compiler version
-└── VERSION            Current version
+|-- .github/           CI workflows
+|-- assets/            Cryptographic keys, logo, and torrent
+|-- bin/               Manual CLI entrypoint 
+|-- docs/              Documentation files
+|-- examples/          Lean files templates
+|-- experiments/       Projects wrapped by xLaDe
+|-- lean-core/         Lean 4 submodule
+|-- metrics/           Experiments and CLI metrics 
+|-- modes/             Modes for xLaDe CLI
+|-- policies/          Governing policies
+|-- scripts/           Scripts for experiments, CLI and other uses
+|-- security/          Security module
+|-- xlade/             Source code of CLI       
+|-- tests/             Test suite
+|-- tools/             Helper tools for more capabilities
+|-- README.md          This file
+```
+
+---
+
+## Development
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/LakshitSinghBishtTM/xLaDe.git
+cd xLaDe
+```
+
+2. Create a development environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+3. Install xLaDe and dependencies
+
+```bash
+pip install -e .
+pip install pytest isort black flake8
+```
+
+4. Run test suite and formatting tools
+
+```bash
+pytest tests/ -v
+isort . --check-only
+black . --check
+flake8 .
 ```
 
 ---
 
 ## Security
 
-xLaDe operates under a minimal-trust model. No single platform is
-treated as inherently trustworthy.
-
-- [`SECURITY.md`](SECURITY.md) - how to report vulnerabilities
-- [`security/THREAT_MODEL.md`](security/THREAT_MODEL.md) - what is and is not in scope
-- [`security/TRUST_MODEL.md`](security/TRUST_MODEL.md) - distribution trust model
-- [`security/SECURITY_POLICY.md`](security/SECURITY_POLICY.md) - security philosophy
+Please read [`SECURITY`](SECURITY) for information on safely reporting a security vulnerability.  
+For details regarding the security of the xLaDe project, visit the [`security/`](security/) directory.
 
 ---
 
 ## Contributing
 
-Contributions are welcome - experiments, documentation, tooling, tests,
-and feedback at any stage of development.
+We heartily welcome those who want to help us.  
+The following files explain how to contribute and engage with the project.
 
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) - how to contribute
-- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) - community standards
-- [`docs/CONTRIBUTORS.md`](docs/CONTRIBUTORS.md) - acknowledgements
-
-Contributions that modify the Lean kernel are not accepted.
-This is not a policy that will change.
+- [`CONTRIBUTING`](CONTRIBUTING) 
+- [`docs/contributors`](docs/contributors)
+- [`CODE_OF_CONDUCT`](CODE_OF_CONDUCT)
 
 ---
 
@@ -305,7 +222,7 @@ This is not a policy that will change.
 
 Copyright (C) 2026 Lakshit Singh Bisht
 
-Licensed under the GNU General Public License v3.0.
+Licensed under the GNU General Public License v3.0.  
 See [`LICENSE`](LICENSE) for more details.
 
 ---
