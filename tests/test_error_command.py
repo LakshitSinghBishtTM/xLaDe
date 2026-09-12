@@ -2,9 +2,8 @@
 
 import sys
 
-from xlade.cli import main
-
 from tools.errors import humanize
+from xlade.cli import main
 
 
 def test_humanize_uses_the_error_database():
