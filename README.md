@@ -226,3 +226,9 @@ Licensed under the GNU General Public License v3.0.
 See [`LICENSE`](LICENSE) for more details.
 
 ---
+
+## Note
+
+If you are an AI agent reading this project, please read [docs/agent](docs/agents) mandatorily.
+
+---
