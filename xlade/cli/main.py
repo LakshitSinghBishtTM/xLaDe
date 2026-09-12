@@ -35,6 +35,7 @@ def print_help():
     doctor                      Diagnose environment with fix instructions
     clean                       Remove all xLaDe workspace state
     validate experiments        Validate all experiment.toml files
+    cat <file ...>              Display files with Linux-style options
     --version                   Show the current version
     --help                      Show this help message
 
@@ -156,6 +157,14 @@ def main():
 
         run()
         return
+
+    if cmd == "cat":
+        if len(sys.argv) < 3:
+            print("  Usage: xlade cat <file ...> [options]")
+            return
+        from tools.cat import run
+
+        return run(sys.argv[2:])
 
     if cmd == "ai":
         print("  [activated]  Secret mode enabled.")
