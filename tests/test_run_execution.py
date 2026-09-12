@@ -3,7 +3,6 @@ import os
 import stat
 
 import pytest
-
 from xlade.cli.run import run
 
 

@@ -47,9 +47,9 @@ testpaths = ["tests"]
 [tool.black]
 line-length = 120
 target-version = ["py314"]
-extend-exclude = "experiments/|lean-core"
+extend-exclude = 'experiments/|lean-core|\.venv/'
 
 [tool.isort]
 profile = "black"
 line_length = 120
-skip = ["experiments", "lean-core", "venv/"]
+skip = ["experiments", "lean-core", "venv/", ".venv/"]

@@ -2,7 +2,6 @@ import json
 import os
 
 import pytest
-
 from xlade.cli.status import run
 
 

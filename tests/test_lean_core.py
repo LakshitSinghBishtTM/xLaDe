@@ -9,7 +9,6 @@ in CI) to exercise both the capture and passthrough paths.
 import stat
 
 import pytest
-
 from xlade.core.lean import (
     LeanResult,
     lake_version,
