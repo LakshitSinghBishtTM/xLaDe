@@ -10,7 +10,7 @@ readme = "README.md"
 license = "GPL-3.0-only"
 license-files = ["LICENSE"]
 requires-python = ">=3.14"
-keywords = ["lean4", "formal-verification", "proof-assistant", "ecosystem"]
+keywords = ["Lean 4", "Proof Assistants", "Reproducibility", "Formal Verification", "Software Preservation"]
 classifiers = [
     "Environment :: Console",
     "Intended Audience :: Developers",
@@ -44,9 +44,9 @@ testpaths = ["tests"]
 [tool.black]
 line-length = 120
 target-version = ["py314"]
-extend-exclude = "lean-core|experiments/"
+extend-exclude = "experiments/|lean-core"
 
 [tool.isort]
 profile = "black"
 line_length = 120
-skip = ["lean-core", "experiments"]
+skip = ["experiments", "lean-core", "venv/"]
