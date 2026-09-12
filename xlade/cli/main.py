@@ -36,6 +36,7 @@ def print_help():
     clean                       Remove all xLaDe workspace state
     validate experiments        Validate all experiment.toml files
     cat <file ...>              Display files with Linux-style options
+    error <lean error>          Explain a Lean error using the rule database
     --version                   Show the current version
     --help                      Show this help message
 
@@ -165,6 +166,15 @@ def main():
         from tools.files_extraction.cat import run
 
         return run(sys.argv[2:])
+
+    if cmd == "error":
+        if len(sys.argv) < 3:
+            print("  Usage: xlade error <lean error>")
+            return 1
+        from tools.errors import humanize
+
+        print(humanize(" ".join(sys.argv[2:])))
+        return 0
 
     if cmd == "ai":
         print("  [activated]  Secret mode enabled.")

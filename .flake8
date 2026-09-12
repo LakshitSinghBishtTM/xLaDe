@@ -5,5 +5,6 @@ exclude =
     .git,
     __pycache__,
     venv,
+    .venv,
     lean-core,
     experiments

@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 from xlade.cli.metrics import run
 
 
