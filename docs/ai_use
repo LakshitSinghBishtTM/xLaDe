@@ -1,37 +1,28 @@
 # AI Usage Policy
 
-## Overview
+We allow the use of AI in the xLaDe project. 
 
-AI-assisted tools are permitted within xLaDe. Contributors may use AI for assistance in coding, documentation, refactoring, or related tasks.
-
-## Responsibility
-
-Contributors remain fully responsible for all submitted work, regardless of AI assistance.
-
-Final authorship and accountability belong to the contributor submitting the work.
+---
 
 ## Disclosure
 
-Disclosure of AI usage is completely optional. Noone is required to disclose the use of AI mandatorily. Still voluntary disclosure of the tools or models used is appreciated.
+It is not mandatory to disclose the usage.
+However, we generally encourage to disclose and explain the usage of AI models.
 
-## Understanding Requirement
+---
 
-Contributors should understand the code or documentation they submit and be able to explain its purpose and behavior if needed.
+## Accountability and Responsibility
 
-Blind or unreviewed usage of AI-generated output is discouraged.
+The person using AI model bears full accountability and responsibility for that particular contribution or change.
+The person should know and understand what the changes do.
+In case of any problem with AI generated output, the person would be completely liable.
 
-## Research Integrity
+---
 
-AI-generated content should not replace critical reasoning, verification, or human review, especially in research-oriented areas of the project.
+## Banned practices
 
-## Prohibited Practices
+- Using AI blindly
+- Submitting AI-generated code without understanding
+- Translating xLaDe into rust with AI models
 
-- Using AI blindly anywhere
-- Submitting AI-generated code without understanding its behavior
-- Using AI to change or translate core modules to other languages without understanding
-- Relying on AI models with poor coding and reasoning capabilities
-- Weak local LLMs with low-quality output
-
-# Note
-
-The policy will be regularly updated in accordance with developments in AI, contributors, and discussions.
+---
