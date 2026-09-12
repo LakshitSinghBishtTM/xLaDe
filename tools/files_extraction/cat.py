@@ -1,5 +1,3 @@
-"""Display files with Linux-style cat options."""
-
 from __future__ import annotations
 
 import argparse

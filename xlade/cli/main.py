@@ -163,7 +163,7 @@ def main():
         if len(sys.argv) < 3:
             print("  Usage: xlade cat <file ...> [options]")
             return
-        from tools.cat import run
+        from tools.files_extraction.cat import run
 
         return run(sys.argv[2:])
 

@@ -1,6 +1,6 @@
 """Tests for the xLaDe cat tool."""
 
-from tools import cat
+from tools.files_extraction import cat
 
 
 def make_file(tmp_path, content):
