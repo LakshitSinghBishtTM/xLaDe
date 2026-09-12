@@ -49,4 +49,16 @@ The helper tools need to be written in Python, Lean 4 or Bash only due to restra
 Tools module is not a focus for us right now, because we first want to make the core xLaDe better.
 We will develop the tools according to the CLI development and CLI requirements first. For custom use, we ask to the community for help in tools. 
 
+## Viewing Files
+
+Use `xlade cat` to view Lean or other text files inside an experiment:
+
+```bash
+xlade cat experiments/exp-006-teorth-analysis/analysis/Analysis.lean
+xlade cat --head 20 experiments/exp-006-teorth-analysis/analysis/Analysis.lean
+xlade cat --lines 10-25 experiments/exp-006-teorth-analysis/analysis/Analysis.lean
+```
+
+The command accepts Linux-style `cat` flags such as `-n`, `-b`, `-s`, `-E`, `-T`, `-v`, and `-A`. It also supports multiple files, `--head`, `--tail`, `--lines`, and `--pager`.
+
 ---
