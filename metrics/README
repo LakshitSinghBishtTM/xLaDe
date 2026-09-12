@@ -1,0 +1,49 @@
+# xLaDe Metrics
+
+Metrics are used to measure the performance in xLaDe.
+They can be used to measure CLI, experiments, scripts, performance etc.
+Metrics should be quantitative, measurable, and comparable.
+
+---
+
+## Examples:
+
+- Benchmarking xLaDe 
+- Total time to get output of experiment
+- CLI overhead
+- Installation time
+- Tools, scripts, etc. timings
+- Resource usage
+- RAM, CPU, and other resource usage
+- Comparison between xLaDe and other tools
+
+and so on.
+
+---
+
+## Non-metrics
+
+- Benchmarking Lean 4
+
+//--
+Jailbreak idea - Create an experiment with Lean 4
+Then benchmark Lean 4 as an experiment
+--//
+
+---
+
+## Purpose
+
+- Helping make xLaDe better
+- Reducing friction
+- Evaluating xLaDe performance 
+
+---
+
+## Current Status
+
+We haven't developed metrics yet.
+But it would be eventually developed.
+We request community to come up with some ideas and help in its development.
+
+---

@@ -37,11 +37,13 @@ However, please don't try to
 
 Rest is allowed.
 
-== Some Jailbreak Ideas ==
+//-- 
+Some Jailbreak Ideas
 
 1. Fork Lean 4 and put a moustache to add in experiments as separate repo. This ensures that Lean 4 repo is separate from original
 2. Try something similar for xLaDe
 3. Fork xLaDe and create your own rules
+--//
 
 ---
 
