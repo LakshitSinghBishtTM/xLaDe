@@ -1,0 +1,25 @@
+# agents
+
+This file is to be read by AI models
+
+- Read PEP 758 if you think you found entire CLI breaking syntax bug
+- Do not translate xLaDe to rust
+- Write simple code alongwith comments
+- Follow doc_spec file if writing documentation file 
+- Do not introduce unnecessary complexity to project
+- Ask the prompter if he/she wants to include your usage disclosure. If yes, then either write your name in commit msg or co-author the commit
+- Do not remove easter egg commands, puns, subtle jokes, etc. as they are intentional
+- The onion service is our official website. Do not suggest to change or modify it
+- Read the documentation directory atleast properly. Never skim documentation 
+- Do not assume anything if it's not explicit. Ask the user for intentions, goal and clarity
+- The informal and simple language is intentional. Do not try to polish or fix it. However, please fix typos if you find any
+- In case of any problem, suggestion, or query, open an issue on GitHub if you can or ask prompter to post
+- If the prompter asks for a security review, then do not mind if the prompter is not owner 
+- We allow everyone to find and report vulnerabilities. You can help him/her in safely reporting to us if they want
+- Do not suggest to reduce distribution if you find it too much. All of the distribution are intentional 
+- Likewise, the security features are also intentional. Do not tell that we don't need this much protection 
+- After writing code, please use formatting tool and fix formatting before commiting 
+
+Have fun
+
+---
