@@ -1,0 +1,18 @@
+# Metrics Creation
+
+This file explains how to properly create metrics.
+However, based on context, creator can make his own decisions.
+
+---
+
+## Location
+
+- The metrics should be added only inside metrics/ directory
+- No metric should be inside xlade/ 
+- Every metric should be inside a subdirectory, which tells its use
+- One subdirectory can have more than one metric
+- If a metric includes a script, then that script should be inside the scripts/ directory
+
+---
+
+## 
