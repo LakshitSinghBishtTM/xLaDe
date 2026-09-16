@@ -11,6 +11,7 @@ Please follow this format only while creating a new documentation file.
 - no capitalization unless some standard or special file needs capital format (such as LICENSE)
 - use underscore "_" to separate words
 - do not include custom non utf-8 characters in filenames
+- Every README in all directories should be extensionless (txt file) except root README, which is a md file
 
 ---
 
