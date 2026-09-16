@@ -1,0 +1,57 @@
+# xLaDe Modes
+
+This directory contains the modes for xLaDe CLI
+In easy language, modes are the toggles for enabling and disabling different features in xLaDe.
+Features include experiments, policies, scripts, etc.
+
+---
+
+## Modes
+
+We offer 3 modes at this stage 
+
+1. Experimental
+2. Stable
+3. Onboarding
+
+---
+
+## Experimental
+
+This mode is intended for creating and running experiments.
+This mode lets users to run experiments, run scripts, etc.
+
+Due to running of the external scripts and experiments, it may be unstable in nature.
+So, we call it experimental.
+
+---
+
+## Stable
+
+This mode disables the running of experiments.
+This mode lets users to explore and read the experiments and project safely.
+
+Due to safety and stability, it is stable.
+So, we call it stable.
+
+---
+
+## Onboarding
+
+This mode is just for onboarding new users.
+We don't encourage users to use it.
+This mode can run a few selected experiments to show the use of xLaDe, while blocking others.
+This mode is handcrafted for few experiments only.
+
+---
+
+## Current Status
+
+At current, modes are implemented in xLaDe CLI.
+But the onboarding mode is not yet implemented.
+
+However, they are in the xLaDe/ directory.
+We want to transfer them here for modularity, and keep the modes separate from core CLI.
+If you are a contributor with some experience, then only help in this, as it may break CLI.
+
+--- 
