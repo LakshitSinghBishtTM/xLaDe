@@ -1,14 +1,10 @@
 # xLaDe Tools
 
-This module contains various tools for xLaDe.  
-Currently, it is not well-developed but we hope to make it work soon. (I can't give a fixed date but we will work on it soon)  
-
----
-
-## What Tools are
-
+This module contains various tools for xLaDe.
 Technically, tools are utilities which can be used by xLaDe CLI, experiments and scripts, etc.
 They are usually an additional layer for xLaDe by which xLaDe can have more features.
+
+---
 
 ### Conceptual Examples
 
