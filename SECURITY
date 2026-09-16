@@ -96,10 +96,7 @@ The finder can ask to remain anonymous if he/she wants.
 
 ## Further Reading
 
-- [`SECURITY_POLICY.md`](security/SECURITY_POLICY.md)
-- [`THREAT_MODEL.md`](security/THREAT_MODEL.md)
-- [`TRUST_MODEL.md`](security/TRUST_MODEL.md)
-- [`DCVES/`](security/advisories/)
+Please find the additional info in the security/ directory.
 
 ---
 
