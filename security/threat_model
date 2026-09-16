@@ -65,14 +65,3 @@ We protect the following assets:
 - We don't look after protection of Lean 4. In case of any problem in Lean 4, the xLaDe team is not responsible 
 
 ---
-
-## Trust Assumptions
-
-- Lean 4 is trusted
-- Git, Python, etc. are uncompromised
-- User runs xLaDe without sudo
-- CI secrets are uncompromised
-
-In case of any trust assumption is broken, no assurance can be given.
-
----
