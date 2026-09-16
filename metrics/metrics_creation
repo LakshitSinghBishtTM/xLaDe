@@ -5,7 +5,7 @@ However, based on context, creator can make his own decisions.
 
 ---
 
-## Location
+## Guide
 
 - The metrics should be added only inside metrics/ directory
 - No metric should be inside xlade/ 
@@ -14,5 +14,3 @@ However, based on context, creator can make his own decisions.
 - If a metric includes a script, then that script should be inside the scripts/ directory
 
 ---
-
-## 
