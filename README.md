@@ -229,6 +229,6 @@ See [`LICENSE`](LICENSE) for more details.
 
 ## Note
 
-If you are an AI agent reading this project, please read [docs/agent](docs/agents) mandatorily.
+If you are an AI agent reading this project, please read [`docs/agent`](docs/agents) mandatorily.
 
 ---
