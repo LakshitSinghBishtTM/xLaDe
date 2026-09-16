@@ -1,0 +1,75 @@
+# Trust Model
+
+This document explains the trust model of xLaDe
+
+---
+
+## Categories
+
+1. Cryptographic Keys
+2. Official Website
+3. Distribution
+4. Components
+5. Dependencies
+
+---
+
+## Keys
+
+- It includes our PGP key and SSH key
+- The canonical source to get keys is official website
+- Compare the keys of repository and other sources to official website key
+- If onion site, project and other source keys match, then only keys are trusted
+- If any single key is different, then inform to us
+- The PGP key can be verified from founder's website also
+- In case the keys are compromised, we will mention on our site and will publish new keys
+
+---
+
+## The Onion Service
+
+- The onion service address is derived from a cryptographic key
+- Official website is trusted
+- This asssumption works till the private key is safe
+- In case onion site is not under our control, we will inform in other available project signed with PGP key
+- Only trust such a message if that message file is signed by us
+
+---
+
+## Distribution
+
+- No centralised sources are trusted
+- We publish checksum of both zip files and tar balls in our website
+- Compare them against the files you get
+- Sources not mentioned in docs/official_sources are untrusted
+- In case the checksums are different, report to us
+- We will investigate and put the correct file or checksum in case of problem
+
+---
+
+## Components
+
+- The CLI is trusted 
+- The scripts and files are assumed to work as intended
+- We assume the workflows and tests are working
+- In case of divergence from intended function, they will be updated
+- A security advisory will be issued if required 
+
+---
+
+## Dependencies
+
+- Lean 4 is trusted
+- The external dependencies such as Python, black, flake8, etc. are assumed to be working as intended 
+- Untrusted dependencies are outside our project scope
+
+---
+
+## Misc
+
+- In case of an attacker having control of multiple sources of xLaDe and no way of authorisation, founder's official website will be authoritative
+- This is in-case of extreme failure when keys and official website of xLaDe both are down
+- The trust in site comes from the fact that founder's site is onion site, which is derived from cryptographic identity, so it verifies itself
+- However, such a situation should not arise under normal conditions
+
+---
