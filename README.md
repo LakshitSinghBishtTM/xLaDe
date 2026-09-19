@@ -43,10 +43,9 @@ xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prev
 - Modes for controlling experiment and scripts execution
 - Comprehensive environment metadata for Lean 4 projects
 - Immutability of Lean 4 kernel via CI workflows
-- Comprehensive documentation and help 
+- Comprehensive documentation and security features 
 - Optimised and lightweight
-- Free and open source
- 
+
 ---
 
 ## Quick Start
