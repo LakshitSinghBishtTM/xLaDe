@@ -50,7 +50,7 @@ However, this needs a setup and may feel difficult to some new users, so we sugg
 ## Major Changes
 
 For major changes like fixing bugs, we generally encourage a local CLI setup.
-Use the following commands to setup xLaDe and contribute -
+Use the following commands to setup xLaDe and contribute --
 
 Step 1. Fork xLaDe and then clone locally
 
@@ -69,6 +69,7 @@ git checkout -b {branch-name}
 Step 3. Edit the file(s) you want. 
 
 Step 4. Check formatting of changed code with isort, black and flake, and then run tests.
+Note that below commands of isort and black will change/fix the formatting themselves. You don't need to manually fix them. 
 
 ```sh
 isort .
@@ -94,14 +95,11 @@ git push -u origin {branch-name}
 
 Done
 
-Note: Please ensure you already have all things downloaded like git, python, pytest, etc.
+Note: Please ensure you already have all things downloaded like git, python, pytest, black, isort, flake8, pip, etc.
 
 ---
 
 ## Note
 
-- The cd command in step 1 is from Linux
-- In case of Windows, either download WSL or read manual for commands
-- git tool works same everywhere so these commands should work irrespective of the OS
 - Please check the formatting and test suite, we already have enough history with it related to contributors
 - In case of any problem regarding contributing, please create an issue
