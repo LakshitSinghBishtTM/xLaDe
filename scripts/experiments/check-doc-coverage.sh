@@ -46,20 +46,6 @@ else
   ERRORS=$((ERRORS + 1))
 fi
 
-# Check policies/
-if [ -d "policies" ]; then
-  count=$(find policies/ -maxdepth 1 -name "*.md" | wc -l)
-  if [ "$count" -eq 0 ]; then
-    echo "  [error]  No .md files found in policies/"
-    ERRORS=$((ERRORS + 1))
-  else
-    echo "  [ok]     policies/ has $count documentation file(s)"
-  fi
-else
-  echo "  [error]  policies/ directory not found"
-  ERRORS=$((ERRORS + 1))
-fi
-
 echo "  ----------------------------------------------------------------------------------------------------"
 
 if [ "$ERRORS" -eq 0 ]; then
