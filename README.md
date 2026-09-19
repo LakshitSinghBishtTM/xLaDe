@@ -39,13 +39,13 @@ xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prev
 
 ## Features
 
-- Experiments runnable via xLaDe CLI
-- Modes controlling experiment execution
+- Lean projects and experiments runnable via xLaDe CLI
+- Modes for controlling experiment and scripts execution
 - Comprehensive environment metadata for Lean 4 projects
 - Immutability of Lean 4 kernel via CI workflows
-- Comprehensive documentation and governance model
-- Security measures according to the documented threat model 
+- Comprehensive documentation and help 
 - Optimised and lightweight
+- Free and open source
  
 ---
 
@@ -150,12 +150,10 @@ xLaDe/
 |-- assets/            Cryptographic keys, logo, and torrent
 |-- bin/               Manual CLI entrypoint 
 |-- docs/              Documentation files
-|-- examples/          Lean files templates
 |-- experiments/       Projects wrapped by xLaDe
 |-- lean-core/         Lean 4 submodule
 |-- metrics/           Experiments and CLI metrics 
 |-- modes/             Modes for xLaDe CLI
-|-- policies/          Governing policies
 |-- scripts/           Scripts for experiments, CLI and other uses
 |-- security/          Security module
 |-- xlade/             Source code of CLI       
