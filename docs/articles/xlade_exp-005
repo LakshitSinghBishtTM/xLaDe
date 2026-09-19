@@ -1,0 +1,153 @@
+# xLaDe: exp-005
+
+This past week, we tried an experiment on xLaDe. 
+It was exp-005 based on https://github.com/BaDaaS/lean4-courses and it was not like other experiments. 
+The reason was that we ourselves had created exp-001 to exp-004 but the exp-005 wasn’t created by xLaDe team, it was created by Danny Willems (https://github.com/dannywillems) and I would like to thank him, but the unique thing was — he had no idea about the xLaDe project. 
+In fact, his project had no code relation or mention of xLaDe. 
+So, both social connections wise and programming wise, the project and its owner were not familiar with us. 
+This was the first time we were doing something like this.
+
+## Why only this project and not any other?
+
+Well, it was not my first choice project for exp-005. 
+I first tried pfr project of Terence Tao (https://github.com/teorth/pfr) and the reason was obviously Terry. 
+I even started working on it, started by cloning repo locally via git, and trying to built. 
+Then I tried to do lake build. 
+Both the good and bad thing happened. 
+Good thing — It didn’t had mathlib as dependency. Bad thing — It had mathlib as dependency.
+
+For context, I live in himalayan region, so the internet connection is not good and large downloads either take hours or simply self cancel due to internet problems. 
+When I first downloaded cs, it took me like a week (but with pauses though).
+
+So, back to pfr, it had two dependencies, namely — AddCombi (https://github.com/YaelDillies/add-combi.git) and checkdecls (https://github.com/PatrickMassot/checkdecls.git). 
+Since both were small, I was content. 
+Suddenly, I saw mathlib getting downloaded. 
+Shocked I saw, and then found, it was add-combi’s dependency. 
+I thought, “The hardest part about creating a perpetual motion machine is figuring out where to hide the battery and the hardest part about creating a Lean4 project is figuring out where to hide the mathlib.”
+
+Then, I abandoned it after cancelling and deleted the repository. 
+Then, I begun looking for simpler projects. 
+I squinted at Terry’s repos but accepted defeat. 
+Then I remembered I had starred a Lean4 project months ago — Lean4 courses by BaDaaS aka Denny Willems. 
+I wanted to learn Lean4 so I had starred it, but due to lack of time and laziness, I couldn’t start it and I had partially forgotten about the project. 
+So, I checked the dependecies first, but none were there. 
+It was just a simple course for learning Lean4, so I thought of making this as the exp-005
+
+## Creation:
+
+We created exp-005/ inside experiments/ module, and then added lean4-courses as a submodule. 
+Then I wrote README.md, experiment.toml and METRICS.md and this is the toml file:
+
+```
+id = "EXP-005"
+name = "Lean4 Courses"
+type = "script-policy"
+status = "active"
+allowed_modes = ["experimental"]
+lean_toolchain = "leanprover/lean4:v4.30.0"
+entry = "scripts/experiments/run-exp-005.sh"
+description = "External Lean 4 course repository by BaDaaS. 32 modules covering foundations to advanced metaprogramming. Zero dependencies beyond stdlib. First external project xLaDe did not author and has no code connection to."
+success_criteria = "compilation"
+project_repo = "https://github.com/BaDaaS/lean4-courses"
+project_submodule = "experiments/exp-005-lean4-courses/lean4-courses"
+```
+
+However, the problem was that, I had lean4 v4.30 locally and it required v4.29 for build. 
+As we already know, due to unreliable internet I couldn’t download previous version. 
+So, for temporary workaround and testing, I decided to do it with my local lean4 version. 
+I replaced v4.29 with v4.30 and completed the building process. 
+Next, I created script file for the exp-005 which is available in the scripts/ module. 
+For complete files and scripts, please check the xLaDe repository at any git hositing from GitHub, Gitlab, Codeberg, Bitbucket and Gitea.
+
+## Experiment and Results:
+
+```
+[ajay@mac xLaDe]$ source venv/bin/activate
+(venv) [ajay@mac xLaDe]$ xlade list experiments
+
+  Experiments  (5 found)
+  ----------------------------------------------------------------------------------------------------
+  Experiment               Status    Type              Modes
+  ----------------------------------------------------------------------------------------------------
+  exp-001-proof-review     active    lean-policy       experimental
+  exp-002-kernel-boundary  active    script-policy     experimental
+  exp-003-doc-coverage     active    script-policy     experimental
+  exp-004-project-proof-1  active    script-policy     experimental
+  exp-005-lean4-courses    active    script-policy     experimental
+
+  Run with: xlade run <experiment-id>
+The experiment ran successfully and built was completed. When it compiled for the first time, I was surprised and shocked. I had not anticipated it to succeed, but here we are. For reproduction, I ran the experiment again as of the time of writing and it succeeded again.
+
+(venv) [ajay@mac xLaDe]$ xlade run exp-005-lean4-courses
+
+  Running experiment:  exp-005-lean4-courses
+  Mode:                experimental
+  Toolchain:           leanprover/lean4:v4.30.0
+  Timestamp:           2026-06-11 20:08:07
+  ----------------------------------------------------------------------------------------------------
+  xLaDe EXP-005: Lean4 Courses
+  ----------------------------------------------------------------------------------------------------
+  [info]   Project: experiments/exp-005-lean4-courses/lean4-courses
+  [info]   Running: lake build
+  ----------------------------------------------------------------------------------------------------
+  ℹ [2/4] Replayed Solutions
+  info: 0000-startup/Solutions.lean:17:0: rfl : double 5 = double 5
+  info: 0000-startup/Solutions.lean:29:0: true
+  info: 0000-startup/Solutions.lean:30:0: false
+  info: 0000-startup/Solutions.lean:42:0: 1024
+  info: 0000-startup/Solutions.lean:48:0: "olleh"
+  info: 0000-startup/Solutions.lean:57:0: 55
+  ℹ [3/4] Replayed Examples
+  info: 0000-startup/Examples.lean:11:0: 42 : Nat
+  info: 0000-startup/Examples.lean:12:0: "hello" : String
+  info: 0000-startup/Examples.lean:13:0: Bool.true : Bool
+  info: 0000-startup/Examples.lean:15:0: 5
+  info: 0000-startup/Examples.lean:16:0: "hello world"
+  info: 0000-startup/Examples.lean:19:0: "Hello, Lean 4!"
+  info: 0000-startup/Examples.lean:24:0: 10
+  info: 0000-startup/Examples.lean:57:0: def Course0000Examples.double : Nat → Nat :=
+  fun n => 2 * n
+  info: 0000-startup/Examples.lean:63:0: 'Course0000Examples.two_eq' does not depend on any axioms
+  info: 0000-startup/Examples.lean:76:0: 3628800
+  Build completed successfully (4 jobs).
+  ----------------------------------------------------------------------------------------------------
+  [pass]   lake build succeeded. 32 modules compiled.
+  ----------------------------------------------------------------------------------------------------
+  Status: success
+```
+
+## Limitations:
+
+We notice the following limitations for our exp-005 and hope documenting it will improve the project in future.
+
+1. It was a simple course with elementary Lean without any external dependency so we need to improve xLaDe for that types of projects too. 
+It would be interesting to see projects with dependencies hell running inside xLaDe.
+
+2. exp-005 was run on v4.30 instead of v4.29 however we plan to run it on v4.29 soon enough.
+
+3. The manual and tedious process for each experiment needs to be optimised for the real world usage or as a serious research tool. Other projects’ maintainers won’t try to optimise their project or debug if the projects’ fail. However, this is a future problem and I am not thinking about this problem to be honest.
+
+## Final Words:
+
+We kept our promise — xLaDe works on the ecosystem level and we interfare neither with Lean4 kernel nor external projects. 
+I didn’t add xLaDe code to the lean4-courses repo, I didn’t add reference of xLaDe in it, I didn’t change the code. 
+Even the repository owner doesn’t know we performed this experiment I guess. 
+But we succeeded. 
+We don’t want xLaDe to be performative tool, we want it to be like a unix tool — do a single task, and do it properly. 
+Hopefully, we will add some more experiments this release cycle as mentioned in our roadmap and will get new results. 
+I am happy to see the progress although I had expected this to fail and even documented it in roadmap already.
+
+Weird coincidence — just two hours ago, they added mathlab dependency on pfr repository directly.
+
+With that said, I am happy to collaborate with others and get suggestions on which experiments we should try next. 
+However, due to problem with resources, internet and infrastructure, I won’t be able to do ‘huge experiments’, but I hope to restart them probably after 1.5 months or similar.
+
+For more information, check out our project at our official website at “http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion” or GitHub at “https://github.com/LakshitSinghBishtTM/xLaDe”.
+
+---
+
+Author: Lakshit Singh Bisht
+Date: 11 June 2026
+Link: https://medium.com/@lakshitsinghbishttm/xlade-exp-005-213fb2f9d39d
+
+---

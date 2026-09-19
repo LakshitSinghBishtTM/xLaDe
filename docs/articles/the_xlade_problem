@@ -1,0 +1,91 @@
+# The xLaDe Problem
+
+I get asked regularly — by people seeing xLaDe, AI models analysing repo, and in research paper — why xLaDe is not doing something extraordinary/groundbreaking or too many things. 
+Everyone finds xLaDe boring and ordinary. 
+So, I thought to write my response collectively and present my thoughts on xLaDe. 
+I have presented my reasons but this depends on the reader what he/she may conclude from, not me.
+
+First and foremost, it is due to the history of xLaDe. 
+Initially, it wasn’t clear to us (me and my team) what actually would be the contribution. 
+In the beginning, the original idea was simple — `we will work on proof assistants`. 
+I came up with xLaDe name — x for maths unknown, La for Lakshit, and De for Deepak. 
+I had named it xLaDe-Prover. (I was confused whether to name it xLaDe or xLaDe-Prover). 
+Naming was easy, but working was impossible. 
+We had thought to create our own theorem prover, but we failed horribly and terribly as we were clueless what to actually do. 
+We accepted defeat and thought, “we shouldn’t reinvent the wheel. 
+Why bother when we can improve and modify other one which is already built.” 
+This led us to both Lean 4 and Coq. 
+During september 2025, we spent a month discussing entirely whether to pursue Lean or Coq, and reading about their features, syntax, working, environment, etc. 
+That time, I thought ocaml spells cool. 
+So, the actual initial decision was to work on Coq proof assistant. 
+At this time, this work was entirely theoretical and in the form of verbal and physical meetings and discussions.
+
+We eventually decided to work on Coq. 
+But the problem was — what to actually do? 
+As Coq is written in ocaml and neither I nor my team members were familiar about ocaml, so it made very difficult for us. 
+So, we thought to pursue Lean 4 to get out of this problem. 
+As a result, Lean 4 arrived in the scene. 
+It was more of a replacement of Coq than the preferred choice.
+
+So, the proof assistant was chosen. 
+However, what we need to do/what we want to do — this was still unanswered. 
+We brainstormed with some ideas — improve Lean 4 language, provide translation of Lean syntax to human language and vice versa, create a Lean 4 IDE, integrate Lean with other things, create a centralized community for Lean inside our project. 
+These were all long term tasks and we were not experts or advanced in programming to do this, so what I did, I created project in GitHub, and wrote a few files, like logs, team, etc. (Viewable on branch `initial` in GitHub for historical reasons) and then got busy in semester.
+
+After exams and end of semester, I came back to xLaDe. 
+So, I am in my home, thinking what to actually do. 
+There are tons of research papers and projects I am reading — all are doing something brilliantly and I felt I wouldn’t be able to work in those projects. 
+So, I just make a structure/file tree for xLaDe, and I am like — what if we work on infrastructure of Lean 4? 
+I later get to know about the problem Lean 4 is facing like versions drift and compatibility issues, etc. which later become our core target in the xLaDe. 
+I wouldn’t explain the xLaDe development here for bloat, but eventually this direction continued. 
+So, this is the main reason why xLaDe has such shape and structure.
+
+Second, the xLaDe team is not a professional team. 
+I know python and bash. Our CEO, Manpreet knows Python and C, Deepak knows Python too. 
+So, we have used Python as our staple language. 
+I thought initially to learn Lean 4 language but dropped later due to difficulties and lack of time due to the university schedule. 
+Then, it is our first major project. 
+I can write some minor programs, solve some problems and that’s all. 
+However, a serious project is something I was not confident of building at that time. 
+So, a software of xLaDe calibre is not something even I expected to succeed initially and also, it is actually harmful if I try to overcomplicate the project. 
+The design of xLaDe is intentionally minimal. 
+The documentation and structure may feel bigger more complex or heavy than the implementation and code, but this is something which I would rather be proud of, than a problem. 
+This maps directly to our coding and analytical skills.
+
+The structure of xLaDe is modular and I have deliberately designed xLaDe keeping in mind that we will be adding more things in future, and I would be working on xLaDe for years. 
+This changes the equation a lot. If we add so many things in xLaDe at the same time, it becomes more difficult to maintain. 
+Right now, I know xLaDe by heart, and continue working on it for almost an year (It’s September 1 today), and last 8 months, I have shipped 8 versions, at 1 version a month. 
+Even in the research paper, I have mentioned that we will be targeting a release each month. 
+This makes maintenance one of the most important task of xLaDe. 
+I primarily work on GitHub, then I also have to maintain mirrors — GitLab, Codeberg, Bitbucket, Gitea, Sourceforge. 
+After mirrors, I maintain latest torrent file (only I seed in my team currently), then I have our official website of xLaDe to maintain and update. 
+In addition, I have posted last 3 versions in Pypi, so it is a substantive work for me. 
+I usually work alone, but fortunately most of the work is automated. 
+However, I have to keep a look and whenever something breaks, it is me who is accountable for everything and I have to fix everything. 
+For example, currently, I am unable to automate pypi release from last two months, and trying to fix it. 
+However, the workflow file trigger is getting fixed, so next release I will have to have a look. 
+And updating files and links in onion site takes some time and updating website in Tor is easy but still it takes some effort to write and deploy.
+
+But still, I am happy to work on xLaDe and somehow I am able to work with all these constraints and fortunately everything is in control. 
+But, if this was too complex project, then it would be difficult to maintain than it is today. 
+So, my plan is to find a couple of maintainers if I am able to find, who can help me do regular chores atleast. 
+For example — updating version and post release work is tedious but easy, so if someone wants to help, then he/she will be able to do without much problems.
+
+Third, xLaDe is written to support Lean 4 and normally Lean 4 is something which develops rapidly. 
+Now, suppose if a user is trying to work on something, he is already confused with toolchain versions, then it wouldn’t be good to confuse him more with xLaDe. 
+I want xLaDe to be “BORING AND STABLE”. 
+We will make an ecosystem layer around Lean 4 which is invisible. 
+Users would not need to bother about xLaDe, they just think xLaDe as a tool to work with in Lean 4. 
+xLaDe will help users, not challenge them for a duel. 
+As much as we would like to add new and advanced features, we would also like to make xLaDe invisible. 
+A good ecosystem tool doesn’t need to add friction, it needs to reduce friction. 
+I can’t guarantee or promise xLaDe will be best, but it will be simple. 
+We will continue working on making xLaDe better for everyone, and continue listening to feedback, which some projects and corps pretend to, but don’t actually implement [cough, cough].
+
+---
+
+Author: Lakshit Singh Bisht
+Date: 01 september 2026
+Link: https://medium.com/@lakshitsinghbishttm/the-xlade-problem-5ab53320af1e
+
+---

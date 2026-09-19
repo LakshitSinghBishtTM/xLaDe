@@ -1,0 +1,78 @@
+# Introduction to xLaDe
+
+Proofs are the foundation of Mathematics. 
+They verify the correctness of mathematical statements and results by logical reasoning from axioms, definitions, and previous results. 
+Humans have been working on this for centuries and come up with a lot of elegant proofs and results. 
+This is the result of curiosity and great minds. 
+Along with writing proofs, checking them is also an important process in mathematics and sometimes it becomes difficult to verify them or find mistakes in them when the reasoning becomes too complex.
+
+Computers have been one of the greatest inventions till date. 
+With the arrival of computers, several question arises for mathematics. 
+One of them is — “Can computers be used for the process of verifying mathematical proofs?”
+
+With the various advancements in computers and their development throughout history, the answer became yes. 
+There are several programs or checkers, which have been developed to verify the proofs. 
+These are commonly known as Proof Assistants.
+
+Proof Assistants are not magic. 
+They are based on logic and mathematics. 
+Some use Set Theory, some use Type Theory, some use Higher Order Logic, and so on. 
+They use these to check the correctness of proofs.
+
+However, there is an important note. 
+Proof assistants are used to check if the proof is correct or not. 
+They are not primarily used to generate a proof or solution.
+
+So, how do proof assistants work? 
+The user writes a step by step proof in the language of a proof assistant translated from the human version (books). 
+The proof assistant then checks the proof written by human and either tells that the proof is correct or the proof is incorrect based on the logic and steps. 
+Proof assistants have their own language just like programming languages with their own syntax and rules.
+
+This makes the proof assistants highly useful. 
+They can be used to check the correctness of various types of proofs. 
+In addition, they can also be used to check proofs of new theorems being discovered (or invented). 
+However, in this process, it is important to check that the translation is correct i.e., the theorem or proof corresponding to the book and humans is same as the proof written in the language of proof assistant.
+
+Please note that this is only a simplified explanation, and the real working of a proof assistant can be complex.
+
+One of the proof assistants is Lean 4 and it uses dependent type theory. 
+It is also a language itself. 
+Let’s take an example for clarity — we want to prove that if two natural numbers are equal, then their successors are also equal.
+
+First we take the human approach:
+
+```
+Let a, b ∈ ℕ
+Suppose that a = b
+Adding 1 to both sides, we get
+a+1 = b+1
+QED
+```
+
+Now, we prove it in Lean language:
+
+```
+theorem add_one (a b : Nat) (h : a = b) : a + 1 = b + 1 := by 
+ have h’ : a + 1 = b + 1 := congrArg (fun n => n + 1) h 
+ exact h’
+```
+
+We write the proof and Lean checks it. 
+If there is an error, then Lean will tell it. 
+If there is no error, it means proof is correct and Lean verified our proof. 
+I am not explaining the syntax of Lean language but just showing how proofs are written in Lean.
+
+We have Lean, but it undergoes a lot of development. 
+So, it may become difficult to track and work on various versions of Lean as the rules or syntaxes change. 
+Also, the scaling becomes a problem. 
+Imagine that instead of just a simple proof above, you have lots of complex proofs with hundreds of files and definitions, thousands of lines of formalization, external libraries, compiler versions, package versions, and a project that needs to remain reproducible years later.
+
+xLaDe is created to tackle this exact ecosystem-level problem and helping people working on Lean projects.
+
+---
+
+Author: Lakshit Singh Bisht
+Date: 16 September 2026
+Link: https://medium.com/@lakshitsinghbishttm/introduction-to-xlade-28939e661f05
+
+---

@@ -1,0 +1,36 @@
+# xLaDe
+
+The primary reason for making xLaDe is to solve two problems:
+
+1. Backward Compatibility:
+
+Lean 4 has a big problem - Proofs or experiments done in Lean depend on its version and if something works today, it may become an archaeological artifact next year. 
+Even Leonardo De Moura has stated multiple times that it is a known issue and they can’t fully solve it because of Lean’s rapid development and constant changes.
+
+So, xLaDe wants to solve this problem. 
+But not by shipping all the known versions of Lean 4 as it would be a disaster. 
+The initial idea is to log all the possible metadata of an experiment or project, and associate it with that experiment. 
+Then when xLaDe runs, it will pull out the metadata and with the help of elan and lake, it builds that version and environment locally, allowing that experiment to run even years later and preserving it.
+
+However, it is a multi-stage idea and will be implemented step by step carefully so that it’s executed properly.
+
+2. Preventing Broken Lean Projects:
+
+If someone starts a project on Lean 4, forks the repo on GitHub, and starts working directly on it, then after a few days of caffeine, the project becomes vastly different from Lean and one day, it breaks. 
+No idea what was keeping it stable. 
+It becomes difficult to work with Lean for some projects that integrate with it.
+
+So, xLaDe wants to solve this problem. 
+Not by putting a super AI helping to make Lean work, but by making the kernel immutable in xLaDe. 
+If there is any change in Lean, then xLaDe will warn the developer and fail intentionally. 
+Along with it, a dedicated experiment module for each experiment will make it easier to integrate the project with Lean and Lean is present as a submodule, so it will make the project lightweight too without copying all of Lean and its history.
+
+If this sounds interesting, join us on GitHub at https://github.com/LakshitSinghBishtTM/xLaDe and help us make xLaDe and Lean 4 better for everyone.
+
+---
+
+Author: Lakshit Singh Bisht
+Date: 27 May 2026
+Link: https://medium.com/@lakshitsinghbishttm/xlade-c1135d13f23d
+
+---
