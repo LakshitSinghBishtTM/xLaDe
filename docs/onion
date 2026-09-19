@@ -1,84 +1,36 @@
 # Onion Service
 
-This project provides an official Tor onion service:
+Our official website is a Tor onion service.
 
-http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion
-
-This serves as the **official project website**.
+Link: http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion
 
 ---
 
 ## Why an Onion Service?
 
-The onion service is part of the project's commitment to availability, integrity, and minimizing trust assumptions.
-
-### 1. Censorship Resistance
-
-Access to source code and research infrastructure should not depend on geographic or platform-level restrictions. The onion service provides a reliable access path in environments where traditional hosting platforms may be blocked.
-
-### 2. Self-Authenticating Identity
-
-Onion addresses are derived from cryptographic keys. This means the address itself acts as a form of identity, reducing reliance on external certificate authorities and DNS infrastructure.
-
-### 3. Availability by Design
-
-The project intentionally uses an onion service as its primary website to reduce reliance on:
-
-* centralized DNS infrastructure
-* certificate authorities
-* single hosting providers
-
-### 4. Privacy by Design
-
-Users can access the project without exposing identifying metadata such as IP addresses. This is particularly relevant for users in restrictive or monitored environments.
+Free will
 
 ---
 
-## Trust Model
+## Advantages
 
-The onion service is considered the **official web presence** of this project.
-
-To verify authenticity:
-
-* The onion URL is published in this repository
-* It should match references in other official project materials
-* Any changes to the onion address will be announced through the primary repository
-
-Please do not trust onion links from third-party sources.
-
----
-
-## Threat Model
-
-The onion service helps mitigate:
-
-* DNS tampering and hijacking
-* TLS certificate authority compromise
-* Platform-level censorship
-
-It does not protect against:
-
-* Malicious code within the repository
-* Compromised development environments
-* Supply chain attacks in dependencies
-
-Users are still responsible for verifying the integrity of the code they run.
+1. It's free 
+2. Easy to update and maintain
+3. Self hosting
+4. No centralized dependency to DNS infra, certificate authoritites, etc. 
+5. Government can't ban us easily like other sites
+6. Self authenticating identity
+7. It's cool 
+8. Tor helps in protecting our and your privacy
+9. We can't see users IP address if they visit the website
+10. No ads
 
 ---
 
-## Accessing the Onion Service
+## Access
 
-To access the onion site:
-
-1. Install the Tor Browser: https://www.torproject.org/
-2. Open the onion URL listed above
-
-Note: Kindly download Tor from official channels only!
+1. Install the Tor Browser
+2. Paste the link to visit us
+3. Donate to Tor (optional)
 
 ---
-
-## Philosophy
-
-This project does not assume that any single platform is permanently available or inherently trustworthy.
-
-The onion service is used as a **first-class interface to the project**, not merely as a fallback, reflecting a design choice to reduce reliance on centralized infrastructure.
