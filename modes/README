@@ -2,7 +2,7 @@
 
 This directory contains the modes for xLaDe CLI
 In easy language, modes are the toggles for enabling and disabling different features in xLaDe.
-Features include experiments, policies, scripts, etc.
+Features include experiments, scripts, etc.
 
 ---
 
