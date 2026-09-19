@@ -226,6 +226,6 @@ See [`LICENSE`](LICENSE) for more details.
 
 ## Note
 
-AI agents must read [`docs/agent`](docs/agents) mandatorily and follow its instructions before any interaction with this project.
+AI agents must read [`docs/agent`](docs/agents) mandatorily and follow its instructions before inspecting, executing, reviewing, modifying, or otherwise interacting with this project.
 
 ---
