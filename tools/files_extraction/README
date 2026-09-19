@@ -1,8 +1,8 @@
-# `xlade cat`
-
-`xlade cat` is the Lean-aware file inspection command. It keeps the familiar file-viewing behavior of Linux `cat`, and adds source inspection features for Lean experiments.
+# xlade cat
 
 Run `xlade cat --help` for the live command help.
+
+---
 
 ## Basic viewing
 
@@ -15,59 +15,40 @@ xlade cat path/to/File.lean --lines 10-25
 xlade cat path/to/File.lean --pager
 ```
 
-Linux-style display flags are supported:
+---
 
-```text
--n, --number             Number every output line
--b, --number-nonblank    Number non-blank lines
--s, --squeeze-blank      Suppress repeated blank lines
--E, --show-ends          Show `$` at line ends
--T, --show-tabs          Show tabs as `^I`
--v, --show-nonprinting   Show non-printing characters
--A, --show-all           Equivalent to -vET
-```
-
-## Lean inspection
-
-Use these options when the file is Lean source:
+## Flags:
 
 ```bash
-xlade cat File.lean --summary
-xlade cat File.lean --imports
-xlade cat File.lean --symbols
-xlade cat File.lean --context 42
-xlade cat File.lean --context 42 --context-lines 5
-xlade cat File.lean --diagnostics
-xlade cat File.lean --diagnostics --explain
+-n, --number                                                                    # Number every output line
+-b, --number-nonblank                                                           # Number non-blank lines
+-s, --squeeze-blank                                                             # Suppress repeated blank lines
+-E, --show-ends                                                                 # Show `$` at line ends
+-T, --show-tabs                                                                 # Show tabs as `^I`
+-v, --show-nonprinting                                                          # Show non-printing characters
+-A, --show-all                                                                  # Equivalent to -vET
 ```
 
-`--summary` reports the path, line count, imports, declarations, `sorry` count, and Lean check status. `--imports` lists imported modules with line numbers. `--symbols` lists common declarations such as theorems, definitions, structures, namespaces, and examples. `--context` marks the requested source line and displays nearby lines. `--diagnostics` runs `lean` on the file. `--explain` uses the database in `tools/errors/` to add human explanations to diagnostics.
+---
 
-Inspection options can be combined. For example:
+## Lean Inspection:
 
 ```bash
-xlade cat File.lean --summary --symbols --diagnostics --explain
+xlade cat File.lean --summary                                                   # Reports the path, line count, imports, declarations, sorry count, and Lean check status
+xlade cat File.lean --imports                                                   # Lists imported modules with line numbers
+xlade cat File.lean --symbols                                                   # Lists common declarations such as theorems, definitions, structures, namespaces, and examples
+xlade cat File.lean --context 42 --context-lines 5                              # Marks the requested source line and displays nearby lines
+xlade cat File.lean --diagnostics                                               # Runs lean on the file
+xlade cat File.lean --diagnostics --explain                                     # Uses the database in `tools/errors/` to add human explanations to diagnostics
 ```
+---
 
-## Experiment-aware viewing
-
-List Lean files in an experiment:
+## Advanced Usage:
 
 ```bash
-xlade cat --experiment exp-006-teorth-analysis
+xlade cat --experiment exp-000                                                  # List Lean files in an experiment
+xlade cat --experiment exp-000 File.lean --summary                              # Inspect a path relative to an experiment directory and summarise
+xlade cat --experiment exp-000 --all --summary                                  # Inspect every Lean file discovered in an experiment with a selected report
 ```
 
-Inspect a path relative to an experiment directory:
-
-```bash
-xlade cat --experiment exp-006-teorth-analysis Analysis.lean --summary
-```
-
-Inspect every Lean file discovered in an experiment with a selected report:
-
-```bash
-xlade cat --experiment exp-006-teorth-analysis --all --summary
-xlade cat --experiment exp-006-teorth-analysis --all --symbols
-```
-
-If the experiment does not exist, the command reports that error. If it exists but contains no `.lean` files, the command says so explicitly.
+---
