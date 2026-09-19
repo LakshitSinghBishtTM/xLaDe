@@ -6,9 +6,9 @@
 
 | Mode         | Status            |
 |--------------|-------------------|
-| Experimental | Enabled/Disabled  |
+| Experimental | Enabled           |
 | Onboarding   | Enabled/Disabled  |
-| Stable       | Enabled/Disabled  |
+| Stable       | Disabled          |
 
 ---
 
