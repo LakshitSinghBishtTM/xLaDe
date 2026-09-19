@@ -1,0 +1,21 @@
+# xLaDe Scripts
+
+This directory contains all the bash scripts used in xLaDe.
+Any script used in CLI, experiments, workflows, tools, etc. must be put here.
+
+---
+
+## Scripts Idea
+
+We intentionally use scripts/ directory for any script for centralised use.
+If a script is inside an experiment or tool only, then it is restricted for use there only and difficult to find.
+But with the script/ directory, people can find and use scripts easily.
+
+---
+
+## Caution
+
+Please read the scripts before running.
+Do NOT run arbitrary scripts blindly.
+
+---
