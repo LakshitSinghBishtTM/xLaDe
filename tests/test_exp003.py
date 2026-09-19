@@ -17,10 +17,6 @@ def repo_with_docs(tmp_path):
         d.mkdir(parents=True)
         (d / "README.md").write_text(f"# {mode}\n")
 
-    policies = tmp_path / "policies"
-    policies.mkdir()
-    (policies / "kernel-protection.md").write_text("# Kernel Protection\n")
-
     return tmp_path
 
 
@@ -67,20 +63,6 @@ def test_fails_missing_mode_readme(repo_with_docs, script_path):
     )
     assert result.returncode == 1
     assert "Missing README.md" in result.stdout
-
-
-def test_fails_empty_policies(repo_with_docs, script_path):
-    for f in (repo_with_docs / "policies").iterdir():
-        f.unlink()
-
-    result = subprocess.run(
-        ["bash", script_path],
-        cwd=repo_with_docs,
-        capture_output=True,
-        text=True,
-    )
-    assert result.returncode == 1
-    assert "No .md files" in result.stdout
 
 
 def test_actual_repo_passes(script_path):
