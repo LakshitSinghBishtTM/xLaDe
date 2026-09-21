@@ -1,0 +1,75 @@
+name: Issue
+description: Create an Issue
+title: "[Issue Type]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please tell the issue you have.
+        (Don't tell non-xLaDe issues. We may not be able to help you)
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of Issue
+      options:
+        - Bug
+        - Feature Request
+        - Documentation
+        - Infrastructure
+        - Ecosystem level
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: xlade-version
+    attributes:
+      label: xLaDe
+      description: xLaDe version or commit.
+      placeholder: "x.y.z"
+    validations:
+      required: true
+
+  - type: input
+    id: lean-version
+    attributes:
+      label: Lean 4
+      placeholder: "x.y.z"
+
+  - type: input
+    id: lake-version
+    attributes:
+      label: Lake
+      placeholder: "x.y.z"
+
+  - type: input
+    id: elan-version
+    attributes:
+      label: Elan
+      placeholder: "x.y.z"
+
+  - type: input
+    id: other-environment
+    attributes:
+      label: Other
+      description: Other relevant tools versions.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Please provide reproduction steps, expected outcome, logs, or any useful information if applicable.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Anything else you would like to comment.
+    validations:
+      required: false
