@@ -1,15 +1,19 @@
-name: Issue
-description: Create an Issue
+name: xLaDe Issue
+description: Helps in creating an issue easily
 title: "[Issue Type]: "
 labels: []
 assignees: []
 
 body:
-  - type: markdown
+  - type: textarea
+    id: summary
     attributes:
-      value: |
-        Please tell the issue you have.
-        (Don't tell non-xLaDe issues. We may not be able to help you)
+      label: Summary
+      placeholder: |
+        Describe the issue you are experiencing.
+        Please tell the issue you have. Don't report non-xLaDe issues. We may not be able to help you.
+    validations:
+      required: true
 
   - type: dropdown
     id: issue-type
@@ -25,11 +29,14 @@ body:
     validations:
       required: true
 
+  - type: markdown
+    attributes:
+      label: Environment
+
   - type: input
     id: xlade-version
     attributes:
       label: xLaDe
-      description: xLaDe version or commit.
       placeholder: "x.y.z"
     validations:
       required: true
@@ -39,30 +46,38 @@ body:
     attributes:
       label: Lean 4
       placeholder: "x.y.z"
+    validations:
+      required: false
 
   - type: input
     id: lake-version
     attributes:
       label: Lake
       placeholder: "x.y.z"
+    validations:
+      required: false
 
   - type: input
     id: elan-version
     attributes:
       label: Elan
       placeholder: "x.y.z"
+    validations:
+      required: false
 
   - type: input
     id: other-environment
     attributes:
       label: Other
-      description: Other relevant tools versions.
+      placeholder: Other relevant tools versions if applicable.
+    validations:
+      required: false
 
   - type: textarea
     id: evidence
     attributes:
       label: Evidence
-      description: Please provide reproduction steps, expected outcome, logs, or any useful information if applicable.
+      placeholder: Please provide reproduction steps, expected outcome, logs, or any useful information if applicable.
     validations:
       required: false
 
@@ -70,6 +85,6 @@ body:
     id: additional-notes
     attributes:
       label: Additional Notes
-      description: Anything else you would like to comment.
+      placeholder: Anything else you would like to comment.
     validations:
       required: false
