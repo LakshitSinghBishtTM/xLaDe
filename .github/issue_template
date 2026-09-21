@@ -1,0 +1,42 @@
+## Summary
+
+Please tell the issue you have
+(Don't tell non-xLaDe issues. We may not be able to help you)
+
+---
+
+## Type of Issue
+
+- [ ] Bug
+- [ ] Feature Request
+- [ ] Documentation
+- [ ] Infrastructure
+- [ ] Ecosystem level
+- [ ] Other
+
+---
+
+## Affected Environment
+
+// Only xLaDe is mandatory.
+// Fill others if relevant to issue
+
+- xLaDe:
+- Lean 4:
+- Lake:
+- Elan:
+- Other:
+
+---
+
+## Evidence (Optional)
+
+Please paste the issue reproduction steps, expected outcome, logs, or any useful info if applicable.
+
+---
+
+## Additional Notes (Optional)
+
+Anything else you would like to comment.
+
+---
