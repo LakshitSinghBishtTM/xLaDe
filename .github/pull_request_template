@@ -1,6 +1,6 @@
-# Summary
+## Summary
 
-Provide a brief description of this pull request.
+Please tell in short what you changed.
 
 ---
 
@@ -16,7 +16,7 @@ Provide a brief description of this pull request.
 
 ## Checks
 
-// Not mandatory for documentation or typo-only PRs.
+// Mandatory only for coding changes
 
 - [ ] Tests
 - [ ] isort
@@ -41,6 +41,6 @@ Tell the specific tasks they performed/ what they did.
 
 ## Additional Notes (Optional)
 
-Anything you would like to comment.
+Anything else you would like to comment.
 
 ---
