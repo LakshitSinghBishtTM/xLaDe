@@ -10,8 +10,8 @@ body:
     attributes:
       label: Summary
       placeholder: |
-        Describe the issue you are experiencing.
-        Please tell the issue you have. Don't report non-xLaDe issues. We may not be able to help you.
+        Please tell the issue you have
+        (Don't tell non-xLaDe issues. We may not be able to help you)
     validations:
       required: true
 
@@ -20,12 +20,12 @@ body:
     attributes:
       label: Type of Issue
       options:
-        - Bug
-        - Feature Request
-        - Documentation
-        - Infrastructure
-        - Ecosystem level
-        - Other
+        - Bug                     [bug]
+        - Feature Request         [feat]
+        - Documentation           [doc]
+        - Infrastructure          [inf]
+        - Ecosystem level         [eco]
+        - Other                   [other]
     validations:
       required: true
 
@@ -69,7 +69,7 @@ body:
     id: other-environment
     attributes:
       label: Other
-      placeholder: Other relevant tools versions if applicable.
+      placeholder: Names and versions of other relevant tools, if applicable.
     validations:
       required: false
 
@@ -77,7 +77,7 @@ body:
     id: evidence
     attributes:
       label: Evidence
-      placeholder: Please provide reproduction steps, expected outcome, logs, or any useful information if applicable.
+      placeholder: Please paste the issue reproduction steps, expected outcome, logs, or any useful info if applicable.
     validations:
       required: false
 
