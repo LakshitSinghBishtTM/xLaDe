@@ -6,10 +6,11 @@ Please tell in short what you changed.
 
 ## Type of Change
 
-- [ ] Documentation update
-- [ ] New Experiment
-- [ ] Bug Fix
-- [ ] CLI Improvement
+- [ ] Documentation
+- [ ] Experiment
+- [ ] Bug
+- [ ] Improvement
+- [ ] Addition
 - [ ] Other
 
 ---
