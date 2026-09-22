@@ -28,12 +28,12 @@ xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prev
 
 ## Why not to use xLaDe
 
-- xLaDe is still being actively developed and updated 
-- Tools, metrics, etc. modules are not yet fully implemented
-- The installation process may be difficult for beginners
-- It may be unintuitive for non-Linux users
+- It is still in a developmental stage and not matured yet
+- It breaks on Python 3.13 or earlier
+- We support Linux only, no cross-platform availability is provided
+- It's a CLI tool, there is no GUI or TUI
 - It is a boring tool, there is no groundbreaking magic
-- The use cases are primarily focused on long-term reproducibility, so it may feel less useful initially 
+- The use cases are primarily focused on long-term reproducibility, so it may feel less useful initially
 
 ---
 
@@ -68,7 +68,7 @@ pip install xlade
 xlade
 ```
 
-For complete installation instructions, requirements, and troubleshooting information, please follow [`docs/install`](docs/install).
+For complete installation instructions, please follow [`docs/install`](docs/install).
 
 ---
 
@@ -207,11 +207,8 @@ For details regarding the security of the xLaDe project, visit the [`security/`]
 ## Contributing
 
 We heartily welcome those who want to help us.  
-The following files explain how to contribute and engage with the project.
+Check out our [`CONTRIBUTING`](CONTRIBUTING) guide if you want to get involved.
 
-- [`CONTRIBUTING`](CONTRIBUTING) 
-- [`docs/contributors`](docs/contributors)
-- [`CODE_OF_CONDUCT`](CODE_OF_CONDUCT)
 
 ---
 
