@@ -32,15 +32,17 @@ body:
   - type: input
     id: xlade-version
     attributes:
-      label: xLaDe Version
-      placeholder: "x.y.z"
+      label: Affected Version(s)
+      placeholder: |
+        Tell the versions of xLaDe affected with this issue in "x.y.z" format. 
+        You can use '<' and '>' symbols also.
     validations:
       required: true
 
   - type: input
     id: other-environment
     attributes:
-      label: Other
+      label: Environment
       placeholder: Names and versions of other relevant tools, if applicable.
     validations:
       required: false
