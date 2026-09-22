@@ -59,11 +59,11 @@ Some Jailbreak Ideas
 
 ## Experiments Directory
 
-For a minimal experiment, we advise to have atleast the following --
+For a minimal experiment, we advise to have atleast the following files --
 
-1. README.md
+1. README
 2. experiment.toml
-3. METRICS.md
+3. METRICS
 
 However, it may be changed based on the context of experiments and intentions.
 
