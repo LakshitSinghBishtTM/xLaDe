@@ -1,0 +1,60 @@
+# Roadmap
+
+This roadmap covers our objectives from v2.0.0 to v3.0.0
+We write only the focus area, not complete work in roadmap.
+If the work on that direction is complete, new version may be released for that month.
+Every month is accompanied with one release.
+
+---
+
+## 2.1.0
+
+- Workflows improvement
+- CLI usage section betterment
+
+## 2.2.0
+
+- Tests improvement and addtion
+- Easy and one-command based installation/setup of xLaDe and external tools
+
+## 2.3.0
+
+- Modes separation
+- CLI step-by-step output improvement
+
+## 2.4.0
+
+- Metrics development
+- Lean 4 wrap up experiment
+
+## 2.5.0
+
+- More tools and scripts addition and improvement
+- Dedicated ecosystem separation in CLI - tools, scripts, helpers, etc.
+
+## 2.6.0
+
+- External experiments outside of Lean 4 test
+- Lean 4 execution via xLaDe CLI itself
+
+## 2.7.0
+
+- Editing and updating experiments from CLI natively
+- Debugging in CLI testing
+
+## 2.8.0
+
+- Dedicated security checks and audits
+- Integration with frontier models API
+
+## 2.9.0
+
+- Documentation update
+- CLI update
+
+## 3.0.0
+
+- API with structured json and other formats trial
+- Any remaining leftover of previous sub-versions
+
+---
