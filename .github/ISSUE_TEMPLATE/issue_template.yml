@@ -31,7 +31,8 @@ body:
 
   - type: markdown
     attributes:
-      value: ## Affected Environment
+      value: |
+        ## Affected Environment
 
   - type: input
     id: xlade-version
