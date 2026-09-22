@@ -33,9 +33,7 @@ body:
     id: xlade-version
     attributes:
       label: Affected Version(s)
-      placeholder: |
-        Tell the versions of xLaDe affected with this issue in "x.y.z" format. 
-        You can use '<' and '>' symbols also.
+      placeholder: x.y.z
     validations:
       required: true
 
