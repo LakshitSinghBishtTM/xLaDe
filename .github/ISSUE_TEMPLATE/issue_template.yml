@@ -37,14 +37,6 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: other-environment
-    attributes:
-      label: Environment
-      placeholder: Names and versions of other relevant tools, if applicable.
-    validations:
-      required: false
-
   - type: textarea
     id: evidence
     attributes:
