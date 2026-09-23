@@ -1,5 +1,12 @@
 # xLaDe Roadmap: 
 
+// Note: This document is intended only for historical reference
+// Planned and written with AI assistance
+
+---
+
+//--
+
 This document outlines the planned development arc for xLaDe from v1.5.0 to the v2.0.0 milestone.
 
 xLaDe follows a research-first development philosophy: releases are
@@ -182,3 +189,7 @@ xLaDe declares itself a serious long-term project.
 *xLaDe is a living laboratory for Lean 4 ecosystem design.*
 *The roadmap exists to be honest about where it is going,*
 *not to promise it will arrive on schedule.*
+
+--//
+
+---
