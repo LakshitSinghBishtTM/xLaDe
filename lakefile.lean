@@ -7,7 +7,7 @@ package xLaDe where
   ]
 
 /-
-  # In simple language, what it says ---
-  # This repository is called xLaDe, and Lake manages it as a Lean project.
-  # Do not build anything at the repository root.
+  // In simple language, what it says ---
+  // This repository is called xLaDe, and Lake manages it as a Lean project.
+  // Do not build anything at the repository root.
 -/
