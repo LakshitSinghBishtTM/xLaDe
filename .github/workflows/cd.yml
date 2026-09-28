@@ -34,7 +34,7 @@ jobs:
 
       - name: Read version
         id: version
-        run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+        run: echo "version=$(cat docs/version)" >> $GITHUB_OUTPUT
 
       - name: Build Python package
         run: |
