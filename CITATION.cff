@@ -10,8 +10,8 @@ authors:
     email: lakshitsinghbishttm@gmail.com
     orcid: 'https://orcid.org/0009-0004-0035-5714'
 
-version: '1.8.0'
-date-released: '2026-08-18'
+version: '1.9.0'
+date-released: '2026-09-28'
 
 license: GPL-3.0
 repository-code: "https://github.com/LakshitSinghBishtTM/xLaDe"
