@@ -23,7 +23,7 @@ identifiers:
     description: Concept DOI
 
   - type: doi
-    value: 10.5281/zenodo.21996158
+    value: 10.5281/zenodo.23017286
     description: Latest Release
 
 keywords:
