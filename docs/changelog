@@ -6,6 +6,18 @@ Note that some changes may be not written here.
 
 ---
 
+## [2.0.0] — 2026-10-xx
+
+### Highlights
+- Signed commits now mandatory for security purpose
+
+### Added
+
+### Changed
+- Security and other settings updated to protect project
+
+---
+
 ## [1.9.0] — 2026-09-28
 
 ### Highlights
