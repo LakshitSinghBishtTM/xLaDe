@@ -33,7 +33,6 @@ xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prev
 - We support Linux only, no cross-platform availability is provided
 - It's a CLI tool, there is no GUI or TUI
 - It is a boring tool, there is no groundbreaking magic
-- The use cases are primarily focused on long-term reproducibility, so it may feel less useful initially
 
 ---
 
@@ -41,10 +40,10 @@ xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prev
 
 - Lean projects and experiments runnable via xLaDe CLI
 - Modes for controlling experiment and scripts execution
-- Comprehensive environment metadata for Lean 4 projects
+- Comprehensive environment metadata storage for Lean 4 projects
 - Immutability of Lean 4 kernel via CI workflows
-- Comprehensive documentation and security features 
-- Optimised and lightweight
+- Beginner friendly, with extensive documentation
+- Optimised and lightweight tool
 
 ---
 
@@ -131,7 +130,7 @@ $ xlade run exp-006-teorth-analysis
 ## Distribution
 
 xLaDe Git repository is provided free of charge across [`GitHub`](https://github.com/LakshitSinghBishtTM/xLaDe), [`GitLab`](https://gitlab.com/LakshitSinghBishtTM/xLaDe), [`Codeberg`](https://codeberg.org/lakshitsinghbishttm/xLaDe), [`Bitbucket`](https://bitbucket.org/lakshitsinghbishttm/xlade), [`Gitea`](https://gitea.com/LakshitSinghBishtTM/xLaDe), and [`Sourceforge`](https://sourceforge.net/projects/xlade).  
-Each release is accompanied by a torrent seeded by core team and also available on our [`official website`](http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion).   
+Each release is accompanied by a [`torrent`](https://github.com/LakshitSinghBishtTM/xLaDe/tree/main/assets/torrent) seeded by core team and also available on our [`official website`](http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion).   
 We also publish each version to [`PyPI`](https://pypi.org/project/xlade) and [`Zenodo`](https://doi.org/10.5281/zenodo.18772566).  
 In addition, we support USB drives, SD cards, CDs, DVDs and other removable storage media on an individual basis. For physical distribution, we only charge for the cost of the storage medium and shipping.
 
@@ -200,7 +199,7 @@ flake8 .
 ## Security
 
 Please read [`SECURITY`](SECURITY) for information on safely reporting a security vulnerability.  
-For details regarding the security of the xLaDe project, visit the [`security/`](security/) directory.
+For details regarding the security of the xLaDe project, visit the [`security/`](security/) directory and keep an eye on the released security advisories (DCVEs).
 
 ---
 
@@ -208,7 +207,6 @@ For details regarding the security of the xLaDe project, visit the [`security/`]
 
 We heartily welcome those who want to help us.  
 Check out our [`CONTRIBUTING`](CONTRIBUTING) guide if you want to get involved.
-
 
 ---
 
