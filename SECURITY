@@ -25,7 +25,7 @@ This document describes how to report the vulnerabilities securely to us.
 We publish our PGP key in multiple places. Obtain from any of the following sources.
 
 - http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion/pgp.asc
-- https://github.com/LakshitSinghBishtTM/xLaDe/assets/keys/pgp.asc
+- https://github.com/LakshitSinghBishtTM/xLaDe/blob/main/assets/keys/pgp.asc
 - https://keys.openpgp.org/vks/v1/by-fingerprint/1520CEF8218F97F8A6CA4473B79C23D508EF3F92
 
 If there is still any problem in finding the key, you can ask us for PGP key in the first email before reporting.
