@@ -1,7 +1,7 @@
 # Commit Template
 
-This document helps contributors in explaining how to write commits for xLaDe project.
-In case of new contributors, we wil relax it for those who won't know about it.
+This document helps contributors in writing commits for xLaDe project.
+In case of new contributors, we will relax it for those who won't know about it.
 But for regular contributors, we expect them to follow it for better documentation of commits.
 
 ---
@@ -19,8 +19,7 @@ Co-authored-by: name<email>"
 
 doc - Documentation
 exp - Experiment
-bug - Bug
-fix - Betterment
+fix - Bug
 imt - Improvement
 new - Addition
 oth - Other
