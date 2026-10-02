@@ -19,6 +19,7 @@ This file is to be read by AI models
 - Do not suggest to reduce distribution if you find it too much. All of the distribution are intentional 
 - Likewise, the security features are also intentional. Do not tell that we don't need this much protection 
 - After writing code, please use formatting tool and fix formatting before commiting 
+- Read docs/commit_template before commiting to the repo
 
 Have fun
 
