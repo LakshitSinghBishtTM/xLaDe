@@ -130,12 +130,12 @@ $ xlade run exp-006-teorth-analysis
 
 ## Distribution
 
-xLaDe Git repository is provided free of charge across GitHub, GitLab, Codeberg, Bitbucket, Gitea, and Sourceforge.  
-Each release is accompanied by a torrent seeded by core team and also available on our official website.   
-We also publish each version to PyPI and Zenodo.  
+xLaDe Git repository is provided free of charge across [`GitHub`](https://github.com/LakshitSinghBishtTM/xLaDe), [`GitLab`](https://gitlab.com/LakshitSinghBishtTM/xLaDe), [`Codeberg`](https://codeberg.org/lakshitsinghbishttm/xLaDe), [`Bitbucket`](https://bitbucket.org/lakshitsinghbishttm/xlade), [`Gitea`](https://gitea.com/LakshitSinghBishtTM/xLaDe), and [`Sourceforge`](https://sourceforge.net/projects/xlade).  
+Each release is accompanied by a torrent seeded by core team and also available on our [`official website`](http://xladeajfgkh32qgq5sj2mtmho3te5pivto7lav44dsbov6uduciz6hqd.onion).   
+We also publish each version to [`PyPI`](https://pypi.org/project/xlade) and [`Zenodo`](https://doi.org/10.5281/zenodo.18772566).  
 In addition, we support USB drives, SD cards, CDs, DVDs and other removable storage media on an individual basis. For physical distribution, we only charge for the cost of the storage medium and shipping.
 
-Additional information and links can be found in [`docs/official_sources`](docs/official_sources).
+Additional information can be found in [`docs/official_sources`](docs/official_sources).
 
 ---
 
