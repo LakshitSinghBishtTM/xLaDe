@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/version-1.9.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/status-experimental-red" alt="Status">
   <img src="https://img.shields.io/badge/platform-Linux-green" alt="Platform">
-  <img src="https://img.shields.io/badge/Lean-4-purple" alt="Lean 4">
+  <img src="https://img.shields.io/badge/model-spectre-purple" alt="Model">
 </p>
 
 ---
