@@ -4,3 +4,4 @@
 .lake/
 __pycache__/
 xlade.egg-info/
+.env
