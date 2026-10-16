@@ -8,7 +8,6 @@ import subprocess
 from pathlib import Path
 from urllib.parse import quote
 
-
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parents[1]
 WEBSITE_CODE_ROOT = REPO_ROOT.parent.parent / "websites" / "xLaDe" / "files" / "code"
@@ -28,8 +27,13 @@ DOC_NAMES = {
     "security",
 }
 IGNORED_DIRS = {
-    ".git", "__pycache__", ".pytest_cache", "venv",
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    "venv",
 }
+
+
 def load_ignore_rules(root: Path):
     rules = []
     for gitignore in root.rglob(".gitignore"):
@@ -51,7 +55,7 @@ def load_submodule_paths(root: Path) -> set[Path]:
             capture_output=True,
             text=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except OSError, subprocess.CalledProcessError:
         return set()
 
     paths = set()
@@ -76,9 +80,13 @@ def is_gitignored(relative_path: Path, rules) -> bool:
         except ValueError:
             continue
         parts = scoped.parts
-        candidates = ("/".join(parts[:i + 1]) for i in range(len(parts)))
+        candidates = ("/".join(parts[: i + 1]) for i in range(len(parts)))
         for i, candidate in enumerate(candidates):
-            if (fnmatch.fnmatchcase(candidate, pattern) if anchored or "/" in pattern else fnmatch.fnmatchcase(parts[i], pattern)):
+            if (
+                fnmatch.fnmatchcase(candidate, pattern)
+                if anchored or "/" in pattern
+                else fnmatch.fnmatchcase(parts[i], pattern)
+            ):
                 ignored = not negated
     return ignored
 
