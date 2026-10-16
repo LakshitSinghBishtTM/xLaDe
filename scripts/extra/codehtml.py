@@ -44,7 +44,7 @@ def load_submodule_paths(root: Path) -> set[Path]:
             capture_output=True,
             text=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except OSError, subprocess.CalledProcessError:
         return set()
 
     paths = set()
@@ -70,10 +70,12 @@ def is_gitignored(relative_path: Path, rules) -> bool:
             continue
         parts = scoped.parts
         for i in range(len(parts)):
-            candidate = "/".join(parts[:i + 1])
-            matched = (fnmatch.fnmatchcase(candidate, pattern)
-                       if anchored or "/" in pattern
-                       else fnmatch.fnmatchcase(parts[i], pattern))
+            candidate = "/".join(parts[: i + 1])
+            matched = (
+                fnmatch.fnmatchcase(candidate, pattern)
+                if anchored or "/" in pattern
+                else fnmatch.fnmatchcase(parts[i], pattern)
+            )
             if matched:
                 ignored = not negated
     return ignored
@@ -95,8 +97,11 @@ def link(relpath: Path) -> str:
 
 
 def children(path: Path, ignore_rules, submodule_paths):
-    items = [p for p in sorted(path.iterdir(), key=lambda x: (x.is_file(), x.name.lower()))
-             if not should_ignore(p, p.relative_to(CODE_ROOT), ignore_rules, submodule_paths)]
+    items = [
+        p
+        for p in sorted(path.iterdir(), key=lambda x: (x.is_file(), x.name.lower()))
+        if not should_ignore(p, p.relative_to(CODE_ROOT), ignore_rules, submodule_paths)
+    ]
     return items
 
 
