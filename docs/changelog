@@ -6,15 +6,19 @@ Note that some changes may be not written here.
 
 ---
 
-## [2.0.0] — 2026-10-xx
+## [2.0.0] — 2026-10-19
 
 ### Highlights
 - Signed commits now mandatory for security purpose
+- Polished and updated website 
+- Retirement of xLaDe Spectre, the first xLaDe model
 
 ### Added
+- xLaDe Hippasus takes place of Spectre
 
 ### Changed
 - Security and other settings updated to protect project
+- Pypi release now trigger on v tag
 
 ---
 
