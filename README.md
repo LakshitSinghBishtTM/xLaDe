@@ -8,8 +8,8 @@
 <p align="center">eXperimental Lean 4 advanced Development ecosystem</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Model-Spectre-red" alt="Model">
-  <img src="https://img.shields.io/badge/Version-1.9.0-green" alt="Version">
+  <img src="https://img.shields.io/badge/Model-Hippasus-red" alt="Model">
+  <img src="https://img.shields.io/badge/Version-2.0.0-green" alt="Version">
   <img src="https://img.shields.io/badge/Platform-Linux-blue" alt="Platform">
 </p>
 
