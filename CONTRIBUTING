@@ -54,7 +54,7 @@ Use the following commands to setup xLaDe and contribute --
 
 Step 1. Fork xLaDe and then clone locally
 
-```sh
+```bash
 git clone https://github.com/{github_username}/xLaDe.git
 cd xLaDe
 git remote add upstream https://github.com/LakshitSinghBishtTM/xLaDe.git
@@ -62,7 +62,7 @@ git remote add upstream https://github.com/LakshitSinghBishtTM/xLaDe.git
 
 Step 2. Create a branch
 
-```sh
+```bash
 git checkout -b {branch-name}
 ```
 
@@ -71,25 +71,25 @@ Step 3. Edit the file(s) you want.
 Step 4. Check formatting of changed code with isort, black and flake, and then run tests.
 Note that below commands of isort and black will change/fix the formatting themselves. You don't need to manually fix them. 
 
-```sh
+```bash
 isort .
 black .
 flake8 .
 ```
 
-```sh
+```bash
 pytest tests/ -v
 ```
 
 Step 5. Write what you changed in commit message precisely and save it.
 
-```sh
+```bash
 git commit -m "Change summary" -m "Optional detailed description of change. May add AI tools disclosure here"
 ```
 
 Step 6. Push and open a PR
 
-```sh
+```bash
 git push -u origin {branch-name}
 ```
 
