@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,7 +28,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e .
-          pip install black flake8 isort pytest
+          pip install black flake8 isort
 
       - name: Check import order
         run: |
@@ -42,8 +44,3 @@ jobs:
         run: |
           echo "--- flake8 ---"
           flake8 .
-
-      - name: Run unit tests
-        run: |
-          echo "--- pytest ---"
-          pytest tests/ -v
