@@ -6,6 +6,19 @@ Note that some changes may be not written here.
 
 ---
 
+## [2.1.0] — 2026-11-xx
+
+### Highlights
+-
+
+### Added
+-
+
+### Changed
+- Removed pytest from formatting workflow
+
+---
+
 ## [2.0.0] — 2026-10-19
 
 ### Highlights
