@@ -28,13 +28,7 @@ If you are updating xLaDe into a new version, please check and complete all of i
 
 ## Version Update
 
-```sh
-git add -A
-git commit -m "release v<version>"
-git push origin main
-
-// wait for CI to pass on GitHub before tagging
-
+```bash
 git tag v<version>
 git push origin v<version>
 ```
