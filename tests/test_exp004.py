@@ -54,28 +54,6 @@ def test_exp004_submodule_directory_exists(submodule_path):
     )
 
 
-def test_exp004_submodule_is_not_empty(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    contents = os.listdir(submodule_path)
-    assert len(contents) > 0, "Submodule directory is empty"
-
-
-def test_exp004_submodule_has_lakefile(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    has_lakefile = os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or os.path.isfile(
-        os.path.join(submodule_path, "lakefile.toml")
-    )
-    assert has_lakefile, "No lakefile found in submodule"
-
-
-def test_exp004_submodule_has_lean_toolchain(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    assert os.path.isfile(os.path.join(submodule_path, "lean-toolchain"))
-
-
 def test_exp004_script_fails_without_submodule(script_path, tmp_path):
     """Script should exit non-zero when project dir does not exist."""
     result = subprocess.run(

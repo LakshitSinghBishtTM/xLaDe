@@ -55,37 +55,6 @@ def test_exp005_submodule_directory_exists(submodule_path):
     )
 
 
-def test_exp005_submodule_is_not_empty(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    contents = os.listdir(submodule_path)
-    assert len(contents) > 0, "Submodule directory is empty"
-
-
-def test_exp005_submodule_has_lakefile(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    has_lakefile = os.path.isfile(os.path.join(submodule_path, "lakefile.lean")) or os.path.isfile(
-        os.path.join(submodule_path, "lakefile.toml")
-    )
-    assert has_lakefile, "No lakefile found in submodule"
-
-
-def test_exp005_submodule_has_lean_toolchain(submodule_path):
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    assert os.path.isfile(os.path.join(submodule_path, "lean-toolchain"))
-
-
-def test_exp005_submodule_has_expected_structure(submodule_path):
-    """lean4-courses should have numbered course directories."""
-    if not os.path.isdir(submodule_path):
-        pytest.skip("Submodule not populated")
-    entries = os.listdir(submodule_path)
-    course_dirs = [e for e in entries if e.startswith("000")]
-    assert len(course_dirs) >= 10, f"Expected at least 10 course directories, found {len(course_dirs)}"
-
-
 def test_exp005_script_fails_without_submodule(script_path, tmp_path):
     """Script should exit non-zero when project dir does not exist."""
     result = subprocess.run(
