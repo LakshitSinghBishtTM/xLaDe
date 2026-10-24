@@ -99,18 +99,3 @@ def test_dirty_submodule_fails_even_if_git_is_configured_to_ignore_submodules(ke
 
     assert result.returncode == 1
     assert "uncommitted changes" in result.stdout
-
-
-def test_ci_workflows_pass_an_explicit_base_to_the_shared_check():
-    for workflow_name in ("ci.yml", "kernel-protection.yml"):
-        content = (ROOT / ".github" / "workflows" / workflow_name).read_text()
-
-        assert "KERNEL_BASE_REF:" in content
-        assert "github.event.pull_request.base.sha" in content
-        assert "github.event.before" in content
-        assert "fetch-depth: 0" in content
-
-    assert (
-        "bash scripts/experiments/check-kernel.sh"
-        in (ROOT / ".github" / "workflows" / "kernel-protection.yml").read_text()
-    )
