@@ -4,66 +4,30 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  integration:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          submodules: recursive
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.14"
 
-      - name: Install xlade
-        run: pip install -e .
-
-      - name: Environment diagnostics
+      - name: Build package
         run: |
-          echo "--- xlade doctor ---"
-          xlade doctor || true
+          python -m pip install --upgrade pip
+          pip install build
+          python -m build
 
-      - name: Initialise workspace
-        run: |
-          echo "--- xlade init ---"
-          xlade init
-
-      - name: Set mode
-        run: |
-          echo "--- xlade mode experimental ---"
-          xlade mode experimental
-
-      - name: List experiments
-        run: |
-          echo "--- xlade list experiments ---"
-          xlade list experiments
-
-      - name: Run EXP-002 kernel boundary check
-        env:
-          KERNEL_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: |
-          echo "--- xlade run exp-002-kernel-boundary ---"
-          xlade run exp-002-kernel-boundary
-
-      - name: Run EXP-003 documentation coverage check
-        run: |
-          echo "--- xlade run exp-003-doc-coverage ---"
-          xlade run exp-003-doc-coverage
-
-      - name: Show run summary
-        run: |
-          echo "--- xlade status ---"
-          xlade status
-
-      - name: Show metrics
-        run: |
-          echo "--- xlade metrics ---"
-          xlade metrics
+      - name: Install built package
+        run: pip install dist/*.whl
