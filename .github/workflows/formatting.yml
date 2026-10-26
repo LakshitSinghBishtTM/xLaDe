@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   quality:
+    name: Check formatting
     runs-on: ubuntu-latest
 
     steps:
