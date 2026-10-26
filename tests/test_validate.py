@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from xlade.cli.validate import run
 
 
@@ -158,3 +160,11 @@ def test_validate_reports_plural_issue_count_across_experiments(tmp_project, cap
     run()
     captured = capsys.readouterr()
     assert "2 issues found across 2 experiment(s)." in captured.out
+
+
+def test_actual_repo_experiments_are_valid(monkeypatch, capsys):
+    """The experiments shipped in the real xLaDe repo should pass validation."""
+    monkeypatch.chdir(Path(__file__).resolve().parents[1])
+    run()
+    captured = capsys.readouterr()
+    assert "[pass]   All experiments valid." in captured.out, captured.out
