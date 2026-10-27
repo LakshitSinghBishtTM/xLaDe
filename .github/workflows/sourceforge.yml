@@ -1,4 +1,4 @@
-name: SourceForge Mirror (new)
+name: SourceForge Mirror
 
 on:
   push:
