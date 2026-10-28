@@ -9,13 +9,15 @@ Note that some changes may be not written here.
 ## [2.1.0] — 2026-11-xx
 
 ### Highlights
--
+- Improved workflows execution and their security 
 
 ### Added
--
+- Environment for mirror secrets
+- CI/CD pipeline improvements
 
 ### Changed
 - Removed pytest from formatting workflow
+- Removed kernel protection workflow
 
 ---
 
