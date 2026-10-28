@@ -4,7 +4,8 @@ VERSION = "2.0.0"
 MODEL = "Hippasus"
 LICENSE = "GPL-3.0"
 FULL_FORM = "eXperimental Lean 4 advanced Development ecosystem"
-SEP = "-"*100
+SEP = "-" * 100
+
 
 def print_bare():
     print(f"""
@@ -32,7 +33,6 @@ def print_help():
     run <experiment-id>         Run an experiment
     status                      Show workspace state and run summary
     metrics                     Show full run history and research artifacts
-    check                       Quick structural check of the project
     doctor                      Diagnose environment with fix instructions
     clean                       Remove all xLaDe workspace state
     validate experiments        Validate all experiment.toml files
@@ -62,11 +62,11 @@ def main():
 
     cmd = sys.argv[1]
 
-    if cmd in ("--help", "-h", "help"):
+    if cmd in ("--help", "-h"):
         print_help()
         return
 
-    if cmd in ("--version", "-v", "version"):
+    if cmd in ("--version", "-v"):
         print(f"  xLaDe v{VERSION}")
         return
 
@@ -92,7 +92,7 @@ def main():
 
     if cmd == "list":
         if len(sys.argv) < 3:
-            print("  Usage: xlade list experiments|policies")
+            print("  Usage: xlade list experiments")
             return
 
         target = sys.argv[2]
@@ -101,10 +101,6 @@ def main():
             from xlade.cli.list_experiments import run
 
             run()
-            return
-
-        if target == "policies":
-            print("  Policy listing is not yet implemented.")
             return
 
         print(f"  [error]  Unknown list target: '{target}'")
@@ -123,12 +119,6 @@ def main():
 
     if cmd == "status":
         from xlade.cli.status import run
-
-        run()
-        return
-
-    if cmd == "check":
-        from xlade.cli.check import run
 
         run()
         return
