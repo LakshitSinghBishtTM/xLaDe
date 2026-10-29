@@ -1,0 +1,20 @@
+# Exit Codes
+
+- 0    OK               Command Passed
+- 1    FAILURE          Command Failed
+- 2    USAGE            Wrong use
+- 3    ENVIRONMENT      Environment issue
+- 4    CONFIG           Invalid config
+- 5    IO               Read/write issue
+- 6    INTERNAL         xLaDe bug or misc
+- 7    UNKNOWN          Unrecognised
+- 8	   PERMISSION	    Insufficient permissions
+- 9	   DEPENDENCY	    Dependency issue is missing or unavailable
+- 10   TIMEOUT	        Time limit exceeded
+- 11   NETWORK	        Network failure
+- 12   CANCELLED	    Operation cancelled by tool or user
+- 126  NOT_EXECUTABLE	Command found but can't be executed
+- 127  NOT_FOUND	    Not Found
+- 130  INTERRUPTED      Ctrl+C
+
+---
