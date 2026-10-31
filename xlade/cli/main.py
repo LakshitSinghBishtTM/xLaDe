@@ -1,5 +1,9 @@
 import sys
 
+from xlade.cli.commands import COMMANDS, EASTER_EGGS, unknown_command
+from xlade.cli.errors import error
+from xlade.cli.exitcodes import ExitCode
+
 VERSION = "2.0.0"
 MODEL = "Hippasus"
 LICENSE = "GPL-3.0"
@@ -36,8 +40,6 @@ def print_help():
     doctor                      Diagnose environment with fix instructions
     clean                       Remove all xLaDe workspace state
     validate experiments        Validate all experiment.toml files
-    cat <file ...>              Display files with Linux-style options
-    error <lean error>          Explain a Lean error using the rule database
     --version                   Show the current version
     --help                      Show this help message
 
@@ -55,122 +57,45 @@ def print_help():
 """)
 
 
-def main():
-    if len(sys.argv) < 2:
+def dispatch(args):
+    if not args:
         print_bare()
-        return
+        return ExitCode.OK
 
-    cmd = sys.argv[1]
+    name, rest = args[0], args[1:]
 
-    if cmd in ("--help", "-h"):
+    if name in ("--help", "-h"):
         print_help()
-        return
+        return ExitCode.OK
 
-    if cmd in ("--version", "-v"):
+    if name in ("--version", "-v"):
         print(f"  xLaDe v{VERSION}")
-        return
+        return ExitCode.OK
 
-    if cmd == "sudo" and sys.argv[2:] == ["rm", "-rf", "/", "--no-preserve-root"]:
-        print("  [warn]    This is xLaDe, not Linux.")
-        print("  [warn]    Command failed.")
-        return
+    handler = COMMANDS.get(name) or EASTER_EGGS.get(name)
+    if handler is None:
+        return unknown_command(name)
+    return handler(rest)
 
-    if cmd == "init":
-        from xlade.cli.init import run
 
-        run()
-        return
+def main(argv=None):
+    """Run the CLI and return an exit code for sys.exit()."""
+    args = sys.argv[1:] if argv is None else argv
+    try:
+        return int(dispatch(args))
+    except KeyboardInterrupt:
+        print("\n  [cancelled]")
+        return int(ExitCode.INTERRUPTED)
+    except PermissionError as exc:
+        error("Permission denied", str(exc), "Check file permissions and try again.")
+        return int(ExitCode.PERMISSION)
+    except OSError as exc:
+        error("I/O error", str(exc))
+        return int(ExitCode.IO)
+    except Exception as exc:
+        error("Unexpected error", f"{type(exc).__name__}: {exc}")
+        return int(ExitCode.INTERNAL)
 
-    if cmd == "mode":
-        if len(sys.argv) < 3:
-            print("  Usage: xlade mode <stable|experimental|onboarding>")
-            return
-        from xlade.cli.mode import run
 
-        run(sys.argv[2])
-        return
-
-    if cmd == "list":
-        if len(sys.argv) < 3:
-            print("  Usage: xlade list experiments")
-            return
-
-        target = sys.argv[2]
-
-        if target == "experiments":
-            from xlade.cli.list_experiments import run
-
-            run()
-            return
-
-        print(f"  [error]  Unknown list target: '{target}'")
-        print("           Try: xlade list experiments")
-        return
-
-    if cmd == "run":
-        if len(sys.argv) < 3:
-            print("  Usage: xlade run <experiment-id>")
-            print("  Tip:   Run 'xlade list experiments' to see available experiments.")
-            return
-        from xlade.cli.run import run
-
-        run(sys.argv[2])
-        return
-
-    if cmd == "status":
-        from xlade.cli.status import run
-
-        run()
-        return
-
-    if cmd == "metrics":
-        from xlade.cli.metrics import run
-
-        run()
-        return
-
-    if cmd == "doctor":
-        from xlade.cli.doctor import run
-
-        run()
-        return
-
-    if cmd == "clean":
-        from xlade.cli.clean import run
-
-        run()
-        return
-
-    if cmd == "validate":
-        if len(sys.argv) < 3 or sys.argv[2] != "experiments":
-            print("  Usage: xlade validate experiments")
-            return
-        from xlade.cli.validate import run
-
-        run()
-        return
-
-    if cmd == "cat":
-        if len(sys.argv) < 3:
-            print("  Usage: xlade cat <file ...> [options]")
-            return
-        from tools.files_extraction.cat import run
-
-        return run(sys.argv[2:])
-
-    if cmd == "error":
-        if len(sys.argv) < 3:
-            print("  Usage: xlade error <lean error>")
-            return 1
-        from tools.errors import humanize
-
-        print(humanize(" ".join(sys.argv[2:])))
-        return 0
-
-    if cmd == "ai":
-        print("  [activated]  Secret mode enabled.")
-        print("               AGI mode on.")
-        return
-
-    print(f"  [error]  Unknown command: '{cmd}'")
-    print("           Run 'xlade --help' for available commands.")
+if __name__ == "__main__":
+    sys.exit(main())
