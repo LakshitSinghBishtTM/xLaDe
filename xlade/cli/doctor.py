@@ -126,7 +126,6 @@ def _check_state():
     metrics_path = os.path.join(".xlade", "metrics.json")
     if not os.path.isfile(metrics_path):
         _info("runs", "none recorded yet")
-        _info("", "Try: xlade run exp-002-kernel-boundary")
         return issues
 
     try:
@@ -166,13 +165,14 @@ def _check_state():
 
 def run():
     print()
-    print("  xLaDe Doctor")
-    print(f"  {SEP}")
 
     _section("Dependencies")
+    print(f"  {SEP}")
     issues = _check_dependencies()
+    print()
 
-    _section("xLaDe State")
+    _section("State")
+    print(f"  {SEP}")
     issues += _check_state()
 
     print()
