@@ -35,9 +35,7 @@ def print_help():
     mode <mode>                 Set active mode
     list experiments            Discover available experiments
     run <experiment-id>         Run an experiment
-    status                      Show workspace state and run summary
-    metrics                     Show full run history and research artifacts
-    doctor                      Diagnose environment with fix instructions
+    doctor                      Check dependencies, workspace state and run history
     clean                       Remove all xLaDe workspace state
     validate experiments        Validate all experiment.toml files
     --version                   Show the current version
@@ -53,7 +51,7 @@ def print_help():
     xlade mode experimental
     xlade list experiments
     xlade run exp-002-kernel-boundary
-    xlade status
+    xlade doctor
 """)
 
 

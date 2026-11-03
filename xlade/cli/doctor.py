@@ -1,3 +1,4 @@
+import json
 import os
 import shutil
 
@@ -15,12 +16,18 @@ def _row(label, tag, message, hint=None):
             print(f"{indent}{line}")
 
 
-def run():
-    issues = 0
+def _info(label, message):
+    """A row with no status tag, aligned with the tagged rows."""
+    print(f"  {label:<{COL_LABEL}}  {'':<{COL_TAG}}  {message}")
 
+
+def _section(title):
     print()
-    print("  xLaDe Doctor")
-    print(f"  {SEP}")
+    print(f"  {title}")
+
+
+def _check_dependencies():
+    issues = 0
 
     # elan
     if shutil.which("elan"):
@@ -90,12 +97,85 @@ def run():
         )
         issues += 1
 
-    # workspace
-    if os.path.isdir(".xlade"):
-        _row("workspace", "ok", "initialised")
-    else:
-        _row("workspace", "warn", "not initialised", ["Run: xlade init"])
+    return issues
 
+
+def _read_text(path, default):
+    if os.path.exists(path):
+        with open(path) as f:
+            return f.read().strip() or default
+    return default
+
+
+def _check_state():
+    issues = 0
+
+    mode = _read_text(os.path.join(os.path.expanduser("~"), ".xlade", "mode"), "not set")
+
+    # workspace
+    if not os.path.isdir(".xlade"):
+        _row("workspace", "warn", "not initialised", ["Run: xlade init"])
+        _info("mode", mode)
+        return issues
+
+    _row("workspace", "ok", "initialised")
+    _info("mode", mode)
+    _info("last run", _read_text(os.path.join(".xlade", "last-run"), "none"))
+
+    # run history
+    metrics_path = os.path.join(".xlade", "metrics.json")
+    if not os.path.isfile(metrics_path):
+        _info("runs", "none recorded yet")
+        _info("", "Try: xlade run exp-002-kernel-boundary")
+        return issues
+
+    try:
+        with open(metrics_path) as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        _row(
+            "runs",
+            "error",
+            "metrics.json is corrupted",
+            ["Delete .xlade/metrics.json to reset run history."],
+        )
+        return issues + 1
+
+    if not data:
+        _info("runs", "none recorded yet")
+        return issues
+
+    counts = {}
+    for r in data:
+        key = r.get("status", "unknown")
+        counts[key] = counts.get(key, 0) + 1
+    summary = ", ".join(f"{k}: {v}" for k, v in counts.items())
+    _info("runs", f"{len(data)}  ({summary})")
+
+    print()
+    print("  Recent runs:")
+    for r in data[-5:]:
+        exp_id = r.get("experiment_id", "unknown")
+        mode_ = r.get("mode", "")
+        ts = r.get("timestamp", "")
+        status = r.get("status", "unknown")
+        print(f"    {exp_id:<38}  {mode_:<12}  {ts}  {status}")
+
+    return issues
+
+
+def run():
+    print()
+    print("  xLaDe Doctor")
+    print(f"  {SEP}")
+
+    _section("Dependencies")
+    issues = _check_dependencies()
+
+    _section("xLaDe State")
+    issues += _check_state()
+
+    print()
     print(f"  {SEP}")
 
     if issues == 0:
