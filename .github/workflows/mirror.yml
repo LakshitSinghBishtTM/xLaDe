@@ -45,7 +45,19 @@ jobs:
         env:
           GIT_TERMINAL_PROMPT: "0"
           CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
-        run: git push --mirror "https://oauth2:${CODEBERG_TOKEN}@codeberg.org/lakshitsinghbishttm/xLaDe.git"
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if git push --mirror "https://oauth2:${CODEBERG_TOKEN}@codeberg.org/lakshitsinghbishttm/xLaDe.git"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Codeberg mirror push failed on attempt ${attempt}/3. Retrying in 15s..."
+              sleep 15
+            fi
+          done
+          echo "Codeberg mirror push failed after 3 attempts."
+          exit 1
 
       - name: Push to Bitbucket
         if: ${{ !cancelled() && steps.clone.outcome == 'success' }}
