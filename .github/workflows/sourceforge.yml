@@ -56,4 +56,4 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o BatchMode=yes"
 
           git remote add sourceforge ssh://lakshitsbishttm@git.code.sf.net/p/xlade/code
-          git push sourceforge HEAD:main
+          git push --force sourceforge HEAD:main
