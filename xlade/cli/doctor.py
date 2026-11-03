@@ -132,7 +132,7 @@ def _check_state():
     try:
         with open(metrics_path) as f:
             data = json.load(f)
-    except (json.JSONDecodeError, OSError):
+    except json.JSONDecodeError, OSError:
         _row(
             "runs",
             "error",
