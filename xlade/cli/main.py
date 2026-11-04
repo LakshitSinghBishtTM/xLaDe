@@ -1,7 +1,6 @@
 import sys
 
 from xlade.cli.commands import COMMANDS, EASTER_EGGS, unknown_command
-from xlade.cli.errors import error
 from xlade.cli.exitcodes import ExitCode
 
 VERSION = "2.0.0"
@@ -9,6 +8,12 @@ MODEL = "Hippasus"
 LICENSE = "GPL-3.0"
 FULL_FORM = "eXperimental Lean 4 advanced Development ecosystem"
 SEP = "-" * 100
+
+
+def error(title, message, hint=None):
+    print(f"  [error]  {title}: {message}")
+    if hint:
+        print(f"           {hint}")
 
 
 def print_bare():
