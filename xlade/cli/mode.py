@@ -1,5 +1,7 @@
 import os
 
+from xlade.cli.exitcodes import ExitCode
+
 VALID_MODES = ["stable", "experimental", "onboarding"]
 
 SEP = "-" * 100
@@ -30,7 +32,7 @@ def run(mode):
     if mode not in VALID_MODES:
         print(f"  [error]  '{mode}' is not a valid mode.")
         print(f"           Valid modes: {', '.join(VALID_MODES)}")
-        return
+        return ExitCode.USAGE
 
     home = os.path.expanduser("~")
     state_dir = os.path.join(home, ".xlade")

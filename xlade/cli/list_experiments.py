@@ -1,6 +1,8 @@
 import os
 import tomllib
 
+from xlade.cli.exitcodes import ExitCode
+
 
 def run():
     base_path = "experiments"
@@ -8,7 +10,7 @@ def run():
     if not os.path.isdir(base_path):
         print("  [error]  No experiments/ directory found.")
         print("           Make sure you are running from the xLaDe repository root.")
-        return
+        return ExitCode.ENVIRONMENT
 
     experiments = []
 

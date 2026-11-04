@@ -3,34 +3,43 @@ import os
 import time
 import tomllib
 
+from xlade.cli.exitcodes import ExitCode
 from xlade.core import lean
 
 SEP = "-" * 100
+
+STATUS_EXIT_CODES = {
+    "success": ExitCode.OK,
+    "simulated": ExitCode.OK,
+    "failed": ExitCode.FAILURE,
+    "error": ExitCode.CONFIG,
+    "skipped": ExitCode.DEPENDENCY,
+}
 
 
 def run(exp_id):
     if not os.path.isdir(".xlade"):
         print("  [error]  Workspace not initialised.")
         print("           Run 'xlade init' in this project.")
-        return
+        return ExitCode.ENVIRONMENT
 
     exp_path = os.path.join("experiments", exp_id)
     if not os.path.isdir(exp_path):
         print(f"  [error]  Experiment not found: {exp_id}")
         print("           Run 'xlade list experiments' to see available experiments.")
-        return
+        return ExitCode.USAGE
 
     config_path = os.path.join(exp_path, "experiment.toml")
     if not os.path.exists(config_path):
         print(f"  [error]  No experiment.toml found for {exp_id}")
-        return
+        return ExitCode.CONFIG
 
     try:
         with open(config_path, "rb") as f:
             config = tomllib.load(f)
     except Exception as e:
         print(f"  [error]  Failed to parse experiment.toml: {e}")
-        return
+        return ExitCode.CONFIG
 
     home = os.path.expanduser("~")
     mode_file = os.path.join(home, ".xlade", "mode")
@@ -44,7 +53,7 @@ def run(exp_id):
     if allowed_modes and current_mode not in allowed_modes:
         print(f"  [error]  Experiment '{exp_id}' is not allowed in mode: {current_mode}")
         print(f"           Allowed modes: {', '.join(allowed_modes)}")
-        return
+        return ExitCode.FAILURE
 
     lean_toolchain = config.get("lean_toolchain", "unspecified")
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -68,6 +77,7 @@ def run(exp_id):
         f.write(exp_id + "\n")
 
     _write_metrics(exp_id, current_mode, lean_toolchain, timestamp, config, status)
+    return STATUS_EXIT_CODES.get(status, ExitCode.FAILURE)
 
 
 def _execute(exp_type, entry, exp_path):

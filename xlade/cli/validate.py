@@ -1,6 +1,8 @@
 import os
 import tomllib
 
+from xlade.cli.exitcodes import ExitCode
+
 SEP = "-" * 100
 
 VALID_TYPES = {"script-policy", "lean-policy"}
@@ -83,7 +85,7 @@ def run():
         print("  [error]  experiments/ directory not found.")
         print("           Make sure you are running from the xLaDe repository root.")
         print()
-        return
+        return ExitCode.ENVIRONMENT
 
     entries = sorted(
         [
@@ -130,3 +132,4 @@ def run():
         print(f"  [fail]   {total_issues} {plural} found across {len(entries)} experiment(s).")
 
     print()
+    return ExitCode.OK if total_issues == 0 else ExitCode.CONFIG

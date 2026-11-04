@@ -2,6 +2,8 @@ import json
 import os
 import shutil
 
+from xlade.cli.exitcodes import ExitCode
+
 SEP = "-" * 100
 COL_LABEL = 16
 COL_TAG = 7  # "[error]" is longest tag at 7 chars
@@ -185,3 +187,4 @@ def run():
         print(f"  {issues} {plural} found. Fix above and re-run xlade doctor.")
 
     print()
+    return ExitCode.OK if issues == 0 else ExitCode.ENVIRONMENT
