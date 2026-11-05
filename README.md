@@ -9,7 +9,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Model-Hippasus-red" alt="Model">
-  <img src="https://img.shields.io/badge/Version-2.0.0-green" alt="Version">
+  <img src="https://img.shields.io/badge/Version-2.1.0-green" alt="Version">
   <img src="https://img.shields.io/badge/Platform-Linux-blue" alt="Platform">
 </p>
 
