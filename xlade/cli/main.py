@@ -3,7 +3,7 @@ import sys
 from xlade.cli.commands import COMMANDS, EASTER_EGGS, unknown_command
 from xlade.cli.exitcodes import ExitCode
 
-VERSION = "2.0.0"
+VERSION = "2.1.0"
 MODEL = "Hippasus"
 LICENSE = "GPL-3.0"
 FULL_FORM = "eXperimental Lean 4 advanced Development ecosystem"
