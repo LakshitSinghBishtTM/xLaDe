@@ -1,4 +1,4 @@
-from xlade.cli import clean, doctor, init, list_experiments, mode, run, validate
+from xlade.cli import clean, doctor, init, list_experiments, mode, run
 from xlade.cli.exitcodes import ExitCode
 
 
@@ -60,12 +60,6 @@ def cmd_clean(args):
     return _code(clean.run())
 
 
-def cmd_validate(args):
-    if args != ["experiments"]:
-        return usage("xlade validate experiments")
-    return _code(validate.run())
-
-
 COMMANDS = {
     "init": cmd_init,
     "mode": cmd_mode,
@@ -73,7 +67,6 @@ COMMANDS = {
     "run": cmd_run,
     "doctor": cmd_doctor,
     "clean": cmd_clean,
-    "validate": cmd_validate,
 }
 
 

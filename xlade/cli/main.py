@@ -42,7 +42,6 @@ def print_help():
     run <experiment-id>         Run an experiment
     doctor                      Check dependencies, workspace state and run history
     clean                       Remove all xLaDe workspace state
-    validate experiments        Validate all experiment.toml files
     --version                   Show the current version
     --help                      Show this help message
 
