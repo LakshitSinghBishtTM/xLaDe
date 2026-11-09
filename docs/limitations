@@ -28,7 +28,7 @@ They are of two types ---
 
 ## Not a Limitation
 
-- Only Linux official support
+- Only Linux supported
 - No GUI
 - No support for python 3.13 or earlier
 
