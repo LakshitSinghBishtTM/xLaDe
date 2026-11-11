@@ -1,5 +1,9 @@
 # EXP-002: Kernel Boundary Violation Detection
 
+> **Deprecated.** The `lean-core` submodule was removed from xLaDe, so this experiment no longer checks anything.
+> Running it only prints a deprecation notice. The original check is kept, commented out, in
+> `scripts/experiments/check-kernel.sh` for historical reference.
+
 ## Question
 Can xLaDe automatically detect violations of its kernel
 non-modification policy?
@@ -19,4 +23,4 @@ Applies to all experiments and contributions.
 Enabled only in Experimental Mode.
 
 ## Status
-active
+abandoned (deprecated)

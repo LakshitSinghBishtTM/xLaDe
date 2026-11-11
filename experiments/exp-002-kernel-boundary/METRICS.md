@@ -1,5 +1,8 @@
 # Metrics — EXP-002: Kernel Boundary Violation Detection
 
+> **Deprecated.** The `lean-core` submodule was removed from xLaDe, so this experiment no longer applies.
+> The notes below are kept for historical reference only.
+
 ## Enforcement Strength
 - Policy enforced via repository scripts and CI
 - Kernel modifications are automatically rejected

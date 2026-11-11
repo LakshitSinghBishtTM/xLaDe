@@ -4,7 +4,7 @@ name = "Kernel Boundary Violation Detection"
 
 type = "script-policy"
 
-status = "active"
+status = "abandoned"
 
 allowed_modes = ["experimental"]
 
@@ -14,4 +14,7 @@ lean_toolchain = "leanprover/lean4:stable"
 # Execution
 entry = "scripts/experiments/check-kernel.sh"
 
-description = "Detects modifications to lean-core and enforces kernel immutability."
+description = "Deprecated. Formerly detected modifications to lean-core and enforced kernel immutability."
+
+[policy]
+disposition_note = "deprecated: the lean-core submodule was removed from xLaDe, so there is no kernel boundary left to check"
