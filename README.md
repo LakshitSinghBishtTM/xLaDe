@@ -21,7 +21,7 @@ Lean 4 undergoes rapid development, which can introduce backward-compatibility i
 
 Instead of directly solving backward-compatibility issues by storing every version of Lean 4 and other tools or providing cross-version compatibility, xLaDe tries to store sufficient environment metadata such as toolchains, dependencies, and other context, and then recreates the environment for running Lean 4 projects upon request, also termed as experiments in xLaDe. In this process, xLaDe does not interfere with Lean 4 work and doesn't change anything in Lean 4 projects. It sits on a layer above Lean 4 and there are no modifications to other layers.
 
-xLaDe treats the Lean 4 kernel as immutable and provides CI-based checks to prevent modifications to Lean 4. The Lean 4 repository is included in xLaDe as a submodule and remains optional for use. xLaDe is an opinionated tool, and its policies are enforced by workflows and scripts rather than simply being documented.
+xLaDe is an opinionated tool, and its policies are enforced by workflows and scripts rather than simply being documented.
 
 ---
 
@@ -146,7 +146,6 @@ xLaDe/
 |-- bin/               Manual CLI entrypoint 
 |-- docs/              Documentation files
 |-- experiments/       Projects wrapped by xLaDe
-|-- lean-core/         Lean 4 submodule
 |-- metrics/           Experiments and CLI metrics 
 |-- modes/             Modes for xLaDe CLI
 |-- scripts/           Scripts for experiments, CLI and other uses
