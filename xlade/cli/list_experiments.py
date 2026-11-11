@@ -47,16 +47,17 @@ def run():
 
     col_id = max(len(e[0]) for e in experiments)
     col_id = max(col_id, 10)
+    col_status = max(max(len(e[1]) for e in experiments), 8)
     sep = "-" * 100
 
     print()
     print(f"  Experiments  ({len(experiments)} found)")
     print(f"  {sep}")
-    print(f"  {'Experiment':<{col_id}}  {'Status':<8}  {'Type':<16}  Modes")
+    print(f"  {'Experiment':<{col_id}}  {'Status':<{col_status}}  {'Type':<16}  Modes")
     print(f"  {sep}")
 
     for exp_id, status, exp_type, modes in experiments:
-        print(f"  {exp_id:<{col_id}}  {status:<8}  {exp_type:<16}  {modes}")
+        print(f"  {exp_id:<{col_id}}  {status:<{col_status}}  {exp_type:<16}  {modes}")
 
     print()
     print("  Run with: xlade run <experiment-id>")
