@@ -48,26 +48,20 @@ xlade --help
 
 Continue with the steps below if you want to install the associated Lean ecosystem.
 
-1. Initialise the submodule
-
-```sh
-git submodule update --init --recursive
-```
-
-2. Install Elan and load into the current terminal:
+1. Install Elan and load into the current terminal:
 
 ```sh
 curl https://elan.lean-lang.org/elan-init.sh -sSf | sh
 source "$HOME/.elan/env"
 ```
 
-3. Download Lean 4 using Elan
+2. Download Lean 4 using Elan
 
 ```sh
 elan toolchain install leanprover/lean4:stable
 ```
 
-4. Run doctor command for a quick verification
+3. Run doctor command for a quick verification
 
 ```sh
 xlade doctor
