@@ -11,13 +11,6 @@ def test_doctor_detects_missing_lake(tmp_project, capsys, monkeypatch):
     assert "not found" in captured.out
 
 
-def test_doctor_detects_missing_lean_core(tmp_project, capsys):
-    run()
-    captured = capsys.readouterr()
-    assert "lean-core" in captured.out
-    assert "not found" in captured.out
-
-
 def test_doctor_detects_lean_toolchain(tmp_project, capsys):
     open("lean-toolchain", "w").write("leanprover/lean4:stable\n")
     run()
@@ -26,45 +19,11 @@ def test_doctor_detects_lean_toolchain(tmp_project, capsys):
     assert "present" in captured.out
 
 
-def test_doctor_detects_lean_core_present(tmp_project, capsys):
-    os.makedirs(os.path.join("lean-core", "src"))
-    run()
-    captured = capsys.readouterr()
-    assert "lean-core" in captured.out
-    assert "submodule present" in captured.out
-
-
 def test_doctor_lake_missing_shows_install_hint(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: None)
     run()
     captured = capsys.readouterr()
     assert "elan" in captured.out
-
-
-def test_doctor_lean_core_empty_dir_shows_submodule_hint(tmp_project, capsys):
-    os.makedirs("lean-core")
-    run()
-    captured = capsys.readouterr()
-    assert "lean-core" in captured.out
-    assert "git submodule update" in captured.out
-
-
-def test_doctor_lean_core_has_git_but_no_src_shows_not_populated(tmp_project, capsys):
-    # Simulates `git submodule init` without `git submodule update`
-    # lean-core/ exists and contains .git file but no src/
-    os.makedirs("lean-core")
-    open(os.path.join("lean-core", ".git"), "w").write("gitdir: ../.git/modules/lean-core\n")
-    run()
-    captured = capsys.readouterr()
-    assert "lean-core" in captured.out
-    assert "git submodule update" in captured.out
-
-
-def test_doctor_lean_core_absent_shows_clone_hint(tmp_project, capsys):
-    run()
-    captured = capsys.readouterr()
-    assert "lean-core" in captured.out
-    assert "git submodule update" in captured.out
 
 
 def test_doctor_lean_toolchain_missing_shows_hint(tmp_project, capsys):
@@ -96,7 +55,6 @@ def test_doctor_elan_found(tmp_project, capsys, monkeypatch):
 
 def test_doctor_all_clear_shows_pass_summary(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: f"/usr/bin/{x}")
-    os.makedirs(os.path.join("lean-core", "src"))
     open("lean-toolchain", "w").write("leanprover/lean4:stable\n")
     run()
     captured = capsys.readouterr()
@@ -112,7 +70,6 @@ def test_doctor_issues_found_shows_count(tmp_project, capsys, monkeypatch):
 
 def test_doctor_workspace_not_init_shows_warning(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: f"/usr/bin/{x}")
-    os.makedirs(os.path.join("lean-core", "src"))
     open("lean-toolchain", "w").write("leanprover/lean4:stable\n")
     run()
     captured = capsys.readouterr()
@@ -122,7 +79,6 @@ def test_doctor_workspace_not_init_shows_warning(tmp_project, capsys, monkeypatc
 
 def test_doctor_workspace_init_shows_ok(tmp_project, capsys, monkeypatch):
     monkeypatch.setattr("shutil.which", lambda x: f"/usr/bin/{x}")
-    os.makedirs(os.path.join("lean-core", "src"))
     open("lean-toolchain", "w").write("leanprover/lean4:stable\n")
     os.makedirs(".xlade")
     run()
