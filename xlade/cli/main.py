@@ -54,7 +54,7 @@ def print_help():
     xlade init
     xlade mode experimental
     xlade list experiments
-    xlade run exp-002-kernel-boundary
+    xlade run exp-003-doc-coverage
     xlade doctor
 """)
 
