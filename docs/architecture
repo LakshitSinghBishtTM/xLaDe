@@ -138,7 +138,7 @@ As some experiments may not need tools, so it depends on context.
 
 # Lean Layer
 
-It includes the lean-core/, lakefile.lean, lean toolchains, and other lean 4 things.
+It includes the lakefile.lean, lean toolchains, and other lean 4 things.
 xLaDe is dependent on Lean 4 for proof verification.
 However, we don't improve, customise or change anything in Lean 4.
 
@@ -154,7 +154,7 @@ It includes the .github/workflows, tests/, and scripts/extra/.
 These are provided for the betterment of the xLaDe project itself.
 Users are not primarily intended to use them as they don't directly help in users' work.
 
-Github workflows offer help in checking the integrity of Lean 4 kernel, formatting of code, CI, CD, etc.
+Github workflows offer help in checking formatting of code, CI, CD, etc.
 
 Tests are essential parts of xLaDe and used for testing various behaviour and mock uses of xLaDe to know of any problems in advance.
 However, tests don't mean that there are 0 bugs and there may be gaps.
