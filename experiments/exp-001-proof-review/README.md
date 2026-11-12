@@ -115,9 +115,10 @@ Mode selection controls whether the experiment is active; it does not affect Lea
 
 ---
 
-## Relationship to Kernel Protection
+## Relationship to the Lean Kernel
 
-This experiment complies fully with the **Kernel Protection Policy**:
+This experiment complied fully with the former **Kernel Protection Policy** (EXP-002, now deprecated)
+and still does not touch the Lean kernel:
 
 - ❌ No kernel modification
 - ❌ No semantic changes
