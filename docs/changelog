@@ -6,6 +6,22 @@ Note that some changes may be not written here.
 
 ---
 
+## [Unreleased]
+
+### Changed
+- Removed the `lean-core` submodule, as nothing in xLaDe builds or runs from it
+- `xlade doctor` no longer checks for `lean-core`
+- Removed `lean-core` from the README, install guide, architecture overview, threat model and lint excludes
+- `xlade list` sizes its status column to fit longer statuses
+
+### Deprecated
+- EXP-002 (Kernel Boundary Violation Detection) is now abandoned. Running it prints a deprecation notice and its old check is kept as comments
+
+### Removed
+- Kernel protection test, as the check it tested is deprecated
+
+---
+
 ## [2.1.0] — 2026-11-09
 
 ### Highlights
