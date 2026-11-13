@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sqlite3
+from contextlib import closing
 from pathlib import Path
 
 DATABASE_PATH = Path(__file__).with_name("error_rules.sqlite3")
@@ -26,7 +27,7 @@ def explanations(error_text: str) -> list[str]:
     """Return the most specific explanations matching a Lean diagnostic."""
     lowered_text = error_text.lower()
 
-    with open_database() as database:
+    with closing(open_database()) as database:
         rules = database.execute("SELECT phrase, explanation FROM error_rules").fetchall()
 
     matching_phrases = [rule["phrase"].lower() for rule in rules if rule["phrase"].lower() in lowered_text]

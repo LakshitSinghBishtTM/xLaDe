@@ -7,6 +7,7 @@ import shutil
 import sqlite3
 import subprocess
 import sys
+from contextlib import closing
 from pathlib import Path
 
 DATABASE_PATH = Path(__file__).with_name("error_rules.sqlite3")
@@ -50,7 +51,7 @@ def explanations(output: str) -> list[str]:
     lowered_output = output.lower()
     found = []
 
-    with open_database() as database:
+    with closing(open_database()) as database:
         rules = database.execute("SELECT phrase, explanation FROM error_rules ORDER BY length(phrase) DESC").fetchall()
 
     matching_phrases = [rule["phrase"].lower() for rule in rules if rule["phrase"].lower() in lowered_output]
