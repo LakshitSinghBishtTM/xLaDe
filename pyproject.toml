@@ -43,6 +43,14 @@ include = ["xlade*", "tools*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = [
+    "unit: isolated logic; collaborators faked, no subprocess or network",
+    "integration: real files and scripts, called in-process from Python",
+    "system: runs the real xlade program as a subprocess",
+    "static: checks of config, workflow and documentation files",
+    "slow: needs Lean, the network, or a long build",
+]
 
 [tool.black]
 line-length = 120
